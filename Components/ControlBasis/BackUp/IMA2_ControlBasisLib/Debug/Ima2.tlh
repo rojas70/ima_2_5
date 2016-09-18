@@ -1,0 +1,323 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.9782.0 (56517e31).
+//
+// o:\components\controlbasis\ima2_controlbasislib\debug\Ima2.tlh
+//
+// C++ source equivalent of Win32 type library O:\Include\Ima2.tlb
+// compiler-generated file created 05/27/08 at 16:06:21 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("44683ff9-73c0-11d3-bfb7-00e02903bd46"))
+/* interface */ IComponent;
+struct __declspec(uuid("44683ff5-73c0-11d3-bfb7-00e02903bd46"))
+/* interface */ ILocator;
+struct IMA2_DistributingInfo;
+struct __declspec(uuid("690214b3-1a69-4a53-9b22-fb6cd110ba43"))
+/* interface */ IBindings;
+struct __declspec(uuid("179e6b2e-ae75-4fa4-81ef-dd6f7ac09ba4"))
+/* interface */ IConfigureBindings;
+struct IMA2_BindingInfo;
+struct __declspec(uuid("44683ff7-73c0-11d3-bfb7-00e02903bd46"))
+/* interface */ IContainer;
+struct __declspec(uuid("14da3cef-ccca-4c01-9c5a-acd5c9b11233"))
+/* interface */ ILocatorAdvanced;
+struct __declspec(uuid("72ada84b-6e1f-4fd1-a8e8-b58374985eb1"))
+/* interface */ ILocatorEventProvider;
+struct __declspec(uuid("44683ffc-73c0-11d3-bfb7-00e02903bd46"))
+/* interface */ ILocatorEvents;
+struct __declspec(uuid("62299d66-3375-48c5-9568-698f3adef96d"))
+/* interface */ IDistributingInfoProvider;
+struct __declspec(uuid("8f783c23-e023-11d3-8df1-0020aff12fbd"))
+/* interface */ IManager;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IComponent, __uuidof(IComponent));
+_COM_SMARTPTR_TYPEDEF(ILocator, __uuidof(ILocator));
+_COM_SMARTPTR_TYPEDEF(IBindings, __uuidof(IBindings));
+_COM_SMARTPTR_TYPEDEF(IConfigureBindings, __uuidof(IConfigureBindings));
+_COM_SMARTPTR_TYPEDEF(IContainer, __uuidof(IContainer));
+_COM_SMARTPTR_TYPEDEF(ILocatorAdvanced, __uuidof(ILocatorAdvanced));
+_COM_SMARTPTR_TYPEDEF(ILocatorEventProvider, __uuidof(ILocatorEventProvider));
+_COM_SMARTPTR_TYPEDEF(ILocatorEvents, __uuidof(ILocatorEvents));
+_COM_SMARTPTR_TYPEDEF(IDistributingInfoProvider, __uuidof(IDistributingInfoProvider));
+_COM_SMARTPTR_TYPEDEF(IManager, __uuidof(IManager));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("44683ff9-73c0-11d3-bfb7-00e02903bd46"))
+IComponent : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall Construct (
+        BSTR Path,
+        BSTR PID,
+        struct ILocator * * pAL ) = 0;
+    virtual HRESULT __stdcall Destruct ( ) = 0;
+    virtual HRESULT __stdcall Load (
+        VARIANT Data ) = 0;
+    virtual HRESULT __stdcall Save (
+        VARIANT * pData ) = 0;
+    virtual HRESULT __stdcall DataSize (
+        long * pSize ) = 0;
+    virtual HRESULT __stdcall get_Distributing (
+        struct IMA2_DistributingInfo * pInfo ) = 0;
+    virtual HRESULT __stdcall get_Bindings (
+        struct IBindings * * pBindings ) = 0;
+};
+
+struct __declspec(uuid("44683ff5-73c0-11d3-bfb7-00e02903bd46"))
+ILocator : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall Locate (
+        BSTR Path,
+        struct IComponent * * __MIDL_0020 ) = 0;
+    virtual HRESULT __stdcall get_Machine (
+        BSTR * __MIDL_0021 ) = 0;
+};
+
+struct IMA2_DistributingInfo
+{
+    BSTR Name;
+    BSTR Path;
+    BSTR PID;
+    BSTR Machine;
+    long Process;
+    long Thread;
+    VARIANT_BOOL IsContainer;
+};
+
+struct __declspec(uuid("690214b3-1a69-4a53-9b22-fb6cd110ba43"))
+IBindings : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Pointers (
+        BSTR Name,
+        struct IComponent * * rhs ) = 0;
+    virtual HRESULT __stdcall get_Collections (
+        BSTR Name,
+        SAFEARRAY * * __MIDL_0017 ) = 0;
+    virtual HRESULT __stdcall get_Settings (
+        struct IConfigureBindings * * rhs ) = 0;
+};
+
+struct __declspec(uuid("179e6b2e-ae75-4fa4-81ef-dd6f7ac09ba4"))
+IConfigureBindings : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall Construct (
+        BSTR Owner,
+        struct ILocator * * AL ) = 0;
+    virtual HRESULT __stdcall Destruct ( ) = 0;
+    virtual HRESULT __stdcall Add (
+        struct IMA2_BindingInfo * BindInfo ) = 0;
+    virtual HRESULT __stdcall Remove (
+        BSTR Name ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        BSTR Name,
+        struct IMA2_BindingInfo * __MIDL_0018 ) = 0;
+    virtual HRESULT __stdcall get_Items (
+        SAFEARRAY * * __MIDL_0019 ) = 0;
+    virtual HRESULT __stdcall get_Count (
+        long * rhs ) = 0;
+};
+
+enum IMA2_BindingType
+{
+    BT_Default = 0,
+    BT_Temporary = 1,
+    BT_Optional = 2,
+    BT_Cached = 4,
+    BT_Collection = 255
+};
+
+struct IMA2_BindingInfo
+{
+    BSTR Name;
+    BSTR Path;
+    SAFEARRAY * PIDs;
+    SAFEARRAY * IIDs;
+    enum IMA2_BindingType BindType;
+};
+
+struct __declspec(uuid("44683ff7-73c0-11d3-bfb7-00e02903bd46"))
+IContainer : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall CreateComponent (
+        BSTR PID,
+        BSTR Machine,
+        struct IComponent * * __MIDL_0015 ) = 0;
+    virtual HRESULT __stdcall get_InnateComponents (
+        SAFEARRAY * * __MIDL_0016 ) = 0;
+};
+
+struct __declspec(uuid("14da3cef-ccca-4c01-9c5a-acd5c9b11233"))
+ILocatorAdvanced : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Components (
+        SAFEARRAY * * __MIDL_0022 ) = 0;
+    virtual HRESULT __stdcall get_Locators (
+        SAFEARRAY * * __MIDL_0023 ) = 0;
+    virtual HRESULT __stdcall Register (
+        struct IComponent * Cmp ) = 0;
+    virtual HRESULT __stdcall Unregister (
+        BSTR Path ) = 0;
+    virtual HRESULT __stdcall Connect (
+        BSTR Machine ) = 0;
+    virtual HRESULT __stdcall Disconnect (
+        BSTR Machine ) = 0;
+    virtual HRESULT __stdcall BatchOperation (
+        enum IMA2_LocatorAction * Action,
+        SAFEARRAY * * Args,
+        SAFEARRAY * * __MIDL_0024 ) = 0;
+};
+
+enum IMA2_LocatorAction
+{
+    LE_Locate = 0,
+    LE_Register = 1,
+    LE_UnRegister = 2,
+    LE_Subscribe = 3,
+    LE_Unsubscribe = 4,
+    LE_Connect = 5,
+    LE_Disconnect = 6,
+    LE_ActivateSeq = 7,
+    LE_DeactivateSeq = 8
+};
+
+struct __declspec(uuid("72ada84b-6e1f-4fd1-a8e8-b58374985eb1"))
+ILocatorEventProvider : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall Subscribe (
+        struct ILocatorEvents * Sink,
+        BSTR Key,
+        enum IMA2_LocatorAction * Flags ) = 0;
+    virtual HRESULT __stdcall Unsubscribe (
+        BSTR Key ) = 0;
+    virtual HRESULT __stdcall get_Clients (
+        SAFEARRAY * * __MIDL_0025 ) = 0;
+};
+
+struct __declspec(uuid("44683ffc-73c0-11d3-bfb7-00e02903bd46"))
+ILocatorEvents : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall OnRegistrationEvent (
+        enum IMA2_LocatorAction * Action,
+        SAFEARRAY * * DIs ) = 0;
+    virtual HRESULT __stdcall OnOtherEvent (
+        enum IMA2_LocatorAction * Action,
+        SAFEARRAY * * Args ) = 0;
+};
+
+struct __declspec(uuid("62299d66-3375-48c5-9568-698f3adef96d"))
+IDistributingInfoProvider : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Item (
+        BSTR Path,
+        struct IMA2_DistributingInfo * __MIDL_0026 ) = 0;
+    virtual HRESULT __stdcall get_Items (
+        SAFEARRAY * * __MIDL_0027 ) = 0;
+    virtual HRESULT __stdcall get_Count (
+        long * __MIDL_0028 ) = 0;
+    virtual HRESULT __stdcall Search (
+        BSTR Criteria,
+        SAFEARRAY * * __MIDL_0029 ) = 0;
+    virtual HRESULT __stdcall get_Components (
+        SAFEARRAY * * __MIDL_0030 ) = 0;
+    virtual HRESULT __stdcall get_Locators (
+        SAFEARRAY * * __MIDL_0031 ) = 0;
+};
+
+struct __declspec(uuid("8f783c23-e023-11d3-8df1-0020aff12fbd"))
+IManager : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Component (
+        struct IComponent * * Cmp ) = 0;
+    virtual HRESULT __stdcall put_Component (
+        struct IComponent * Cmp ) = 0;
+    virtual HRESULT __stdcall Update ( ) = 0;
+};
+
+enum IMA2_ContainerAction
+{
+    CE_Add = 0,
+    CE_Remove = 1,
+    CE_Locate = 2
+};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_IMA2 =
+    {0x44683ff0,0x73c0,0x11d3,{0xbf,0xb7,0x00,0xe0,0x29,0x03,0xbd,0x46}};
+extern "C" const GUID __declspec(selectany) IID_IComponent =
+    {0x44683ff9,0x73c0,0x11d3,{0xbf,0xb7,0x00,0xe0,0x29,0x03,0xbd,0x46}};
+extern "C" const GUID __declspec(selectany) IID_ILocator =
+    {0x44683ff5,0x73c0,0x11d3,{0xbf,0xb7,0x00,0xe0,0x29,0x03,0xbd,0x46}};
+extern "C" const GUID __declspec(selectany) IID_IBindings =
+    {0x690214b3,0x1a69,0x4a53,{0x9b,0x22,0xfb,0x6c,0xd1,0x10,0xba,0x43}};
+extern "C" const GUID __declspec(selectany) IID_IConfigureBindings =
+    {0x179e6b2e,0xae75,0x4fa4,{0x81,0xef,0xdd,0x6f,0x7a,0xc0,0x9b,0xa4}};
+extern "C" const GUID __declspec(selectany) IID_IContainer =
+    {0x44683ff7,0x73c0,0x11d3,{0xbf,0xb7,0x00,0xe0,0x29,0x03,0xbd,0x46}};
+extern "C" const GUID __declspec(selectany) IID_ILocatorAdvanced =
+    {0x14da3cef,0xccca,0x4c01,{0x9c,0x5a,0xac,0xd5,0xc9,0xb1,0x12,0x33}};
+extern "C" const GUID __declspec(selectany) IID_ILocatorEventProvider =
+    {0x72ada84b,0x6e1f,0x4fd1,{0xa8,0xe8,0xb5,0x83,0x74,0x98,0x5e,0xb1}};
+extern "C" const GUID __declspec(selectany) IID_ILocatorEvents =
+    {0x44683ffc,0x73c0,0x11d3,{0xbf,0xb7,0x00,0xe0,0x29,0x03,0xbd,0x46}};
+extern "C" const GUID __declspec(selectany) IID_IDistributingInfoProvider =
+    {0x62299d66,0x3375,0x48c5,{0x95,0x68,0x69,0x8f,0x3a,0xde,0xf9,0x6d}};
+extern "C" const GUID __declspec(selectany) IID_IManager =
+    {0x8f783c23,0xe023,0x11d3,{0x8d,0xf1,0x00,0x20,0xaf,0xf1,0x2f,0xbd}};
+
+#pragma pack(pop)

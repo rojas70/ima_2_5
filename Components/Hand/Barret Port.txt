@@ -1,0 +1,4 @@
+Use Port # 4, when using the USB-COM adaptor.
+Use Port # 1, when using serial connection.
+
+Change, O:\Include\Barret\bhand.cpp

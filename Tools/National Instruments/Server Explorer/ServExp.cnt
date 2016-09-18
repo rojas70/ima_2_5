@@ -1,0 +1,31 @@
+:Base ServExp.hlp
+1 Server Explorer Help=Server_Explorer_Help
+1 Conventions=Conventions
+1 Glossary=Glossary
+1 Using Server Explorer
+2 System Requirements=System_Requirements
+2 What kind of servers do I have?=What_kind_of_servers_do_I_have
+1 Using IAS/IAK with Windows 2000
+2 Windows 2000 Compatibility=Windows_2000_Compatibility
+2 Install Windows 2000 IAK/IAS Patch=Install_Windows_2000_Patch
+2 Converting BrideVIEW IAK to OPC=Converting_BrideVIEW_Applications_from_IAK_to_OPC_Based_Servers
+1 Configure and Test Servers
+2 Configure and Test an OPC Server=Configuring_and_testing_an_OPC_server
+2 Configure and Test an IAS Server=Configuring_and_testing_an_IAS_server
+2 Configure Server Properties=Server_Properties
+2 Connect to an OPC Server=Using_OPC_Servers
+2 Create Groups=Creating_Groups_OPC
+2 Configure Group Properties=Group_Properties
+2 Create Items=Creating_Items_OPC
+2 Configure Item Properties=Item_Properties
+2 Test Configuration=Testing_your_OPC_configuration
+2 Test IAS Configuration=Testing_your_configuration_IAS
+2 Save, Import, or Export OPC Configuration=Saving_Importing_and_Exporting_OPC_Configurations
+2 Save, Import, or Export IAS Configuration=Saving_Importing_and_Exporting_Your_IAS_Configuration
+1 Important Information
+2 Warranty=Warranty
+2 Copyright=Copyright
+2 Trademarks=Trademarks
+2 Medical Warning=Medical_Warning
+1 Technical Support Resources
+2 Technical Support Resources=Technical_Support_Resources

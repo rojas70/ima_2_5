@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0030)file://G:\Doc\AutoDocMacro.htm -->
+<HTML><HEAD><TITLE>Automatic Documentation Macro for Developer Studio</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1476" name=GENERATOR>
+<META content="D:\Program Files\Microsoft Office\Office\HTML.DOT" 
+name=Template></HEAD>
+<BODY text=#000000 vLink=#800080 link=#0000ff bgColor=#ffffff>
+<H1>Automatic Documentation Macro for Developer Studio</H1>I wrote a VBScript 
+macro for DevStudio. This macro operates on a header file and produces an html 
+file. The name of the output html file is <I>headerfilenameADF.html</I>. So if 
+you had a header file named <I>MyHeader.h</I>, the output will be 
+<I>MyHeaderADF.html</I>. 
+<H2>How to Use the Macro</H2>The macro file is: 
+U:\IRLUSERS\alford\exec\CompDoc.DSM
+<P></P>Copy this file to the directory: D:\Program 
+Files\DevStudio\SharedIDE\Macros
+<P></P>Go to the header file for the class you want to document. Run the macro. 
+(To install and run the macro, see the DevStudio Infoviewer pages below.) That's 
+it.
+<P></P>
+<H2>Helpful Infoviewer pages</H2>
+<UL>
+  <LI><A href="mk:@ivt:dsug/F22/D25/S74ED.HTM">Overview: VBScript Macros</A> 
+  <LI><A href="mk:@ivt:dsug/F22/D25/S1139E.HTM">Installing VBScript Macros</A> 
+  <LI><A href="mk:@ivt:dsug/F22/D25/S1139F.HTM">Assigning VBScript Macros to 
+  Toolbar Buttons or Key Sequences</A> 
+  <LI><A href="mk:@ivt:dsug/F22/D25/S113A0.HTM">Running VBScript Macros</A> 
+</LI></UL>
+<H2>What the Macro Does</H2>The macro runs through the header file 3 times. It 
+makes a "skeleton" document, which contains: 
+<UL>
+  <LI>Class Name 
+  <LI>Source Code Location 
+  <LI>COM Interace Map Entries 
+  <LI>Inteface Methods and Properties (note: properties are not listed as such; 
+  instead, the get and put methods for the properties are listed). 
+  <LI>Member Functions </LI></UL>Interface Methods and Member Functions both have 
+a section for description and a list of parameters with their types. Member 
+Functions also have their return types listed. 
+<P></P>
+<H2>Caveats</H2>The macro isn't perfect. Any function calls in the header file 
+(such as SetupComponentLinks) will get stuck in the output file as member 
+functions. Also, beware of really long header files (greater than 1000 lines). 
+There are probably other bugs as well. Let me know when you find them.
+<P></P>
+<P>
+<HR>
+
+<P></P>
+<P>last modified 8 April, 1998 by Anthony Alford, <A 
+href="mailto:alford@vuse.vanderbilt.edu">alford@vuse.vanderbilt.edu</A> </P>
+<P>
+<HR>
+
+<P></P>
+<P>To <A href="http://irlserver.vuse.vanderbilt.edu/irl">IRL Intranet</A> 
+</P></BODY></HTML>

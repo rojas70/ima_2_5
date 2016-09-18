@@ -1,0 +1,84 @@
+// IMA2_BasicComponentsLib.idl : IDL source for IMA2_BasicComponentsLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_BasicComponentsLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(4EB79C6B-B32F-4834-97AE-829B56BB3FB1),
+		dual,
+		helpstring("IVectorSignal Interface"),
+		pointer_default(unique)
+	]
+	interface IVectorSignal : IDispatch
+	{
+		[propget, id(1), helpstring("property Index")] HRESULT Index([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Index")] HRESULT Index([in] long newVal);
+		[propget, id(2), helpstring("property IndexValue")] HRESULT IndexValue([out, retval] double *pVal);
+		[propput, id(2), helpstring("property IndexValue")] HRESULT IndexValue([in] double newVal);
+		[propget, id(3), helpstring("property RowVector")] HRESULT RowVector([out, retval] long *pVal);
+		[propput, id(3), helpstring("property RowVector")] HRESULT RowVector([in] long newVal);
+		[propget, id(4), helpstring("property SignalLength")] HRESULT SignalLength([out, retval] long *pVal);
+		[propput, id(4), helpstring("property SignalLength")] HRESULT SignalLength([in] long newVal);
+		[propget, id(5), helpstring("property VectorLength")] HRESULT VectorLength([out, retval] long *pVal);
+		[propput, id(5), helpstring("property VectorLength")] HRESULT VectorLength([in] long newVal);
+		[id(6), helpstring("method TestSetup")] HRESULT TestSetup(long Index);
+		[id(7), helpstring("method GetCurrentVector")] HRESULT GetCurrentVector([in,out] SAFEARRAY(double) data);
+		[id(8), helpstring("method GetVector")] HRESULT GetVector([in] long index, [in, out] SAFEARRAY(double) data);
+		[id(9), helpstring("method SetCurrentVector")] HRESULT SetCurrentVector([in] SAFEARRAY(double) data);
+		[id(10), helpstring("method SetVector")] HRESULT SetVector([in] long index,[in] SAFEARRAY(double) data);
+		[id(11), helpstring("method UpdateManager")] HRESULT UpdateManager([in]BSTR Interface, [out,retval] VARIANT *Data);
+
+		
+	};
+	[
+		object,
+		uuid(37712595-1EB7-48C0-AAFD-7031F5357F43),
+		dual,
+		helpstring("IVSandFiles Interface"),
+		pointer_default(unique)
+	]
+	interface IVSandFiles : IDispatch
+	{
+		[id(1), helpstring("method Write2VS")] HRESULT Write2VS();
+		[propget, id(2), helpstring("property NumAxes")] HRESULT NumAxes([out, retval] long *pVal);
+		[propput, id(2), helpstring("property NumAxes")] HRESULT NumAxes([in] long newVal);
+		[propget, id(3), helpstring("property FileName")] HRESULT FileName([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property FileName")] HRESULT FileName([in] BSTR newVal);
+		[id(4), helpstring("method Initialize")] HRESULT Initialize();
+		[id(5), helpstring("method Write2File")] HRESULT Write2File();
+	};
+
+[
+	uuid(08D47F9E-6A98-4B2C-9AAC-A9EC210F3E0F),
+	version(1.0),
+	helpstring("(IMA2 Components) - Basic Components Lib")
+]
+library IMA2_BASICCOMPONENTSLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb"); 
+
+	[
+		uuid(7F58ABCE-1E9C-495F-8433-81B304A4713B),
+		helpstring("IMA2_BasicComponentsLib 1.0 Type Library")
+	]
+	coclass VectorSignal
+	{
+		[default] interface IVectorSignal;
+		interface IComponent;
+	};
+	[
+		uuid(EBB38638-88D2-44EF-A142-8E2562706BEE),
+		helpstring("VSandFiles Class")
+	]
+	coclass VSandFiles
+	{
+		[default] interface IVSandFiles;
+		interface IComponent;
+	};
+};

@@ -1,0 +1,299 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (098f13f9).
+//
+// o:\components\cameracomponents\ima2_framegrabberlib\debug\IMA2_ImageRepLib.tli
+//
+// Wrapper implementations for Win32 type library O:\Include\IMA2_ImageRepLib.tlb
+// compiler-generated file created 02/02/06 at 12:25:55 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface INetImgRep wrapper method implementations
+//
+
+inline double INetImgRep::GetProxyDelay ( ) {
+    double _result;
+    HRESULT _hr = get_ProxyDelay(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void INetImgRep::PutProxyDelay ( double pVal ) {
+    HRESULT _hr = put_ProxyDelay(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long INetImgRep::GetImgWidth ( ) {
+    long _result;
+    HRESULT _hr = get_ImgWidth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void INetImgRep::PutImgWidth ( long pVal ) {
+    HRESULT _hr = put_ImgWidth(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long INetImgRep::GetImgHeight ( ) {
+    long _result;
+    HRESULT _hr = get_ImgHeight(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void INetImgRep::PutImgHeight ( long pVal ) {
+    HRESULT _hr = put_ImgHeight(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long INetImgRep::GetImgDepth ( ) {
+    long _result;
+    HRESULT _hr = get_ImgDepth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void INetImgRep::PutImgDepth ( long pVal ) {
+    HRESULT _hr = put_ImgDepth(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double INetImgRep::GetPoint ( ) {
+    double _result;
+    HRESULT _hr = get_Point(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void INetImgRep::PutPoint ( double pVal ) {
+    HRESULT _hr = put_Point(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long INetImgRep::GetPointIndex ( ) {
+    long _result;
+    HRESULT _hr = get_PointIndex(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void INetImgRep::PutPointIndex ( long pVal ) {
+    HRESULT _hr = put_PointIndex(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface IImageRep wrapper method implementations
+//
+
+inline long IImageRep::GetWidth ( ) {
+    long _result;
+    HRESULT _hr = get_Width(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IImageRep::PutWidth ( long pVal ) {
+    HRESULT _hr = put_Width(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IImageRep::GetHeight ( ) {
+    long _result;
+    HRESULT _hr = get_Height(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IImageRep::PutHeight ( long pVal ) {
+    HRESULT _hr = put_Height(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IImageRep::Data ( long lIndex ) {
+    long _result;
+    HRESULT _hr = raw_Data(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT IImageRep::Update ( unsigned char * pVal ) {
+    HRESULT _hr = raw_Update(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline long IImageRep::GetDepth ( ) {
+    long _result;
+    HRESULT _hr = get_Depth(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IImageRep::PutDepth ( long pVal ) {
+    HRESULT _hr = put_Depth(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline double IImageRep::GetTime ( long m_lTimeFlag ) {
+    double _result;
+    HRESULT _hr = get_Time(m_lTimeFlag, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IImageRep::PutTime ( long m_lTimeFlag, double pVal ) {
+    HRESULT _hr = put_Time(m_lTimeFlag, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t IImageRep::UpdateManager ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_UpdateManager(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+//
+// interface IFeatureInfo wrapper method implementations
+//
+
+inline long IFeatureInfo::GetFeatureWidth ( long lIndex ) {
+    long _result;
+    HRESULT _hr = get_FeatureWidth(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureWidth ( long lIndex, long pVal ) {
+    HRESULT _hr = put_FeatureWidth(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFeatureInfo::GetFeatureHeight ( long lIndex ) {
+    long _result;
+    HRESULT _hr = get_FeatureHeight(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureHeight ( long lIndex, long pVal ) {
+    HRESULT _hr = put_FeatureHeight(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFeatureInfo::GetFeatureArea ( long lIndex ) {
+    long _result;
+    HRESULT _hr = get_FeatureArea(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureArea ( long lIndex, long pVal ) {
+    HRESULT _hr = put_FeatureArea(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFeatureInfo::GetFeatureLabel ( long lIndex ) {
+    long _result;
+    HRESULT _hr = get_FeatureLabel(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureLabel ( long lIndex, long pVal ) {
+    HRESULT _hr = put_FeatureLabel(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFeatureInfo::GetFeatureIndex ( long lFeatureLabel ) {
+    long _result;
+    HRESULT _hr = get_FeatureIndex(lFeatureLabel, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureIndex ( long lFeatureLabel, long pVal ) {
+    HRESULT _hr = put_FeatureIndex(lFeatureLabel, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFeatureInfo::GetFeatureOrientation ( long lIndex ) {
+    long _result;
+    HRESULT _hr = get_FeatureOrientation(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureOrientation ( long lIndex, long pVal ) {
+    HRESULT _hr = put_FeatureOrientation(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t IFeatureInfo::GetFeatureName ( long lIndex ) {
+    BSTR _result;
+    HRESULT _hr = get_FeatureName(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void IFeatureInfo::PutFeatureName ( long lIndex, _bstr_t pVal ) {
+    HRESULT _hr = put_FeatureName(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long IFeatureInfo::GetFeatureLength ( long lIndex ) {
+    long _result;
+    HRESULT _hr = get_FeatureLength(lIndex, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void IFeatureInfo::PutFeatureLength ( long lIndex, long pVal ) {
+    HRESULT _hr = put_FeatureLength(lIndex, pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT IFeatureInfo::get_FeatureCentroid ( long lIndex, long * pX, long * pY ) {
+    HRESULT _hr = raw_get_FeatureCentroid(lIndex, pX, pY);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFeatureInfo::put_FeatureCentroid ( long lIndex, long newX, long newY ) {
+    HRESULT _hr = raw_put_FeatureCentroid(lIndex, newX, newY);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFeatureInfo::get_FeatureLocation ( long lIndex, long * pLeft, long * pTop ) {
+    HRESULT _hr = raw_get_FeatureLocation(lIndex, pLeft, pTop);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFeatureInfo::put_FeatureLocation ( long lIndex, long newLeft, long newTop ) {
+    HRESULT _hr = raw_put_FeatureLocation(lIndex, newLeft, newTop);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFeatureInfo::AddFeature ( long lFeatureLabel, long * plFeatureIndex ) {
+    HRESULT _hr = raw_AddFeature(lFeatureLabel, plFeatureIndex);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFeatureInfo::ClearFeatures ( ) {
+    HRESULT _hr = raw_ClearFeatures();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IFeatureInfo::NumFeatures ( long * pVal ) {
+    HRESULT _hr = raw_NumFeatures(pVal);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

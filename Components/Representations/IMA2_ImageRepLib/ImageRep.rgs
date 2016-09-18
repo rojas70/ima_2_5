@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ImageRepLib.ImageRep.1 = s 'ImageRep Class'
+	{
+		CLSID = s '{A669240E-4241-47D7-9207-CCBDCFCD4AC4}'
+	}
+	IMA2_ImageRepLib.ImageRep = s 'ImageRep Class'
+	{
+		CLSID = s '{A669240E-4241-47D7-9207-CCBDCFCD4AC4}'
+		CurVer = s 'IMA2_ImageRepLib.ImageRep.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A669240E-4241-47D7-9207-CCBDCFCD4AC4} = s 'ImageRep Class'
+		{
+			ProgID = s 'IMA2_ImageRepLib.ImageRep.1'
+			VersionIndependentProgID = s 'IMA2_ImageRepLib.ImageRep'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{7481AFA4-383D-4148-B8FA-860C8EE927C1}'
+		}
+	}
+}

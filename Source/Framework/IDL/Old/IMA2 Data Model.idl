@@ -1,0 +1,67 @@
+// Generated .IDL file (by Roberto Olivares 1/5/2000)
+// 
+// Typelib filename: IMA2.tlb
+
+[
+  uuid(82750873-A228-4255-A8AA-3D7584838465),
+  version(2.5),
+  helpstring("(IMA2 Base) - Data Model")
+]
+library IMA2_DataModel
+{
+    // TLib : OLE Automation : {00020430-0000-0000-C000-000000000046}
+    importlib("StdOle2.tlb");
+
+// *****************************************************************************************************************************
+// Interface Prototypes
+// *****************************************************************************************************************************
+	interface ISequencer;		// Basic objects act as function and data libraries, but Sequencers specifically call other objects.
+	interface IRepresentation;	// Representations are objects that specifically hold share data across machines.
+//	interface IMechanism;
+
+// *****************************************************************************************************************************
+// Enumerations
+// *****************************************************************************************************************************
+
+// *****************************************************************************************************************************
+// Structures
+// *****************************************************************************************************************************
+
+// *****************************************************************************************************************************
+// Interfaces
+// *****************************************************************************************************************************
+    [
+      odl, uuid(EDBEAC86-F5C1-4e9e-89B8-5BEF8A0B6B26), version(2.5), nonextensible, oleautomation,
+	  helpstring("Implemented by IMA2 objects that wish to be threaded and activateable.")
+    ]
+    interface ISequencer : IUnknown {
+        
+		UpdateMode 
+		[id(0)]					HRESULT Construct			([in] BSTR Path, [in] BSTR PID, [in] ILocator** pAL);
+        [id(1)]					HRESULT Destruct			();
+        [id(2)]					HRESULT Load				([in] VARIANT Data);
+        [id(3)]					HRESULT Save				([out, retval] VARIANT* pData);
+        [id(4)]					HRESULT DataSize			([out, retval] long* pSize);
+        [id(5), propget]		HRESULT Path				([out, retval] BSTR* pPath);
+        [id(6), propget]		HRESULT Activated			([out, retval] VARIANT_BOOL* pActivated);
+        [id(6), propput]		HRESULT Activated			([in] VARIANT_BOOL newVal);
+        [id(7), propget]		HRESULT PID					([out, retval] BSTR* pPID);
+        [id(8), propget]		HRESULT Machine				([out, retval] BSTR* pMachine);
+        [id(9), propget]		HRESULT State				([out, retval] VARIANT* pState);
+        [id(9), propput]		HRESULT State				([in] VARIANT newVal);
+		[id(10), propget]       HRESULT Thread				([out, retval] long * pThread);
+        [id(11), propget]       HRESULT Process				([out, retval] long * pProcess);
+        [id(12), propget]       HRESULT Bindings			([out, retval] IBindings ** pBindings);
+    };
+
+    [
+      odl, uuid(5A8C0A36-90F1-4fa5-BEAD-7EBA47DFC6B5), version(2.5), nonextensible, oleautomation,
+	  helpstring("Implemented by IMA2 objects that wish to be representations.")
+    ]
+    interface IRepresentation: IUnknown {
+        [id(0)]					HRESULT Locator				([out, retval] ILocator**);
+        [id(1)]					HRESULT CreateComponent		([in] BSTR PID, [in] BSTR Machine, [out, retval] IComponent**);
+        [id(2), propget]		HRESULT InnateComponents	([out, retval] SAFEARRAY(IComponent *)*);
+
+    };
+};

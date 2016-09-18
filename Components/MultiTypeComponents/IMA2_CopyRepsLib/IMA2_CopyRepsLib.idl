@@ -1,0 +1,47 @@
+// IMA2_CopyRepsLib.idl : IDL source for IMA2_CopyRepsLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_CopyRepsLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(C1BA00A2-E646-457F-B391-04C988B00B67),
+		dual,
+		helpstring("ICopyVS Interface"),
+		pointer_default(unique)
+	]
+	interface ICopyVS : IDispatch
+	{
+		[id(1), helpstring("method CopyVectorSignal")] HRESULT CopyVectorSignal(/*ULONG operation, ULONG flags*/);
+		[id(2), helpstring("method CopyRowVector")] HRESULT CopyRowVector();
+		[propget, id(3), helpstring("property InputRowVector")] HRESULT InputRowVector([out, retval] short *pVal);
+		[propput, id(3), helpstring("property InputRowVector")] HRESULT InputRowVector([in] short newVal);
+		[propget, id(4), helpstring("property OutputRowVector")] HRESULT OutputRowVector([out, retval] short *pVal);
+		[propput, id(4), helpstring("property OutputRowVector")] HRESULT OutputRowVector([in] short newVal);
+		[id(5), helpstring("method CopyCurrentVector")] HRESULT CopyCurrentVector();
+	};
+
+[
+	uuid(3B6C7D50-0501-42AD-A29E-A4843C3A2C4D),
+	version(1.0),
+	helpstring("(IMA2 Components) - CopyRepresentations")
+]
+library IMA2_COPYREPSLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb"); 
+
+	[
+		uuid(2B5BD3BD-6332-47DF-A73E-A80A486E5567),
+		helpstring("CopyVS Class")
+	]
+	coclass CopyVS
+	{
+		[default] interface ICopyVS;
+		interface IComponent; 
+	};
+};

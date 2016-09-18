@@ -1,0 +1,6 @@
+
+Build of 'IMA2_DADX.ocx' succeeded.
+
+Build of 'IMA2_DAD.exe' succeeded.
+
+Build of 'IMA2_ManagerBook.exe' succeeded.

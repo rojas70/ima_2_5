@@ -1,0 +1,43 @@
+// IMA2_SESInterface.idl : IDL source for IMA2_SESInterface.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_SESInterface.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(EE72C810-B8A2-415C-A8BD-68684D2C021A),
+		dual,
+		helpstring("ISESInterface Interface"),
+		pointer_default(unique)
+	]
+	interface ISESInterface : IDispatch
+	{
+		[propget, id(1), helpstring("property DatabaseName")] HRESULT DatabaseName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property DatabaseName")] HRESULT DatabaseName([in] BSTR newVal);
+		[id(2), helpstring("method ResetSES")] HRESULT ResetSES();
+		[id(3), helpstring("method Post")] HRESULT Post();
+	};
+
+[
+	uuid(A99ABE6C-363D-40B1-8C47-8BE00B578003),
+	version(1.0),
+	helpstring("(IMA2 Components) - SES Interface Lib")
+]
+library IMA2_SESINTERFACELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+	[
+		uuid(E57C703D-7019-4637-8A46-9AFE80518348),
+		helpstring("SESInterface Class")
+	]
+	coclass SESInterface
+	{
+		[default] interface ISESInterface;
+		interface IComponent; 
+	};
+};

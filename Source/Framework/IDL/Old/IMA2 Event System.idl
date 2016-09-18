@@ -1,0 +1,110 @@
+// Generated .IDL file (by Roberto Olivares 1/5/2000)
+// 
+// Typelib filename: IMA2.tlb
+
+
+//(D89C250C-7226-40e9-BAFA-B3EA699CAD3A)
+//(7491750B-A8EA-4384-ACA7-31C6A2389519)
+//(D18756B6-C150-4f44-85FE-9FE67B1CC741)
+
+[
+  uuid(89593806-DE7C-4670-9AE1-9DC8A6AE4DF3),
+  version(2.5),
+  helpstring("(IMA2 Base) - System Information Interfaces")
+]
+library IMA2
+{
+    // TLib : OLE Automation : {00020430-0000-0000-C000-000000000046}
+    importlib("StdOle2.tlb");
+    importlib("IMA2.tlb");
+
+// *****************************************************************************************************************************
+// Interface Prototypes
+// *****************************************************************************************************************************
+	interface ILocatorAdvanced;
+	interface ILocatorEventProvider;
+	interface ILocatorEvents;
+	interface IDistributingInfoProvider;
+
+// *****************************************************************************************************************************
+// Enumerations
+// *****************************************************************************************************************************
+	typedef [uuid(7F2F28CB-6178-4d44-B1E0-722092EAA1AE), version(2.5)]
+    enum IMA2_LocatorAction {
+        LE_Register = 0,
+        LE_UnRegister = 1,
+        LE_Subscribe = 2,
+        LE_Unsubscribe = 3,
+        LE_Connect = 4,
+		LE_Disconnect = 5 
+    } IMA2_LocatorAction;
+
+	typedef [uuid(7F2F28CB-6178-4d44-B1E0-722092EAA1AE), version(2.5)]
+    enum IMA2_LocatorAction {
+        LE_Register = 0,
+        LE_UnRegister = 1,
+        LE_Subscribe = 2,
+        LE_Unsubscribe = 3,
+        LE_Connect = 4,
+		LE_Disconnect = 5 
+    } IMA2_LocatorAction;
+
+// *****************************************************************************************************************************
+// Structures
+// *****************************************************************************************************************************
+
+// *****************************************************************************************************************************
+// Interfaces
+// *****************************************************************************************************************************
+	[
+      odl, uuid(14DA3CEF-CCCA-4c01-9C5A-ACD5C9B11233), version(2.5), nonextensible, oleautomation, 
+	  helpstring("Implemented by the IMA2 Locating service to provide advanced hierarchy and remoting support.")
+    ]
+    interface ILocatorAdvanced : IUnknown {
+        [id(0)]					HRESULT Register			([in] IComponent * Cmp);
+		[id(1)]					HRESULT Unregister			([in] BSTR Path);
+        [id(2)]					HRESULT Connect				([in] BSTR Machine);
+        [id(3)]					HRESULT Disconnect			([in] BSTR Machine);
+        [id(4)]					HRESULT BatchOperation		([in] IMA2_LocatorAction * Action, [in] SAFEARRAY(VARIANT)* Args, [out, retval] SAFEARRAY(VARIANT)*);
+    };
+
+    [
+      odl, uuid(44683FFC-73C0-11D3-BFB7-00E02903BD46), version(2.5), nonextensible, oleautomation,
+	  helpstring("Implemented by objects wishing to recieve IMA2 Locator events.")
+    ]
+    interface ILocatorEvents : IUnknown {
+        [id(0)]					HRESULT OnRegistrationEvent	([in] IMA2_LocatorAction* Action, [in] SAFEARRAY(IMA2_DistributingInfo)* DIs);
+        [id(1)]					HRESULT OnOtherEvent		([in] IMA2_LocatorAction* Action, SAFEARRAY(BSTR)* Args);
+    };	
+
+    [
+      odl, uuid(72ADA84B-6E1F-4fd1-A8E8-B58374985EB1), version(2.5), nonextensible, oleautomation,
+	  helpstring("Implemented by the IMA2 Locator / Event Service to provide registration events.")
+    ]
+    interface ILocatorEventProvider : IUnknown {
+        [id(0)]					HRESULT Subscribe			([in] ILocatorEvents * Sink, [in] BSTR Key, [in] IMA2_DistributingInfo * Flags);
+        [id(1)]					HRESULT Unsubscribe			([in] BSTR Key);
+        [id(2), propget]		HRESULT Clients				([out, retval] SAFEARRAY(BSTR)*);
+    };
+
+	[
+      odl, uuid(62299D66-3375-48c5-9568-698F3ADEF96D), version(2.5), nonextensible, oleautomation,
+	  helpstring("Implemented by a service that provides IMA2 object hierarchy type information.")
+    ]
+    interface IDistributingInfoProvider : IUnknown {
+        [id(0)]					HRESULT Item				([in] BSTR Path, [out, retval] IMA2_DistributingInfo *);
+        [id(1)]					HRESULT Items				([in] BSTR Paths, [out, retval] SAFEARRAY(IMA2_DistributingInfo) *);
+        [id(2)]					HRESULT Count				([out, retval] long *);
+    };
+
+	interface IManager;
+	[
+		odl, uuid(8F783C23-E023-11D3-8DF1-0020AFF12FBD), version(2.5), nonextensible, oleautomation,
+		helpstring("Implemented by objects wishing to be a component manager.")
+	]
+	interface IManager : IUnknown {
+		[id(0), propget]    	HRESULT Component			([out, retval] IComponent** pCmp);
+		[id(0), propput]    	HRESULT Component			([in] IComponent* pCmp);
+		[id(1)]    				HRESULT Update				();
+	};
+};

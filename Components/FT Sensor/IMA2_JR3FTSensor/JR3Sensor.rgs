@@ -1,0 +1,28 @@
+HKCR
+{
+	IMA2_JR3FTSensor.JR3Sensor.1 = s 'JR3Sensor Class Class'
+	{
+		CLSID = s '{7B374970-0315-47DD-B094-97811020B301}'
+	}
+	IMA2_JR3FTSensor.JR3Sensor = s 'JR3Sensor Class'
+	{
+		CLSID = s '{7B374970-0315-47DD-B094-97811020B301}'
+		CurVer = s 'IMA2_JR3FTSensor.JR3Sensor.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7B374970-0315-47DD-B094-97811020B301} = s 'JR3Sensor Class'
+		{
+			ProgID = s 'IMA2_JR3FTSensor.JR3Sensor.1'
+			VersionIndependentProgID = s 'IMA2_JR3FTSensor.JR3Sensor'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{7B374970-0315-47DD-B094-97811020B301}'
+			
+		}
+	}
+}

@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_MotomanLib.HP3JC.1 = s 'HP3JC Class'
+	{
+		CLSID = s '{898C35A9-D83C-4354-B2FE-4E9FDE00C464}'
+	}
+	IMA2_MotomanLib.HP3JC = s 'HP3JC Class'
+	{
+		CLSID = s '{898C35A9-D83C-4354-B2FE-4E9FDE00C464}'
+		CurVer = s 'IMA2_MotomanLib.HP3JC.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {898C35A9-D83C-4354-B2FE-4E9FDE00C464} = s 'HP3JC Class'
+		{
+			ProgID = s 'IMA2_MotomanLib.HP3JC.1'
+			VersionIndependentProgID = s 'IMA2_MotomanLib.HP3JC'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{898C35A9-D83C-4354-B2FE-4E9FDE00C464}'
+			
+		}
+	}
+}

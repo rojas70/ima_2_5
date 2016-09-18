@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ArmTools.KinematicModel.1 = s 'KinematicModel Class'
+	{
+		CLSID = s '{1B0D7731-DF1B-42A5-8CC2-FA878BE758C5}'
+	}
+	IMA2_ArmTools.KinematicModel = s 'KinematicModel Class'
+	{
+		CLSID = s '{1B0D7731-DF1B-42A5-8CC2-FA878BE758C5}'
+		CurVer = s 'IMA2_ArmTools.KinematicModel.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1B0D7731-DF1B-42A5-8CC2-FA878BE758C5} = s 'KinematicModel Class'
+		{
+			ProgID = s 'IMA2_ArmTools.KinematicModel.1'
+			VersionIndependentProgID = s 'IMA2_ArmTools.KinematicModel'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5D2D9F10-844D-4BAF-8EED-B352AD107AB2}'
+		}
+	}
+}

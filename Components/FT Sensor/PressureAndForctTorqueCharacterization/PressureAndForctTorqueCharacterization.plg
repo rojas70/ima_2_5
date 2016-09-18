@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: PressureAndForctTorqueCharacterization - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP841.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/PressureAndForctTorqueCharacterization.pdb" /debug /machine:I386 /def:".\PressureAndForctTorqueCharacterization.def" /out:"Debug/PressureAndForctTorqueCharacterization.dll" /implib:"Debug/PressureAndForctTorqueCharacterization.lib" /pdbtype:sept 
+".\Debug\IMA2_ArmTools_i.obj"
+".\Debug\IMA2_BasicComponentsLib_i.obj"
+".\Debug\IMA2_FTSensorLib_i.obj"
+".\Debug\IMA2_MatlabStateMachineLib_i.obj"
+".\Debug\PressureAndForctTorqueCharacterization.obj"
+".\Debug\PressureForceCharacterization.obj"
+".\Debug\StdAfx.obj"
+".\Debug\PressureAndForctTorqueCharacterization.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP841.tmp"
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP842.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\PressureAndForctTorqueCharacterization.dll"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+copy         .\Debug\PressureAndForctTorqueCharacterization.dll         C:\ima2\components\
+copy  .\Debug\PressureAndForctTorqueCharacterization.dll  O:\Components
+]
+Creating command line "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP842.bat"
+Linking...
+   Creating library Debug/PressureAndForctTorqueCharacterization.lib and object Debug/PressureAndForctTorqueCharacterization.exp
+<h3>Output Window</h3>
+Performing registration
+        1 file(s) copied.
+        1 file(s) copied.
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP846.tmp" with contents
+[
+/nologo /o"Debug/PressureAndForctTorqueCharacterization.bsc" 
+".\Debug\StdAfx.sbr"
+".\Debug\IMA2_ArmTools_i.sbr"
+".\Debug\IMA2_BasicComponentsLib_i.sbr"
+".\Debug\IMA2_FTSensorLib_i.sbr"
+".\Debug\IMA2_MatlabStateMachineLib_i.sbr"
+".\Debug\PressureAndForctTorqueCharacterization.sbr"
+".\Debug\PressureForceCharacterization.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP846.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+PressureAndForctTorqueCharacterization.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

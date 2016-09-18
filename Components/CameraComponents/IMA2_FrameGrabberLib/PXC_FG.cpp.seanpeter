@@ -1,0 +1,1281 @@
+////////////////////////////////////////////////////////////////////
+// PXC_FG.cpp : Implementation of CPXC_FG						  //
+// This program grabs a left and right image through two PXC	  //
+// drivers. The images are grabbed consecutively and counted	  //
+// as frames. The image information for a given camera is		  //
+// saved in an alternating fashion in an array with two elements. //
+// The processing is done in a QUEUED fashion, which allows an	  //
+// one frame to be grabbed while the other is being processed.	  //
+////////////////////////////////////////////////////////////////////
+
+//Modified 1/30/2006 by Sean Begley & Peter Humke.  Added Functions GetBuffer and PutBuffer.
+//These functions represent a split of GetImage to allow modification of the image.
+#include "stdafx.h"
+#include "IMA2_FrameGrabberLib.h"
+#include "PXC_FG.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// CPXC_FG
+
+///////////////////////////////////////////////////////////////////
+// Checks to read library files located in I:\Etc\PXC2 and checks
+// that it can allocate memory for the image frames.
+///////////////////////////////////////////////////////////////////
+STDMETHODIMP CPXC_FG::Initialize()
+{
+// Final Component Initzialization Equivalent
+// Purpose	- Called to do allow the component to do any final setup.
+// *NOTE: This may be called more than once after a component is inserted!
+
+	if(!IsInitialized())
+	{	Width	=320;
+		Height	=240;
+
+		if(Initial(FrameGrabberID,Left,Top,Width,Height)!=S_OK)
+		{
+			::MessageBox(NULL,"Can't initialize pxc200. frame grabber!","ERROR",MB_ICONERROR);
+			return E_FAIL;
+		}
+		ImageData = new BYTE[Width*Height*Depth];
+//		ImageData = new BYTE[ImageMaxX*ImageMaxY*Depth];
+	}
+	else
+	{
+		CloseDevice();
+
+		// open device again..in case of user want to switch to
+		// other frame grabber board..
+		if(Initial(FrameGrabberID,Left,Top,Width,Height)!=S_OK)
+		{
+			::MessageBox(NULL,"Can't initialize pxc200. frame grabber!","ERROR",MB_ICONERROR);
+			return E_FAIL;
+		}
+	}
+    ATLTRACE("****pxc200.Device**** : FinalComponentInitialization done!\n");
+	return S_OK;
+}
+
+////////////////////
+// Get's image data
+////////////////////
+STDMETHODIMP CPXC_FG::ObtainImage()
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+		GetImage(ImageData);
+
+	return S_OK;
+}
+
+
+//////////////////////
+// Resets image data
+//////////////////////
+STDMETHODIMP CPXC_FG::Reset()
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+		ResetDevice();
+
+	return S_OK;
+}
+//////////////////////
+// Deallocates memory
+//////////////////////
+STDMETHODIMP CPXC_FG::Close()
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+		CloseDevice();	
+
+	return S_OK;
+}
+
+BOOL CPXC_FG::IsInitialized()
+{
+	return FrameGrabberInitial;
+}
+
+
+HRESULT CPXC_FG::GetImage(LPBYTE Image)
+{
+	// For framerate calculation
+	if(FrameCount == 0)
+	{
+		StartTime = 0;	// GetAgentTime(). Has no effect in IMA 2.5 - DAD. 
+	}
+
+	// This swaps the value between 0 and 1 each call to GetImage
+	// Short form of an if-else statement:
+	// If frhIdx = 1, then frhIdx = 0 and vice-versa.
+    frhIdx = (frhIdx == 1) ? 0 : 1;
+
+	// During the first iteration frhIdx can have value of 0 or 1. but taqQ[frhIdx] = 0 
+	// for both of them.So code goes through the  loop and request frame grabs but does
+	// not copy data. The second loop around has changes the index but still has a value of 
+	// zero. A frame grab is called but no data copying occurs yet. It is not until the 
+	// third call that data is actually copied.
+	// For more information on function calls, consult PXC manual in the I:\Etc\PXC2 folder.
+	
+    /* Copy the video ram to a memory buffer */
+    if( tagQ[frhIdx] ) {
+		pxc200.WaitFinished(fgh, tagQ[frhIdx]);
+      
+		if(pxc200.CheckError(fgh)&ERR_CORRUPT) {
+		  ++ErrorCount;
+		  }
+
+		else {
+			GrabImage();
+			++FrameCount;
+		  }
+
+		tagQ[frhIdx] = 0;
+	}
+    
+	tagQ[frhIdx] = pxc200.Grab(fgh, frh[frhIdx], QUEUED);
+
+	// Grab pointer to component/object
+	m_Bindings->get_Pointers(SysAllocString(L"OutputImage"),&m_pIUnkImgOut);
+
+	if(m_pIUnkImgOut==NULL)
+		return E_POINTER;
+
+	  // Grab pointer to objects interface
+	  IImageRep*  pImgOut = NULL;
+	  
+	  long	      lOut;
+	  if(m_pIUnkImgOut != NULL)
+		{
+		   m_pIUnkImgOut->QueryInterface(IID_IImageRep,(void **)&pImgOut);
+
+		   if( pImgOut != NULL)	// Successful query?
+			{
+				// DEBUG
+			    pImgOut->Data(0,&lOut);
+				ImageBuff = (BYTE*)lOut;
+				memcpy(ImageBuff,gpBits,XResolution*abs(YResolution)*Depth);
+
+				// Signal update on image added by Anthony
+				pImgOut->Update(0);
+				pImgOut->Release();
+			}
+		 }
+	  
+	  else {
+		  pImgOut->Release();
+		  pImgOut = NULL;
+	  }
+
+
+	  ATLTRACE("****pxc200.Device**** : Grab image successfully\n");
+	  
+	  // Calculate frame rate
+	  if(FrameCount >= 25)
+	  {
+		  StopTime = 1.0; // GetAgentTime(); How does this affect in IMA 2.5?
+		  FrameRate = (float)FrameCount/(StopTime-StartTime);
+		  FrameCount = 0;
+	  }
+      return S_OK;
+}
+
+// the following two functions are the previous function split into two components
+HRESULT CPXC_FG::GetBuffer(LPBYTE *CV_Image)
+{
+	// For framerate calculation
+	if(FrameCount == 0)
+	{
+		StartTime = 0;	// GetAgentTime(). Has no effect in IMA 2.5 - DAD. 
+	}
+
+	// This swaps the value between 0 and 1 each call to GetImage
+	// Short form of an if-else statement:
+	// If frhIdx = 1, then frhIdx = 0 and vice-versa.
+    frhIdx = (frhIdx == 1) ? 0 : 1;
+
+	// During the first iteration frhIdx can have value of 0 or 1. but taqQ[frhIdx] = 0 
+	// for both of them.So code goes through the  loop and request frame grabs but does
+	// not copy data. The second loop around has changes the index but still has a value of 
+	// zero. A frame grab is called but no data copying occurs yet. It is not until the 
+	// third call that data is actually copied.
+	// For more information on function calls, consult PXC manual in the I:\Etc\PXC2 folder.
+	
+    /* Copy the video ram to a memory buffer */
+    if( tagQ[frhIdx] ) {
+		pxc200.WaitFinished(fgh, tagQ[frhIdx]);
+      
+		if(pxc200.CheckError(fgh)&ERR_CORRUPT) {
+		  ++ErrorCount;
+		  }
+
+		else {
+			GrabImage();
+			memcpy(CV_Image,gpBits,XResolution*abs(YResolution)*Depth);
+			++FrameCount;
+		  }
+
+		tagQ[frhIdx] = 0;
+	}
+    
+	tagQ[frhIdx] = pxc200.Grab(fgh, frh[frhIdx], QUEUED);
+
+	return S_OK;
+}
+
+HRESULT CPXC_FG::PutBuffer(LPBYTE *CV_Image)
+{
+	// Grab pointer to component/object
+	m_Bindings->get_Pointers(SysAllocString(L"OutputImage"),&m_pIUnkImgOut);
+
+	if(m_pIUnkImgOut==NULL)
+		return E_POINTER;
+
+	  // Grab pointer to objects interface
+	  IImageRep*  pImgOut = NULL;
+	  
+	  long	      lOut;
+	  if(m_pIUnkImgOut != NULL)
+		{
+		   m_pIUnkImgOut->QueryInterface(IID_IImageRep,(void **)&pImgOut);
+
+		   if( pImgOut != NULL)	// Successful query?
+			{
+				// DEBUG
+			    pImgOut->Data(0,&lOut);
+				ImageBuff = (BYTE*)lOut;
+				memcpy(ImageBuff,CV_Image,XResolution*abs(YResolution)*Depth);
+
+				// Signal update on image added by Anthony
+				pImgOut->Update(0);
+				pImgOut->Release();
+			}
+		 }
+	  
+	  else {
+		  pImgOut->Release();
+		  pImgOut = NULL;
+	  }
+
+
+	  ATLTRACE("****pxc200.Device**** : Grab image successfully\n");
+	  
+	  // Calculate frame rate
+	  if(FrameCount >= 25)
+	  {
+		  StopTime = 1.0; // GetAgentTime(); How does this affect in IMA 2.5?
+		  FrameRate = (float)FrameCount/(StopTime-StartTime);
+		  FrameCount = 0;
+	  }
+      return S_OK;
+}
+
+HRESULT CPXC_FG::CloseDevice()
+{
+  int i;
+  if(FrameGrabberInitial)
+  {
+	  for(i=0; i<2; ++i) {
+		if(tagQ[i])
+		  pxc200.WaitFinished(fgh, tagQ[i]);
+	  }
+	  for(i=0; i<2; ++i) {
+		if(frh[i])
+		  frame.FreeFrame(frh[i]);
+	  }
+
+	  if(hBuf) {
+		GlobalUnlock(hBuf);
+		GlobalFree(hBuf);
+	  }
+	  if(fgh)
+		pxc200.FreeFG(fgh);
+	  if (initflags&1)
+		imagenation_CloseLibrary(&pxc200);
+	  if (initflags&2)
+		imagenation_CloseLibrary(&frame);
+
+   FrameGrabberInitial = FALSE;
+   ATLTRACE("****pxc200.Device**** : Close pxc200.Device successfully\n");
+   return S_OK;		// close device successfully
+  }
+  else
+  {
+   ATLTRACE("****pxc200.Device**** : Close pxc200.Device failed!\n");
+   return E_FAIL;	// fail to close device
+  }
+
+}
+
+HRESULT CPXC_FG::SetCamera(int channel)
+{
+  pxc200.SetCamera(fgh,channel,0);
+  pxc200.SetChromaControl(fgh,COMB_FILTER);
+  ATLTRACE("****pxc200.Device**** : Set camera to %d successfully\n",channel);
+  return S_OK;
+}
+
+HRESULT CPXC_FG::Initial(int FrameGrabberID, int left, int top, int width, int height)
+{
+	  /*-------------------------------------------------------------------------
+	  initialize the library
+	  -------------------------------------------------------------------------*/
+	  if (!imagenation_OpenLibrary(PXC_NAME,&pxc200,sizeof(pxc200)))
+	  {
+		if (!imagenation_OpenLibrary(PXC_NT,&pxc200,sizeof(pxc200)))
+		{
+		  //couldn't load pxc200.200 DLL;
+		  ATLTRACE("****pxc200.Device**** : Load pxc200 DLL failed!\n");
+		  return E_FAIL;
+		}
+	  }
+	  initflags|=1;
+
+	  if (!imagenation_OpenLibrary(FRAME_NAME,&frame,sizeof(frame))) {
+		//couldn't load Frame DLL
+        ATLTRACE("****pxc200.Device**** : Load Frame DLL failed!\n");
+		return E_FAIL;
+	  }
+	  initflags|=2;
+
+	  /*-------------------------------------------------------------------------
+	  allocate any frame grabber
+	  -------------------------------------------------------------------------*/
+	  fgh = pxc200.AllocateFG(FrameGrabberID);
+	  if(!fgh) {
+		//AllocateFG Failed;
+        ATLTRACE("****pxc200.Device**** : Allocate Frame grabber failed!\n");
+		return E_FAIL;
+	  }
+
+	Sleep(2500); /* wait for CCIR autodetect */
+
+	  switch(pxc200.VideoType(fgh)) {
+		case 0:     /* no video */
+		case 1:     /* NTSC */
+		  ImageMaxX = 640;
+		  ImageMaxY = 486;
+		  break;
+		case 2:     /* CCIR */
+		  ImageMaxX = 768;
+		  ImageMaxY = 576;
+		  break;
+	  }
+
+	  Width		 =pxc200.SetWidth(fgh,width);
+	  Height	 =pxc200.SetHeight(fgh,height);
+	  Depth      =3;		// RGB
+	  Left		 =pxc200.SetLeft(fgh,left);
+	  Top	     =pxc200.SetTop(fgh,top);
+	  XResolution=pxc200.SetXResolution(fgh,width);
+	  YResolution=pxc200.SetYResolution(fgh,height);
+	  iBoardRev  =pxc200.ReadRevision(fgh);
+
+	  /*-------------------------------------------------------------------------
+	  allocate a frame buffer
+	  -------------------------------------------------------------------------*/
+	  frh[0] = pxc200.AllocateBuffer(XResolution,YResolution, PIXEL_TYPE);
+	  if(!frh[0]) {
+		//Allocate Buffer #0 Failed;
+		ATLTRACE("****pxc200.Device**** : Allocate Buffer #0 failed!\n");
+		return E_FAIL;
+	  }
+	  frh[1] = pxc200.AllocateBuffer(XResolution, YResolution, PIXEL_TYPE);
+	  if(!frh[1]) {
+		//MessageBox(0, "Allocate Buffer #1 Failed", szAppName, MB_OK);
+		ATLTRACE("****pxc200.Device**** : Allocate Buffer #1 failed!\n");
+		return E_FAIL;
+	  }
+
+	  SetBitMapHead();
+
+	  if(!AllocBuffer()) {
+		//Cannot allocate scratch buffer;
+		return E_FAIL;
+	  }
+
+	  //pxc200.Grab(fgh, frh, 0);
+	  //GrabImage();
+//	  pxc200.SetBrightness(fgh,Brightness,0); 	
+//	  pxc200.SetContrast(fgh,Contrast,0); 	
+	  switch(Chroma)
+		{
+		case SVIDEO:
+		case NOTCH_FILTER:
+		case AGC:
+		case BW_DETECT:
+		case COMB_FILTER:
+			pxc200.SetChromaControl(fgh,COMB_FILTER);
+			break;
+		}
+
+	  //XResolution=pxc200.SetXResolution(fgh,width/2);
+	  //YResolution=pxc200.SetYResolution(fgh,height/2);
+		
+	  FrameGrabberInitial = TRUE;
+
+	  // Set up ImageRep
+	
+	  // Grab pointer to component/object
+	  m_Bindings->get_Pointers(SysAllocString(L"OutputImage"),&m_pIUnkImgOut);
+
+	  // Grab pointer to objects interface
+	  IImageRep*  pImgOut = NULL;
+
+	  if(m_pIUnkImgOut != NULL)
+		{
+		   m_pIUnkImgOut->QueryInterface(IID_IImageRep,(void **)&pImgOut);
+
+		   if( pImgOut != NULL)	// Successful query?
+			{
+				// DEBUG
+				pImgOut->put_Height( Height );
+				pImgOut->put_Width( Width );
+				pImgOut->put_Depth( Depth );
+				pImgOut->Release();
+			}
+		 }
+
+
+	  ATLTRACE("****pxc200.Device**** : Initialize pxc200.Device successfully!\n");
+	  return S_OK;
+}
+
+BOOL CPXC_FG::AllocBuffer()
+{
+  hBuf = GlobalAlloc(GMEM_FIXED, (long)ImageMaxX * ImageMaxY 
+                                  *(((PIXEL_TYPE&0xFF)+7L)>>3));
+  if(hBuf == NULL) {
+    //Cannot allocate buffer;
+    ATLTRACE("****pxc200.Device**** : Allocate buffer failed\n");
+    return FALSE;
+  }
+  gpBits = (BYTE __PX_HUGE *)GlobalLock(hBuf);
+  ATLTRACE("****pxc200.Device**** : Allocate buffer successfully\n");
+  return TRUE;
+}
+
+void CPXC_FG::SetBitMapHead()
+{
+  maphead.head.biSize=sizeof(BITMAPINFOHEADER);
+  maphead.head.biWidth=XResolution;
+  maphead.head.biHeight=-YResolution;
+  maphead.head.biPlanes=1;
+  maphead.head.biBitCount=PIXEL_TYPE&0xFF;
+  maphead.head.biCompression=BI_RGB;
+  maphead.head.biSizeImage=0;
+  maphead.head.biXPelsPerMeter=0;
+  maphead.head.biYPelsPerMeter=0;
+  maphead.head.biClrUsed=0;
+  maphead.head.biClrImportant=0;
+  ATLTRACE("****pxc200.Device**** : SetBitMapHead successfully\n");
+}
+
+void CPXC_FG::GrabImage()
+{
+/*****************************************************************************
+ * Name: GrabImage                                                           *
+ *****************************************************************************
+ * This function copies the frame buffer to a memory buffer upside down.     *
+ * StretchDIBits expects the image to be reversed line for line. If you want *
+ * the image to be right side up in the buffer you need to mofify the data   *
+ * in the call to StretchDIBits and in the maphead structure.                *
+ *****************************************************************************/
+int i,len;
+BYTE __PX_HUGE *p;
+
+  len=XResolution*(((PIXEL_TYPE&0xFF)+7)>>3);
+  p = gpBits;
+//  for(i=YResolution-1; i>=0; i--) {
+  for(i=0;i<YResolution;i++){
+//  for(i=120;i<YResolution+120;i++){
+    frame.GetRow(frh[frhIdx], p, i);
+    p += len;
+  }
+}
+
+//////////////////////////////////////////////////////////
+//
+// IImageRep method implementations
+// 
+// Allows uniform access to all types of images
+//
+STDMETHODIMP CPXC_FG::get_Width( /*[out, retval]*/ long *pVal)
+{ 
+	// get
+	if( pVal == NULL ) return E_POINTER;
+
+	*pVal = Width;
+
+	// DEBUG
+	ATLTRACE("CPXC_FG::get_Width assigned %d\n", Width);
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Width( /*[in]*/ long newVal)
+{ 
+	// Must set width using Ipxc200.Device
+
+	// DEBUG
+	ATLTRACE("CPXC_FG::put_Width set to %d\n", Width);
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_Height( /*[out, retval]*/ long *pVal)
+{ 
+	// get
+	if( pVal == NULL ) return E_POINTER;
+	
+	*pVal = Height;
+
+	// DEBUG
+	ATLTRACE("CPXC_FG::get_Height assigned %d\n", Height);
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Height(/*[in]*/ long newVal)
+{ 
+	// Must set height using IDTDevice
+
+	// DEBUG
+	ATLTRACE("CPXC_FG::put_Height set to %d\n", Height);
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::Data(long lIndex, /*[out, retval]*/ long* pVal )
+{ 
+	// get
+	if( pVal == NULL ) return E_POINTER;
+
+	if( IsInitialized() )
+	{
+		*pVal = (long)gpBits;
+	}
+	else
+	{	// Device not opened yet
+		*pVal = 0;
+	}
+	
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::Update(/*[in]*/ long lFlags)
+{ 
+	// Call DTDevice Update
+	//Update();
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_Depth(/*[out, retval]*/ long *pVal)
+{ 
+	// get
+	if( pVal == NULL ) return E_POINTER;
+
+	*pVal = Depth;
+
+	// DEBUG
+	ATLTRACE("CPXC_FG::get_Depth assigned %d\n", Depth);
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Depth(/*in*/ long newVal)
+{ 
+	// Cannot set depth of Device
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_Time(long m_lTimeFlag, /*[out, retval]*/ double *pVal)
+{ 
+	if( pVal == NULL ) 
+		return E_POINTER;
+
+	*pVal = FrameRate;
+
+	//ATLTRACE("CPXC_FG::get_Time assigned %f\n", m_dFrameRate[m_lTimeFlag]);
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Time(long m_lTimeFlag, double newVal)
+{ 
+	// FrameRate set by device
+	//ATLTRACE("CPXC_FG::put_Time set to %f\n", m_dFrameRate[m_sChannel]);
+
+	return S_OK;
+}
+
+//STDMETHODIMP CPXC_FG::get_TimeFlag(/*[out, retval]*/ long *pVal)
+//{ 
+	// get
+//	if( pVal == NULL ) return E_POINTER;
+	
+//	*pVal = m_lTimeFlag;
+
+	// DEBUG
+//	ATLTRACE("CPXC_FG::get_Time assigned %f\n", m_lTimeFlag);
+
+//	return S_OK;
+//}
+
+//STDMETHODIMP CPXC_FG::put_TimeFlag(/*[in]*/ long newVal)
+//{ 
+	// set
+//	m_lTimeFlag = newVal;
+
+	// DEBUG
+	//ATLTRACE("CPXC_FG::put_Time set to %f\n", m_lTimeFlag);
+
+	//return S_OK;
+//}
+
+STDMETHODIMP CPXC_FG::get_Point(/*[out, retval]*/ double *pVal)
+{ 
+	if( pVal == NULL ) 
+		return E_POINTER;
+
+	*pVal = m_dPoint[m_lPointIndex];
+	ATLTRACE("CPXC_FG::get_Point assigned %f to %d\n", m_dPoint[m_lPointIndex], m_lPointIndex);
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Point(/*[in]*/ double newVal)
+{ 
+	m_dPoint[ m_lPointIndex ] = newVal;
+
+	ATLTRACE("CPXC_FG::put_Point set %d to %f\n", m_lPointIndex, m_dPoint[m_lPointIndex] );
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_PointIndex(long *pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = m_lPointIndex;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_PointIndex(long newVal)
+{
+	// TODO: Add your implementation code here
+	m_lPointIndex = newVal;
+	return S_OK;
+}
+
+
+/*************************************
+* FRAMEGRABBER METHOD IMPLEMENTATION *
+*************************************/
+STDMETHODIMP CPXC_FG::get_ImageWidth(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = Width;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_ImageWidth(long newVal)
+{
+	// TODO: Add your implementation code here
+	// do nothing yet..	
+	Width = newVal;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_ImageHeight(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = Height;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_ImageHeight(long newVal)
+{
+	// TODO: Add your implementation code here
+	Height = newVal;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_ImageDepth(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = Depth;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_ImageLeft(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = Left;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_ImageLeft(long newVal)
+{
+	// TODO: Add your implementation code here
+	Left = newVal;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_ImageTop(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = Top;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_ImageTop(long newVal)
+{
+	// TODO: Add your implementation code here
+	Top = newVal;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_FrameGrabberID(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = FrameGrabberID;			// indicate which frame grabber board..
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_FrameGrabberID(long newVal)
+{
+	// TODO: Add your implementation code here
+	FrameGrabberID = newVal;
+	return S_OK;
+}
+
+
+STDMETHODIMP CPXC_FG::get_Brightness(float * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		*pVal = Brightness = pxc200.GetBrightness(fgh);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Brightness(float newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{   
+		if((newVal>=-0.5f)&&(newVal<=0.5f))
+		{
+		 Brightness = newVal;
+		 pxc200.SetBrightness(fgh,Brightness,0);
+		}
+		else
+		 ::MessageBox(NULL,"Brightness must be in between -0.5 and 0.5!","Error",MB_ICONERROR);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_Camera(short * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		*pVal = Camera = pxc200.GetCamera(fgh);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Camera(short newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		if((newVal>=0)&&(newVal<=3))
+		{
+			Camera = newVal;
+			pxc200.SetCamera(fgh,Camera,0);
+		}
+		else
+			::MessageBox(NULL,"Camera input must be in between 0 and 3","Error",MB_ICONERROR);
+	}
+	return S_OK;
+}
+
+
+STDMETHODIMP CPXC_FG::get_Contrast(float * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+  	 *pVal = Contrast = pxc200.GetContrast(fgh);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Contrast(float newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		if((newVal>=0.0f)&&(newVal<=2.0f))
+		{
+			Contrast = newVal;
+			pxc200.SetContrast(fgh,Contrast,0);
+		}
+		else
+			::MessageBox(NULL,"Contrast must be in between 0 and 2","Error",MB_ICONERROR);
+	}
+	return S_OK;
+}
+
+
+STDMETHODIMP CPXC_FG::get_FieldCount(long * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		*pVal = FieldCount = pxc200.GetFieldCount(fgh);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_FieldCount(long newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		FieldCount = newVal;
+		pxc200.SetFieldCount(fgh,FieldCount);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_Hue(float * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+  	 *pVal = Hue = pxc200.GetHue(fgh);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Hue(float newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		if((newVal>=-90.0f)&&(newVal<=90.0f))
+		{
+			Hue = newVal;
+			pxc200.SetHue(fgh,Hue,0);
+		}
+		else
+			::MessageBox(NULL,"Hue must be in between -90 and 90","Error",MB_ICONERROR);
+	}
+	return S_OK;
+}
+
+
+STDMETHODIMP CPXC_FG::get_Saturation(float * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+  	 *pVal = Saturation = pxc200.GetSaturation(fgh);
+	}
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Saturation(float newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		if((newVal>=0.0f)&&(newVal<=2.0f))
+		{
+			Saturation = newVal;
+			pxc200.SetSaturation(fgh,Saturation,0);
+		}
+		else
+			::MessageBox(NULL,"Saturation must be in between 0 and 2","Error",MB_ICONERROR);
+	}
+	return S_OK;
+}
+
+void CPXC_FG::ResetDevice()
+{
+	pxc200.Reset(fgh);
+	ATLTRACE("***** pxc200.Device ***** : Reset pxc200.Device to default state");
+}
+
+STDMETHODIMP CPXC_FG::get_FrameCount(long * pVal)
+{
+	// TODO: Add your implementation code here
+	*pVal = FrameCount;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_FrameCount(long newVal)
+{
+	// TODO: Add your implementation code here
+	FrameCount = newVal;
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::get_Chroma(short * pVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+  	 *pVal = Chroma = pxc200.GetChromaControl(fgh);
+	}
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::put_Chroma(short newVal)
+{
+	// TODO: Add your implementation code here
+	if(IsInitialized())
+	{
+		switch(newVal)
+		{
+		case SVIDEO:
+		case NOTCH_FILTER:
+		case AGC:
+		case BW_DETECT:
+		case COMB_FILTER:
+			Chroma = newVal;
+			pxc200.SetChromaControl(fgh,COMB_FILTER);
+			break;
+		default:
+			::MessageBox(NULL,"Invalid chroma value!","Error",MB_ICONERROR);
+		}
+	}
+	return S_OK;
+}
+
+
+// The OnConstruct Function sets all the bindings for the component, and \
+// also replaces FinalComponentInitialization
+STDMETHODIMP CPXC_FG::OnConstruct() {
+
+// TODO: Bindings. Personalize the binding of your component. 
+
+	IMA2_BindingInfo	m_Binding;
+
+	// OutputImage - sends image to appropriate ImageRepresentation
+	SAFEARRAYBOUND		SafeArrayBoundIn[1];									// We're making a one-dimensional SafeArray
+	SafeArrayBoundIn[0].lLbound	= 0;											// Our SafeArray starts at index 0
+	SafeArrayBoundIn[0].cElements = 1;											// It's empty, doesn't have any elements yet.
+	m_Binding.Name		= SysAllocString(L"OutputImage");						// Assign name to object
+	m_Binding.BindType	= BT_Default;											// Condition to accept a single binding
+	m_Binding.Path		= SysAllocString(L"");									// This is the path of the component you are connecting to
+	m_Binding.PIDs		= SafeArrayCreate(VT_BSTR, 1, SafeArrayBoundIn);		// Create and empty string array
+	m_Binding.IIDs		= SafeArrayCreate(VT_BSTR, 1, SafeArrayBoundIn);		// Create and empty string array
+	m_ConfigureBindings->Add(&m_Binding);										// Set up the clients bindings array.	
+
+	// Deallocate storage
+	SysFreeString(m_Binding.Name);
+	SysFreeString(m_Binding.Path);
+	SafeArrayDestroy(m_Binding.PIDs);
+	SafeArrayDestroy(m_Binding.IIDs);
+
+	return S_OK;
+}
+
+STDMETHODIMP CPXC_FG::OnDestruct() { return S_OK; }
+
+STDMETHODIMP CPXC_FG::Load(VARIANT Data) {
+	
+
+	// Variables
+	BSTR					ItemName = NULL;// The string holding the name of the item to write into the property bag.
+	_PropertyBagWrapper*	pIPB;			// COM Interface Pointer to the PropertyBag _Wrapper_ Class
+	HRESULT					hRes;			// The HRESULT value we get back from COM calls.
+	variant_t				*Var;
+
+	// (1) Create the property bag wrapper class
+	// (2) Have the class point to the interface 
+	hRes = CoCreateInstance(CLSID_PropertyBagWrapper, NULL, CLSCTX_INPROC_SERVER, IID__PropertyBagWrapper, (LPVOID*)&pIPB);
+
+		if (pIPB == NULL)	
+			return !S_OK;
+
+		// Get the pointer to the real VB property bag (the VB object (defined in msvbvm60.dll (aka VBRUN)) that our wrapper class created)
+		//hRes = pIPB->GetPropertyBag(&m_VBPropertyBag);
+		
+		// Pass Data to PropertyBag
+		hRes = pIPB->SetPropertyBag(&Data);
+
+		// Variable 1
+		// Define strings
+		ItemName	= SysAllocString(L"Width");
+		Var			= new variant_t;
+		// Read Data from the property bag
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Width = (long)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 2
+		ItemName	= SysAllocString(L"Height");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Height = (long)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 3
+		ItemName	= SysAllocString(L"Left");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Left = (long)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 4
+		ItemName	= SysAllocString(L"Top");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Top = (long)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 5
+		ItemName	= SysAllocString(L"FrameGrabberID");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		FrameGrabberID = (long)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 6
+		ItemName	= SysAllocString(L"Brightness");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Brightness = (float)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 7
+		ItemName	= SysAllocString(L"Camera");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Camera = (short)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 8
+		ItemName	= SysAllocString(L"Contrast");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Contrast = (float)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 9
+		ItemName	= SysAllocString(L"Hue");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Hue = (float)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 10
+		ItemName	= SysAllocString(L"Saturation");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Saturation = (float)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// variable 11
+		ItemName	= SysAllocString(L"Chroma");
+		Var			= new variant_t;
+		pIPB->GetFromPropertyBag(&ItemName,Var);  //2nd argument is return value (look retval for help)
+		Chroma = (short)*Var;
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Decrement the pointer reference count from our member variable. 
+		VariantClear(&m_VBPropertyBag);
+		
+		// Release
+		pIPB->Release();
+		
+
+// Final Component Initzialization Equivalent
+// Purpose	- Called to do allow the component to do any final setup.
+// *NOTE: This may be called more than once after a component is inserted!
+/*
+	if(!IsInitialized())
+	{	Width	=320;
+		Height	=240;
+
+		if(Initial(FrameGrabberID,Left,Top,Width,Height)!=S_OK)
+		{
+			::MessageBox(NULL,"Can't initialize pxc200. frame grabber!","ERROR",MB_ICONERROR);
+			return E_FAIL;
+		}
+		ImageData = new BYTE[Width*Height*Depth];
+//		ImageData = new BYTE[ImageMaxX*ImageMaxY*Depth];
+	}
+	else
+	{
+		CloseDevice();
+
+		// open device again..in case of user want to switch to
+		// other frame grabber board..
+		if(Initial(FrameGrabberID,Left,Top,Width,Height)!=S_OK)
+		{
+			::MessageBox(NULL,"Can't initialize pxc200. frame grabber!","ERROR",MB_ICONERROR);
+			return E_FAIL;
+		}
+	}
+    ATLTRACE("****pxc200.Device**** : FinalComponentInitialization done!\n");	
+*/
+	return S_OK;
+
+
+}
+
+STDMETHODIMP CPXC_FG::Save(VARIANT *pData) {
+	
+	// Variables
+	BSTR					ItemName = NULL;// The string holding the name of the item to write into the property bag.
+	variant_t				*Var;
+	_PropertyBagWrapper		*pIPB;			// COM Interface Pointer to the PropertyBag _Wrapper_ Class
+	HRESULT					hRes;			// The HRESULT value we get back from COM calls.
+
+	// (1) Create the property bag wrapper class
+	// (2) Have the class point to the interface 
+	hRes = CoCreateInstance(CLSID_PropertyBagWrapper, NULL, CLSCTX_INPROC_SERVER, IID__PropertyBagWrapper, (LPVOID*)&pIPB);
+
+		if (pIPB == NULL)	
+			return !S_OK;
+		
+		// Variable 1
+		// Create string names for items to be saved
+		ItemName = SysAllocString(L"Width");
+		// Store the data and the type of data into a variant_t type
+ 		Var = new variant_t(Width, VT_I4);
+		// Add an item to the property bag via the wrapper class.
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 2
+		ItemName = SysAllocString(L"Height");
+		Var = new variant_t(Height, VT_I4);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 3
+		ItemName = SysAllocString(L"Left");
+		Var = new variant_t(Left, VT_I4);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+				// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 4
+		ItemName = SysAllocString(L"Top");
+		Var = new variant_t(Top, VT_I4);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+				// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 5
+		ItemName = SysAllocString(L"FrameGrabberID");
+		Var = new variant_t(FrameGrabberID, VT_I4);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 6
+		ItemName = SysAllocString(L"Brightness");
+		Var = new variant_t(Brightness);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 7
+		ItemName = SysAllocString(L"Camera");
+		Var = new variant_t(Camera, VT_I2);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 8
+		ItemName = SysAllocString(L"Contrast");
+		Var = new variant_t(Contrast);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 9
+		ItemName = SysAllocString(L"Hue");
+		Var = new variant_t(Hue);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 10
+		ItemName = SysAllocString(L"Saturation");
+		Var = new variant_t(Saturation);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+		// Variable 11
+		ItemName = SysAllocString(L"Chroma");
+		Var = new variant_t(Chroma, VT_I2);
+		hRes = pIPB->AddToPropertyBag(&ItemName, Var);
+		// Deallocate
+		SysFreeString(ItemName);
+		delete Var;
+
+
+		// Returns a pointer to the PropertyBag as a VARIANT
+		hRes = pIPB->GetPropertyBag(&m_VBPropertyBag);
+		
+		// Copy the contents of the property bag to the pData VARIANT
+		VariantCopy(pData, &m_VBPropertyBag);
+
+		// Save the size of the data 
+		m_lDataSize = pData->parray->rgsabound[0].cElements;		
+
+		// Decrement the pointer reference count from our member variable. 
+		VariantClear(&m_VBPropertyBag);		
+
+		// Release
+		pIPB->Release();
+
+	return S_OK;
+}
+
+
+

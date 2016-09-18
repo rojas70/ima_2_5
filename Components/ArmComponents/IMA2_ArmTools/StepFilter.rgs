@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ArmTools.StepFilter.1 = s 'StepFilter Class'
+	{
+		CLSID = s '{F119E00B-89CE-4876-A58C-9958C30A7DD4}'
+	}
+	IMA2_ArmTools.StepFilter = s 'StepFilter Class'
+	{
+		CLSID = s '{F119E00B-89CE-4876-A58C-9958C30A7DD4}'
+		CurVer = s 'IMA2_ArmTools.StepFilter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F119E00B-89CE-4876-A58C-9958C30A7DD4} = s 'StepFilter Class'
+		{
+			ProgID = s 'IMA2_ArmTools.StepFilter.1'
+			VersionIndependentProgID = s 'IMA2_ArmTools.StepFilter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5D2D9F10-844D-4BAF-8EED-B352AD107AB2}'
+		}
+	}
+}

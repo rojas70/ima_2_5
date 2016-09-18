@@ -1,0 +1,38 @@
+// IMA2_CaptureManager.idl : IDL source for IMA2_CaptureManager.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_CaptureManager.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(430EA10E-6768-4CBB-A2C3-4092D567713F),
+		dual,
+		helpstring("IImage Interface"),
+		pointer_default(unique)
+	]
+	interface IImage : IDispatch
+	{
+	};
+
+[
+	uuid(47F5BB31-336B-46C1-84C6-AA663F12D5D5),
+	version(1.0),
+	helpstring("IMA2_CaptureManager 1.0 Type Library")
+]
+library IMA2_CAPTUREMANAGERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(A3EA23AF-7B71-44F0-8276-93FB78B0B80E),
+		helpstring("Image Class")
+	]
+	coclass Image
+	{
+		[default] interface IImage;
+	};
+};

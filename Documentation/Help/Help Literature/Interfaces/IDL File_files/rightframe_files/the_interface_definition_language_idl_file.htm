@@ -1,0 +1,251 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0105)http://msdn.microsoft.com/library/en-us/rpc/rpc/the_interface_definition_language_idl_file.asp?frame=true -->
+<!--TOOLBAR_EXEMPT--><HTML><HEAD><TITLE>The Interface Definition Language (IDL) File [RPC]</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="An IDL file contains one or more interface definitions." 
+name=Description>
+<META content="" name=Robots>
+<META content="" name=Keywords>
+<META content=en-us name=MS.LOCALE><LINK 
+href="the_interface_definition_language_idl_file_files/ie4.css" type=text/css 
+rel=stylesheet><LINK 
+href="the_interface_definition_language_idl_file_files/ie5.css" type=text/css 
+rel=stylesheet>
+<STYLE>BODY {
+	MARGIN: 0px; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<SCRIPT language=javascript 
+src="the_interface_definition_language_idl_file_files/langref.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="the_interface_definition_language_idl_file_files/linkcss.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="the_interface_definition_language_idl_file_files/toolbar.js"></SCRIPT>
+<LINK href="the_interface_definition_language_idl_file_files/default.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.0; .NET CLR 1.1.4322";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 1.1.4322)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.0; .NET CLR 1.1.4322";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+
+<SCRIPT>
+	if( self == top )
+{
+	location = "/library/en-us/rpc/rpc/the_interface_definition_language_idl_file.asp";
+}
+
+</SCRIPT>
+<xml id=xmlPageContext><eyebrow findmenu="false">
+	<item label="MSDN Home" url="/default.asp"/>
+	<item label="MSDN Library" url="/library/default.asp"/>
+	<item label="Win32 and COM Development" url="/library/en-us/dnanchor/html/anch_win32com.asp" id="msdnlib1369" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1369_.xml"/><item label="Networking" id="msdnlib1664" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1664_.xml"/><item label="Network Protocols" url="/library/en-us/dnanchor/html/ntwrkprot.asp" id="msdnlib1716" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1716_.xml"/><item label="Remote Procedure Call (RPC)" url="/library/en-us/dnanchor/html/rpcank.asp" id="msdnlib1748"/><item label="SDK Documentation" id="msdnlib1749"/><item label="Remote Procedure Call (RPC)" url="/library/en-us/rpc/rpc/rpc_start_page.asp" id="rpc2" xmlsrc="/library/en-us/toc/rpc/rpc2_.xml"/><item label="Overviews" url="/library/en-us/rpc/rpc/overviews.asp" id="rpc60"/><item label="The IDL and ACF Files" url="/library/en-us/rpc/rpc/the_idl_and_acf_files.asp" id="rpc101" xmlsrc="/library/en-us/toc/rpc/rpc101_.xml"/><item label="The Interface Definition Language (IDL) File" url="/library/en-us/rpc/rpc/the_interface_definition_language_idl_file.asp" id="rpc102"/></eyebrow></xml><!--VENUS_START-->
+<META content=rpc.the_interface_definition_language_idl_file name=MSHKeywordA>
+<META content="The Interface Definition Language (IDL) File" name=MSHTOCTitle>
+<META content="The Interface Definition Language (IDL) File" name=MSHRLTitle>
+<META content=_rpc_the_interface_definition_language_idl_file name=MSHKeywordA>
+<META content=TopicType:kbArticle name=MSHAttr>
+<META content=DocSet:PSDK name=MSHAttr>
+<META content=Locale:kbEnglish name=MSHAttr>
+<META content=Technology:rpc name=MSHAttr><!---VENUS_END---><LINK 
+href="the_interface_definition_language_idl_file_files/css.aspx" type=text/css 
+rel=stylesheet>
+<SCRIPT language=javascript>
+var doImage=doImage;var TType=TType;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&TYPE=' + tt + '&p=library_en-us_rpc_rpc_the_interface_definition_language_idl" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>');}}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1476" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0">
+<TABLE height=24 cellSpacing=0 cellPadding=4 width="100%" bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=eyebrow vAlign=center align=left width="100%">&nbsp;&nbsp; <A 
+      class=small href="http://msdn.microsoft.com/default.asp" target=_top>MSDN 
+      Home</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp" target=_top>MSDN 
+      Library</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/anch_win32com.asp" 
+      target=_top>Win32 and COM Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/ntwrkprot.asp" 
+      target=_top>Network Protocols</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/rpcank.asp" 
+      target=_top>Remote Procedure Call (RPC)</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/rpc/rpc/rpc_start_page.asp" 
+      target=_top>Remote Procedure Call (RPC)</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/rpc/rpc/overviews.asp" 
+      target=_top>Overviews</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/rpc/rpc/the_idl_and_acf_files.asp" 
+      target=_top>The IDL and ACF Files</A><A 
+      href="http://msdn.microsoft.com/library/en-us/rpc/rpc/"></A> 
+</TD></TR></TBODY></TABLE>
+<TABLE class=clsContainer style="TABLE-LAYOUT: fixed" cellSpacing=0 
+cellPadding=15 width="100%" border=0 float="left">
+  <TBODY>
+  <TR>
+    <TD vAlign=top><!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END--><!-- Begin Content -->
+      <TABLE class=buttonbarshade cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD>&nbsp;</TD></TR></TBODY></TABLE>
+      <TABLE class=buttonbartable cellSpacing=0>
+        <TBODY>
+        <TR id=hdr>
+          <TD class=runninghead noWrap>Platform&nbsp;SDK:&nbsp;Remote 
+            Procedure Call (RPC)</TD></TR></TBODY></TABLE>
+      <H1><A name=rpc.the_interface_definition_language_idl_file></A>The 
+      Interface Definition Language (IDL) File</H1>
+      <P>An IDL file contains one or more interface definitions. Each interface 
+      definition is composed of an interface header and an interface body. The 
+      interface header is demarcated by square brackets. The interface body is 
+      contained in curly brackets. This is illustrated in the following example 
+      interface:</P>
+      <P><PRE xml:space="preserve">[
+  /*Interface attributes go here. */
+]
+interface INTERFACENAME
+{
+  /*The interface body goes here. */
+}</PRE>
+      <P>This section gives an overview of the components of an interface. It is 
+      organized into the following topics:</P>
+      <P></P>
+      <UL>
+        <LI><A 
+        href="http://msdn.microsoft.com/library/en-us/rpc/rpc/the_idl_interface_header.asp">The 
+        IDL Interface Header</A> 
+        <LI><A 
+        href="http://msdn.microsoft.com/library/en-us/rpc/rpc/the_idl_interface_body.asp">The 
+        IDL Interface Body</A> </LI></UL>
+      <P></P>
+      <H4>See Also</H4>
+      <P><A 
+      href="http://msdn.microsoft.com/library/en-us/midl/midl/idl_attributes.asp">IDL 
+      Attributes</A></P><!-- Info Task Footer -->
+      <DIV class=itf>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%">
+        <TBODY>
+        <TR class=data>
+          <TD class=itf>&nbsp;&nbsp;
+            <HR align=left width="100%">
+          </TD></TR>
+        <TR class=data>
+          <TD class=itf vAlign=baseline align=left 
+            width="100%">&nbsp;&nbsp;Last updated: December 
+            2004&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+            title="Send feedback to the Platform SDK team at sdkfdbk@microsoft.com" 
+            href="mailto:sdkfdbk@microsoft.com?subject=TITLE: The Interface Definition Language (IDL) File [RPC]; RELEASE: December 2004; URL: rpc/the_interface_definition_language_idl_file.xml">What 
+            did you think of this topic?</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+            title="Order a Platform SDK CD" 
+            href="https://qmedia.e-storefront.com/showcontent.asp?contentname=PlatformSDKHome" 
+            target=_blank>Order a Platform SDK CD</A></TD></TR>
+        <TR class=data>
+          <TD class=itf vAlign=baseline align=left width="100%">&nbsp;&nbsp;<A 
+            href="http://msdn.microsoft.com/library/en-us/sdkintro/sdkintro/legal_information_sdk.asp">© 
+            2004 Microsoft Corporation. All rights reserved. Terms of 
+        use.</A></TD></TR></TBODY></TABLE></DIV>
+      <P>&nbsp;</P><!-- End Info Task Footer --><!-- End Content --></TD></TR></TBODY></TABLE><BR 
+style="OVERFLOW: hidden; LINE-HEIGHT: 1px" clear=all>
+<TABLE id=msviFooter cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=bottom>
+    <TD id=msviFooter2 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')">
+      <DIV id=msviLocalFooter><NOBR><A 
+      href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/isapi/gomscom.asp?target=/legal/" 
+      target=_parent>Legal</A> |</NOBR><WBR><NOBR><A 
+      href="http://register.microsoft.com/contactus30/contactus.asp?domain=msdn" 
+      target=_parent>Contact Us</A> |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/flash/" target=_parent>MSDN Flash 
+      Newsletter</A></NOBR></DIV>
+      <DIV id=msviGlobalFooter><SPAN dir=ltr>©2005 Microsoft Corporation. All 
+      rights reserved.&nbsp;</SPAN><NOBR><A 
+      href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+      Statement</A></NOBR></DIV></TD>
+    <TD width=105 bgColor=#669aff><IMG title="" height=29 alt=Microsoft 
+      src="the_interface_definition_language_idl_file_files/text.jpg" width=105 
+      border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>var msviFooter2;if (document.getElementById){msviFooter2 = document.getElementById("msviFooter2");msviFooter2.style.filter = "";}</SCRIPT>
+
+<TABLE height=58 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV style="WIDTH: 200px"></DIV></TD>
+    <TD 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')" 
+    width="100%"></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>footerjs(document);</SCRIPT>
+</BODY></HTML>

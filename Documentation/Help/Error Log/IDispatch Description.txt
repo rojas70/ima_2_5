@@ -1,0 +1,16 @@
+
+COM Object:
+IUnknown
+IDispatch ("dual" interface objects, late binding objects in VB)
+IComponents (IMA)
+<other IMA Interfaces>
+
+
+
+Dim Obj as Object
+Set Obj = MyInterfacePOinter
+VB:		CallByName(Obj, "FuncName", params, ...)
+C++:		pIDisp->Invoke("FuncName", parameters, ...); late binding (COM calculates the adress to call)
+
+
+pInterface->FuncName(...)	early binding  (compiler calculates the address to call)

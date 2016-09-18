@@ -1,0 +1,1320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0043)http://www.devx.com/vb2themax/Article/19830 -->
+<HTML><HEAD><TITLE>IDL For VB Tutorial</TITLE><LINK 
+title="DevX Latest Articles Feed" 
+href="//services.devx.com/outgoing/devxfeed.xml" type=application/rss+xml 
+rel=alternate><LINK title="DevX Java Feed" 
+href="//services.devx.com/outgoing/javafeed.xml" type=application/rss+xml 
+rel=alternate>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1"><LINK 
+href="Interfaces in VB - An IDL Tutorial_files/cps.css" type=text/css 
+rel=stylesheet><LINK 
+href="Interfaces in VB - An IDL Tutorial_files/devxstyles.css" type=text/css 
+rel=stylesheet>
+<META content="" name=keywords>
+<META 
+content="The Interface Definition Language, or IDL, is a language for describing collections of data types, constants, methods (functions, procedures, etc.), and groups of methods known as interfaces. VB creates type information for you automatically when you create ActiveX components, but you can also create independent type information using IDL and the Microsoft IDL compiler. Using IDL in this way can enhance your programming skills and allow you to solve some pretty complex problems. The best way to get an understanding of how to write IDL, compile it to a type library, and use the type library in VB is see some real examples in a tutorial format, as this article demonstrates." 
+name=Description>
+<META 
+content="599 COM/DCOM/COM+ -- Products and Technologies :: Messaging/Middleware :: COM/DCOM/COM+" 
+name=Topic>
+<SCRIPT language=javascript src=""></SCRIPT>
+
+<META content="MSHTML 6.00.2800.1476" name=GENERATOR></HEAD>
+<BODY topMargin=2 marginheight="2">
+<SCRIPT language=JavaScript>
+<!--
+OAS_url = 'http://mjxads.internet.com/RealMedia/ads/';
+OAS_sitepage = 'devx/cplus/599/19830';
+OAS_listpos = 'house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2';
+OAS_query = '';
+OAS_target = '_top';
+OAS_version = 10;
+OAS_rn = '001234567890'; OAS_rns = '1234567890';
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+function OAS_NORMAL(pos) {
+var_a=('<A HREF="' + OAS_url + 'click_nx.cgi/' + OAS_sitepage );
+var_b=(var_a + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + '?' );
+var_c=(var_b+ OAS_query + '" TARGET=' + OAS_target + '>');
+document.write(var_c);
+var_aa=('<IMG SRC="' + OAS_url + 'adstream_nx.cgi/' + OAS_sitepage ); 
+var_bb=( var_aa + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + '?');
+var_cc=( var_bb + OAS_query + '" BORDER=0></A>');
+document.write(var_cc);
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.1>
+<!--
+function OAS_RICH( pos )
+{
+	document.write( OAS_sitepage + ": " + pos );
+}
+OAS_version = 11;
+if (navigator.userAgent.indexOf('Mozilla/3') != -1 )
+	OAS_version = 10;
+if (navigator.userAgent.indexOf('Mozilla/4.0 WebTV') != -1)
+	OAS_version = 10;
+if (OAS_version >= 11) 
+{
+	var_aaa = '<SCRIPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url; 
+	var_aaa+= 'adstream_mjx.ads/' + OAS_sitepage + '/1'; 
+	var_aaa+= OAS_rns + '@' + OAS_listpos + '?' + OAS_query ;
+	var_aaa+= '"><\/SCRIPT>';
+	document.write(var_aaa);
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+<!--
+document.write('');
+function OAS_AD(pos) 
+{
+	if (OAS_version >= 11)
+		OAS_RICH(pos);
+	else
+		OAS_NORMAL(pos);
+}
+//-->
+</SCRIPT>
+<!-- OAS ad tag start -->
+<DIV class="" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 5px; WIDTH: 799px" 
+align=center>
+<DIV><IMG height=0 alt=advertisement hspace=0 
+src="Interfaces in VB - An IDL Tutorial_files/2228.gif" width=0 align=top 
+border=0></DIV>
+<TABLE style="MARGIN-TOP: 0px" width="100%" align=center>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD align=middle width="100%"><!-- ---- OAS AD 'house_ribbon' begin ---- -->
+            <SCRIPT language=JavaScript>
+<!--
+OAS_AD('house_ribbon');
+//-->
+</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!house_ribbon"><IMG 
+            src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!hou.gif" 
+            border=0> 
+        </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV><!-- OAS ad tag end --><!-- OAS ad tag start -->
+<DIV class="" style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; WIDTH: 799px" 
+align=center>
+<DIV><IMG height=9 alt=advertisement hspace=0 src="" width=108 align=top 
+border=0></DIV>
+<TABLE style="MARGIN-TOP: 0px" width="100%" align=center>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE cellSpacing=0 cellPadding=5 align=center 
+      background="Interfaces in VB - An IDL Tutorial_files/3173.gif" border=0>
+        <TBODY>
+        <TR>
+          <TD><!-- ---- OAS AD '468x60-1' begin ---- -->
+            <SCRIPT language=JavaScript>
+<!--
+OAS_AD('468x60-1');
+//-->
+</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!468x60-1"><IMG 
+            src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!468.gif" 
+            border=0> 
+        </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV><!-- OAS ad tag end --><!-- cache: WT87_W3228v4  01/05/2005 07:25:24 --><!-- (3228) - start 2 col layout: Exp DevX Bottom Logo w/ Search -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-TOP: 10px" vAlign=top width=317>
+      <DIV><!-- cache: WT86_W3400v1  01/05/2005 07:25:24 --><!-- start imagelink -->
+      <DIV><A href="http://www.devx.com/DevX/Door/6947"><IMG height=70 alt="" 
+      hspace=0 src="Interfaces in VB - An IDL Tutorial_files/7819.gif" width=317 
+      border=0></A></DIV><!-- end imagelink --></DIV>
+      <DIV style="MARGIN-TOP: 0px"><!-- cache: WT86_W3401v1  01/05/2005 07:25:24 --><!-- start imagelink -->
+      <DIV><A href="http://www.devx.com/DevX/Door/6947"><IMG height=11 alt="" 
+      hspace=0 src="" width=161 
+    border=0></A></DIV><!-- end imagelink --></DIV></TD>
+    <TD style="PADDING-TOP: 10px" vAlign=top width="100%">
+      <DIV>
+      <TABLE height=20 cellSpacing=0 cellPadding=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top noWrap align=right><SPAN class=articleNav>Welcome, 
+            Guest!</SPAN> &nbsp;&nbsp;&nbsp; <A class=basiclink 
+            href="https://www.devx.com/DevX/Site/6196/0?url=http://www.devx.com/vb2themax/Article/19830">DevX 
+            Log In</A> | <A class=basiclink 
+            href="https://www.devx.com/premier/Door/17532/0?url=http://www.devx.com/vb2themax/Article/19830">Premier 
+            Club Log In/Registration</A> </TD></TD></TR></TBODY></TABLE></DIV>
+      <DIV style="MARGIN-TOP: 0px"><!-- cache: WT169_W1924v3  01/05/2005 07:25:24 -->
+      <SCRIPT language=javascript>
+	function validQuery(  )
+	{
+		var theQuery = document.searchForm.q.value;
+		theQuery = theQuery.replace( /[^a-zA-Z0-9]/g, "" );
+		return theQuery.length > 0;
+	}
+</SCRIPT>
+
+      <TABLE style="MARGIN-BOTTOM: 0px" cellSpacing=0 cellPadding=0 width="100%" 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD width="1%" height=30><IMG height=30 src="" width=105 
+border=0></TD>
+          <TD style="FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: yellow" noWrap 
+          width="99%" bgColor=#000099 height=30>
+            <FORM style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px" name=searchForm 
+            onsubmit="return validQuery();" 
+            action=http://search.devx.com/search.cfm 
+            method=get>&nbsp;&nbsp;<INPUT style="FONT-SIZE: 10px" maxLength=255 
+            size=40 name=q> <INPUT 
+            style="MARGIN-TOP: 0px; FONT-SIZE: 10px; MARGIN-BOTTOM: 0px" 
+            type=checkbox value=yes name=i>Include Code&nbsp;&nbsp; <INPUT 
+            type=image src="" align=absMiddle border=0 name=sa> <A 
+            class=promotext href="http://www.devx.com/DevX/HTML/11715"><U>Search 
+            Tips</U></A> </TD><INPUT type=hidden value=1 name=a><INPUT type=hidden 
+          value=1 name=f><INPUT type=hidden value=0 
+      name=s></FORM></TR></TBODY></TABLE></DIV>
+      <DIV style="MARGIN-TOP: 0px"><!-- cache: WT90_W3141v2_S6946v932  01/14/2005 09:22:00 -->
+      <TABLE 
+      style="BORDER-RIGHT: #000099 2px solid; MARGIN-BOTTOM: 3px; BORDER-BOTTOM: #000099 2px solid" 
+      height=20 cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffe48e 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD class=helptext noWrap align=middle><A class=helptext 
+            href="http://www.devx.com/DevXNews/LegacyLink/17996">TODAY'S&nbsp;HEADLINES</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=helptext 
+            href="http://www.devx.com/DevX/Door/18001">ARTICLE&nbsp;ARCHIVE</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=helptext 
+            href="http://www.devx.com/DevX/LegacyLink/7038">SKILLBUILDING</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=helptext 
+            href="http://www.devx.com/tips/vtBrowser/20528">TIP&nbsp;BANK</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=helptext 
+            href="http://www.devx.com/DevX/LegacyLink/8142">SOURCEBANK</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=helptext 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/7032">FORUMS</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=helptext 
+            href="http://www.devx.com/DevX/EmailSignupForm/17709">NEWSLETTERS</A> 
+          </TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE><!-- end 2 col layout --><!-- cache: WT87_W1766v8  01/03/2005 04:07:39 --><!-- (1766) - start 2 col layout: DevX Left Nav & Article Holder -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=161>
+      <DIV><!-- cache: WT167_W1897v8  01/07/2005 02:30:27 --><!-- (me.data_.widget_id) - start Bordered Box: Browse Devx Bordered Box -->
+      <TABLE cellSpacing=0 cellPadding=0 width=161 border=0>
+        <TBODY>
+        <TR>
+          <TD><!-- cache: WT85_W3508v1  01/07/2005 02:30:27 -->
+            <DIV><IMG height=20 alt="Browse DevX" hspace=0 
+            src="Interfaces in VB - An IDL Tutorial_files/9113.gif" width=161 
+            align=top border=0></DIV><!-- cache: WT193_W3459v5_S6946v932  01/14/2005 09:22:03 --><!-- HIER MENU START -->
+            <DIV class="" 
+            style="BORDER-RIGHT: #000099 2px solid; BORDER-LEFT: #000099 2px solid; WIDTH: 157px; BACKGROUND-COLOR: #ffe48e" 
+            align=left><A onmouseover="HM_f_PopUp('HM_Menu1',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu1')" 
+            href="http://www.devx.com/DevX/Door/16238"><IMG height=18 
+            src="Interfaces in VB - An IDL Tutorial_files/8601.gif" width=157 
+            border=0 name=sdz></A><A onmouseover="HM_f_PopUp('HM_Menu2',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu2')" 
+            href="http://www.devx.com/DevX/Door/16238#techshowcase"><IMG 
+            height=17 src="Interfaces in VB - An IDL Tutorial_files/8602.gif" 
+            width=157 border=0 name=vendorshowcases></A><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8603.gif" width=157 
+            border=0><A onmouseover="HM_f_PopUp('HM_Menu4',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu4')" 
+            href="http://www.devx.com/dotnet/Door/7040"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8604.gif" width=157 
+            border=0 name=dotnet2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu5',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu5')" 
+            href="http://www.devx.com/Java/Door/6972"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8605.gif" width=157 
+            border=0 name=java2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu6',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu6')" 
+            href="http://www.devx.com/cplus/Door/7042"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8606.gif" width=157 
+            border=0 name=cplus2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu7',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu7')" 
+            href="http://www.devx.com/webdev/Door/7048"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8607.gif" width=157 
+            border=0 name=webdev2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu8',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu8')" 
+            href="http://www.devx.com/dbzone/Door/7022"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8608.gif" width=157 
+            border=0 name=dbdev2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu9',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu9')" 
+            href="http://www.devx.com/security/Door/7045"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/9261.gif" width=157 
+            border=0 name=security></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu10',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu10')" 
+            href="http://www.devx.com/opensource/Door/7044"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8609.gif" width=157 
+            border=0 name=opensource2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu11',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu11')" 
+            href="http://www.devx.com/xml/Door/7050"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8610.gif" width=157 
+            border=0 name=xml2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu12',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu12')" 
+            href="http://www.devx.com/vb/Door/7047"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/9891.gif" width=157 
+            border=0 name=vbclassic></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu13',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu13')" 
+            href="http://www.devx.com/asp/Door/7041"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8612.gif" width=157 
+            border=0 name=asp2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu14',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu14')" 
+            href="http://www.devx.com/enterprise/Door/7043"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8613.gif" width=157 
+            border=0 name=enterprise2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu15',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu15')" 
+            href="http://www.devx.com/wireless/Door/7049"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8614.gif" width=157 
+            border=0 name=wireless2></A><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8616.gif" width=157 
+            border=0><A onmouseover="HM_f_PopUp('HM_Menu17',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu17')" 
+            href="http://www.devx.com/DevX/Door/17707"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/9492.gif" width=157 
+            border=0 name=topcoder></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu18',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu18')" 
+            href="http://www.devx.com/getHelpOn/Door/15766"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8618.gif" width=157 
+            border=0 name=tenminsolutions></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu19',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu19')" 
+            href="http://www.devx.com/Jupitermedia/Link/20835" 
+            target=_blank><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/9839.gif" width=157 
+            border=0 name=whitepapers2></A><A 
+            onmouseover="HM_f_PopUp('HM_Menu20',event)" 
+            onmouseout="HM_f_PopDown('HM_Menu20')" 
+            href="http://www.devx.com/DevX/LegacyLink/7035"><IMG height=17 
+            src="Interfaces in VB - An IDL Tutorial_files/8620.gif" width=157 
+            border=0 name=shopdevx></A> <A id=a16009menu 
+            href="http://www.devx.com/amd/Door/16009?trk=Leftnav%5FBR%5FAMD" 
+            name=a16009menu></A><A id=a6421menu 
+            href="http://www.devx.com/SummitDays/Door/6421?trk=Leftnav%5FBR%5FMS" 
+            name=a6421menu></A><A id=a21669menu 
+            href="http://www.devx.com/IBMCloudscape/Door/21669?trk=Cloudscape%5FLeftNav" 
+            name=a21669menu></A><A id=a21980menu 
+            href="http://www.devx.com/IBMDB2/Door/21980?trk=Stinger%5FLeftNav" 
+            name=a21980menu></A><A id=a6836menu 
+            href="http://www.devx.com/ibm/Door/6836?trk=Leftnav%5FBR%5FIBM1" 
+            name=a6836menu></A><A id=a21176menu 
+            href="http://www.devx.com/ibmpervasive/Door/21176?trk=Leftnav%5FBR%5FIBMMobile" 
+            name=a21176menu></A><A id=a22166menu 
+            href="http://www.devx.com/DevDemos/Door/22166?trk=Leftnav%5FBR%5FIBMRoboDemo" 
+            name=a22166menu></A><A id=a22308menu 
+            href="http://www.devx.com/ibmrational/Door/22308?trk=Leftnav%5FBR%5FIBMRational" 
+            name=a22308menu></A><A id=a6409menu 
+            href="http://www.devx.com/Intel/Door/6409?trk=Leftnav%5FBR%5FIntel" 
+            name=a6409menu></A><A id=a20301menu 
+            href="http://www.devx.com/TabletPC/Door/20301?trk=SDZ%5FFP%5FTablet" 
+            name=a20301menu></A><A id=a21352menu 
+            href="http://www.devx.com/BEAWebLogic/Door/21352" 
+            name=a21352menu></A><A id=a22396menu 
+            href="http://www.devx.com/CAIngres/Door/22396?trk=DevX%5FVS%5FCAIngres" 
+            name=a22396menu></A><A id=a22477menu 
+            href="http://www.devx.com/IntelVS/Door/22477" name=a22477menu></A><A 
+            id=a17479menu 
+            href="http://www.devx.com/DevX/Door/17479?trk=Leftnav%5FBR%5FVS%5FIronSpeed" 
+            name=a17479menu></A><A id=a17859menu 
+            href="http://www.devx.com/NationalInstruments/Door/17859" 
+            name=a17859menu></A><A id=a21475menu 
+            href="http://www.devx.com/rackspace/Door/21475" 
+            name=a21475menu></A><A id=a26626menu 
+            href="http://www.devx.com/SleepycatSoftware/Door/26626" 
+            name=a26626menu></A><A id=a22236menu 
+            href="http://www.devx.com/Sybase/Door/22236" name=a22236menu></A><A 
+            id=a21918menu href="http://www.devx.com/ZeroGSoftware/Door/21918" 
+            name=a21918menu></A><A id=a7040menu 
+            href="http://www.devx.com/dotnet/Door/7040" name=a7040menu></A><A 
+            id=a10169menu href="http://www.devx.com/codemag/Door/10169" 
+            name=a10169menu></A><A id=a17927menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17927" 
+            name=a17927menu></A><A id=a17928menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17928" 
+            name=a17928menu></A><A id=a6972menu 
+            href="http://www.devx.com/Java/Door/6972" name=a6972menu></A><A 
+            id=a22609menu href="http://www.devx.com/Java/Link/22609" 
+            target=_blank name=a22609menu></A><A id=a17921menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17921" 
+            name=a17921menu></A><A id=a8142menu 
+            href="http://www.devx.com/DevX/LegacyLink/8142" 
+            name=a8142menu></A><A id=a7042menu 
+            href="http://www.devx.com/cplus/Door/7042" name=a7042menu></A><A 
+            id=a17917menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17917" 
+            name=a17917menu></A><A id=a7048menu 
+            href="http://www.devx.com/webdev/Door/7048" name=a7048menu></A><A 
+            id=a7051menu href="http://www.devx.com/projectcool/Door/7051" 
+            name=a7051menu></A><A id=a17926menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17926" 
+            name=a17926menu></A><A id=a7022menu 
+            href="http://www.devx.com/dbzone/Door/7022" name=a7022menu></A><A 
+            id=a17925menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17925" 
+            name=a17925menu></A><A id=a7045menu 
+            href="http://www.devx.com/security/Door/7045" name=a7045menu></A><A 
+            id=a17919menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17919" 
+            name=a17919menu></A><A id=a7044menu 
+            href="http://www.devx.com/opensource/Door/7044" 
+            name=a7044menu></A><A id=a17946menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17946" 
+            name=a17946menu></A><A id=a17095menu 
+            href="http://www.devx.com/ibm/Door/17095" name=a17095menu></A><A 
+            id=a7050menu href="http://www.devx.com/xml/Door/7050" 
+            name=a7050menu></A><A id=a17924menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17924" 
+            name=a17924menu></A><A id=a7047menu 
+            href="http://www.devx.com/vb/Door/7047" name=a7047menu></A><A 
+            id=a18165menu href="http://www.devx.com/FreeVBCode/LegacyLink/18165" 
+            name=a18165menu></A><A id=a17914menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17914" 
+            name=a17914menu></A><A id=a7041menu 
+            href="http://www.devx.com/asp/Door/7041" name=a7041menu></A><A 
+            id=a17923menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17923" 
+            name=a17923menu></A><A id=a7043menu 
+            href="http://www.devx.com/enterprise/Door/7043" 
+            name=a7043menu></A><A id=a17920menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17920" 
+            name=a17920menu></A><A id=a10606menu 
+            href="http://www.devx.com/enterprise/Door/10606" 
+            name=a10606menu></A><A id=a7049menu 
+            href="http://www.devx.com/wireless/Door/7049" name=a7049menu></A><A 
+            id=a17918menu 
+            href="http://www.devx.com/ForumsvBulletin/LegacyLink/17918" 
+            name=a17918menu></A><A id=a11674menu 
+            href="http://www.devx.com/Intel/Door/11674" name=a11674menu></A><A 
+            id=a17707menu href="http://www.devx.com/DevX/Door/17707" 
+            name=a17707menu></A><A id=a10670menu 
+            href="http://www.devx.com/getHelpOn/Door/10670" 
+            name=a10670menu></A><A id=a10677menu 
+            href="http://www.devx.com/getHelpOn/Door/10677" 
+            name=a10677menu></A><A id=a10679menu 
+            href="http://www.devx.com/getHelpOn/Door/10679" 
+            name=a10679menu></A><A id=a10671menu 
+            href="http://www.devx.com/getHelpOn/Door/10671" 
+            name=a10671menu></A><A id=a10672menu 
+            href="http://www.devx.com/getHelpOn/Door/10672" 
+            name=a10672menu></A><A id=a10673menu 
+            href="http://www.devx.com/getHelpOn/Door/10673" 
+            name=a10673menu></A><A id=a10678menu 
+            href="http://www.devx.com/getHelpOn/Door/10678" 
+            name=a10678menu></A><A id=a10676menu 
+            href="http://www.devx.com/getHelpOn/Door/10676" 
+            name=a10676menu></A><A id=a15766menu 
+            href="http://www.devx.com/getHelpOn/Door/15766" 
+            name=a15766menu></A><A id=a20835menu 
+            href="http://www.devx.com/Jupitermedia/Link/20835" target=_blank 
+            name=a20835menu></A><A id=a7035menu 
+            href="http://www.devx.com/DevX/LegacyLink/7035" 
+            name=a7035menu></A><A id=HMDOMtest 
+            href="http://www.devx.com/vb2themax/Article/"></A>
+            <SCRIPT language=JavaScript type=text/javascript>
+	if(window.event + "" == "undefined") event = null;
+	function HM_f_PopUp(){return false};
+	function HM_f_PopDown(){return false};
+	popUp = HM_f_PopUp;
+	popDown = HM_f_PopDown;
+	
+	function menuItemClick(linkId,href)
+	{
+		var theLink = document.getElementById(linkId);
+		if(theLink)
+		{
+			if(theLink.click)
+				theLink.click();
+			else
+			{
+				var target = theLink.target;
+				if( target.toLowerCase() == "_blank" )
+				{
+					window.open(theLink.href,"");
+				}
+				else
+				{
+					window.location = theLink.href;
+				}
+			}
+		}
+		else
+		{
+			window.location = href;
+		}
+	}
+
+
+	
+	HM_ScriptDir   = "/scripts/";
+	document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='/scripts/hierMenu/WT193_W3459v5_S6946v932.js' TYPE='text/javascript'><\/SCRIPT>");
+	document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='/scripts/hierMenu/WT193_W3459v5.js' TYPE='text/javascript'><\/SCRIPT>");
+	
+</SCRIPT>
+            </DIV><!-- HIER MENU END --></TD></TR>
+        <TR>
+          <TD><IMG height=23 
+            src="Interfaces in VB - An IDL Tutorial_files/9114.gif" width=161 
+            align=top border=0></TD></TR></TBODY></TABLE></DIV>
+      <DIV style="MARGIN-TOP: 20px"><!-- cache: WT168_W1899v2_C19830v1  01/03/2005 05:35:15 -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV><IMG height=31 
+            src="Interfaces in VB - An IDL Tutorial_files/3918.gif" width=164 
+            border=0></DIV>
+            <TABLE borderColor=#ff6600 cellSpacing=0 cellPadding=3 rules=none 
+            width=140 align=left bgColor=#ffffff border=1 frame=rhs>
+              <TBODY>
+              <TR>
+                <TD vAlign=top>
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=""><A class=basiclink 
+                        href="http://www.devx.com/assets/sourcecode/8136.zip">Download 
+                        the code for this article</A><BR>
+                        <DIV></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+      <DIV style="MARGIN-TOP: 20px"></DIV>
+      <DIV style="MARGIN-TOP: 20px"><!-- cache: WT172_W2769v1_C19830v1  01/03/2005 05:35:15 --></DIV>
+      <DIV style="MARGIN-TOP: 20px"><!-- cache: WT171_W1952v1_C19830v1  01/03/2005 05:35:15 --></DIV>
+      <DIV style="MARGIN-TOP: 20px"><!-- cache: WT166_W3291v5  01/05/2005 07:25:25 -->
+      <TABLE cellSpacing=0 cellPadding=0 width=164 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <DIV><IMG height=31 
+            src="Interfaces in VB - An IDL Tutorial_files/7463.gif" width=164 
+            align=top border=0></DIV>
+            <TABLE style="BORDER-RIGHT: #ff6600 1px solid" cellSpacing=0 
+            cellPadding=3 width=140 align=left>
+              <TBODY>
+              <TR>
+                <TD vAlign=top bgColor=#fafae6><!-- cache: WT102_W3302v1  01/05/2005 07:25:25 --><A 
+                  class=smallfont 
+                  href="http://www.devx.com/Jupitermedia/Link/17875" 
+                  target=_blank>Partners &amp; Affiliates</A> <!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp1' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp1');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp1"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp1.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp2' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp2');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp2"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp2.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp3' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp3');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp3"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp3.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp4' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp4');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp4"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp4.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp5' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp5');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp5"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp5.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp6' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp6');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp6"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp6.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp7' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp7');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp7"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp7.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp8' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp8');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp8"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp8.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp9' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp9');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp9"><IMG 
+                              src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp9.gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp10' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp10');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp10"><IMG 
+                              src="O:\Documentation\Help Files\Interfaces in VB - An IDL Tutorial_files\19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp1(1).gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp11' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp11');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp11"><IMG 
+                              src="O:\Documentation\Help Files\Interfaces in VB - An IDL Tutorial_files\19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp1(2).gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp12' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp12');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp12"><IMG 
+                              src="O:\Documentation\Help Files\Interfaces in VB - An IDL Tutorial_files\19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp1(3).gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+                  <TABLE cellSpacing=0 cellPadding=1 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=basiclink><!-- ---- OAS AD 'cp13' begin ---- -->
+                              <SCRIPT language=JavaScript>
+<!--
+OAS_AD('cp13');
+//-->
+</SCRIPT>
+                              <NOSCRIPT><A 
+                              href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp13"><IMG 
+                              src="O:\Documentation\Help Files\Interfaces in VB - An IDL Tutorial_files\19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!cp1(4).gif" 
+                              border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- OAS ad tag end --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+      <DIV style="MARGIN-TOP: 20px"><!-- OAS ad tag start -->
+      <DIV><IMG height=9 alt=advertisement hspace=0 
+      src="Interfaces in VB - An IDL Tutorial_files/3174.gif" width=108 
+      align=top border=0></DIV>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- ---- OAS AD '120x60-1' begin ---- -->
+            <SCRIPT language=JavaScript>
+<!--
+OAS_AD('120x60-1');
+//-->
+</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!120x60-1"><IMG 
+            src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!120.gif" 
+            border=0> 
+        </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE><!-- OAS ad tag end --></DIV>
+      <DIV style="MARGIN-TOP: 20px"><!-- OAS ad tag start -->
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- ---- OAS AD '125x125-2' begin ---- -->
+            <SCRIPT language=JavaScript>
+<!--
+OAS_AD('125x125-2');
+//-->
+</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!125x125-2"><IMG 
+            src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!125.gif" 
+            border=0> 
+        </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE><!-- OAS ad tag end --></DIV></TD>
+    <TD vAlign=top>
+      <DIV><!-- cache: WT98_W1235v3  01/05/2005 07:25:25 -->
+      <TABLE style="MARGIN-TOP: 0px; PADDING-TOP: 0px" cellSpacing=0 
+      cellPadding=4 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- cache: WT98_W1624v7  01/03/2005 04:17:58 -->
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=top><!-- cache: WT156_W4543v1_S6946v932_C19830v1  01/15/2005 01:04:04 -->
+                  <DIV class="" style="TEXT-ALIGN: center">
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top>&nbsp;</TD>
+                      <TD width=0><IMG height=1 
+                        src="Interfaces in VB - An IDL Tutorial_files/invis.gif" 
+                        width=0></TD>
+                      <TD vAlign=top>
+                        <DIV class=smallfont><A 
+                        href="http://www.devx.com/IBMCloudscape/Link/22391">Download 
+                        Cloudscape</A>--the Open Source Database from IBM. No 
+                        registration required, just <A 
+                        href="http://www.devx.com/IBMCloudscape/Link/22391">click 
+                        here.</A> </DIV></TD></TR></TBODY></TABLE></DIV><!-- (3187) - start 3 col layout: Top Gold Curve layout --><!-- table start -->
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR><!-- first table column start -->
+                      <TD width=122>
+                        <DIV><!-- cache: WT85_W3184v1  01/03/2005 04:07:39 -->
+                        <DIV><IMG height=8 alt="" hspace=0 
+                        src="Interfaces in VB - An IDL Tutorial_files/7317.gif" 
+                        width=8 align=top border=0></DIV></DIV><!-- table: left column end, middle column start --></TD>
+                      <TD width="100%">
+                        <DIV><!-- cache: WT98_W3185v1  01/03/2005 04:17:57 -->
+                        <TABLE style="BORDER-TOP: #000099 1px solid" height=8 
+                        cellSpacing=0 cellPadding=0 width="100%" 
+bgColor=#ffe48e>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%"></TD></TR></TBODY></TABLE></DIV><!-- table: middle column end, right column start --></TD>
+                      <TD width=7>
+                        <DIV><!-- cache: WT85_W3186v1  01/03/2005 04:07:36 -->
+                        <DIV><IMG height=8 alt="" hspace=0 
+                        src="Interfaces in VB - An IDL Tutorial_files/7318.gif" 
+                        width=8 align=top border=0></DIV></DIV><!-- table: right column end, table end --></TD></TR></TBODY></TABLE><!-- end 3 col layout -->
+                  <DIV class=expgoldbox 
+                  style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px" 
+                  align=right>
+                  <TABLE border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><FONT class=smallfont><A 
+                        href="http://www.devx.com/vb2themax/Article/19830#rateThisContentLink">Rate 
+                        this item</A> | 0 users have rated this item.</FONT> 
+                    </TD></TR></TBODY></TABLE></DIV><!-- cache: WT176_W3339v1_C19830v1  01/03/2005 05:35:15 -->
+                  <TABLE class=expgoldbox 
+                  style="PADDING-RIGHT: 3px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px">
+                    <TBODY>
+                    <TR>
+                      <TD class=smallfontRight><A 
+                        href="http://www.devx.com/vb2themax/Article/19830/1954?pf=true" 
+                        target=PFWindow><IMG alt=" Print" 
+                        src="Interfaces in VB - An IDL Tutorial_files/7694.gif" 
+                        border=0> Print</A> </TD></TR></TBODY></TABLE>
+                  <SCRIPT language=javascript>
+function showSupportItem(itemName)
+{
+	if( articleSpptItems[itemName] )
+	{
+		var theURL = 'http://www.devx.com/vb2themax/Article/19830/1763';
+		theURL += '?supportItem='+articleSpptItems[itemName].number;
+		popUpWindow(theURL, articleSpptItems[itemName].width, articleSpptItems[itemName].height);
+	}
+	else
+		alert("Sorry, "+itemName+" could not be found.");
+}
+function SupportItem(number, width, height)
+{
+	this.number = number;
+	this.width = width;
+	this.height = height;
+	return this;
+}
+articleSpptItems = new Object(); 
+	
+
+</SCRIPT>
+
+                  <TABLE 
+                  style="BORDER-RIGHT: #000099 1px solid; BORDER-LEFT: #000099 1px solid" 
+                  cellSpacing=0 cellPadding=10 rules=none width="100%" 
+                  frame=vsides>
+                    <TBODY>
+                    <TR>
+                      <TD class=expgoldbox 
+                      style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px">
+                        <TABLE cellSpacing=0 cellPadding=0 border=0>
+                          <TBODY>
+                          <TR>
+                            <TD vAlign=top width=75><IMG height=75 
+                              src="Interfaces in VB - An IDL Tutorial_files/4452.gif" 
+                              width=75 border=0></TD>
+                            <TD width=10>&nbsp;</TD>
+                            <TD vAlign=top>
+                              <DIV class=articleTitle>IDL For VB Tutorial</DIV>
+                              <DIV class=articleDek>The Interface Definition 
+                              Language, or IDL, is a language for describing 
+                              collections of data types, constants, methods 
+                              (functions, procedures, etc.), and groups of 
+                              methods known as interfaces. VB creates type 
+                              information for you automatically when you create 
+                              ActiveX components, but you can also create 
+                              independent type information using IDL and the 
+                              Microsoft IDL compiler. Using IDL in this way can 
+                              enhance your programming skills and allow you to 
+                              solve some pretty complex problems. The best way 
+                              to get an understanding of how to write IDL, 
+                              compile it to a type library, and use the type 
+                              library in VB is see some real examples in a 
+                              tutorial format, as this article 
+demonstrates.&nbsp;
+                              <DIV><BR>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=articleAuthor align=left>by Philip 
+                                Fucich</TD>
+                                <TD class=articleAuthor align=right>May 6, 
+                                2000</TD></TR></TBODY></TABLE></DIV></DIV></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=expwhitebox 
+                      style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px">
+                        <TABLE style="MARGIN-BOTTOM: 10px; MARGIN-LEFT: 10px" 
+                        cellSpacing=0 cellPadding=0 align=right border=0>
+                          <TBODY>
+                          <TR>
+                            <TD align=middle><IMG height=9 
+                              src="Interfaces in VB - An IDL Tutorial_files/3174.gif" 
+                              width=108 border=0></TD></TR>
+                          <TR>
+                            <TD><!-- OAS ad tag start -->
+                              <DIV><IMG height=0 alt=advertisement hspace=0 
+                              src="Interfaces in VB - An IDL Tutorial_files/2228.gif" 
+                              width=0 align=top border=0></DIV>
+                              <TABLE width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=top><!-- ---- OAS AD '336x280' begin ---- -->
+                                <SCRIPT language=JavaScript>
+<!--
+OAS_AD('336x280');
+//-->
+</SCRIPT>
+                                <NOSCRIPT><A 
+                                href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!336x280"><IMG 
+                                src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!336.gif" 
+                                border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE><!-- OAS ad tag end --></TD></TR></TBODY></TABLE>
+                        <DIV>
+                        <P>The Interface Definition Language, or IDL, is a 
+                        language for describing collections of data types, 
+                        constants, methods (functions, procedures, etc.), and 
+                        groups of methods known as interfaces. This is not all 
+                        IDL can describe, but its what were primarily concerned 
+                        with. When you use VBs object browser to look at 
+                        classes, functions, and types native to VB, or those 
+                        provided by some other component, you are looking at 
+                        what is commonly called type information. VB creates 
+                        type information for you automatically when you create 
+                        ActiveX components, but you can also create independent 
+                        type information using IDL and the Microsoft IDL 
+                        compiler. Using IDL in this way can enhance your 
+                        programming skills and allow you to solve some pretty 
+                        complex problems. The best way to get an understanding 
+                        of how to write IDL, compile it to a type library, and 
+                        use the type library in VB is see some real examples in 
+                        a tutorial format. I believe this will give you a better 
+                        understanding of this technique. To that end, I have 
+                        written this article with a strong emphasis on good, 
+                        meaningful, examples. </P>
+                        <P>The first three examples are designed to give you 
+                        needed background information. The fourth example walks 
+                        you through a solution to a real problem that can be 
+                        solved very effectively using this technique. Throughout 
+                        the examples, I include references to articles and books 
+                        that will provide you with important background 
+                        information.</P>
+                        <P><STRONG>Requirements</STRONG></P>
+                        <P>To get the most out of this article, not to mention 
+                        your software development efforts, you need Microsoft 
+                        Visual Studio Professional. This article is based on 
+                        version 6.0, but 5.0 will work fine. Here are the 
+                        programs you will use if try the examples in this 
+                        article: </P>
+                        <UL>
+                          <LI>VB6.EXE Visual Basic 
+                          <LI>MSDEV.EXE Visual C++ 
+                          <LI>OLEVIEW.EXE OLE View Tool 
+                          <LI>GUIDGEN.EXE GUID Generation Tool 
+                          <LI>MIDL.EXE Microsoft IDL Compiler </LI></UL>
+                        <P>Dont worry, you will not be using MSDEV.EXE to write 
+                        C++. I think of it as a great tool that also does C++. 
+                        In addition to these programs, you will probably use the 
+                        MSDN Library CD to look up references included in this 
+                        article. If you want to go through the first three 
+                        examples a little more quickly, I have packed up the 
+                        sample code into the following zip file: <A 
+                        href="http://www.devx.com/articles/vbidl/Misc.Zip">Misc.Zip</A> 
+                        .</P>
+                        <P><STRONG>Example 1: Looking Under the Hood of VB 
+                        Components</STRONG></P>
+                        <P>Type information is the single most important element 
+                        in component development, and VB hides almost every 
+                        technical detail about it from the programmer. This 
+                        example is designed to get you under the hood with 
+                        respect to VB generated type libraries.</P>
+                        <P><STRONG>Example 2: Compiling and Registering a Type 
+                        Library </STRONG></P>
+                        <P>In subsequent examples you will need to be able to 
+                        compile type libraries and reference them from VB 
+                        projects. In this example you will compile an IDL file 
+                        using the Microsoft IDL compiler and register the 
+                        resulting type library file with Windows, thereby 
+                        allowing you to reference the type library in VB just 
+                        like an ActiveX component.</P>
+                        <P><STRONG>Example 3: IDL to VB </STRONG></P>
+                        <P>This example will begin to show you how to write IDL 
+                        by showing the effects of an IDL generated type library 
+                        in VB. You will see which IDL data types translate to VB 
+                        data types and which IDL method declarations translate 
+                        to VB method declarations.</P>
+                        <P><STRONG>Example 4: IDL for a Reason </STRONG></P>
+                        <P>The previous examples may help you understand how to 
+                        write IDL and create, register, and reference the 
+                        resulting compiled type libraries, but they dont give 
+                        you a reason to care. This example is designed to 
+                        provide a problem and an IDL/type library solution that 
+                        will show you the power of this technique.</P>
+                        <P><STRONG>IDL vs. ODL</STRONG></P>
+                        <P>Microsofts first incarnation of a type description 
+                        language was ODL (Object Description Language) which you 
+                        could compile using MKTYPLIB.EXE. According to MSDN 
+                        articles, the differences between IDL and ODL are minor. 
+                        The primary areas of difference are:</P>
+                        <UL>
+                          <LI>The syntax of typedef statements 
+                          <LI>Boolean data types 
+                          <LI>The scope of symbols used in enums 
+                          <LI>Support for certain base types </LI></UL>
+                        <P>If you want to know more about ODL vs. IDL, the 
+                        following MSDN topic should provide you more than enough 
+                        information:</P>
+                        <UL>
+                          <LI>MSDN Library(+)Platform SDK(+)COM and ActiveX 
+                          Object Services(+)MIDL(+)Using The MIDL 
+                          Compiler(+)Generating a Type Library With MIDL 
+                        </LI></UL></DIV>
+                        <DIV class=smallfont><I>Page 1 of 5</I> </DIV>
+                        <TABLE style="MARGIN-BOTTOM: 10px; MARGIN-LEFT: 10px" 
+                        cellSpacing=0 cellPadding=0 align=center border=0>
+                          <TBODY>
+                          <TR>
+                            <TD align=middle><IMG height=9 
+                              src="Interfaces in VB - An IDL Tutorial_files/3174.gif" 
+                              width=108 border=0></TD></TR>
+                          <TR>
+                            <TD><!-- OAS ad tag start -->
+                              <DIV><IMG height=0 alt=advertisement hspace=0 
+                              src="Interfaces in VB - An IDL Tutorial_files/2228.gif" 
+                              width=0 align=top border=0></DIV>
+                              <TABLE width="100%">
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=top><!-- ---- OAS AD 'accessunit' begin ---- -->
+                                <SCRIPT language=JavaScript>
+<!--
+OAS_AD('accessunit');
+//-->
+</SCRIPT>
+                                <NOSCRIPT><A 
+                                href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!accessunit"><IMG 
+                                src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!acc.gif" 
+                                border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE><!-- OAS ad tag end --></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR class=expwhitebox 
+                    style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px">
+                      <TD>
+                        <TABLE width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD align=left width="50%">&nbsp; </TD>
+                            <TD align=right width="50%"><A class="" 
+                              href="http://www.devx.com/vb2themax/Article/19830/0/page/2">Next 
+                              Page: Example 1: Looking Under the Hood of VB 
+                              Components <IMG height=22 src="" width=27 
+                              align=absMiddle border=0></A> 
+                      </TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD bgColor=#ffe48e><!-- cache: WT92_W636v1_C19830v1  01/03/2005 04:22:47 -->
+                        <TABLE width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD width="50%"><SPAN class=articleNav>Page 1: 
+                              </SPAN><A class=moreNewsletterLink 
+                              href="http://www.devx.com/vb2themax/Article/19830/1763/page/1">Introduction</A></TD>
+                            <TD width="50%"><SPAN class=articleNav>Page 4: 
+                              </SPAN><A class=moreNewsletterLink 
+                              href="http://www.devx.com/vb2themax/Article/19830/1763/page/4">Example 
+                              3: IDL to VB</A></TD></TR>
+                          <TR>
+                            <TD width="50%"><SPAN class=articleNav>Page 2: 
+                              </SPAN><A class=moreNewsletterLink 
+                              href="http://www.devx.com/vb2themax/Article/19830/1763/page/2">Example 
+                              1: Looking Under the Hood of VB Components</A></TD>
+                            <TD width="50%"><SPAN class=articleNav>Page 5: 
+                              </SPAN><A class=moreNewsletterLink 
+                              href="http://www.devx.com/vb2themax/Article/19830/1763/page/5">Example 
+                              4: IDL for a Reason</A></TD></TR>
+                          <TR>
+                            <TD width="50%"><SPAN class=articleNav>Page 3: 
+                              </SPAN><A class=moreNewsletterLink 
+                              href="http://www.devx.com/vb2themax/Article/19830/1763/page/3">Example 
+                              2: Compiling and Registering a Type Library</A></TD>
+                            <TD 
+                    width="50%">&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- cache: WT98_W2933v2  01/03/2005 04:17:59 -->
+                  <TABLE class=expgoldbox style="align: center" cellSpacing=0 
+                  cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD align=middle><!-- cache: WT85_W2934v2  01/03/2005 04:07:37 -->
+                        <DIV><IMG height=9 alt="" hspace=0 
+                        src="Interfaces in VB - An IDL Tutorial_files/5990.gif" 
+                        width=350 align=top border=0></DIV>
+                        <DIV class="" 
+                        style="BORDER-RIGHT: #ff6600 1px solid; BORDER-LEFT: #ff6600 1px solid; WIDTH: 350px; BACKGROUND-COLOR: #ffffff" 
+                        align=center><A name=rateThisContentLink>
+                        <TABLE border=0>
+                          <TBODY>
+                          <TR>
+                            <TD align=middle><A 
+                              href="https://www.devx.com/DevX/Site/6946?url=http%3A%2F%2Fwww%2Edevx%2Ecom%2Fvb2themax%2FArticle%2F19830%23rateThisContentLink"><FONT 
+                              class=morelink>Was this article useful? Please log 
+                              in to rate this item. </FONT></A></TD></TR>
+                          <TR>
+                            <TD align=middle><A 
+                              href="https://www.devx.com/DevX/Site/6946?url=http%3A%2F%2Fwww%2Edevx%2Ecom%2Fvb2themax%2FArticle%2F19830%23rateThisContentLink"><FONT 
+                              class=morelink>Don't have a log in? Get one 
+                              now.</FONT></A> </TD></TR></TBODY></TABLE></DIV><!-- cache: WT85_W2935v1  01/03/2005 04:07:37 -->
+                        <DIV><IMG height=9 alt="" hspace=0 
+                        src="Interfaces in VB - An IDL Tutorial_files/5991.gif" 
+                        width=350 align=top 
+                  border=0></DIV></A></TD></TR></TBODY></TABLE><!-- (3171) - start 3 col layout: Bottom Gold Curve layout --><!-- table start -->
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR><!-- first table column start -->
+                      <TD width=122>
+                        <DIV><!-- cache: WT85_W3169v1  01/03/2005 04:07:37 -->
+                        <DIV><IMG height=8 alt="" hspace=0 src="" width=8 
+                        align=top border=0></DIV></DIV><!-- table: left column end, middle column start --></TD>
+                      <TD width="100%">
+                        <DIV><!-- cache: WT98_W3172v1  01/03/2005 04:17:58 -->
+                        <TABLE style="BORDER-BOTTOM: #000099 1px solid" height=8 
+                        cellSpacing=0 cellPadding=0 width="100%" 
+bgColor=#ffe48e>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%"></TD></TR></TBODY></TABLE></DIV><!-- table: middle column end, right column start --></TD>
+                      <TD width=7>
+                        <DIV><!-- cache: WT85_W3170v1  01/03/2005 04:07:37 -->
+                        <DIV><IMG height=8 alt="" hspace=0 src="" width=8 
+                        align=top border=0></DIV></DIV><!-- table: right column end, table end --></TD></TR></TBODY></TABLE><!-- end 3 col layout --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE><!-- end 2 col layout --><!-- cache: WT98_W3770v3  01/05/2005 07:25:29 -->
+<TABLE style="MARGIN-TOP: 20px" cellSpacing=0 cellPadding=0 width="100%" 
+align=center border=0>
+  <TBODY>
+  <TR>
+    <TD align=middle width="100%"><!-- cache: WT98_W3077v3  01/05/2005 07:25:29 -->
+      <TABLE 
+      style="BORDER-RIGHT: #ff6600 2px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ff6600 2px solid; BORDER-LEFT: #ff6600 2px solid; WIDTH: 444px; BORDER-BOTTOM: #ff6600 2px solid; BACKGROUND-COLOR: #ffffff" 
+      align=center>
+        <TBODY>
+        <TR>
+          <TD><!-- OAS ad tag start -->
+            <DIV class="" style="BACKGROUND-COLOR: #eeeeee">
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top><!-- ---- OAS AD 'fl1' begin ---- -->
+                  <SCRIPT language=JavaScript>
+<!--
+OAS_AD('fl1');
+//-->
+</SCRIPT>
+                  <NOSCRIPT><A 
+                  href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!fl1"><IMG 
+                  src="Interfaces in VB - An IDL Tutorial_files/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!fl1.gif" 
+                  border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></DIV><!-- OAS ad tag end --><!-- OAS ad tag start -->
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top><!-- ---- OAS AD 'fl2' begin ---- -->
+                  <SCRIPT language=JavaScript>
+<!--
+OAS_AD('fl2');
+//-->
+</SCRIPT>
+                  <NOSCRIPT><A 
+                  href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!fl2"><IMG 
+                  src="" border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+            <DIV class="" style="BACKGROUND-COLOR: #eeeeee">
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top><!-- ---- OAS AD 'fl3' begin ---- -->
+                  <SCRIPT language=JavaScript>
+<!--
+OAS_AD('fl3');
+//-->
+</SCRIPT>
+                  <NOSCRIPT><A 
+                  href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!fl3"><IMG 
+                  src="" border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></DIV><!-- OAS ad tag end --><!-- OAS ad tag start -->
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top><!-- ---- OAS AD 'fl4' begin ---- -->
+                  <SCRIPT language=JavaScript>
+<!--
+OAS_AD('fl4');
+//-->
+</SCRIPT>
+                  <NOSCRIPT><A 
+                  href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!fl4"><IMG 
+                  src="" border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE><!-- OAS ad tag end --><!-- OAS ad tag start -->
+            <DIV class="" style="BACKGROUND-COLOR: #eeeeee">
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top><!-- ---- OAS AD 'fl5' begin ---- -->
+                  <SCRIPT language=JavaScript>
+<!--
+OAS_AD('fl5');
+//-->
+</SCRIPT>
+                  <NOSCRIPT><A 
+                  href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!fl5"><IMG 
+                  src="" border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></DIV><!-- OAS ad tag end --></TD></TR></TBODY></TABLE><!-- OAS ad tag start -->
+      <DIV class="" 
+      style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; PADDING-LEFT: 10px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 10px; WIDTH: 799px; PADDING-TOP: 10px" 
+      align=center>
+      <DIV><IMG height=9 alt=advertisement hspace=0 
+      src="Interfaces in VB - An IDL Tutorial_files/3174.gif" width=108 
+      align=top border=0></DIV>
+      <TABLE style="MARGIN-TOP: 0px" width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <TABLE cellSpacing=0 cellPadding=5 align=center 
+            background="Interfaces in VB - An IDL Tutorial_files/3173.gif" 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD><!-- ---- OAS AD '468x60-2' begin ---- -->
+                  <SCRIPT language=JavaScript>
+<!--
+OAS_AD('468x60-2');
+//-->
+</SCRIPT>
+                  <NOSCRIPT><A 
+                  href="http://63.236.18.118/RealMedia/ads/click_nx.ads/devx/cplus/599/19830@house_ribbon,468x60-1,cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13,120x60-1,125x125-2,336x280,accessunit,fl1,fl2,fl3,fl4,fl5,468x60-2!468x60-2"><IMG 
+                  src="" border=0> </A></NOSCRIPT><!-- ---- OAS AD '120x60-1' end ---- --></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV><!-- OAS ad tag end --><!-- cache: WT90_W1726v3_S6946v932  01/14/2005 09:22:06 -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=orange align=middle><A class=basiclink 
+            href="http://www.devx.com/DevX/LegacyLink/9634?trk=Foot%5FCL%5FAdinfo">Advertising&nbsp;Info</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=basiclink 
+            href="http://www.devx.com/premier/Door/17532?trk=Foot%5FCL%5FPC">Member&nbsp;Services</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=basiclink 
+            href="http://www.devx.com/DevX/LegacyLink/8487?trk=Foot%5FCL%5FContact">Contact&nbsp;Us</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=basiclink 
+            href="http://www.devx.com/DevX/Article/19999?trk=Foot%5FCL%5FHelp">Help</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=basiclink 
+            href="http://www.devx.com/DevX/LegacyLink/8167?trk=Foot%5FCL%5FFeedback">Feedback</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=basiclink 
+            href="http://www.devx.com/SiteMap/Door/15965">Site&nbsp;Map</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A class=basiclink 
+            href="http://www.devx.com/Jupitermedia/Link/20291" 
+            target=_Blank>Network&nbsp;Map</A>&nbsp;&nbsp;|&nbsp;&nbsp; <A 
+            class=basiclink 
+            href="http://www.devx.com/DevX/LegacyLink/8146">About</A> 
+        </TD></TR></TBODY></TABLE><BR clear=all>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=5 border=0>
+        <TBODY>
+        <TR>
+          <FORM action=http://search.internet.com/www.jupiterweb.com 
+method=post>
+          <TD align=middle><FONT face="verdana, arial, helvetica" 
+            size=-2><B>JupiterWeb networks:</B></FONT> 
+            <P><A class=foot href="http://www.internet.com/"><IMG height=15 
+            alt=internet.com hspace=0 src="" width=97 align=absMiddle 
+            border=0></A><IMG height=25 alt="" hspace=10 src="" width=1 
+            align=absMiddle border=0><A href="http://www.earthweb.com/"><IMG 
+            height=12 alt=earthweb.com hspace=5 src="" width=93 align=absMiddle 
+            border=0></A><IMG height=25 alt="" hspace=10 
+            src="Interfaces in VB - An IDL Tutorial_files/ruledivide_foot.gif" 
+            width=1 align=absMiddle border=0><A href="http://www.devx.com/"><IMG 
+            height=30 alt=Devx.com hspace=0 src="" width=35 align=absMiddle 
+            border=0></A><IMG height=25 alt="" hspace=10 
+            src="Interfaces in VB - An IDL Tutorial_files/ruledivide_foot.gif" 
+            width=1 align=absMiddle border=0><A 
+            href="http://www.clickz.com/"><IMG height=24 alt=ClickZ hspace=0 
+            src="" width=55 align=absMiddle border=0></A> 
+            <P><FONT face="verdana, arial, helvetica" size=-2><B>Search 
+            JupiterWeb:</B> <INPUT type=hidden value=1 name=IC_Summary> <INPUT 
+            type=hidden value=0 name=IC_StartNumber> <INPUT type=hidden value=10 
+            name=IC_BatchSize> <INPUT type=hidden value=50 
+            name=IC_RelevanceThreshold> <INPUT type=hidden value=all 
+            name=IC_QueryDatabase> <INPUT size=50 name=IC_QueryText> <INPUT 
+            type=image height=20 width=41 src="" align=absMiddle value=Find 
+            border=0 name=SUBMIT> </FONT>
+            <P><FONT face="verdana, arial, helvetica" size=-2><A class=foot 
+            href="http://www.jupitermedia.com/">Jupitermedia Corporation</A> has 
+            four divisions: <BR><A class=foot 
+            href="http://www.jupiterweb.com/">JupiterWeb</A>, <A class=foot 
+            href="http://www.jupiterresearch.com/">JupiterResearch</A>, <A 
+            class=foot href="http://www.jupiterevents.com/">JupiterEvents</A> 
+            and <A class=foot 
+            href="http://www.jupiterimages.com/">JupiterImages</A> 
+            <P>
+            <DIV class=foot>Copyright <!--YEAR-->2005 Jupitermedia Corporation 
+            All Rights Reserved.<BR><A class=foot 
+            href="http://www.jupitermedia.com/corporate/legal.html">Legal 
+            Notices</A>, <A class=foot 
+            href="http://www.jupitermedia.com/corporate/reprints.html#Licensing1">Licensing</A>, 
+            <A class=foot 
+            href="http://www.jupitermedia.com/corporate/reprints.html#Reprints1">Reprints</A>, 
+            &amp; <A class=foot 
+            href="http://www.jupitermedia.com/corporate/reprints.html#Permissions">Permissions</A>, 
+            <A class=foot 
+            href="http://www.jupitermedia.com/corporate/privacy/privacypolicy.html">Privacy 
+            Policy</A>. </FONT>
+            <P><FONT face="verdana, arial, helvetica" size=-2><A class=foot 
+            href="http://www.jupitermedia.com/corporate/">Jupitermedia Corporate 
+            Info</A> | <A class=foot 
+            href="http://e-newsletters.internet.com/">Newsletters</A> | <A 
+            class=foot href="http://jobs.internet.com/">Tech Jobs</A> | <A 
+            class=foot 
+            href="http://e-newsletters.internet.com/mailinglists.html">E-mail 
+            Offers</A></P></DIV></FONT></TD></FORM></TR></TBODY></TABLE></CENTER></TD></TR></TBODY></TABLE><!-- 129.59.73.67 web1 --></BODY></HTML>

@@ -1,0 +1,986 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (47201bd6).
+//
+// c:\ima2\components\ima2_testlib\debug\IMA2_Helper.tlh
+//
+// C++ source equivalent of Win32 type library C:\IMA2\System\Framework\IMA2_Helper.dll
+// compiler-generated file created 11/26/04 at 23:52:36 - DO NOT EDIT!
+
+//
+// Cross-referenced type libraries:
+//
+//  #import "C:\IMA2\System\Framework\IMA2.tlb"
+//  #import "C:\WINNT\system32\msvbvm60.dll\3"
+//  #import "C:\WINNT\system32\msvbvm60.dll"
+//
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("cbd0ba14-c41d-498b-8c0c-34556075817c"))
+/* dual interface */ _Functions;
+struct /* coclass */ Functions;
+struct __declspec(uuid("24d5ea8b-2df0-4d36-a238-a5f6f5243002"))
+/* dual interface */ _IndexedArray;
+struct /* coclass */ IndexedArray;
+struct __declspec(uuid("81a00544-7b26-4455-9f82-988ce842a583"))
+/* dual interface */ _CmpDesc;
+struct /* coclass */ CmpDesc;
+struct __declspec(uuid("fc564c6f-b3a7-473c-8d14-30413f81f73b"))
+/* dual interface */ _NetList;
+struct /* coclass */ NetList;
+typedef struct _NetList NetList___v0;
+struct __declspec(uuid("55b5ccbd-119a-4e8d-b589-e324e21e9ecf"))
+/* dual interface */ _ComponentFile;
+struct /* coclass */ ComponentFile;
+struct __declspec(uuid("1463435c-3d8f-4f9d-91cc-e59e42e4707b"))
+/* dual interface */ _IconManager;
+struct /* coclass */ IconManager;
+struct __declspec(uuid("26af9452-d3bf-49f8-affc-46c826d2d4d3"))
+/* dual interface */ _ClsInfo;
+struct /* coclass */ ClsInfo;
+struct __declspec(uuid("64a9f535-d45b-4315-8f33-b9c81e10f82a"))
+/* dual interface */ _Libraries;
+struct /* coclass */ Libraries;
+struct __declspec(uuid("e8e6ba5f-5129-411e-8245-faa67a3360ae"))
+/* dual interface */ _LibInfo;
+struct /* coclass */ LibInfo;
+struct __declspec(uuid("8e893d3d-42e2-4fb8-8354-5449474a4195"))
+/* dispinterface */ __NetList;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_Functions, __uuidof(_Functions));
+_COM_SMARTPTR_TYPEDEF(_IndexedArray, __uuidof(_IndexedArray));
+_COM_SMARTPTR_TYPEDEF(_CmpDesc, __uuidof(_CmpDesc));
+_COM_SMARTPTR_TYPEDEF(_NetList, __uuidof(_NetList));
+_COM_SMARTPTR_TYPEDEF(_ComponentFile, __uuidof(_ComponentFile));
+_COM_SMARTPTR_TYPEDEF(_IconManager, __uuidof(_IconManager));
+_COM_SMARTPTR_TYPEDEF(_ClsInfo, __uuidof(_ClsInfo));
+_COM_SMARTPTR_TYPEDEF(_Libraries, __uuidof(_Libraries));
+_COM_SMARTPTR_TYPEDEF(_LibInfo, __uuidof(_LibInfo));
+_COM_SMARTPTR_TYPEDEF(__NetList, __uuidof(IDispatch));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("cbd0ba14-c41d-498b-8c0c-34556075817c"))
+_Functions : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t OldErrorInfo ( );
+    _bstr_t SystemPath ( );
+    ILocatorPtr GetLocator ( );
+    IBindingsPtr GetBindingsObject ( );
+    _bstr_t BindingsPID ( );
+    _bstr_t LocatorPID ( );
+    _bstr_t ForbiddenChars ( );
+    IComponentPtr CreateIMA2Component (
+        BSTR * FullPath,
+        BSTR * PID,
+        BSTR * Machine,
+        VARIANT_BOOL * Register,
+        struct ILocator * * pAL );
+    VARIANT_BOOL ValidComponentName (
+        BSTR * N );
+    VARIANT_BOOL PingComponent (
+        struct IComponent * * Cmp );
+    _bstr_t ParentFromPath (
+        BSTR * Path );
+    _bstr_t NameFromPath (
+        BSTR * Path );
+    _bstr_t LocatorFromPath (
+        BSTR * Path );
+    _bstr_t MachineFromPath (
+        BSTR * Path );
+    _bstr_t PathOfLevel (
+        BSTR * Path,
+        long * Level );
+    short PathLevel (
+        BSTR * Path );
+    VARIANT_BOOL CharsInString (
+        BSTR * S,
+        BSTR * Chars );
+    long StrCount (
+        BSTR * source,
+        BSTR * Match );
+    VARIANT_BOOL IsDescendant (
+        BSTR * sChild,
+        BSTR * sParent );
+    _bstr_t LocalMachine ( );
+    SAFEARRAY * NetworkMachines ( );
+    long CurrentProcessID ( );
+    long CurrentThreadID ( );
+    _bstr_t CurrentUserName ( );
+    _bstr_t CurrentUserProfile ( );
+    HRESULT SafeKill (
+        BSTR * FN );
+    VARIANT_BOOL FileExists (
+        BSTR * FN );
+    VARIANT_BOOL FileLocked (
+        BSTR * FN );
+    _variant_t PB2VT (
+        struct _PropertyBag * * PB );
+    _PropertyBagPtr VT2PB (
+        VARIANT * VT );
+    HRESULT SavePB (
+        BSTR * FN,
+        struct _PropertyBag * * PB );
+    _PropertyBagPtr LoadPB (
+        BSTR * FN );
+    SAFEARRAY * LoadByteArray (
+        BSTR * Path );
+    HRESULT SaveByteArray (
+        BSTR * Path,
+        SAFEARRAY * * Data );
+    long ArraySize (
+        VARIANT * Data );
+    VARIANT_BOOL ArrayEmpty (
+        VARIANT * Data );
+    _variant_t SentenceCase (
+        BSTR * Val );
+    _bstr_t FindMatchingString (
+        BSTR * String1,
+        SAFEARRAY * * Strings );
+    SAFEARRAY * Variant2Strings (
+        VARIANT * V );
+    _variant_t GetDistributingInfo (
+        struct IComponent * * Cmp,
+        BSTR * Path,
+        BSTR * PID );
+    HRESULT QuickSortStrings (
+        SAFEARRAY * * sArray,
+        VARIANT_BOOL * Ascending );
+    HRESULT RemoveBlankStrings (
+        SAFEARRAY * * S );
+    VARIANT_BOOL NN (
+        IDispatch * * Obj );
+    long RegisterTLB (
+        BSTR * sLib );
+    long UnregisterTLB (
+        BSTR * sLib );
+    _bstr_t PID2CLSID (
+        _bstr_t sProgId );
+    _bstr_t CLSIDToProgID (
+        _bstr_t CLSID );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_OldErrorInfo (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_SystemPath (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_GetLocator (
+        struct ILocator * * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_GetBindingsObject (
+        struct IBindings * * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_BindingsPID (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_LocatorPID (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_ForbiddenChars (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_CreateIMA2Component (
+        BSTR * FullPath,
+        BSTR * PID,
+        BSTR * Machine,
+        VARIANT_BOOL * Register,
+        struct ILocator * * pAL,
+        struct IComponent * * _arg6 ) = 0;
+    virtual HRESULT __stdcall raw_ValidComponentName (
+        BSTR * N,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_PingComponent (
+        struct IComponent * * Cmp,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_ParentFromPath (
+        BSTR * Path,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_NameFromPath (
+        BSTR * Path,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_LocatorFromPath (
+        BSTR * Path,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_MachineFromPath (
+        BSTR * Path,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_PathOfLevel (
+        BSTR * Path,
+        long * Level,
+        BSTR * _arg3 ) = 0;
+    virtual HRESULT __stdcall raw_PathLevel (
+        BSTR * Path,
+        short * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_CharsInString (
+        BSTR * S,
+        BSTR * Chars,
+        VARIANT_BOOL * _arg3 ) = 0;
+    virtual HRESULT __stdcall raw_StrCount (
+        BSTR * source,
+        BSTR * Match,
+        long * _arg3 ) = 0;
+    virtual HRESULT __stdcall raw_IsDescendant (
+        BSTR * sChild,
+        BSTR * sParent,
+        VARIANT_BOOL * _arg3 ) = 0;
+    virtual HRESULT __stdcall raw_LocalMachine (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_NetworkMachines (
+        SAFEARRAY * * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_CurrentProcessID (
+        long * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_CurrentThreadID (
+        long * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_CurrentUserName (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_CurrentUserProfile (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_SafeKill (
+        BSTR * FN ) = 0;
+    virtual HRESULT __stdcall raw_FileExists (
+        BSTR * FN,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_FileLocked (
+        BSTR * FN,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_PB2VT (
+        struct _PropertyBag * * PB,
+        VARIANT * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_VT2PB (
+        VARIANT * VT,
+        struct _PropertyBag * * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_SavePB (
+        BSTR * FN,
+        struct _PropertyBag * * PB ) = 0;
+    virtual HRESULT __stdcall raw_LoadPB (
+        BSTR * FN,
+        struct _PropertyBag * * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_LoadByteArray (
+        BSTR * Path,
+        SAFEARRAY * * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_SaveByteArray (
+        BSTR * Path,
+        SAFEARRAY * * Data ) = 0;
+    virtual HRESULT __stdcall raw_ArraySize (
+        VARIANT * Data,
+        long * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_ArrayEmpty (
+        VARIANT * Data,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_SentenceCase (
+        BSTR * Val,
+        VARIANT * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_FindMatchingString (
+        BSTR * String1,
+        SAFEARRAY * * Strings,
+        BSTR * _arg3 ) = 0;
+    virtual HRESULT __stdcall raw_Variant2Strings (
+        VARIANT * V,
+        SAFEARRAY * * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_GetDistributingInfo (
+        struct IComponent * * Cmp,
+        BSTR * Path,
+        BSTR * PID,
+        VARIANT * _arg4 ) = 0;
+    virtual HRESULT __stdcall raw_QuickSortStrings (
+        SAFEARRAY * * sArray,
+        VARIANT_BOOL * Ascending ) = 0;
+    virtual HRESULT __stdcall raw_RemoveBlankStrings (
+        SAFEARRAY * * S ) = 0;
+    virtual HRESULT __stdcall raw_NN (
+        IDispatch * * Obj,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_RegisterTLB (
+        BSTR * sLib,
+        long * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_UnregisterTLB (
+        BSTR * sLib,
+        long * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_PID2CLSID (
+        BSTR sProgId,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_CLSIDToProgID (
+        BSTR CLSID,
+        BSTR * _arg2 ) = 0;
+};
+
+struct __declspec(uuid("8a1049ad-c8de-45bf-9308-bdd68263b1ee"))
+Functions;
+    // [ default ] interface _Functions
+
+struct __declspec(uuid("24d5ea8b-2df0-4d36-a238-a5f6f5243002"))
+_IndexedArray : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetKeys))
+    _variant_t Keys;
+    __declspec(property(get=GetData))
+    _variant_t Data;
+    __declspec(property(get=GetUpperBound))
+    long UpperBound;
+    __declspec(property(get=GetLowerBound))
+    long LowerBound;
+    __declspec(property(get=GetCount))
+    long Count;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    void PutCaseSensitive (
+        VARIANT_BOOL * _arg1 );
+    VARIANT_BOOL GetCaseSensitive ( );
+    long GetLowerBound ( );
+    long GetUpperBound ( );
+    _variant_t GetData ( );
+    _variant_t GetKeys ( );
+    _variant_t GetItem (
+        VARIANT * IndexKey );
+    void PutItem (
+        VARIANT * IndexKey,
+        VARIANT * _arg2 );
+    long IndexFromKey (
+        VARIANT * IndexKey );
+    _bstr_t KeyFromIndex (
+        long * Index );
+    VARIANT_BOOL InArray (
+        VARIANT * IndexKey );
+    _bstr_t KeyMatch (
+        BSTR * Key );
+    long GetCount ( );
+    HRESULT Clear ( );
+    HRESULT Add (
+        VARIANT * Element,
+        BSTR * Key );
+    HRESULT Remove (
+        VARIANT * IndexKey );
+    HRESULT Resize (
+        long * NewSize );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall put_CaseSensitive (
+        VARIANT_BOOL * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_CaseSensitive (
+        VARIANT_BOOL * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_LowerBound (
+        long * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_UpperBound (
+        long * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_Data (
+        VARIANT * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_Keys (
+        VARIANT * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT * IndexKey,
+        VARIANT * _arg2 ) = 0;
+    virtual HRESULT __stdcall put_Item (
+        VARIANT * IndexKey,
+        VARIANT * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_IndexFromKey (
+        VARIANT * IndexKey,
+        long * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_KeyFromIndex (
+        long * Index,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_InArray (
+        VARIANT * IndexKey,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_KeyMatch (
+        BSTR * Key,
+        BSTR * _arg2 ) = 0;
+    virtual HRESULT __stdcall get_Count (
+        long * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        VARIANT * Element,
+        BSTR * Key ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT * IndexKey ) = 0;
+    virtual HRESULT __stdcall raw_Resize (
+        long * NewSize ) = 0;
+};
+
+struct __declspec(uuid("95925de7-06f0-4bcc-b1bc-c7511f01cc08"))
+IndexedArray;
+    // [ default ] interface _IndexedArray
+
+struct __declspec(uuid("81a00544-7b26-4455-9f82-988ce842a583"))
+_CmpDesc : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetPath,put=PutPath))
+    _bstr_t Path;
+    __declspec(property(get=GetPID,put=PutPID))
+    _bstr_t PID;
+    __declspec(property(get=GetMachine,put=PutMachine))
+    _bstr_t Machine;
+    __declspec(property(get=GetDataSize,put=PutDataSize))
+    long DataSize;
+    __declspec(property(get=GetIsContainer,put=PutIsContainer))
+    VARIANT_BOOL IsContainer;
+    __declspec(property(get=GetMgrInfo,put=PutRefMgrInfo))
+    IDispatchPtr MgrInfo;
+    __declspec(property(get=GetDataMask,put=PutDataMask))
+    enum CmpDesc_Data_Mask DataMask;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetPath ( );
+    void PutPath (
+        _bstr_t Path );
+    _bstr_t GetPID ( );
+    void PutPID (
+        _bstr_t PID );
+    _bstr_t GetMachine ( );
+    void PutMachine (
+        _bstr_t Machine );
+    long GetDataSize ( );
+    void PutDataSize (
+        long DataSize );
+    _variant_t GetData ( );
+    void PutData (
+        VARIANT * Data );
+    void PutRefData (
+        VARIANT * Data );
+    VARIANT_BOOL GetIsContainer ( );
+    void PutIsContainer (
+        VARIANT_BOOL IsContainer );
+    IDispatchPtr GetMgrInfo ( );
+    void PutRefMgrInfo (
+        IDispatch * MgrInfo );
+    enum CmpDesc_Data_Mask GetDataMask ( );
+    void PutDataMask (
+        enum CmpDesc_Data_Mask DataMask );
+    SAFEARRAY * GetBindingInfo ( );
+    void PutBindingInfo (
+        SAFEARRAY * * _arg1 );
+    HRESULT Read (
+        struct IComponent * * Cmp );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Path (
+        BSTR * Path ) = 0;
+    virtual HRESULT __stdcall put_Path (
+        BSTR Path ) = 0;
+    virtual HRESULT __stdcall get_PID (
+        BSTR * PID ) = 0;
+    virtual HRESULT __stdcall put_PID (
+        BSTR PID ) = 0;
+    virtual HRESULT __stdcall get_Machine (
+        BSTR * Machine ) = 0;
+    virtual HRESULT __stdcall put_Machine (
+        BSTR Machine ) = 0;
+    virtual HRESULT __stdcall get_DataSize (
+        long * DataSize ) = 0;
+    virtual HRESULT __stdcall put_DataSize (
+        long DataSize ) = 0;
+    virtual HRESULT __stdcall get_Data (
+        VARIANT * Data ) = 0;
+    virtual HRESULT __stdcall put_Data (
+        VARIANT * Data ) = 0;
+    virtual HRESULT __stdcall putref_Data (
+        VARIANT * Data ) = 0;
+    virtual HRESULT __stdcall get_IsContainer (
+        VARIANT_BOOL * IsContainer ) = 0;
+    virtual HRESULT __stdcall put_IsContainer (
+        VARIANT_BOOL IsContainer ) = 0;
+    virtual HRESULT __stdcall get_MgrInfo (
+        IDispatch * * MgrInfo ) = 0;
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT __stdcall putref_MgrInfo (
+        IDispatch * MgrInfo ) = 0;
+    virtual HRESULT __stdcall get_DataMask (
+        enum CmpDesc_Data_Mask * DataMask ) = 0;
+    virtual HRESULT __stdcall put_DataMask (
+        enum CmpDesc_Data_Mask DataMask ) = 0;
+    virtual HRESULT __stdcall get_BindingInfo (
+        SAFEARRAY * * _arg1 ) = 0;
+    virtual HRESULT __stdcall put_BindingInfo (
+        SAFEARRAY * * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_Read (
+        struct IComponent * * Cmp ) = 0;
+};
+
+struct __declspec(uuid("ebb05af5-3879-4cd2-a03a-9c9011ed1f15"))
+CmpDesc;
+    // [ default ] interface _CmpDesc
+
+struct __declspec(uuid("fc564c6f-b3a7-473c-8d14-30413f81f73b"))
+_NetList : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItems))
+    SAFEARRAY * Items;
+    __declspec(property(get=GetWantRegisters,put=PutWantRegisters))
+    VARIANT_BOOL WantRegisters;
+    __declspec(property(get=GetWantSubscribes,put=PutWantSubscribes))
+    VARIANT_BOOL WantSubscribes;
+    __declspec(property(get=GetWantConnects,put=PutWantConnects))
+    VARIANT_BOOL WantConnects;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    VARIANT_BOOL GetWantRegisters ( );
+    void PutWantRegisters (
+        VARIANT_BOOL WantRegisters );
+    VARIANT_BOOL GetWantSubscribes ( );
+    void PutWantSubscribes (
+        VARIANT_BOOL WantSubscribes );
+    VARIANT_BOOL GetWantConnects ( );
+    void PutWantConnects (
+        VARIANT_BOOL WantConnects );
+    HRESULT Refresh ( );
+    SAFEARRAY * GetItems ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_WantRegisters (
+        VARIANT_BOOL * WantRegisters ) = 0;
+    virtual HRESULT __stdcall put_WantRegisters (
+        VARIANT_BOOL WantRegisters ) = 0;
+    virtual HRESULT __stdcall get_WantSubscribes (
+        VARIANT_BOOL * WantSubscribes ) = 0;
+    virtual HRESULT __stdcall put_WantSubscribes (
+        VARIANT_BOOL WantSubscribes ) = 0;
+    virtual HRESULT __stdcall get_WantConnects (
+        VARIANT_BOOL * WantConnects ) = 0;
+    virtual HRESULT __stdcall put_WantConnects (
+        VARIANT_BOOL WantConnects ) = 0;
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder2( ) { return E_NOTIMPL; }
+    virtual HRESULT _VtblGapPlaceholder3( ) { return E_NOTIMPL; }
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Items (
+        SAFEARRAY * * _arg1 ) = 0;
+};
+
+struct __declspec(uuid("889485b6-bfbb-4937-a302-76fa138d9976"))
+NetList;
+    // [ default ] interface _NetList
+    // interface ILocatorEvents
+    // [ default, source ] dispinterface __NetList
+
+struct __declspec(uuid("55b5ccbd-119a-4e8d-b589-e324e21e9ecf"))
+_ComponentFile : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetUserName,put=PutUserName))
+    _bstr_t UserName;
+    __declspec(property(get=GetFileDate,put=PutFileDate))
+    _bstr_t FileDate;
+    __declspec(property(get=GetFileTime,put=PutFileTime))
+    _bstr_t FileTime;
+    __declspec(property(get=GetFilePath,put=PutFilePath))
+    _bstr_t FilePath;
+    __declspec(property(get=GetParentPath,put=PutParentPath))
+    _bstr_t ParentPath;
+    __declspec(property(get=GetDescriptions))
+    SAFEARRAY * Descriptions;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetUserName ( );
+    void PutUserName (
+        _bstr_t UserName );
+    _bstr_t GetFileDate ( );
+    void PutFileDate (
+        _bstr_t FileDate );
+    _bstr_t GetFileTime ( );
+    void PutFileTime (
+        _bstr_t FileTime );
+    _bstr_t GetFilePath ( );
+    void PutFilePath (
+        _bstr_t FilePath );
+    _bstr_t GetParentPath ( );
+    void PutParentPath (
+        _bstr_t ParentPath );
+    HRESULT Save ( );
+    HRESULT Load ( );
+    SAFEARRAY * GetPaths ( );
+    void PutPaths (
+        SAFEARRAY * * _arg1 );
+    SAFEARRAY * GetDescriptions ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_UserName (
+        BSTR * UserName ) = 0;
+    virtual HRESULT __stdcall put_UserName (
+        BSTR UserName ) = 0;
+    virtual HRESULT __stdcall get_FileDate (
+        BSTR * FileDate ) = 0;
+    virtual HRESULT __stdcall put_FileDate (
+        BSTR FileDate ) = 0;
+    virtual HRESULT __stdcall get_FileTime (
+        BSTR * FileTime ) = 0;
+    virtual HRESULT __stdcall put_FileTime (
+        BSTR FileTime ) = 0;
+    virtual HRESULT __stdcall get_FilePath (
+        BSTR * FilePath ) = 0;
+    virtual HRESULT __stdcall put_FilePath (
+        BSTR FilePath ) = 0;
+    virtual HRESULT __stdcall get_ParentPath (
+        BSTR * ParentPath ) = 0;
+    virtual HRESULT __stdcall put_ParentPath (
+        BSTR ParentPath ) = 0;
+    virtual HRESULT __stdcall raw_Save ( ) = 0;
+    virtual HRESULT __stdcall raw_Load ( ) = 0;
+    virtual HRESULT __stdcall get_Paths (
+        SAFEARRAY * * _arg1 ) = 0;
+    virtual HRESULT __stdcall put_Paths (
+        SAFEARRAY * * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_Descriptions (
+        SAFEARRAY * * _arg1 ) = 0;
+};
+
+struct __declspec(uuid("b9093eb2-6d36-465f-a105-29de3b226799"))
+ComponentFile;
+    // [ default ] interface _ComponentFile
+
+struct __declspec(uuid("1463435c-3d8f-4f9d-91cc-e59e42e4707b"))
+_IconManager : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetImageList,put=PutRefImageList))
+    IDispatchPtr ImageList;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IDispatchPtr GetImageList ( );
+    void PutRefImageList (
+        IDispatch * ImageList );
+    _bstr_t GetDirectory ( );
+    void PutDirectory (
+        BSTR * _arg1 );
+    short IconIndex (
+        BSTR * PID );
+    VARIANT_BOOL IconExists (
+        BSTR * PID );
+    VARIANT_BOOL InList (
+        BSTR * PID );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_ImageList (
+        IDispatch * * ImageList ) = 0;
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT __stdcall putref_ImageList (
+        IDispatch * ImageList ) = 0;
+    virtual HRESULT __stdcall get_Directory (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall put_Directory (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_IconIndex (
+        BSTR * PID,
+        short * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_IconExists (
+        BSTR * PID,
+        VARIANT_BOOL * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_InList (
+        BSTR * PID,
+        VARIANT_BOOL * _arg2 ) = 0;
+};
+
+struct __declspec(uuid("e1200660-e71f-4676-af1e-c5c91d63f2f6"))
+IconManager;
+    // [ default ] interface _IconManager
+
+struct __declspec(uuid("26af9452-d3bf-49f8-affc-46c826d2d4d3"))
+_ClsInfo : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetPID,put=PutPID))
+    _bstr_t PID;
+    __declspec(property(get=GetInterfaces,put=PutInterfaces))
+    _bstr_t Interfaces;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Name );
+    _bstr_t GetPID ( );
+    void PutPID (
+        _bstr_t PID );
+    _bstr_t GetInterfaces ( );
+    void PutInterfaces (
+        _bstr_t Interfaces );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Name ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Name ) = 0;
+    virtual HRESULT __stdcall get_PID (
+        BSTR * PID ) = 0;
+    virtual HRESULT __stdcall put_PID (
+        BSTR PID ) = 0;
+    virtual HRESULT __stdcall get_Interfaces (
+        BSTR * Interfaces ) = 0;
+    virtual HRESULT __stdcall put_Interfaces (
+        BSTR Interfaces ) = 0;
+};
+
+struct __declspec(uuid("fd4449c8-b16b-4734-ad60-1c48c8f4da82"))
+ClsInfo;
+    // [ default ] interface _ClsInfo
+
+struct __declspec(uuid("64a9f535-d45b-4315-8f33-b9c81e10f82a"))
+_Libraries : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetCount))
+    short Count;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    short GetCount ( );
+    _LibInfoPtr GetItem (
+        VARIANT * IndexKey );
+    IUnknownPtr NewEnum ( );
+    void PutPath (
+        BSTR * _arg1 );
+    _bstr_t GetPath ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        short * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT * IndexKey,
+        struct _LibInfo * * _arg2 ) = 0;
+    virtual HRESULT __stdcall raw_NewEnum (
+        struct IUnknown * * _arg1 ) = 0;
+    virtual HRESULT __stdcall put_Path (
+        BSTR * _arg1 ) = 0;
+    virtual HRESULT __stdcall get_Path (
+        BSTR * _arg1 ) = 0;
+};
+
+struct __declspec(uuid("2f786205-14ab-4a3a-b572-b01f8dc70825"))
+Libraries;
+    // [ default ] interface _Libraries
+
+struct __declspec(uuid("e8e6ba5f-5129-411e-8245-faa67a3360ae"))
+_LibInfo : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetPath,put=PutPath))
+    _bstr_t Path;
+    __declspec(property(get=GetDescription,put=PutDescription))
+    _bstr_t Description;
+    __declspec(property(get=GetGUID,put=PutGUID))
+    _bstr_t GUID;
+    __declspec(property(get=GetVersion,put=PutVersion))
+    _bstr_t Version;
+    __declspec(property(get=GetClasses,put=PutRefClasses))
+    _CollectionPtr Classes;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Name );
+    _bstr_t GetPath ( );
+    void PutPath (
+        _bstr_t Path );
+    _bstr_t GetDescription ( );
+    void PutDescription (
+        _bstr_t Description );
+    _bstr_t GetGUID ( );
+    void PutGUID (
+        _bstr_t GUID );
+    _bstr_t GetVersion ( );
+    void PutVersion (
+        _bstr_t Version );
+    _CollectionPtr GetClasses ( );
+    void PutRefClasses (
+        struct _Collection * Classes );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Name ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Name ) = 0;
+    virtual HRESULT __stdcall get_Path (
+        BSTR * Path ) = 0;
+    virtual HRESULT __stdcall put_Path (
+        BSTR Path ) = 0;
+    virtual HRESULT __stdcall get_Description (
+        BSTR * Description ) = 0;
+    virtual HRESULT __stdcall put_Description (
+        BSTR Description ) = 0;
+    virtual HRESULT __stdcall get_GUID (
+        BSTR * GUID ) = 0;
+    virtual HRESULT __stdcall put_GUID (
+        BSTR GUID ) = 0;
+    virtual HRESULT __stdcall get_Version (
+        BSTR * Version ) = 0;
+    virtual HRESULT __stdcall put_Version (
+        BSTR Version ) = 0;
+    virtual HRESULT __stdcall get_Classes (
+        struct _Collection * * Classes ) = 0;
+    virtual HRESULT _VtblGapPlaceholder1( ) { return E_NOTIMPL; }
+    virtual HRESULT __stdcall putref_Classes (
+        struct _Collection * Classes ) = 0;
+};
+
+struct __declspec(uuid("8152932d-f910-4d46-bcd1-97d3def579c9"))
+LibInfo;
+    // [ default ] interface _LibInfo
+
+struct __declspec(uuid("8e893d3d-42e2-4fb8-8354-5449474a4195"))
+__NetList : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT OnRefresh ( );
+    HRESULT OnRegister (
+        _bstr_t Path );
+    HRESULT OnUnregister (
+        _bstr_t Path );
+    HRESULT OnSubscribe (
+        _bstr_t Key );
+    HRESULT OnUnsubscribe (
+        _bstr_t Key );
+    HRESULT OnConnect (
+        _bstr_t Machine );
+    HRESULT OnDisconnect (
+        _bstr_t Machine );
+    HRESULT OnOtherEvent (
+        enum IMA2_LocatorAction Action,
+        SAFEARRAY * * Args );
+};
+
+enum IMA2_Errors
+{
+    IE_CMP_CREATE = 2000,
+    IE_CMP_CONSTRUCT = 2001,
+    IE_CMP_REGISTER = 2002,
+    IE_CMP_REGISTERED = 2003,
+    IE_AL_CREATE = 2100,
+    IE_AL_NOT_SAME = 2101,
+    IE_AL_NOT_PARENT_MACHINE = 2102,
+    IE_PARENT_NOT_FOUND = 2200,
+    IE_PARENT_ACCESS_ERROR = 2201,
+    IE_PARENT_NOT_CONTAINER = 2202,
+    IE_UNKNOWN_CONTEXT = 2900
+};
+
+enum CmpDesc_Data_Mask
+{
+    CD_None = 0,
+    CD_Path = 1,
+    CD_PID = 2,
+    CD_Machine = 4,
+    CD_DataSize = 8,
+    CD_Data = 16,
+    CD_BindingInfo = 32,
+    CD_MgrInfo = 64,
+    CD_IsContainer = 64
+};
+
+enum IMA2_Icons
+{
+    II_Network = 1,
+    II_Locator = 2,
+    II_Component = 3,
+    II_Container = 4,
+    II_NewComponent = 5,
+    II_GreyComponent = 6,
+    II_BadComponent = 7,
+    II_Manager = 8,
+    II_Library = 9,
+    II_Property = 10,
+    II_Method = 11,
+    II_Form = 12,
+    II_ComponentFile = 13,
+    II_Binding = 14
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "O:\components\IMA2_Helper.tli"
+
+#pragma pack(pop)

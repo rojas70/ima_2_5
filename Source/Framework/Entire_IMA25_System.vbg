@@ -1,0 +1,7 @@
+VBGROUP 5.0
+Project=Helper\dll\IMA2_Helper.vbp
+Project=DadX\IMA2_DadX.vbp
+StartupProject=Dad\IMA2_DAD.vbp
+Project=Services\Locator\IMA2_Locator.vbp
+Project=Services\InfoService\IMA2_InfoService.vbp
+Project=Services\EventService\IMA2_EventService.vbp

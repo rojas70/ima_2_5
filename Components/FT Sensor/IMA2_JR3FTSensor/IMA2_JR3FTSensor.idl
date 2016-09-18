@@ -1,0 +1,73 @@
+// IMA2_JR3FTSensor.idl : IDL source for IMA2_JR3FTSensor.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_JR3FTSensor.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CJR3Sensor: IDL source for IMA2_CJR3Sensor.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(A884706D-7C76-498B-996F-8D3A6D7C66CE),
+		dual,
+		helpstring("(IMA2 Components) - IJR3Sensor Lib"),
+		pointer_default(unique)
+	]
+	interface IJR3Sensor : IDispatch
+	{
+
+		[propget, id(7), helpstring("property FullScales")] HRESULT FullScales([out, retval] double *pVal);
+		[propput, id(7), helpstring("property FullScales")] HRESULT FullScales([in] double newVal);
+		[propget, id(8), helpstring("property OffsetData")] HRESULT OffsetData([out, retval] double *pVal);
+		[propput, id(8), helpstring("property OffsetData")] HRESULT OffsetData([in] double newVal);
+		[propget, id(11), helpstring("property FTData")] HRESULT FTData([out, retval] double *pVal);
+		[propget, id(12), helpstring("property FTDataIndex")] HRESULT FTDataIndex([out, retval] short *pVal);
+		[propput, id(12), helpstring("property FTDataIndex")] HRESULT FTDataIndex([in] short newVal);
+		[propget, id(15), helpstring("property OffsetDataIndex")] HRESULT OffsetDataIndex([out, retval] short *pVal);
+		[propput, id(15), helpstring("property OffsetDataIndex")] HRESULT OffsetDataIndex([in] short newVal);
+		[propget, id(17), helpstring("property MaxMinPeakIndex")] HRESULT MaxMinPeakIndex([out, retval] short *pVal);
+		[propput, id(17), helpstring("property MaxMinPeakIndex")] HRESULT MaxMinPeakIndex([in] short newVal);
+		[propget, id(18), helpstring("property MaxMinPeakData")] HRESULT MaxMinPeakData([out, retval] double *pVal);
+		[propget, id(19), helpstring("property MaxMinValue")] HRESULT MaxMinValue([out, retval] BSTR *pVal);
+		[propput, id(19), helpstring("property MaxMinValue")] HRESULT MaxMinValue([in] BSTR newVal);
+		[id(20), helpstring("method Read_FullScales")] HRESULT Read_FullScales();
+		[id(21), helpstring("method Set_FullScales")] HRESULT Set_FullScales();
+		[id(22), helpstring("method Read_RecommendedMaxScales")] HRESULT Read_RecommendedMaxScales();
+		[id(23), helpstring("method Read_RecommendedMinScales")] HRESULT Read_RecommendedMinScales();
+		[id(24), helpstring("method Close")] HRESULT Close();
+		[propget, id(25), helpstring("property AveragingWeight_FTData")] HRESULT AveragingWeight_FTData([out, retval] double *pVal);
+		[propput, id(25), helpstring("property AveragingWeight_FTData")] HRESULT AveragingWeight_FTData([in] double newVal);
+		[propget, id(26), helpstring("property status")] HRESULT status([out, retval] short *pVal);
+		[id(13), helpstring("method Read_Offsets")] HRESULT Read_Offsets();
+		[id(14), helpstring("method ResetOffsets")] HRESULT ResetOffsets();
+		[id(16), helpstring("method Read_FTMax_or_MinPeaks")] HRESULT Read_FTMax_or_MinPeaks();
+		[id(9), helpstring("method Initialize")] HRESULT Initialize();
+		[id(10), helpstring("method Read_FTData")] HRESULT Read_FTData();
+
+	};
+
+[
+	uuid(1FCED051-C359-4168-9EC5-B9D16EC5D730),
+	version(1.0),
+	helpstring("(IMA2 Components) - JR3 Sensor Lib")
+]
+library IMA2_JR3FTSENSORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(7B374970-0315-47DD-B094-97811020B301),
+		helpstring("JR3Sensor Class")
+	]
+	coclass JR3Sensor
+	{
+		[default] interface IJR3Sensor;
+		interface IComponent; 
+	};
+};

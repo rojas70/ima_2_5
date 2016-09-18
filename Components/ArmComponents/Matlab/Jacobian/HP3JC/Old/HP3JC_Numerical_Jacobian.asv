@@ -1,0 +1,16 @@
+function J = HP3JC_Numerical_Jacobian(Angle)
+
+J11 = -0.25*(sin(Angle[1])*(1080*cos(Angle[2] + Angle[3]) + 489*cos(Angle[2] + Angle[3] - Angle[5]) + 489*cos(Angle[2] + Angle[3] + Angle[5]) + 2*(520*sin(Angle[2]) + 3*sin(Angle[2] + Angle[3])*(20 - 163*cos(Angle[4])*sin(Angle[5])))));
+J12 = -(sin(Angle[1])*(1080*cos(Angle[2] + Angle[3]) + 489*cos(Angle[2] + Angle[3] - Angle[5]) + 489*cos(Angle[2] + Angle[3] + Angle[5]) + 2*(520*sin(Angle[2]) + 3*sin(Angle[2] + Angle[3])*(20 - 163*cos(Angle[4])*sin(Angle[5])))))/4;
+J13 = 0.5*(-520*cos(Angle[2]) + 3*(180 + 163*cos(Angle[5]))*sin(Angle[2] + Angle[3]) + cos(Angle[2] + Angle[3])*(-60 + 489*cos(Angle[4])*sin(Angle[5])));
+
+J21 = -0.75*(cos(Angle[1])*(360*cos(Angle[2] + Angle[3]) + 163*cos(Angle[2] + Angle[3] - Angle[5]) + 163*cos(Angle[2] + Angle[3] + Angle[5]) + 2*sin(Angle[2] + Angle[3])*(20 - 163*cos(Angle[4])*sin(Angle[5]))));
+J22 = -0.75*(sin(Angle[1])*(360*cos(Angle[2] + Angle[3]) + 163*cos(Angle[2] + Angle[3] - Angle[5]) + 163*cos(Angle[2] + Angle[3] + Angle[5]) + 2*sin(Angle[2] + Angle[3])*(20 - 163*cos(Angle[4])*sin(Angle[5]))));
+J23 = 0.5*(3*((180 + 163*cos(Angle[5]))*sin(Angle[2] + Angle[3]) + cos(Angle[2] + Angle[3])*(-20 + 163*cos(Angle[4])*sin(Angle[5]))));
+
+
+J31 = 0.5*(489*(cos(Angle(5))*sin(Angle(2)) + cos(Angle(2))*cos(Angle(3) + Angle(4))*sin(Angle(5)))*sin(Angle(6)));
+J32 = 0.5*(-489*(cos(Angle(2))*cos(Angle(5)) - cos(Angle(3) + Angle(4))*sin(Angle(2))*sin(Angle(5)))*sin(Angle(6)));
+J33 = 0.5*(-489*sin(Angle(3) + Angle(4))*sin(Angle(5))*sin(Angle(6)));
+
+end

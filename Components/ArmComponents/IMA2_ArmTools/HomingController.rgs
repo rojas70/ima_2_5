@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ArmTools.HomingController.1 = s 'HomingController Class'
+	{
+		CLSID = s '{534ADA75-66E2-4AEA-AD32-50EC69EC8B71}'
+	}
+	IMA2_ArmTools.HomingController = s 'HomingController Class'
+	{
+		CLSID = s '{534ADA75-66E2-4AEA-AD32-50EC69EC8B71}'
+		CurVer = s 'IMA2_ArmTools.HomingController.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {534ADA75-66E2-4AEA-AD32-50EC69EC8B71} = s 'HomingController Class'
+		{
+			ProgID = s 'IMA2_ArmTools.HomingController.1'
+			VersionIndependentProgID = s 'IMA2_ArmTools.HomingController'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5D2D9F10-844D-4BAF-8EED-B352AD107AB2}'
+		}
+	}
+}

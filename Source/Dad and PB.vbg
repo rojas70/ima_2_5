@@ -1,0 +1,3 @@
+VBGROUP 5.0
+StartupProject=Framework\Dad\IMA2_DAD.vbp
+Project=..\Base Classes\IMA2_PropertyBags\IMA2_PropertyBags.vbp

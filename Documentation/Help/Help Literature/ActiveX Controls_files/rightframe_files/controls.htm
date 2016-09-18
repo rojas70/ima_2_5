@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0066)http://msdn.microsoft.com/workshop/components/activex/controls.asp -->
+<!--TOOLBAR_EXEMPT--><HTML xmlns:tool = "http://www.microsoft.com/tooltip" 
+xmlns:t = "urn:schemas-microsoft-com:time" xmlns:v = 
+"urn:schemas-microsoft-com:vml"><HEAD><TITLE>About ActiveX Controls (Internet Explorer - ActiveX Controls)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="This section introduces Microsoft ActiveX Controls and provides general guidelines for control developers. It includes information about run-time licensing for an ActiveX control, identifying an ActiveX control as safe for scripting or safe for code download, packaging an ActiveX control in a .cab file, and applying a test certificate to an ActiveX control." 
+name=Description>
+<META content=all name=Robots>
+<META content="About ActiveX Controls" name=Keywords>
+<META content=en-us name=MS.LOCALE>
+<META content=workshop name=Author><LINK href="controls_files/ie4.css" 
+type=text/css rel=stylesheet><LINK href="controls_files/ie5.css" type=text/css 
+rel=stylesheet>
+<STYLE>BODY {
+	MARGIN: 0px; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<SCRIPT language=javascript src="controls_files/common.js"></SCRIPT>
+
+<SCRIPT language=javascript src="controls_files/browdata.js"></SCRIPT>
+
+<SCRIPT language=javascript src="controls_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="controls_files/Broker.js"></SCRIPT>
+<LINK 
+href="O:\Documentation\Help Files\ActiveX Controls_files\rightframe_files\controls_files\ie4(1).css" 
+type=text/css rel=stylesheet><LINK href="controls_files/inetsdk.css" 
+type=text/css rel=stylesheet><LINK href="controls_files/default.css" 
+type=text/css rel=stylesheet>
+<META content=ovw name=pagetype>
+<META content=cpp name=devlang>
+<META content=/workshopx/components/activex/controls.xml name=src>
+<META content=/workshop/components/activex/controls.asp name=pubpath>
+<META content=_inet_ActiveX_Controls name=ID>
+<META content=_inet_ActiveX_Controls_cpp name=MS-HAID>
+<STYLE>.time {
+	BEHAVIOR: url(#default#time2)
+}
+</STYLE>
+
+<STYLE>v\:* {
+	BEHAVIOR: url(#default#VML)
+}
+</STYLE>
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+//<!--
+var gsHTCPath = "/workshop/code/";
+var gsGraphicsPath = "/workshop/graphics/";
+var gsCodePath = "/workshop/code/";
+//--></SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "/workshop/graphics/";
+//--></SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+//<!--
+function InitPage()
+{
+  if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+  {
+    return;
+  }
+  if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+  {
+    if (typeof(PreInit) == 'function') PreInit();
+    if (typeof(PostGBInit) == 'function') PostGBInit();
+    if (typeof(PostInit) == 'function') PostInit();
+    if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+    if (typeof(hideExamples) == 'function') hideExamples();
+  }
+  if (oBD.getsNavBar && oBD.platform!="PPC" )
+  {
+    if (typeof(SetShowMes) == 'function') SetShowMes();
+  }
+}
+
+function assert(bCond, sMsg)
+{
+  if (bCond) { return true; }
+  else { if (gbDBG) { alert(sMsg); } return false; }
+}
+
+window.onload = InitPage;
+
+//--></SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+function PreInit()
+{
+    if (top == self)
+        location.replace("http://" + document.domain +"/library/default.asp?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.1; SV1";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+<xml id=xmlPageContext><eyebrow findmenu="false">
+	<item label="MSDN Home" url="/default.asp"/>
+	<item label="MSDN Library" url="/library/default.asp"/>
+	<item label="Win32 and COM Development" url="/library/en-us/dnanchor/html/anch_win32com.asp" id="msdnlib1373" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1373_.xml"/><item label="Component Development" url="/library/en-us/dnanchor/html/componentdevelopmentank.asp" id="msdnlib1427" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1427_.xml"/><item label="ActiveX Controls" url="/workshop/components/activex/activex_node_entry.asp" id="msdnlib1428"/><item label="SDK Documentation" id="msdnlib1429"/><item label="Overviews/Tutorials" url="/workshop/components/activex/activex_ovw_entry.asp" id="activex3"/><item label="About ActiveX Controls" url="/workshop/components/activex/controls.asp" id="activex5"/></eyebrow></xml><!--VENUS_START-->
+<META content=_inet_ActiveX_Controls_cpp name=MSHKeywordA>
+<META content="About ActiveX Controls" name=MSHKeywordF>
+<META content="About ActiveX Controls" name=MSHKeywordK>
+<META content=TopicType:kbRef name=MSHAttr>
+<META content=Locale:kbEnglish name=MSHAttr>
+<META content=DocSet:WCSDK name=MSHAttr>
+<META content=DocSet:PSDK name=MSHAttr>
+<META content=TargetOS:Windows name=MSHAttr>
+<META content=DevLang:C++ name=MSHAttr>
+<META content=DevLangVers:kbLangCPP name=MSHAttr>
+<META content=Technology:IE name=MSHAttr>
+<META content=TechnologyVers:kbIE name=MSHAttr><!--VENUS_END--><LINK 
+href="controls_files/css.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript>
+var doImage=doImage;var TType=TType;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&TYPE=' + tt + '&p=workshop_components_activex&URI=%2flibrary%2ftoolbar%2f3.0%2fasp.aspx%3fmode%3dhead%26c%3d%2fnonlibraryshell.config%26h%3dmsdn%252Emicrosoft%252Ecom%26u%3d%252Fworkshop%252Fcomponents%252Factivex%252Fcontrols%252Easp%26r%3dhttp%253A%252F%252Fmsdn%252Emicrosoft%252Ecom%252Fworkshop%252Fcomponents%252Factivex%252Factivex%255Fnode%255Fentry%252Easp%253Fframe%253Dtrue&GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61&r=http%3a%2f%2fmsdn.microsoft.com%2fworkshop%2fcomponents%2factivex%2factivex_node_entry.asp%3fframe%3dtrue" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>');}}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2668" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0">
+<TABLE height=24 cellSpacing=0 cellPadding=4 width="100%" bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=eyebrow vAlign=center align=left width="100%">&nbsp;&nbsp; <A 
+      class=small href="http://msdn.microsoft.com/default.asp" target=_top>MSDN 
+      Home</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp" target=_top>MSDN 
+      Library</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/anch_win32com.asp" 
+      target=_top>Win32 and COM Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/componentdevelopmentank.asp" 
+      target=_top>Component Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/workshop/components/activex/activex_node_entry.asp" 
+      target=_top>ActiveX Controls</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/workshop/components/activex/activex_ovw_entry.asp" 
+      target=_top>Overviews/Tutorials</A><A 
+      href="http://msdn.microsoft.com/workshop/components/activex/"></A> 
+  </TD></TR></TBODY></TABLE>
+<TABLE class=clsContainer style="TABLE-LAYOUT: fixed" cellSpacing=0 
+cellPadding=15 width="100%" border=0 float="left">
+  <TBODY>
+  <TR>
+    <TD vAlign=top><!-------------------><!-- BEGIN_CONTENT --><!-------------------><!-- TOOLBAR_START --><!-- TOOLBAR_EXEMPT --><!-- TOOLBAR_END -->
+      <DIV class=clsDocBody>
+      <TABLE cellSpacing=0 cellPadding=0 width="97%">
+        <TBODY>
+        <TR>
+          <TD>
+            <H1>About ActiveX Controls </H1></TD>
+          <TD align=right><A 
+            title="This index is only for content formerly found in the Web Workshop." 
+            href="http://msdn.microsoft.com/workshop/index/default.asp" 
+            target=_top>Internet Development Index</A></TD></TR></TBODY></TABLE>
+      <HR SIZE=1>
+      </HR>
+      <P>This section introduces Microsoft ActiveX Controls and provides general 
+      guidelines for control developers. It includes information about run-time 
+      licensing for an ActiveX control, identifying an ActiveX control as safe 
+      for scripting or safe for code download, packaging an ActiveX control in a 
+      .cab file, and applying a test certificate to an ActiveX control. </P>
+      <P>In addition, this section includes information describing the 
+      differences between ActiveX Controls written for Microsoft Internet 
+      Explorer 3.0 and ActiveX Controls written for Internet Explorer 4.0. </P>
+      <UL>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/intro.asp">Introduction 
+        to ActiveX Controls</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/security.asp">Designing 
+        Secure ActiveX Controls</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/buildax.asp">Building 
+        ActiveX Controls for Internet Explorer 4.0</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/tutorial.asp">Using 
+        ActiveX Controls to Automate Your Web Pages</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/safety.asp">Safe 
+        Initialization and Scripting for ActiveX Controls</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/licensing.asp">Licensing 
+        ActiveX Controls</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/packaging.asp">Packaging 
+        ActiveX Controls</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/palettes.asp">Palette 
+        Management for ActiveX Controls</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/components/activex/registration.asp">How 
+        to Register an ActiveX Object as the Player for a Media Type</A></LI></UL>
+      <H2><A name=related_topics>Related Topics</A></H2>
+      <P></P>
+      <UL>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/networking/moniker/monikers.asp">URL 
+        Monikers</A>
+        <LI><A 
+        href="http://msdn.microsoft.com/workshop/misc/hlink/hlink.asp">Hyperlinks</A></LI></UL><INFO><PRODUCT 
+      minver="4.0" rid="prod_IE"></PRODUCT><PLATFORM minver="95" 
+      rid="plat:win"></PLATFORM><PLATFORM minver="4.0" 
+      rid="plat:nt"></PLATFORM></INFO></DIV><!-----------------><!-- END_CONTENT --><!-----------------></TD></TR></TBODY></TABLE><BR 
+style="OVERFLOW: hidden; LINE-HEIGHT: 1px" clear=all>
+<TABLE id=msviFooter cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=bottom>
+    <TD id=msviFooter2 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')">
+      <DIV id=msviLocalFooter><NOBR><A 
+      href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/isapi/gomscom.asp?target=/legal/" 
+      target=_parent>Legal</A> |</NOBR><WBR><NOBR><A 
+      href="http://go.microsoft.com/?linkid=2028439" target=_parent>Contact 
+      Us</A> |</NOBR><WBR><NOBR><A href="http://msdn.microsoft.com/flash/" 
+      target=_parent>MSDN Flash Newsletter</A></NOBR></DIV>
+      <DIV id=msviGlobalFooter><SPAN dir=ltr>© 2005 Microsoft Corporation. All 
+      rights reserved.&nbsp;</SPAN><NOBR><A 
+      href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+      Statement</A></NOBR></DIV></TD>
+    <TD width=105 bgColor=#669aff><IMG title="" height=29 alt=Microsoft 
+      src="controls_files/text.jpg" width=105 border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>var msviFooter2;if (document.getElementById){msviFooter2 = document.getElementById("msviFooter2");msviFooter2.style.filter = "";}</SCRIPT>
+
+<TABLE height=58 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV style="WIDTH: 200px"></DIV></TD>
+    <TD 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')" 
+    width="100%"></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>footerjs(document);</SCRIPT>
+</BODY></HTML>

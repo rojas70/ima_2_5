@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ImageProcessingLib.IntelIPL.1 = s 'IntelIPL Class'
+	{
+		CLSID = s '{950C6005-DE09-4A09-9EC4-C0798A1AA46D}'
+	}
+	IMA2_ImageProcessingLib.IntelIPL = s 'IntelIPL Class'
+	{
+		CLSID = s '{950C6005-DE09-4A09-9EC4-C0798A1AA46D}'
+		CurVer = s 'IMA2_ImageProcessingLib.IntelIPL.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {950C6005-DE09-4A09-9EC4-C0798A1AA46D} = s 'IntelIPL Class'
+		{
+			ProgID = s 'IMA2_ImageProcessingLib.IntelIPL.1'
+			VersionIndependentProgID = s 'IMA2_ImageProcessingLib.IntelIPL'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{97C5FC94-57ED-4DC6-8CFD-484E6F75C441}'
+		}
+	}
+}

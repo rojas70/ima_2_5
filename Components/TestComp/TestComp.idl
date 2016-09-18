@@ -1,0 +1,41 @@
+// TestComp.idl : IDL source for TestComp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TestComp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(493FC2A5-FD98-451C-8740-94A8532AD281),
+		dual,
+		helpstring("ITesting123 Interface"),
+		pointer_default(unique)
+	]
+	interface ITesting123 : IDispatch
+	{
+		[id(1), helpstring("method SendDouble")] HRESULT SendDouble([out,retval] SAFEARRAY(double) Data);
+	};
+
+[
+	uuid(F17CDE57-D545-4CD3-A8E7-75BC66AA4249),
+	version(1.0),
+	helpstring("Testing DAD 123 Testing")
+]
+library TESTCOMPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb");
+
+	[
+		uuid(DF45426C-5436-4EB1-B01E-D1DB7235AC3E),
+		helpstring("Testing123 Class")
+	]
+	coclass Testing123
+	{
+		[default] interface ITesting123;
+		interface IComponent;
+	};
+};

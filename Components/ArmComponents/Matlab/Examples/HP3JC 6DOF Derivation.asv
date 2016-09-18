@@ -1,0 +1,100 @@
+%% Motoman's Kinematics and Jacobian
+% For more refer to O:\Documentation\Arm\Motoman
+% DH Parameters. Follows the PUMA 560 derivation closely. The difference is
+% in that we have a few more link offsets (d2,d4,d6), a3 = 0, and the home
+% position for the motoman and puma is different. Adjustments take place in
+% controller.
+
+% Link lengths (all info was obtained from the Dimensions.pdf file).
+a2 = 260;       % Length of link 2
+
+% Link offsets
+d2 = 290;       % base to 1st joint
+d4 = 270;       % joint 3 to joint 4
+d6 = 90;        % joint 4,5 to joint 6
+
+% Alpha angles
+alpha0 =   0;     
+alpha1 = -90;
+alpha2 =   0;
+alpha3 = -90;
+alpha4 =  90;
+alpha5 = -90;
+
+% thetas
+syms theta1 theta2 theta3 theta4 theta5 theta6;
+%% Compute the symbolic DH Params
+
+% This computation will generate a non-succint version of the matrix.
+% I recommend that after computing the DHmatrix using this method, you
+% re-write the matrix transform in succint form before computing the
+% base-to-end effector transform.
+
+% Create transforms by calling the DH-Params
+%                  theta,   d,      a,     alpha
+T01=DHmatrix_sym(theta1,    0,      0,        0);
+T12=DHmatrix_sym(theta2,    d2,     0,      -90);
+T23=DHmatrix_sym(theta3,    0,      a2,       0);
+T34=DHmatrix_sym(theta4,    d4,     0,      -90);
+T45=DHmatrix_sym(theta5,    0,      0,       90);
+T56=DHmatrix_sym(theta6,    d6,     0,      -90);
+%T56=RotZ(theta5)*RotX(theta6);
+
+%% Symbolic Computation of ISACs Forward Kinematics
+T06_motoman = T01*T12*T23*T34*T45*T56;
+
+
+%%Joint variables
+clf
+theta1=-30;
+theta2=-25;
+theta3=-50;
+theta4=-45;
+theta5=-20;
+theta6=95;
+
+%%link length
+a3=2.5;
+a4=2.1;
+a5=1.8;
+
+%%First way to calculate the forward kinematics
+T01=DHmatrix(theta1,0,0,0);
+T12=DHmatrix(0,0,0,-90);
+T23=DHmatrix(theta2,0,a3,0);
+T34=DHmatrix(theta3,0,a4,0);
+T45=DHmatrix(theta4,0,a5,0);
+T56=RotZ(theta5)*RotX(theta6);
+
+Tuh1=T01*T12*T23*T34*T45*T56;
+
+
+%%A second fast way to calculate it
+T01=RotZ(theta1);
+T12=RotX(-90);
+T23=RotZ(theta2)*Tras(a3,0,0);
+T34=RotZ(theta3)*Tras(a4,0,0);
+T45=RotZ(theta4)*Tras(a5,0,0);
+T56=RotZ(theta5)*RotX(theta6);
+
+% %%This shows how to use the plot system
+% plotT(T01);
+% pause(2);
+% plotT(T01*T12);
+% pause(2);
+% plotT2(T01*T12,T01*T12*T23);
+% pause(2);
+% plotT2(T01*T12*T23,T01*T12*T23*T34);
+% pause(2);
+% plotT2(T01*T12*T23*T34,T01*T12*T23*T34*T45);
+% pause(2);
+% plotT2(T01*T12*T23*T34*T45,T01*T12*T23*T34*T45*T56);
+
+Tuh2=T01*T12*T23*T34*T45*T56;
+
+%%now calculate the jacobian
+J6=jacobianT6([T01,T12,T23,T34,T45,T56],['R','R','R','R','R','R']);
+
+
+F=[2.1;3.2;4.5;10.1;0.5;0.07];
+T=staticForce(J6,F);

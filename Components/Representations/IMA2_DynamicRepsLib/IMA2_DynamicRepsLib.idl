@@ -1,0 +1,54 @@
+// IMA2_DynamicRepsLib.idl : IDL source for IMA2_DynamicRepsLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_DynamicRepsLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(AC378F4C-C175-42C4-BBDE-F4F3E13A6236),
+		dual,
+		helpstring("IDynamicVector Interface"),
+		pointer_default(unique)
+	]
+	interface IDynamicVector : IDispatch
+	{
+		[propget, id(1), helpstring("property PointsAdded")] HRESULT PointsAdded([out, retval] long *pVal);
+		[propput, id(1), helpstring("property PointsAdded")] HRESULT PointsAdded([in] long newVal);
+		[propget, id(2), helpstring("property NumVectors")] HRESULT NumVectors([out, retval] long *pVal);
+		[propput, id(2), helpstring("property NumVectors")] HRESULT NumVectors([in] long newVal);
+		[propget, id(3), helpstring("property VectorLength")] HRESULT VectorLength([out, retval] long *pVal);
+		[propput, id(3), helpstring("property VectorLength")] HRESULT VectorLength([in] long newVal);
+		[propget, id(4), helpstring("property PointsAddedIndex")] HRESULT PointsAddedIndex([out, retval] int *pVal);
+		[propput, id(4), helpstring("property PointsAddedIndex")] HRESULT PointsAddedIndex([in] int newVal);
+		[id(5), helpstring("method AddNewValue")] HRESULT AddNewValue(long buffer_index, double new_value);
+		[id(6), helpstring("method SetVector")] HRESULT SetVector(/*[in]*/ long index, SAFEARRAY(double) data);
+		[id(7), helpstring("method GetVector")] HRESULT GetVector(/*[in]*/ long index, SAFEARRAY(double) data);
+		[id(8), helpstring("method GetRecentValue")] HRESULT GetRecentValue(long buffer_index, long history_point, double* pVal);
+
+
+	};
+
+[
+	uuid(F145B219-03DE-4FD5-916C-3CF1324C9944),
+	version(1.0),
+	helpstring("(IMA2 Components) - DynamicRep")
+]
+library IMA2_DYNAMICREPSLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(FEAB28F2-03C5-4618-83A8-D516E25135D5),
+		helpstring("DynamicVector Class")
+	]
+	coclass DynamicVector
+	{
+		[default] interface IDynamicVector;
+		interface IComponent; 
+	};
+};

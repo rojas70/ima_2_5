@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ImageRepLib.ImageFeature.1 = s 'ImageFeature Class'
+	{
+		CLSID = s '{442DD980-AE19-440E-9B1A-6A272F422874}'
+	}
+	IMA2_ImageRepLib.ImageFeature = s 'ImageFeature Class'
+	{
+		CLSID = s '{442DD980-AE19-440E-9B1A-6A272F422874}'
+		CurVer = s 'IMA2_ImageRepLib.ImageFeature.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {442DD980-AE19-440E-9B1A-6A272F422874} = s 'ImageFeature Class'
+		{
+			ProgID = s 'IMA2_ImageRepLib.ImageFeature.1'
+			VersionIndependentProgID = s 'IMA2_ImageRepLib.ImageFeature'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{7481AFA4-383D-4148-B8FA-860C8EE927C1}'
+		}
+	}
+}

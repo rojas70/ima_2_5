@@ -1,0 +1,26 @@
+HKCR
+{
+	TestComp.Testing123.1 = s 'Testing123 Class'
+	{
+		CLSID = s '{DF45426C-5436-4EB1-B01E-D1DB7235AC3E}'
+	}
+	TestComp.Testing123 = s 'Testing123 Class'
+	{
+		CLSID = s '{DF45426C-5436-4EB1-B01E-D1DB7235AC3E}'
+		CurVer = s 'TestComp.Testing123.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DF45426C-5436-4EB1-B01E-D1DB7235AC3E} = s 'Testing123 Class'
+		{
+			ProgID = s 'TestComp.Testing123.1'
+			VersionIndependentProgID = s 'TestComp.Testing123'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F17CDE57-D545-4CD3-A8E7-75BC66AA4249}'
+		}
+	}
+}

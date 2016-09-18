@@ -1,0 +1,51 @@
+// IMA2_HP3JCAssemblyPositionLib.idl : IDL source for IMA2_HP3JCAssemblyPositionLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_HP3JCAssemblyPositionLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CComputeGoalPos: IDL source for IMA2_CComputeGoalPos.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(88117FAD-9D58-42AC-9778-129AE2D22962),
+		dual,
+		helpstring("(IMA2 Components) - Assembly Localization Lib"),
+		pointer_default(unique)
+	]
+	interface IComputeGoalPos : IDispatch
+	{
+		[id(1), helpstring("method ComputeGoalPosition")] HRESULT ComputeGoalPosition();
+/*		[propget, id(2), helpstring("property ErrorThreshold")] HRESULT ErrorThreshold([out, retval] double *pVal);
+		[propput, id(2), helpstring("property ErrorThreshold")] HRESULT ErrorThreshold([in] double newVal);
+		[propget, id(3), helpstring("property Error")] HRESULT Error([out, retval] double *pVal);
+		[propput, id(3), helpstring("property Error")] HRESULT Error([in] double newVal);
+*/
+	};
+
+[
+	uuid(7C9FE133-88E0-4D2F-8C69-0399B7A28FA5),
+	version(1.0),
+	helpstring("(IMA2 Components) - Assembly Localization Lib")
+]
+library IMA2_HP3JCASSEMBLYPOSITIONLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(121915AA-25E2-4592-8550-5E3511F0FBAB),
+		helpstring("(IMA2 Components) - Assembly Localization Lib")
+	]
+	coclass ComputeGoalPos
+	{
+		[default] interface IComputeGoalPos;
+		interface IComponent; 
+	};
+};

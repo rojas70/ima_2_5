@@ -1,0 +1,52 @@
+// IMA2_SESManager.idl : IDL source for IMA2_SESManager.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_SESManager.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(2C82E557-68E3-470B-9D6A-D9D8A38437ED),
+		dual,
+		helpstring("ISesManager Interface"),
+		pointer_default(unique)
+	]
+	interface ISesManager : IDispatch
+	{
+		[propget, id(1), helpstring("property Tessellation")] HRESULT Tessellation([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Tessellation")] HRESULT Tessellation([in] long newVal);
+		[propget, id(2), helpstring("property DatabaseName")] HRESULT DatabaseName([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property DatabaseName")] HRESULT DatabaseName([in] BSTR newVal);
+		[id(3), helpstring("method ResetSES")] HRESULT ResetSES();
+		[id(4), helpstring("method PostSESInfo")] HRESULT PostSESInfo();
+		//[propget, id(5), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		//[propput, id(5), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		//[propget, id(6), helpstring("property Type")] HRESULT Type([out, retval] BSTR *pVal);
+		//[propput, id(6), helpstring("property Type")] HRESULT Type([in] BSTR newVal);
+		[id(7), helpstring("method RetrieveFromSES")] HRESULT RetrieveFromSES();
+	
+	};
+
+[
+	uuid(811951D3-639E-4C93-AEF8-0FBA60B85A24),
+	version(1.0),
+	helpstring("(IMA2 Components) - SESManager Lib")
+]
+library IMA2_SESMANAGERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(6E17776E-8396-4F5A-BADA-61BC13608A3D),
+		helpstring("SesManager Class")
+	]
+	coclass SesManager
+	{
+		[default] interface ISesManager;
+		interface IComponent;  
+	};
+};

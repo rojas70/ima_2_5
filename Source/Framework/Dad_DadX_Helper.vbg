@@ -1,0 +1,4 @@
+VBGROUP 5.0
+Project=Helper\dll\IMA2_Helper.vbp
+Project=DadX\IMA2_DadX.vbp
+StartupProject=Dad\IMA2_DAD.vbp

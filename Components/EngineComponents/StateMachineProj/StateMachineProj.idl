@@ -1,0 +1,54 @@
+// StateMachineProj.idl : IDL source for StateMachineProj.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (StateMachineProj.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(039B6487-B7C1-403F-A049-1E4188EE7D29),
+		dual,
+		helpstring("IStateMachine Interface"),
+		pointer_default(unique)
+	]
+	interface IStateMachine : IDispatch
+	{
+		[propget, id(1), helpstring("property FileName")] HRESULT FileName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property FileName")] HRESULT FileName([in] BSTR newVal);
+		[propget, id(2), helpstring("property NumStates")] HRESULT NumStates([out, retval] long *pVal);
+		[id(3), helpstring("method LoadSM")] HRESULT LoadSM();
+		[id(4), helpstring("method Start")] HRESULT Start();
+		[id(5), helpstring("method Reset")] HRESULT Reset();
+		[propget, id(6), helpstring("property CurrentState")] HRESULT CurrentState([out, retval] BSTR *pVal);
+		[id(7), helpstring("method Signal")] HRESULT Signal(BSTR signal);
+		[id(8), helpstring("method Stop")] HRESULT Stop();
+		[propget, id(9), helpstring("property ManualSignalString")] HRESULT ManualSignalString([out, retval] BSTR *pVal);
+		[propput, id(9), helpstring("property ManualSignalString")] HRESULT ManualSignalString([in] BSTR newVal);
+		[id(10), helpstring("method ManualSignal")] HRESULT ManualSignal();
+		[id(11), helpstring("method Wait")] HRESULT Wait([in] int time);
+		[id(12), helpstring("method UpdateManager")] HRESULT UpdateManager([in] BSTR Interface, [out,retval] VARIANT *DATA);
+	};
+
+[
+	uuid(F2F61FE1-FC37-4367-8E54-49A858E1AD6B),
+	version(1.0),
+	helpstring("(IMA2 Components) - Matlab State Machine")
+]
+library STATEMACHINEPROJLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb");
+
+	[
+		uuid(8355FDFD-0EBC-47F4-B0B2-D71404547022),
+		helpstring("StateMachine Class")
+	]
+	coclass StateMachine
+	{
+		[default] interface IStateMachine;
+		interface IComponent;
+	};
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_FrameGrabberLib.PXC_FG.1 = s 'PXC_FG Class'
+	{
+		CLSID = s '{103A665D-AC59-412E-AEFD-0164EF9CB582}'
+	}
+	IMA2_FrameGrabberLib.PXC_FG = s 'PXC_FG Class'
+	{
+		CLSID = s '{103A665D-AC59-412E-AEFD-0164EF9CB582}'
+		CurVer = s 'IMA2_FrameGrabberLib.PXC_FG.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {103A665D-AC59-412E-AEFD-0164EF9CB582} = s 'PXC_FG Class'
+		{
+			ProgID = s 'IMA2_FrameGrabberLib.PXC_FG.1'
+			VersionIndependentProgID = s 'IMA2_FrameGrabberLib.PXC_FG'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5102A4A0-3418-488A-87C9-7CA402DB51BD}'
+		}
+	}
+}

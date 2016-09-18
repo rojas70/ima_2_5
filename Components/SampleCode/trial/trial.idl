@@ -1,0 +1,38 @@
+// trial.idl : IDL source for trial.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (trial.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(D12EFCCC-15DE-45A6-84D3-11EAD2A88327),
+		dual,
+		helpstring("Itrialobj Interface"),
+		pointer_default(unique)
+	]
+	interface Itrialobj : IDispatch
+	{
+	};
+
+[
+	uuid(F50D985F-0B86-43E1-84BA-EEC428EC88D4),
+	version(1.0),
+	helpstring("trial 1.0 Type Library")
+]
+library TRIALLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(E2EC1480-F13E-4F16-8338-15495F3AE6BF),
+		helpstring("trialobj Class")
+	]
+	coclass trialobj
+	{
+		[default] interface Itrialobj;
+	};
+};

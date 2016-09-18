@@ -1,0 +1,5 @@
+AgentTreeview = 120, -4, 626, 448, , 66, 87, 669, 539, C
+ModMain = 220, 220, 807, 716, 
+AgentListview = 66, 87, 629, 539, , 88, 116, 651, 568, C
+InsertFileView = 66, 87, 544, 539, C, 44, 58, 523, 510, C
+InsertComponentView = 88, 88, 571, 536, C, 22, 29, 501, 481, C

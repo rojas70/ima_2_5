@@ -1,0 +1,4261 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    155095,       4252]
+NotebookOptionsPosition[    145403,       3965]
+NotebookOutlinePosition[    146023,       3988]
+CellTagsIndexPosition[    145980,       3985]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+NR Robot
+George E. Cook
+EECE/ME 271
+October 28, 2007\
+\>", "Subtitle",
+ CellChangeTimes->{{3.4026020057367554`*^9, 3.4026020129070654`*^9}},
+ TextAlignment->Center,
+ FontFamily->"System"],
+
+Cell["Inverse Kinematics", "Subtitle",
+ TextAlignment->Center],
+
+Cell[CellGroupData[{
+
+Cell["Link Transformation Matrices:", "Section",
+ FontSize->16],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"T01", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], ",", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], ",", "0", ",", "0"}], 
+       "}"}], ",", "\n", "\t\t            ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], ",", "  ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], ",", "0", ",", "0"}], "}"}], 
+      ",", "\n", "\t\t            ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", "1", ",", "0"}], "}"}], ",", 
+      "\n", "\t\t            ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", "  ", "0", ",", "1"}], "}"}]}], 
+     "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T12", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], ",", " ", "0", ",", "  ", 
+        "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", 
+        RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], ",", "    ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], ",", " ", "0", ",", "  ", 
+        "0"}], " ", "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", "  ", "0", ",", "  ", "1"}], "  ", 
+       "}"}]}], "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T23", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], ",", " ", "0", ",", " ", 
+        "a2"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], ",", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], ",", " ", "0", ",", " ", 
+        "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", "1", ",", " ", "0"}], "}"}], ",",
+       "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", "0", ",", " ", "1"}], "}"}]}], 
+     "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T34", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], ",", " ", "0", ",", " ", 
+        "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", 
+        RowBox[{"-", "1"}], ",", " ", 
+        RowBox[{"-", "d4"}]}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}], ",", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], ",", " ", "0", ",", " ", 
+        "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", "0", ",", " ", "1"}], "}"}]}], 
+     "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"T45", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], ",", " ", "0", ",", " ", 
+        "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", "1", ",", " ", "0"}], "}"}], ",",
+       "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], ",", " ", 
+        RowBox[{"-", 
+         RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], ",", " ", "0", ",", " ", 
+        "0"}], "}"}], ",", "\n", "\t\t           ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "0", ",", " ", "0", ",", " ", "1"}], "}"}]}], 
+     "}"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"T56", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cos", "[", "\[Theta]6", "]"}], ",", " ", 
+       RowBox[{"-", 
+        RowBox[{"Sin", "[", "\[Theta]6", "]"}]}], ",", " ", "0", ",", " ", 
+       "0"}], "}"}], ",", "\n", "\t\t           ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", 
+       RowBox[{"-", "1"}], ",", " ", "0"}], "}"}], ",", "\n", 
+     "\t\t           ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "[", "\[Theta]6", "]"}], ",", " ", 
+       RowBox[{"Cos", "[", "\[Theta]6", "]"}], ",", " ", "0", ",", " ", "0"}],
+       "}"}], ",", "\n", "\t\t           ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", "0", ",", " ", "1"}], "}"}]}], 
+    "}"}]}], ";"}]}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["General Overall Transformation", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"T06", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r11", ",", " ", "r12", ",", " ", "r13", ",", " ", "px"}], 
+      "}"}], ",", "\n", "\t\t           ", 
+     RowBox[{"{", 
+      RowBox[{"r21", ",", " ", "r22", ",", " ", "r23", ",", " ", "py"}], 
+      "}"}], ",", "\n", "\t\t           ", 
+     RowBox[{"{", 
+      RowBox[{"r31", ",", " ", "r32", ",", " ", "r33", ",", " ", "pz"}], 
+      "}"}], ",", "\n", "\t\t           ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "0", ",", " ", "0", ",", " ", "1"}], "}"}]}], 
+    "}"}]}], ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inv[T01].T06 = Left Side of T16", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LST16", " ", "=", 
+   RowBox[{
+    RowBox[{"Simplify", "[", 
+     RowBox[{"Inverse", "[", "T01", "]"}], "]"}], ".", "T06"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<LST16[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"LST16", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r11", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r21", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 1, ",", 1, "] = ", r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r12", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r22", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 1, ",", 2, "] = ", r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r13", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r23", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 1, ",", 3, "] = ", r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"px", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"py", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 1, ",", 4, "] = ", px Cos[\[Theta]1] + py Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r21", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{"r11", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 2, ",", 1, "] = ", r21 Cos[\[Theta]1] - r11 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r22", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{"r12", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 2, ",", 2, "] = ", r22 Cos[\[Theta]1] - r12 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r23", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{"r13", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 2, ",", 3, "] = ", r23 Cos[\[Theta]1] - r13 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"py", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{"px", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST16[", 2, ",", 4, "] = ", py Cos[\[Theta]1] - px Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "r31"}],
+  SequenceForm["LST16[", 3, ",", 1, "] = ", r31],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "r32"}],
+  SequenceForm["LST16[", 3, ",", 2, "] = ", r32],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "r33"}],
+  SequenceForm["LST16[", 3, ",", 3, "] = ", r33],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "pz"}],
+  SequenceForm["LST16[", 3, ",", 4, "] = ", pz],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST16[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST16[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST16[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["LST16[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["T12.T23.T34.T45.T56 = RST16", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RST16", " ", "=", " ", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"T12", ".", "T23", ".", "T34", ".", "T45", ".", "T56"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<RST16[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"RST16", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "RST16[", 1, ",", 1, 
+   "] = ", -Cos[\[Theta]6] Sin[\[Theta]2 + \[Theta]3] Sin[\[Theta]5] + 
+   Cos[\[Theta]2 + \[Theta]3] (Cos[\[Theta]4] Cos[\[Theta]5] Cos[\[Theta]6] - 
+     Sin[\[Theta]4] Sin[\[Theta]6])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "RST16[", 1, ",", 2, "] = ", 
+   Sin[\[Theta]2 + \[Theta]3] Sin[\[Theta]5] Sin[\[Theta]6] - 
+   Cos[\[Theta]2 + \[Theta]3] (Cos[\[Theta]6] Sin[\[Theta]4] + 
+    Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]6])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 1, ",", 3, "] = ", Cos[\[Theta]5] Sin[\[Theta]2 + \[Theta]3] + 
+   Cos[\[Theta]2 + \[Theta]3] Cos[\[Theta]4] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"a2", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+    RowBox[{"d4", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 1, ",", 4, "] = ", a2 Cos[\[Theta]2] + 
+   d4 Sin[\[Theta]2 + \[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 2, ",", 1, "] = ", -Cos[\[Theta]5] Cos[\[Theta]6] Sin[\[Theta]4] - 
+   Cos[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]4", "]"}]}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 2, ",", 2, "] = ", -Cos[\[Theta]4] Cos[\[Theta]6] + 
+   Cos[\[Theta]5] Sin[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST16[", 2, ",", 3, "] = ", -Sin[\[Theta]4] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST16[", 2, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}], 
+    "-", 
+    RowBox[{
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 3, ",", 1, "] = ", 
+   Cos[\[Theta]6] (
+     Cos[\[Theta]3] (Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] + 
+       Cos[\[Theta]2] Sin[\[Theta]5]) + 
+     Sin[\[Theta]3] (Cos[\[Theta]2] Cos[\[Theta]4] Cos[\[Theta]5] - 
+       Sin[\[Theta]2] Sin[\[Theta]5])) - Sin[\[Theta]2 + \[Theta]3] 
+   Sin[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}], " ", 
+     
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 3, ",", 2, 
+   "] = ", -Cos[\[Theta]6] Sin[\[Theta]2 + \[Theta]3] Sin[\[Theta]4] - (
+    Cos[\[Theta]3] (Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] + 
+      Cos[\[Theta]2] Sin[\[Theta]5]) + 
+    Sin[\[Theta]3] (Cos[\[Theta]2] Cos[\[Theta]4] Cos[\[Theta]5] - 
+      Sin[\[Theta]2] Sin[\[Theta]5])) Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 3, ",", 3, "] = ", -Cos[\[Theta]2 + \[Theta]3] Cos[\[Theta]5] + 
+   Cos[\[Theta]4] Sin[\[Theta]2 + \[Theta]3] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "d4"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{"a2", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "RST16[", 3, ",", 4, "] = ", -d4 Cos[\[Theta]2 + \[Theta]3] + 
+   a2 Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST16[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST16[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST16[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST16[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["RST16[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inv[T12].Inv[T01].T06=Left Side of T26", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LST26", " ", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"Inverse", "[", "T12", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T01", "]"}], ".", "T06"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<LST26[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"LST26", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r11", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+    RowBox[{"r21", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r31", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 1, ",", 1, "] = ", r11 Cos[\[Theta]1] Cos[\[Theta]2] + 
+   r21 Cos[\[Theta]2] Sin[\[Theta]1] + r31 Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r12", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+    RowBox[{"r22", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r32", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 1, ",", 2, "] = ", r12 Cos[\[Theta]1] Cos[\[Theta]2] + 
+   r22 Cos[\[Theta]2] Sin[\[Theta]1] + r32 Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r13", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+    RowBox[{"r23", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r33", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 1, ",", 3, "] = ", r13 Cos[\[Theta]1] Cos[\[Theta]2] + 
+   r23 Cos[\[Theta]2] Sin[\[Theta]1] + r33 Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"px", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+    RowBox[{"py", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"pz", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 1, ",", 4, "] = ", px Cos[\[Theta]1] Cos[\[Theta]2] + 
+   py Cos[\[Theta]2] Sin[\[Theta]1] + pz Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r31", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 2, ",", 1, "] = ", 
+   r31 Cos[\[Theta]2] - (r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]) 
+   Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r32", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 2, ",", 2, "] = ", 
+   r32 Cos[\[Theta]2] - (r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]) 
+   Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r33", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 2, ",", 3, "] = ", 
+   r33 Cos[\[Theta]2] - (r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]) 
+   Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"pz", " ", 
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"py", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 2, ",", 4, "] = ", 
+   pz Cos[\[Theta]2] - (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+   Sin[\[Theta]2]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r21"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r11", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 3, ",", 1, "] = ", -r21 Cos[\[Theta]1] + r11 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r22"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r12", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 3, ",", 2, "] = ", -r22 Cos[\[Theta]1] + r12 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r23"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r13", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 3, ",", 3, "] = ", -r23 Cos[\[Theta]1] + r13 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "py"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"px", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST26[", 3, ",", 4, "] = ", -py Cos[\[Theta]1] + px Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST26[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST26[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST26[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["LST26[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["T23.T34.T45.T56=RST26", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RST26", " ", "=", " ", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"T23", ".", "T34", ".", "T45", ".", "T56"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<RST26[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"RST26", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "RST26[", 1, ",", 1, "] = ", -Cos[\[Theta]6] Sin[\[Theta]3] Sin[\[Theta]5] + 
+   Cos[\[Theta]3] (Cos[\[Theta]4] Cos[\[Theta]5] Cos[\[Theta]6] - 
+     Sin[\[Theta]4] Sin[\[Theta]6])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "RST26[", 1, ",", 2, "] = ", Sin[\[Theta]3] Sin[\[Theta]5] Sin[\[Theta]6] - 
+   Cos[\[Theta]3] (Cos[\[Theta]6] Sin[\[Theta]4] + 
+    Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]6])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}]}],
+  SequenceForm[
+  "RST26[", 1, ",", 3, "] = ", Cos[\[Theta]5] Sin[\[Theta]3] + 
+   Cos[\[Theta]3] Cos[\[Theta]4] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"a2", "+", 
+    RowBox[{"d4", " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}]}],
+  SequenceForm["RST26[", 1, ",", 4, "] = ", a2 + d4 Sin[\[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST26[", 2, ",", 1, "] = ", 
+   Cos[\[Theta]4] Cos[\[Theta]5] Cos[\[Theta]6] Sin[\[Theta]3] + 
+   Cos[\[Theta]3] Cos[\[Theta]6] Sin[\[Theta]5] - Sin[\[Theta]3] 
+   Sin[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST26[", 2, ",", 2, 
+   "] = ", -Cos[\[Theta]6] Sin[\[Theta]3] Sin[\[Theta]4] - (
+    Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]3] + 
+    Cos[\[Theta]3] Sin[\[Theta]5]) Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}]}],
+  SequenceForm[
+  "RST26[", 2, ",", 3, "] = ", -Cos[\[Theta]3] Cos[\[Theta]5] + 
+   Cos[\[Theta]4] Sin[\[Theta]3] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", "d4"}], " ", 
+    RowBox[{"Cos", "[", "\[Theta]3", "]"}]}]}],
+  SequenceForm["RST26[", 2, ",", 4, "] = ", -d4 Cos[\[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST26[", 3, ",", 1, "] = ", Cos[\[Theta]5] Cos[\[Theta]6] Sin[\[Theta]4] + 
+   Cos[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST26[", 3, ",", 2, "] = ", Cos[\[Theta]4] Cos[\[Theta]6] - Cos[\[Theta]5] 
+   Sin[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST26[", 3, ",", 3, "] = ", Sin[\[Theta]4] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST26[", 3, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST26[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST26[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST26[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST26[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["RST26[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inv[T23].Inv[T12].Inv[T01.T06=Left Side of T36", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LST36", " ", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"Inverse", "[", "T23", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T12", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T01", "]"}], ".", "T06"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<LST36[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"LST36", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r11", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r21", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r31", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r31", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 1, ",", 1, "] = ", r11 Cos[\[Theta]1] Cos[\[Theta]2 + \[Theta]3] + 
+   Cos[\[Theta]2] (r21 Cos[\[Theta]3] Sin[\[Theta]1] + r31 Sin[\[Theta]3]) + 
+   Sin[\[Theta]2] (r31 Cos[\[Theta]3] - r21 Sin[\[Theta]1] Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r12", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r22", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r32", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r32", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 1, ",", 2, "] = ", r12 Cos[\[Theta]1] Cos[\[Theta]2 + \[Theta]3] + 
+   Cos[\[Theta]2] (r22 Cos[\[Theta]3] Sin[\[Theta]1] + r32 Sin[\[Theta]3]) + 
+   Sin[\[Theta]2] (r32 Cos[\[Theta]3] - r22 Sin[\[Theta]1] Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r13", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r23", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r33", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r33", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 1, ",", 3, "] = ", r13 Cos[\[Theta]1] Cos[\[Theta]2 + \[Theta]3] + 
+   Cos[\[Theta]2] (r23 Cos[\[Theta]3] Sin[\[Theta]1] + r33 Sin[\[Theta]3]) + 
+   Sin[\[Theta]2] (r33 Cos[\[Theta]3] - r23 Sin[\[Theta]1] Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "a2"}], "+", 
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+       RowBox[{"py", " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"pz", " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"pz", " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}]}],
+  SequenceForm[
+  "LST36[", 1, ",", 4, "] = ", 
+   Cos[\[Theta]3] (-a2 + px Cos[\[Theta]1] Cos[\[Theta]2] + 
+     py Cos[\[Theta]2] Sin[\[Theta]1] + pz Sin[\[Theta]2]) + (
+     pz Cos[\[Theta]2] - (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+     Sin[\[Theta]2]) Sin[\[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r31", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r31", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r11", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r21", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 2, ",", 1, 
+   "] = ", -Sin[\[Theta]2] (r11 Cos[\[Theta]1] Cos[\[Theta]3] + 
+     r21 Cos[\[Theta]3] Sin[\[Theta]1] + r31 Sin[\[Theta]3]) + 
+   Cos[\[Theta]2] (
+     r31 Cos[\[Theta]3] - (r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]) 
+     Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r32", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r32", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r12", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r22", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 2, ",", 2, 
+   "] = ", -Sin[\[Theta]2] (r12 Cos[\[Theta]1] Cos[\[Theta]3] + 
+     r22 Cos[\[Theta]3] Sin[\[Theta]1] + r32 Sin[\[Theta]3]) + 
+   Cos[\[Theta]2] (
+     r32 Cos[\[Theta]3] - (r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]) 
+     Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r33", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r33", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r13", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r23", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 2, ",", 3, 
+   "] = ", -Sin[\[Theta]2] (r13 Cos[\[Theta]1] Cos[\[Theta]3] + 
+     r23 Cos[\[Theta]3] Sin[\[Theta]1] + r33 Sin[\[Theta]3]) + 
+   Cos[\[Theta]2] (
+     r33 Cos[\[Theta]3] - (r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]) 
+     Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "px"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"py", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+    RowBox[{"a2", " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+    RowBox[{"pz", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"pz", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST36[", 2, ",", 4, 
+   "] = ", -px Cos[\[Theta]1] Cos[\[Theta]3] Sin[\[Theta]2] - py 
+   Cos[\[Theta]3] Sin[\[Theta]1] Sin[\[Theta]2] + a2 Sin[\[Theta]3] - pz 
+   Sin[\[Theta]2] Sin[\[Theta]3] + 
+   Cos[\[Theta]2] (
+     pz Cos[\[Theta]3] - (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+     Sin[\[Theta]3])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r21"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r11", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST36[", 3, ",", 1, "] = ", -r21 Cos[\[Theta]1] + r11 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r22"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r12", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST36[", 3, ",", 2, "] = ", -r22 Cos[\[Theta]1] + r12 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r23"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"r13", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST36[", 3, ",", 3, "] = ", -r23 Cos[\[Theta]1] + r13 Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "py"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{"px", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}]}],
+  SequenceForm[
+  "LST36[", 3, ",", 4, "] = ", -py Cos[\[Theta]1] + px Sin[\[Theta]1]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST36[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST36[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST36[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["LST36[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["T34.T45.T56=RST36", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RST36", " ", "=", " ", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"T34", ".", "T45", ".", "T56"}], "]"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<RST36[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"RST36", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST36[", 1, ",", 1, "] = ", Cos[\[Theta]4] Cos[\[Theta]5] Cos[\[Theta]6] - 
+   Sin[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST36[", 1, ",", 2, "] = ", -Cos[\[Theta]6] Sin[\[Theta]4] - 
+   Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST36[", 1, ",", 3, "] = ", Cos[\[Theta]4] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST36[", 1, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST36[", 2, ",", 1, "] = ", Cos[\[Theta]6] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}],
+  SequenceForm["RST36[", 2, ",", 2, "] = ", -Sin[\[Theta]5] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", 
+    RowBox[{"Cos", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST36[", 2, ",", 3, "] = ", -Cos[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "d4"}]}],
+  SequenceForm["RST36[", 2, ",", 4, "] = ", -d4],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST36[", 3, ",", 1, "] = ", Cos[\[Theta]5] Cos[\[Theta]6] Sin[\[Theta]4] + 
+   Cos[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}]}],
+  SequenceForm[
+  "RST36[", 3, ",", 2, "] = ", Cos[\[Theta]4] Cos[\[Theta]6] - Cos[\[Theta]5] 
+   Sin[\[Theta]4] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST36[", 3, ",", 3, "] = ", Sin[\[Theta]4] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST36[", 3, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST36[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST36[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST36[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST36[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["RST36[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inv[T34].Inv[T23].Inv[T12].Inv[T01].T06=Left Side of T46", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LST46", " ", "=", " ", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{
+     RowBox[{"Inverse", "[", "T34", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T23", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T12", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T01", "]"}], ".", "T06"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<LST46[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"LST46", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r11", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r21", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"r31", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r21"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r11", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 1, ",", 1, "] = ", 
+   Cos[\[Theta]4] (
+     Cos[\[Theta]2 + \[Theta]3] (r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]) + 
+     r31 Sin[\[Theta]2 + \[Theta]3]) + (-r21 Cos[\[Theta]1] + 
+     r11 Sin[\[Theta]1]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r12", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r22", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"r32", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r22"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r12", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 1, ",", 2, "] = ", 
+   Cos[\[Theta]4] (
+     Cos[\[Theta]2 + \[Theta]3] (r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]) + 
+     r32 Sin[\[Theta]2 + \[Theta]3]) + (-r22 Cos[\[Theta]1] + 
+     r12 Sin[\[Theta]1]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r13", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r23", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"r33", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r23"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r13", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 1, ",", 3, "] = ", 
+   Cos[\[Theta]4] (
+     Cos[\[Theta]2 + \[Theta]3] (r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]) + 
+     r33 Sin[\[Theta]2 + \[Theta]3]) + (-r23 Cos[\[Theta]1] + 
+     r13 Sin[\[Theta]1]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "a2"}], "+", 
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+       RowBox[{"py", " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"pz", " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"pz", " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "py"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"px", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 1, ",", 4, "] = ", 
+   Cos[\[Theta]3] 
+    Cos[\[Theta]4] (-a2 + px Cos[\[Theta]1] Cos[\[Theta]2] + 
+     py Cos[\[Theta]2] Sin[\[Theta]1] + pz Sin[\[Theta]2]) + 
+   Cos[\[Theta]4] (
+     pz Cos[\[Theta]2] - (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+     Sin[\[Theta]2]) 
+    Sin[\[Theta]3] + (-py Cos[\[Theta]1] + px Sin[\[Theta]1]) Sin[\[Theta]4]],
+  
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r21"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r11", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r11", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r21", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"r31", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 2, ",", 1, "] = ", 
+   Cos[\[Theta]4] (-r21 Cos[\[Theta]1] + r11 Sin[\[Theta]1]) - (
+    Cos[\[Theta]2 + \[Theta]3] (r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]) + 
+    r31 Sin[\[Theta]2 + \[Theta]3]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r22"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r12", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r12", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r22", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"r32", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 2, ",", 2, "] = ", 
+   Cos[\[Theta]4] (-r22 Cos[\[Theta]1] + r12 Sin[\[Theta]1]) - (
+    Cos[\[Theta]2 + \[Theta]3] (r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]) + 
+    r32 Sin[\[Theta]2 + \[Theta]3]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r23"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r13", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r13", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r23", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"r33", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 2, ",", 3, "] = ", 
+   Cos[\[Theta]4] (-r23 Cos[\[Theta]1] + r13 Sin[\[Theta]1]) - (
+    Cos[\[Theta]2 + \[Theta]3] (r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]) + 
+    r33 Sin[\[Theta]2 + \[Theta]3]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "py"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"px", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{"a2", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"pz", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 2, ",", 4, "] = ", 
+   Cos[\[Theta]4] (-py Cos[\[Theta]1] + px Sin[\[Theta]1]) + 
+   a2 Cos[\[Theta]3] Sin[\[Theta]4] - (
+    Cos[\[Theta]2 + \[Theta]3] (px Cos[\[Theta]1] + py Sin[\[Theta]1]) + 
+    pz Sin[\[Theta]2 + \[Theta]3]) Sin[\[Theta]4]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r31"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 3, ",", 1, 
+   "] = ", -r31 
+    Cos[\[Theta]2 + \[Theta]3] + (r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]) 
+    Sin[\[Theta]2 + \[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r32"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 3, ",", 2, 
+   "] = ", -r32 
+    Cos[\[Theta]2 + \[Theta]3] + (r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]) 
+    Sin[\[Theta]2 + \[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r33"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 3, ",", 3, 
+   "] = ", -r33 
+    Cos[\[Theta]2 + \[Theta]3] + (r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]) 
+    Sin[\[Theta]2 + \[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", "d4"}], "-", 
+    RowBox[{"pz", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "-", 
+    RowBox[{"a2", " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"py", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}]}],
+  SequenceForm[
+  "LST46[", 3, ",", 4, "] = ", -d4 - pz Cos[\[Theta]2 + \[Theta]3] - a2 
+   Sin[\[Theta]3] + (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+    Sin[\[Theta]2 + \[Theta]3]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST46[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST46[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST46[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["LST46[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["T45.T56=RST46", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RST46", " ", "=", " ", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"T45", ".", "T56"}], "]"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<RST46[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"RST46", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+    RowBox[{"Cos", "[", "\[Theta]6", "]"}]}]}],
+  SequenceForm["RST46[", 1, ",", 1, "] = ", Cos[\[Theta]5] Cos[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}],
+  SequenceForm["RST46[", 1, ",", 2, "] = ", -Cos[\[Theta]5] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Sin", "[", "\[Theta]5", "]"}]}],
+  SequenceForm["RST46[", 1, ",", 3, "] = ", 
+   Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 1, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Sin", "[", "\[Theta]6", "]"}]}],
+  SequenceForm["RST46[", 2, ",", 1, "] = ", 
+   Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Cos", "[", "\[Theta]6", "]"}]}],
+  SequenceForm["RST46[", 2, ",", 2, "] = ", 
+   Cos[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 2, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 2, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"Cos", "[", "\[Theta]6", "]"}]}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}],
+  SequenceForm["RST46[", 3, ",", 1, "] = ", -Cos[\[Theta]6] Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"Sin", "[", "\[Theta]5", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}],
+  SequenceForm["RST46[", 3, ",", 2, "] = ", Sin[\[Theta]5] Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Cos", "[", "\[Theta]5", "]"}]}],
+  SequenceForm["RST46[", 3, ",", 3, "] = ", 
+   Cos[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 3, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST46[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST46[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["RST46[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Inv[T45].Inv[T34].Inv[T23].Inv[T12].Inv[T01].T06=Left Side of T56\
+\>", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LST56", " ", "=", " ", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"Inverse", "[", "T45", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T34", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T23", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T12", "]"}], ".", 
+     RowBox[{"Inverse", "[", "T01", "]"}], ".", "T06"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<LST56[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"LST56", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r31", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"r21", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{"r11", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{"r21", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"r31", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r21", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r31", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r31", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "r11"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+          RowBox[{"r11", " ", 
+           RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}]}]}],
+  
+  SequenceForm[
+  "LST56[", 1, ",", 1, "] = ", 
+   r31 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] - r21 
+   Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] + 
+   r11 Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]4] - r21 Cos[\[Theta]3] 
+   Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]5] - r31 Sin[\[Theta]2] 
+   Sin[\[Theta]3] Sin[\[Theta]5] + 
+   Cos[\[Theta]2] (
+     r21 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] + 
+     r31 Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]3] + 
+     r31 Cos[\[Theta]3] Sin[\[Theta]5] - r21 Sin[\[Theta]1] Sin[\[Theta]3] 
+     Sin[\[Theta]5]) - 
+   Cos[\[Theta]1] (
+    r11 Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] Sin[\[Theta]3] + 
+    r21 Cos[\[Theta]5] Sin[\[Theta]4] + 
+    r11 Cos[\[Theta]3] Sin[\[Theta]2] Sin[\[Theta]5] + 
+    Cos[\[Theta]2] (-r11 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] + 
+      r11 Sin[\[Theta]3] Sin[\[Theta]5]))],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r32", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"r22", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{"r12", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{"r22", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"r32", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r22", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r32", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r32", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "r12"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+          RowBox[{"r12", " ", 
+           RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}]}]}],
+  
+  SequenceForm[
+  "LST56[", 1, ",", 2, "] = ", 
+   r32 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] - r22 
+   Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] + 
+   r12 Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]4] - r22 Cos[\[Theta]3] 
+   Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]5] - r32 Sin[\[Theta]2] 
+   Sin[\[Theta]3] Sin[\[Theta]5] + 
+   Cos[\[Theta]2] (
+     r22 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] + 
+     r32 Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]3] + 
+     r32 Cos[\[Theta]3] Sin[\[Theta]5] - r22 Sin[\[Theta]1] Sin[\[Theta]3] 
+     Sin[\[Theta]5]) - 
+   Cos[\[Theta]1] (
+    r12 Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] Sin[\[Theta]3] + 
+    r22 Cos[\[Theta]5] Sin[\[Theta]4] + 
+    r12 Cos[\[Theta]3] Sin[\[Theta]2] Sin[\[Theta]5] + 
+    Cos[\[Theta]2] (-r12 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] + 
+      r12 Sin[\[Theta]3] Sin[\[Theta]5]))],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r33", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"r23", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+    RowBox[{"r13", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{"r23", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"r33", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r23", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+       RowBox[{"r33", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r33", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "r13"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+          RowBox[{"r13", " ", 
+           RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}]}]}],
+  
+  SequenceForm[
+  "LST56[", 1, ",", 3, "] = ", 
+   r33 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] - r23 
+   Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] + 
+   r13 Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]4] - r23 Cos[\[Theta]3] 
+   Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]5] - r33 Sin[\[Theta]2] 
+   Sin[\[Theta]3] Sin[\[Theta]5] + 
+   Cos[\[Theta]2] (
+     r23 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] + 
+     r33 Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]3] + 
+     r33 Cos[\[Theta]3] Sin[\[Theta]5] - r23 Sin[\[Theta]1] Sin[\[Theta]3] 
+     Sin[\[Theta]5]) - 
+   Cos[\[Theta]1] (
+    r13 Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] Sin[\[Theta]3] + 
+    r23 Cos[\[Theta]5] Sin[\[Theta]4] + 
+    r13 Cos[\[Theta]3] Sin[\[Theta]2] Sin[\[Theta]5] + 
+    Cos[\[Theta]2] (-r13 Cos[\[Theta]3] Cos[\[Theta]4] Cos[\[Theta]5] + 
+      r13 Sin[\[Theta]3] Sin[\[Theta]5]))],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "px"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+    RowBox[{"py", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+    RowBox[{"py", " ", 
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+    RowBox[{"px", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "+", 
+    RowBox[{"d4", " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{"a2", " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"pz", " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"pz", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "a2"}], "+", 
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"pz", " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"pz", " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"px", " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+             RowBox[{"py", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST56[", 1, ",", 4, 
+   "] = ", -px Cos[\[Theta]1] Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]2] 
+    Sin[\[Theta]3] - py Cos[\[Theta]4] Cos[\[Theta]5] Sin[\[Theta]1] 
+   Sin[\[Theta]2] Sin[\[Theta]3] - py Cos[\[Theta]1] Cos[\[Theta]5] 
+   Sin[\[Theta]4] + px Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]4] + 
+   d4 Sin[\[Theta]5] + a2 Sin[\[Theta]3] Sin[\[Theta]5] - pz Sin[\[Theta]2] 
+   Sin[\[Theta]3] Sin[\[Theta]5] + 
+   Cos[\[Theta]2] 
+    Sin[\[Theta]3] (
+     pz Cos[\[Theta]4] Cos[\[Theta]5] - (px Cos[\[Theta]1] + 
+      py Sin[\[Theta]1]) Sin[\[Theta]5]) + 
+   Cos[\[Theta]3] (
+     Cos[\[Theta]4] 
+      Cos[\[Theta]5] (-a2 + px Cos[\[Theta]1] Cos[\[Theta]2] + 
+       py Cos[\[Theta]2] Sin[\[Theta]1] + pz Sin[\[Theta]2]) + (
+       pz Cos[\[Theta]2] - (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+       Sin[\[Theta]2]) Sin[\[Theta]5])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r21"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"r31", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+    RowBox[{"r31", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{"r21", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"r11", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r11"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r11", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+          RowBox[{"r21", " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r31", " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r31", " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"r11", " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+             RowBox[{"r21", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}]}]}],
+  
+  SequenceForm[
+  "LST56[", 2, ",", 1, 
+   "] = ", -r21 Cos[\[Theta]3] Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]2] - 
+   r31 Cos[\[Theta]5] Sin[\[Theta]2] Sin[\[Theta]3] - r31 Cos[\[Theta]3] 
+   Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]5] + 
+   r21 Cos[\[Theta]4] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] 
+    Sin[\[Theta]5] - r11 Sin[\[Theta]1] Sin[\[Theta]4] Sin[\[Theta]5] + 
+   Cos[\[Theta]1] (-r11 Cos[\[Theta]3] Cos[\[Theta]5] Sin[\[Theta]2] + 
+     r11 Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]3] Sin[\[Theta]5] + 
+     r21 Sin[\[Theta]4] Sin[\[Theta]5]) + 
+   Cos[\[Theta]2] (-
+      Sin[\[Theta]3] (r11 Cos[\[Theta]1] Cos[\[Theta]5] + 
+       r21 Cos[\[Theta]5] Sin[\[Theta]1] + r31 Cos[\[Theta]4] Sin[\[Theta]5]) + 
+     Cos[\[Theta]3] (r31 Cos[\[Theta]5] - 
+       Cos[\[Theta]4] (r11 Cos[\[Theta]1] + r21 Sin[\[Theta]1]) 
+       Sin[\[Theta]5]))],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r22"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"r32", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+    RowBox[{"r32", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{"r22", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"r12", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r12"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r12", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+          RowBox[{"r22", " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r32", " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r32", " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"r12", " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+             RowBox[{"r22", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}]}]}],
+  
+  SequenceForm[
+  "LST56[", 2, ",", 2, 
+   "] = ", -r22 Cos[\[Theta]3] Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]2] - 
+   r32 Cos[\[Theta]5] Sin[\[Theta]2] Sin[\[Theta]3] - r32 Cos[\[Theta]3] 
+   Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]5] + 
+   r22 Cos[\[Theta]4] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] 
+    Sin[\[Theta]5] - r12 Sin[\[Theta]1] Sin[\[Theta]4] Sin[\[Theta]5] + 
+   Cos[\[Theta]1] (-r12 Cos[\[Theta]3] Cos[\[Theta]5] Sin[\[Theta]2] + 
+     r12 Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]3] Sin[\[Theta]5] + 
+     r22 Sin[\[Theta]4] Sin[\[Theta]5]) + 
+   Cos[\[Theta]2] (-
+      Sin[\[Theta]3] (r12 Cos[\[Theta]1] Cos[\[Theta]5] + 
+       r22 Cos[\[Theta]5] Sin[\[Theta]1] + r32 Cos[\[Theta]4] Sin[\[Theta]5]) + 
+     Cos[\[Theta]3] (r32 Cos[\[Theta]5] - 
+       Cos[\[Theta]4] (r12 Cos[\[Theta]1] + r22 Sin[\[Theta]1]) 
+       Sin[\[Theta]5]))],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "r23"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+    RowBox[{"r33", " ", 
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+    RowBox[{"r33", " ", 
+     RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{"r23", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "-", 
+    RowBox[{"r13", " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "r13"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}], "+", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r13", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "+", 
+          RowBox[{"r23", " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+          RowBox[{"r33", " ", 
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"r33", " ", 
+           RowBox[{"Cos", "[", "\[Theta]5", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"r13", " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+             RowBox[{"r23", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}], ")"}]}]}], ")"}]}]}]}],
+  
+  SequenceForm[
+  "LST56[", 2, ",", 3, 
+   "] = ", -r23 Cos[\[Theta]3] Cos[\[Theta]5] Sin[\[Theta]1] Sin[\[Theta]2] - 
+   r33 Cos[\[Theta]5] Sin[\[Theta]2] Sin[\[Theta]3] - r33 Cos[\[Theta]3] 
+   Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]5] + 
+   r23 Cos[\[Theta]4] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] 
+    Sin[\[Theta]5] - r13 Sin[\[Theta]1] Sin[\[Theta]4] Sin[\[Theta]5] + 
+   Cos[\[Theta]1] (-r13 Cos[\[Theta]3] Cos[\[Theta]5] Sin[\[Theta]2] + 
+     r13 Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]3] Sin[\[Theta]5] + 
+     r23 Sin[\[Theta]4] Sin[\[Theta]5]) + 
+   Cos[\[Theta]2] (-
+      Sin[\[Theta]3] (r13 Cos[\[Theta]1] Cos[\[Theta]5] + 
+       r23 Cos[\[Theta]5] Sin[\[Theta]1] + r33 Cos[\[Theta]4] Sin[\[Theta]5]) + 
+     Cos[\[Theta]3] (r33 Cos[\[Theta]5] - 
+       Cos[\[Theta]4] (r13 Cos[\[Theta]1] + r23 Sin[\[Theta]1]) 
+       Sin[\[Theta]5]))],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]5", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{"d4", "-", 
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", 
+       RowBox[{"py", " ", 
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "+", 
+       RowBox[{"a2", " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "-", 
+       RowBox[{"pz", " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"pz", " ", 
+           RowBox[{"Cos", "[", "\[Theta]3", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"px", " ", 
+              RowBox[{"Cos", "[", "\[Theta]1", "]"}]}], "+", 
+             RowBox[{"py", " ", 
+              RowBox[{"Sin", "[", "\[Theta]1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}]}]}], ")"}]}], 
+    "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"a2", "-", 
+          RowBox[{"px", " ", 
+           RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+          RowBox[{"py", " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "-", 
+          RowBox[{"pz", " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}]}], "-", 
+       RowBox[{"pz", " ", 
+        RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"py", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]2", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}], "+", 
+       RowBox[{"py", " ", 
+        RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+       RowBox[{"px", " ", 
+        RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]5", "]"}]}]}]}],
+  SequenceForm[
+  "LST56[", 2, ",", 4, "] = ", 
+   Cos[\[Theta]5] (d4 - px Cos[\[Theta]1] Cos[\[Theta]3] Sin[\[Theta]2] - py 
+     Cos[\[Theta]3] Sin[\[Theta]1] Sin[\[Theta]2] + a2 Sin[\[Theta]3] - pz 
+     Sin[\[Theta]2] Sin[\[Theta]3] + 
+     Cos[\[Theta]2] (
+       pz Cos[\[Theta]3] - (px Cos[\[Theta]1] + py Sin[\[Theta]1]) 
+       Sin[\[Theta]3])) + (
+     Cos[\[Theta]3] 
+      Cos[\[Theta]4] (a2 - px Cos[\[Theta]1] Cos[\[Theta]2] - py 
+       Cos[\[Theta]2] Sin[\[Theta]1] - pz Sin[\[Theta]2]) - pz Cos[\[Theta]2] 
+     Cos[\[Theta]4] Sin[\[Theta]3] + 
+     px Cos[\[Theta]1] Cos[\[Theta]4] Sin[\[Theta]2] Sin[\[Theta]3] + 
+     py Cos[\[Theta]4] Sin[\[Theta]1] Sin[\[Theta]2] Sin[\[Theta]3] + 
+     py Cos[\[Theta]1] Sin[\[Theta]4] - px Sin[\[Theta]1] Sin[\[Theta]4]) 
+    Sin[\[Theta]5]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r11", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]1", "-", "\[Theta]2", "-", "\[Theta]3"}], "]"}]}], 
+       "+", 
+       RowBox[{"2", " ", "r31", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+       RowBox[{"r21", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]1", "+", "\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}],
+       ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r21", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"r11", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST56[", 3, ",", 1, "] = ", r11 Cos[\[Theta]4] Sin[\[Theta]1] + 
+   Rational[-1, 2] (r21 Sin[\[Theta]1 - \[Theta]2 - \[Theta]3] + 
+     2 r31 Sin[\[Theta]2 + \[Theta]3] + 
+     r21 Sin[\[Theta]1 + \[Theta]2 + \[Theta]3]) Sin[\[Theta]4] - 
+   Cos[\[Theta]1] (r21 Cos[\[Theta]4] + 
+    r11 Cos[\[Theta]2 + \[Theta]3] Sin[\[Theta]4])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r12", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]1", "-", "\[Theta]2", "-", "\[Theta]3"}], "]"}]}], 
+       "+", 
+       RowBox[{"2", " ", "r32", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+       RowBox[{"r22", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]1", "+", "\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}],
+       ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r22", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"r12", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST56[", 3, ",", 2, "] = ", r12 Cos[\[Theta]4] Sin[\[Theta]1] + 
+   Rational[-1, 2] (r22 Sin[\[Theta]1 - \[Theta]2 - \[Theta]3] + 
+     2 r32 Sin[\[Theta]2 + \[Theta]3] + 
+     r22 Sin[\[Theta]1 + \[Theta]2 + \[Theta]3]) Sin[\[Theta]4] - 
+   Cos[\[Theta]1] (r22 Cos[\[Theta]4] + 
+    r12 Cos[\[Theta]2 + \[Theta]3] Sin[\[Theta]4])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"r13", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]1", "-", "\[Theta]2", "-", "\[Theta]3"}], "]"}]}], 
+       "+", 
+       RowBox[{"2", " ", "r33", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}]}], "+", 
+       RowBox[{"r23", " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"\[Theta]1", "+", "\[Theta]2", "+", "\[Theta]3"}], "]"}]}]}],
+       ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"r23", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"r13", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST56[", 3, ",", 3, "] = ", r13 Cos[\[Theta]4] Sin[\[Theta]1] + 
+   Rational[-1, 2] (r23 Sin[\[Theta]1 - \[Theta]2 - \[Theta]3] + 
+     2 r33 Sin[\[Theta]2 + \[Theta]3] + 
+     r23 Sin[\[Theta]1 + \[Theta]2 + \[Theta]3]) Sin[\[Theta]4] - 
+   Cos[\[Theta]1] (r23 Cos[\[Theta]4] + 
+    r13 Cos[\[Theta]2 + \[Theta]3] Sin[\[Theta]4])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"px", " ", 
+     RowBox[{"Cos", "[", "\[Theta]4", "]"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Cos", "[", "\[Theta]3", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"a2", "-", 
+          RowBox[{"py", " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}]}], "-", 
+          RowBox[{"pz", " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "pz"}], " ", 
+           RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+          RowBox[{"py", " ", 
+           RowBox[{"Sin", "[", "\[Theta]1", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]3", "]"}]}]}], ")"}], " ", 
+     RowBox[{"Sin", "[", "\[Theta]4", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"Cos", "[", "\[Theta]1", "]"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"py", " ", 
+        RowBox[{"Cos", "[", "\[Theta]4", "]"}]}], "+", 
+       RowBox[{"px", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"\[Theta]2", "+", "\[Theta]3"}], "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Theta]4", "]"}]}]}], ")"}]}]}]}],
+  SequenceForm[
+  "LST56[", 3, ",", 4, "] = ", 
+   px Cos[\[Theta]4] 
+    Sin[\[Theta]1] + (
+     Cos[\[Theta]3] (a2 - py Cos[\[Theta]2] Sin[\[Theta]1] - pz 
+       Sin[\[Theta]2]) + (-pz Cos[\[Theta]2] + 
+       py Sin[\[Theta]1] Sin[\[Theta]2]) Sin[\[Theta]3]) Sin[\[Theta]4] - 
+   Cos[\[Theta]1] (py Cos[\[Theta]4] + 
+    px Cos[\[Theta]2 + \[Theta]3] Sin[\[Theta]4])],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST56[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST56[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["LST56[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"LST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["LST56[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["T56=RST56", "Section"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RST56", " ", "=", " ", "T56"}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<RST56[\>\"", ",", "i", ",", "\"\<,\>\"", ",", "j", ",", 
+     "\"\<] = \>\"", ",", 
+     RowBox[{"RST56", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"j", ",", "1", ",", "4"}], "}"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Cos", "[", "\[Theta]6", "]"}]}],
+  SequenceForm["RST56[", 1, ",", 1, "] = ", 
+   Cos[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", 
+    RowBox[{"Sin", "[", "\[Theta]6", "]"}]}]}],
+  SequenceForm["RST56[", 1, ",", 2, "] = ", -Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 1, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 1, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 2, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 2, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "1"}]}],
+  SequenceForm["RST56[", 2, ",", 3, "] = ", -1],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 2, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Sin", "[", "\[Theta]6", "]"}]}],
+  SequenceForm["RST56[", 3, ",", 1, "] = ", 
+   Sin[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Cos", "[", "\[Theta]6", "]"}]}],
+  SequenceForm["RST56[", 3, ",", 2, "] = ", 
+   Cos[\[Theta]6]],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 3, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 3, ",", 4, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 4, ",", 1, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 4, ",", 2, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "0"}],
+  SequenceForm["RST56[", 4, ",", 3, "] = ", 0],
+  Editable->False]], "Print"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"RST56[\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\",\"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"] = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["RST56[", 4, ",", 4, "] = ", 1],
+  Editable->False]], "Print"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+In the following, a2 is subtracted from RST26[1,4] and LST26[1,4].  The \
+result on the left hand side is squared and added to the quantity  LST26[2,4] \
+squared.  Before doing this, Cos[\[Theta]1] and Sin[\[Theta]1] are written as \
+c1 and s1, respectively.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", "\[InvisibleSpace]", 
+     RowBox[{
+      RowBox[{"px", " ", "c1", " ", 
+       RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+      RowBox[{"py", " ", 
+       RowBox[{"Cos", "[", "\[Theta]2", "]"}], " ", "s1"}], "+", 
+      RowBox[{"pz", " ", 
+       RowBox[{"Sin", "[", "\[Theta]2", "]"}]}], "-", "a2"}], ")"}], "^", 
+    "2"}], "+", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"pz", " ", 
+       RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "-", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"px", " ", "c1"}], "+", 
+         RowBox[{"py", " ", "s1"}]}], ")"}], " ", 
+       RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}], "^", "2"}]}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["a2", "2"], "+", 
+  SuperscriptBox["pz", "2"], "+", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"c1", " ", "px"}], "+", 
+     RowBox[{"py", " ", "s1"}]}], ")"}], "2"], "-", 
+  RowBox[{"2", " ", "a2", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"c1", " ", "px"}], "+", 
+        RowBox[{"py", " ", "s1"}]}], ")"}], " ", 
+      RowBox[{"Cos", "[", "\[Theta]2", "]"}]}], "+", 
+     RowBox[{"pz", " ", 
+      RowBox[{"Sin", "[", "\[Theta]2", "]"}]}]}], ")"}]}]}]], "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->{"RulerBar", "EditBar"},
+WindowSize->{628, 683},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PrintCellBrackets"->False,
+"PrintMultipleHorizontalPages"->False,
+"PrintRegistrationMarks"->False,
+"PrintingMargins"->{{54, 54}, {72, 72}}},
+Magnification->1,
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (June 19, 2007)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 197, 8, 133, "Subtitle"],
+Cell[790, 33, 62, 1, 49, "Subtitle"],
+Cell[CellGroupData[{
+Cell[877, 38, 63, 1, 66, "Section"],
+Cell[943, 41, 5009, 135, 592, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5989, 181, 49, 0, 71, "Section"],
+Cell[6041, 183, 622, 16, 92, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6700, 204, 50, 0, 71, "Section"],
+Cell[6753, 206, 181, 6, 31, "Input"],
+Cell[CellGroupData[{
+Cell[6959, 216, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[7421, 233, 499, 12, 23, "Print"],
+Cell[7923, 247, 499, 12, 23, "Print"],
+Cell[8425, 261, 499, 12, 23, "Print"],
+Cell[8927, 275, 495, 12, 23, "Print"],
+Cell[9425, 289, 499, 12, 23, "Print"],
+Cell[9927, 303, 499, 12, 23, "Print"],
+Cell[10429, 317, 499, 12, 23, "Print"],
+Cell[10931, 331, 495, 12, 23, "Print"],
+Cell[11429, 345, 302, 6, 23, "Print"],
+Cell[11734, 353, 302, 6, 23, "Print"],
+Cell[12039, 361, 302, 6, 23, "Print"],
+Cell[12344, 369, 300, 6, 23, "Print"],
+Cell[12647, 377, 298, 6, 23, "Print"],
+Cell[12948, 385, 298, 6, 23, "Print"],
+Cell[13249, 393, 298, 6, 23, "Print"],
+Cell[13550, 401, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13909, 414, 46, 0, 71, "Section"],
+Cell[13958, 416, 185, 5, 31, "Input"],
+Cell[CellGroupData[{
+Cell[14168, 425, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[14630, 442, 1158, 29, 43, "Print"],
+Cell[15791, 473, 1134, 28, 43, "Print"],
+Cell[16928, 503, 763, 18, 23, "Print"],
+Cell[17694, 523, 546, 14, 23, "Print"],
+Cell[18243, 539, 692, 17, 23, "Print"],
+Cell[18938, 558, 692, 17, 23, "Print"],
+Cell[19633, 577, 452, 10, 23, "Print"],
+Cell[20088, 589, 298, 6, 23, "Print"],
+Cell[20389, 597, 1818, 46, 62, "Print"],
+Cell[22210, 645, 1834, 46, 62, "Print"],
+Cell[24047, 693, 787, 19, 23, "Print"],
+Cell[24837, 714, 568, 15, 23, "Print"],
+Cell[25408, 731, 298, 6, 23, "Print"],
+Cell[25709, 739, 298, 6, 23, "Print"],
+Cell[26010, 747, 298, 6, 23, "Print"],
+Cell[26311, 755, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26670, 768, 57, 0, 71, "Section"],
+Cell[26730, 770, 230, 7, 31, "Input"],
+Cell[CellGroupData[{
+Cell[26985, 781, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[27447, 798, 734, 17, 23, "Print"],
+Cell[28184, 817, 734, 17, 23, "Print"],
+Cell[28921, 836, 734, 17, 23, "Print"],
+Cell[29658, 855, 728, 17, 23, "Print"],
+Cell[30389, 874, 744, 20, 23, "Print"],
+Cell[31136, 896, 744, 20, 23, "Print"],
+Cell[31883, 918, 744, 20, 23, "Print"],
+Cell[32630, 940, 738, 20, 23, "Print"],
+Cell[33371, 962, 521, 13, 23, "Print"],
+Cell[33895, 977, 521, 13, 23, "Print"],
+Cell[34419, 992, 521, 13, 23, "Print"],
+Cell[34943, 1007, 517, 13, 23, "Print"],
+Cell[35463, 1022, 298, 6, 23, "Print"],
+Cell[35764, 1030, 298, 6, 23, "Print"],
+Cell[36065, 1038, 298, 6, 23, "Print"],
+Cell[36366, 1046, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36725, 1059, 40, 0, 71, "Section"],
+Cell[36768, 1061, 173, 5, 31, "Input"],
+Cell[CellGroupData[{
+Cell[36966, 1070, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[37428, 1087, 1060, 26, 43, "Print"],
+Cell[38491, 1115, 1036, 25, 43, "Print"],
+Cell[39530, 1142, 669, 16, 23, "Print"],
+Cell[40202, 1160, 411, 9, 23, "Print"],
+Cell[40616, 1171, 1024, 24, 43, "Print"],
+Cell[41643, 1197, 1064, 27, 43, "Print"],
+Cell[42710, 1226, 692, 17, 23, "Print"],
+Cell[43405, 1245, 400, 9, 23, "Print"],
+Cell[43808, 1256, 669, 16, 23, "Print"],
+Cell[44480, 1274, 669, 16, 23, "Print"],
+Cell[45152, 1292, 430, 9, 23, "Print"],
+Cell[45585, 1303, 298, 6, 23, "Print"],
+Cell[45886, 1311, 298, 6, 23, "Print"],
+Cell[46187, 1319, 298, 6, 23, "Print"],
+Cell[46488, 1327, 298, 6, 23, "Print"],
+Cell[46789, 1335, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47148, 1348, 65, 0, 71, "Section"],
+Cell[47216, 1350, 279, 8, 31, "Input"],
+Cell[CellGroupData[{
+Cell[47520, 1362, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[47982, 1379, 1331, 32, 62, "Print"],
+Cell[49316, 1413, 1331, 32, 62, "Print"],
+Cell[50650, 1447, 1331, 32, 62, "Print"],
+Cell[51984, 1481, 1521, 39, 62, "Print"],
+Cell[53508, 1522, 1520, 40, 62, "Print"],
+Cell[55031, 1564, 1520, 40, 62, "Print"],
+Cell[56554, 1606, 1520, 40, 62, "Print"],
+Cell[58077, 1648, 1654, 42, 62, "Print"],
+Cell[59734, 1692, 521, 13, 23, "Print"],
+Cell[60258, 1707, 521, 13, 23, "Print"],
+Cell[60782, 1722, 521, 13, 23, "Print"],
+Cell[61306, 1737, 517, 13, 23, "Print"],
+Cell[61826, 1752, 298, 6, 23, "Print"],
+Cell[62127, 1760, 298, 6, 23, "Print"],
+Cell[62428, 1768, 298, 6, 23, "Print"],
+Cell[62729, 1776, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63088, 1789, 36, 0, 71, "Section"],
+Cell[63127, 1791, 158, 4, 31, "Input"],
+Cell[CellGroupData[{
+Cell[63310, 1799, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[63772, 1816, 669, 16, 23, "Print"],
+Cell[64444, 1834, 692, 17, 23, "Print"],
+Cell[65139, 1853, 430, 9, 23, "Print"],
+Cell[65572, 1864, 298, 6, 23, "Print"],
+Cell[65873, 1872, 430, 9, 23, "Print"],
+Cell[66306, 1883, 452, 10, 23, "Print"],
+Cell[66761, 1895, 371, 8, 23, "Print"],
+Cell[67135, 1905, 320, 7, 23, "Print"],
+Cell[67458, 1914, 669, 16, 23, "Print"],
+Cell[68130, 1932, 669, 16, 23, "Print"],
+Cell[68802, 1950, 430, 9, 23, "Print"],
+Cell[69235, 1961, 298, 6, 23, "Print"],
+Cell[69536, 1969, 298, 6, 23, "Print"],
+Cell[69837, 1977, 298, 6, 23, "Print"],
+Cell[70138, 1985, 298, 6, 23, "Print"],
+Cell[70439, 1993, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70798, 2006, 75, 0, 71, "Section"],
+Cell[70876, 2008, 337, 9, 52, "Input"],
+Cell[CellGroupData[{
+Cell[71238, 2021, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[71700, 2038, 1375, 37, 62, "Print"],
+Cell[73078, 2077, 1375, 37, 62, "Print"],
+Cell[74456, 2116, 1375, 37, 62, "Print"],
+Cell[75834, 2155, 2027, 54, 81, "Print"],
+Cell[77864, 2211, 1367, 36, 43, "Print"],
+Cell[79234, 2249, 1367, 36, 43, "Print"],
+Cell[80604, 2287, 1367, 36, 43, "Print"],
+Cell[81974, 2325, 1524, 40, 43, "Print"],
+Cell[83501, 2367, 866, 24, 23, "Print"],
+Cell[84370, 2393, 866, 24, 23, "Print"],
+Cell[85239, 2419, 866, 24, 23, "Print"],
+Cell[86108, 2445, 967, 25, 43, "Print"],
+Cell[87078, 2472, 298, 6, 23, "Print"],
+Cell[87379, 2480, 298, 6, 23, "Print"],
+Cell[87680, 2488, 298, 6, 23, "Print"],
+Cell[87981, 2496, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88340, 2509, 32, 0, 71, "Section"],
+Cell[88375, 2511, 146, 4, 31, "Input"],
+Cell[CellGroupData[{
+Cell[88546, 2519, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[89008, 2536, 430, 9, 23, "Print"],
+Cell[89441, 2547, 452, 10, 23, "Print"],
+Cell[89896, 2559, 354, 8, 23, "Print"],
+Cell[90253, 2569, 298, 6, 23, "Print"],
+Cell[90554, 2577, 354, 8, 23, "Print"],
+Cell[90911, 2587, 354, 8, 23, "Print"],
+Cell[91268, 2597, 298, 6, 23, "Print"],
+Cell[91569, 2605, 298, 6, 23, "Print"],
+Cell[91870, 2613, 452, 10, 23, "Print"],
+Cell[92325, 2625, 430, 9, 23, "Print"],
+Cell[92758, 2636, 354, 8, 23, "Print"],
+Cell[93115, 2646, 298, 6, 23, "Print"],
+Cell[93416, 2654, 298, 6, 23, "Print"],
+Cell[93717, 2662, 298, 6, 23, "Print"],
+Cell[94018, 2670, 298, 6, 23, "Print"],
+Cell[94319, 2678, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[94678, 2691, 92, 2, 71, "Section"],
+Cell[94773, 2695, 382, 10, 52, "Input"],
+Cell[CellGroupData[{
+Cell[95180, 2709, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[95642, 2726, 4359, 97, 157, "Print"],
+Cell[100004, 2825, 4359, 97, 157, "Print"],
+Cell[104366, 2924, 4359, 97, 157, "Print"],
+Cell[108728, 3023, 4274, 102, 138, "Print"],
+Cell[113005, 3127, 4247, 98, 157, "Print"],
+Cell[117255, 3227, 4247, 98, 157, "Print"],
+Cell[121505, 3327, 4247, 98, 157, "Print"],
+Cell[125755, 3427, 3945, 91, 157, "Print"],
+Cell[129703, 3520, 1674, 42, 77, "Print"],
+Cell[131380, 3564, 1674, 42, 77, "Print"],
+Cell[133057, 3608, 1674, 42, 77, "Print"],
+Cell[134734, 3652, 1981, 51, 81, "Print"],
+Cell[136718, 3705, 298, 6, 23, "Print"],
+Cell[137019, 3713, 298, 6, 23, "Print"],
+Cell[137320, 3721, 298, 6, 23, "Print"],
+Cell[137621, 3729, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[137980, 3742, 28, 0, 71, "Section"],
+Cell[138011, 3744, 83, 2, 31, "Input"],
+Cell[CellGroupData[{
+Cell[138119, 3750, 437, 13, 52, "Input"],
+Cell[CellGroupData[{
+Cell[138581, 3767, 354, 8, 23, "Print"],
+Cell[138938, 3777, 371, 8, 23, "Print"],
+Cell[139312, 3787, 298, 6, 23, "Print"],
+Cell[139613, 3795, 298, 6, 23, "Print"],
+Cell[139914, 3803, 298, 6, 23, "Print"],
+Cell[140215, 3811, 298, 6, 23, "Print"],
+Cell[140516, 3819, 318, 7, 23, "Print"],
+Cell[140837, 3828, 298, 6, 23, "Print"],
+Cell[141138, 3836, 354, 8, 23, "Print"],
+Cell[141495, 3846, 354, 8, 23, "Print"],
+Cell[141852, 3856, 298, 6, 23, "Print"],
+Cell[142153, 3864, 298, 6, 23, "Print"],
+Cell[142454, 3872, 298, 6, 23, "Print"],
+Cell[142755, 3880, 298, 6, 23, "Print"],
+Cell[143056, 3888, 298, 6, 23, "Print"],
+Cell[143357, 3896, 298, 6, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[143682, 3906, 282, 5, 47, "Text"],
+Cell[CellGroupData[{
+Cell[143989, 3915, 785, 24, 52, "Input"],
+Cell[144777, 3941, 586, 19, 30, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

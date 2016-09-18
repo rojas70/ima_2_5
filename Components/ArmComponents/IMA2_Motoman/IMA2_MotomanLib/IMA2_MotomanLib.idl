@@ -1,0 +1,135 @@
+// IMA2_MotomanLib.idl : IDL source for IMA2_MotomanLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_MotomanLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CCommSetUp: IDL source for IMA2_CCommSetUp.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+/*	[
+		object,
+		uuid(2D48DB46-C29C-4C0C-8961-2FE9B08967D9),
+		dual,
+		helpstring("(IMA2 Components) - Motoman Lib"),
+		pointer_default(unique)
+	]
+	interface ICommSetUp : IDispatch
+	{
+		[id(2), helpstring("method SerialConnect")] HRESULT SerialConnect();
+		[id(3), helpstring("method SerialDisconnect")] HRESULT SerialDisconnect();
+		//[id(4), helpstring("method IncrementalMove")] HRESULT IncrementalMove();
+	};
+*/
+// IMA2_CMotionCommands: IDL source for IMA2_CMotionCommands.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+/*	[
+		object,
+		uuid(3E7C31D3-93A8-4A27-BFE0-915F5BBFF197),
+		dual,
+		helpstring("(IMA2 Components) - IMotionCommands Lib"),
+		pointer_default(unique)
+	]
+	interface IMotionCommands : IDispatch
+	{
+		[propget, id(2), helpstring("property ErrorMessage")] HRESULT ErrorMessage([out, retval] BSTR *pVal);
+		[id(1), helpstring("method move_Incremental")] HRESULT move_Incremental();
+		[id(3), helpstring("method move_UsersChoice")] HRESULT move_UsersChoice();
+		[propget, id(4), helpstring("property MotionType")] HRESULT MotionType([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property MotionType")] HRESULT MotionType([in] BSTR newVal);
+	};
+*/
+// IMA2_CHP3JC: IDL source for IMA2_CHP3JC.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(0BF23BE8-DE51-4716-B3DE-CCDF0F35ADEC),
+		dual,
+		helpstring("(IMA2 Components) - IHP3JC Lib"),
+		pointer_default(unique)
+	]
+	interface IHP3JC : IDispatch
+	{
+		[id(1), helpstring("method connect_Initialize")] HRESULT connect_Initialize();
+		[id(2), helpstring("method move_Incremental")] HRESULT move_Incremental(/*[in] SAFEARRAY(double) data*/);	// Added argument on Jan. 2009 to help the modifications done in the control basis that was forced to use a cartesian controller. 
+		[id(3), helpstring("method move_UsersChoice")] HRESULT move_UsersChoice();
+		[id(4), helpstring("method connect_Disconnect")] HRESULT connect_Disconnect();
+		[propget, id(5), helpstring("property ErrorMessage")] HRESULT ErrorMessage([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] BSTR newVal);
+		[propget, id(6), helpstring("property MotionType")] HRESULT MotionType([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property MotionType")] HRESULT MotionType([in] BSTR newVal);
+		[propget, id(7), helpstring("property Speed")] HRESULT Speed([out, retval] double *pVal);
+		[propput, id(7), helpstring("property Speed")] HRESULT Speed([in] double newVal);
+		[propget, id(8), helpstring("property EndToolForm")] HRESULT EndToolForm([out, retval] long *pVal);
+		[propput, id(8), helpstring("property EndToolForm")] HRESULT EndToolForm([in] long newVal);
+		[id(9), helpstring("method move_LinearMotion")] HRESULT move_LinearMotion();
+		[id(10), helpstring("method move_JointMotion")] HRESULT move_JointMotion();
+		[id(11), helpstring("method move_JointAngles")] HRESULT move_JointAngles();
+		[id(12), helpstring("method read_CurrentPosition")] HRESULT read_CurrentPosition();
+		[propget, id(13), helpstring("property read_PositionType")] HRESULT read_PositionType([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property read_PositionType")] HRESULT read_PositionType([in] BSTR newVal);
+		[id(14), helpstring("method servo_ServoOn")] HRESULT servo_ServoOn();
+		[id(15), helpstring("method servo_ServoOff")] HRESULT servo_ServoOff();
+		[id(16), helpstring("method error_GetError")] HRESULT error_GetError();
+		[id(17), helpstring("method error_ClearError")] HRESULT error_ClearError();
+		[id(18), helpstring("method error_GetAlarm")] HRESULT error_GetAlarm();
+		[id(19), helpstring("method error_ClearAlarm")] HRESULT error_ClearAlarm();
+		[id(20), helpstring("method job_SelectJob")] HRESULT job_SelectJob();
+		[id(21), helpstring("method job_StartJob")] HRESULT job_StartJob();
+		[propget, id(22), helpstring("property JobName")] HRESULT JobName([out, retval] BSTR *pVal);
+		[propput, id(22), helpstring("property JobName")] HRESULT JobName([in] BSTR newVal);
+		[id(23), helpstring("method job_CopyTextQueue")] HRESULT job_CopyTextQueue();
+		[propget, id(24), helpstring("property ToolType")] HRESULT ToolType([out, retval] BSTR *pVal);
+		[propput, id(24), helpstring("property ToolType")] HRESULT ToolType([in] BSTR newVal);
+	};
+
+[
+	uuid(AFDC39ED-B97C-46C6-B913-09A28AA952D3),
+	version(1.0),
+	helpstring("(IMA2 Components) - Motoman Lib")
+]
+library IMA2_MOTOMANLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+/*	importlib("O:\include\ima2.tlb");
+	[
+		uuid(8B2B3902-9E27-47D2-8DF6-4D5484450EBA),
+		helpstring("(IMA2 Components) - Motoman Class LIB")
+	]
+	coclass CommSetUp
+	{
+		[default] interface ICommSetUp;
+		interface IComponent; 
+	};
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(C0691A35-400A-4FD5-B215-D507164D6535),
+		helpstring("(IMA2 Components) - MotionCommands Class LIB")
+	]
+	coclass MotionCommands
+	{
+		[default] interface IMotionCommands;
+		interface IComponent; 
+	};
+*/
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(898C35A9-D83C-4354-B2FE-4E9FDE00C464),
+		helpstring("(IMA2 Components) - HP3JC Class LIB")
+	]
+	coclass HP3JC
+	{
+		[default] interface IHP3JC;
+		interface IComponent; 
+	};
+};

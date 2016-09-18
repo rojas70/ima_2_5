@@ -1,0 +1,725 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0081)http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp?frame=true -->
+<!--TOOLBAR_EXEMPT--><HTML xmlns:tool = 
+"http://www.microsoft.com/tooltip"><HEAD><TITLE>Calling a .NET Component from a COM Component (.NET Development (General) Technical Articles)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="Walk through the details of calling .NET servers from COM clients." 
+name=Description>
+<META content="" name=Robots>
+<META content="" name=Keywords>
+<META content=en-us name=MS.LOCALE><LINK href="callnetfrcom_files/ie4.css" 
+type=text/css rel=stylesheet><LINK href="callnetfrcom_files/ie5.css" 
+type=text/css rel=stylesheet>
+<STYLE>BODY {
+	MARGIN: 0px; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<SCRIPT language=javascript src="callnetfrcom_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="callnetfrcom_files/Broker.js"></SCRIPT>
+<LINK href="callnetfrcom_files/default.css" type=text/css rel=stylesheet><LINK 
+href="callnetfrcom_files/ie.css" type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.1; SV1";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+
+<SCRIPT>
+	if( self == top )
+{
+	location = "/library/en-us/dndotnet/html/callnetfrcom.asp";
+}
+
+</SCRIPT>
+<xml id=xmlPageContext><eyebrow findmenu="false">
+	<item label="MSDN Home" url="/default.asp"/>
+	<item label="MSDN Library" url="/library/default.asp"/>
+	<item label=".NET Development" url="/library/en-us/dnanchor/html/netdevanchor.asp" id="msdnlib462" xmlsrc="/library/en-us/toc/msdnlib/msdnlib462_.xml"/><item label="Articles and Overviews" id="msdnlib468" xmlsrc="/library/en-us/toc/msdnlib/msdnlib468_.xml"/><item label="Upgrading to Microsoft .NET" url="/library/en-us/dndotnet/html/upgradingtodotnet.asp" id="dndotnet224" xmlsrc="/library/en-us/toc/dndotnet/dndotnet224_.xml"/><item label="Calling a .NET Component from a COM Component" url="/library/en-us/dndotnet/html/callnetfrcom.asp" id="dndotnet227"/></eyebrow></xml>
+<SCRIPT>
+var sContentID = "_801929"; 
+ </SCRIPT>
+<!--VENUS_START-->
+<META content="Calling a .NET Component from a COM Component" name=MSHTOCTitle>
+<META content="Calling a .NET Component from a COM Component" name=MSHRLTitle>
+<META content=callnetfrcom name=MSHKeywordA>
+<META content="assemblies [.NET Framework], creating" name=MSHKeywordK>
+<META content="CCW, using .NET code from a COM client" name=MSHKeywordK>
+<META content="COM callable wrappers, using .NET code from a COM client" 
+name=MSHKeywordK>
+<META content="tlbexp utility, creating type libraries from assemblies" 
+name=MSHKeywordK>
+<META content="type libraries, creating from assemblies" name=MSHKeywordK>
+<META content="upgrading to .NET, Visual Basic 6.0 code" name=MSHKeywordK>
+<META 
+content="Visual Basic .NET, creating a .NET class to be used by COM clients" 
+name=MSHKeywordK>
+<META content="Visual Basic 6.0, upgrading to .NET" name=MSHKeywordK>
+<META content=callnetfrcom name=MSHKeywordA>
+<META content=DevLang:VB name=MSHAttr>
+<META content=DevLangVers:kbLangVB name=MSHAttr>
+<META content=DocSet:kbmsdn name=MSHAttr>
+<META content=Locale:kbEnglish name=MSHAttr>
+<META content=Product:VB name=MSHAttr>
+<META content=ProductVers:kbVBNet name=MSHAttr>
+<META content=ProductVers:kbVBp600 name=MSHAttr>
+<META content=Product:VS name=MSHAttr>
+<META content=ProductVers:kbvsnet name=MSHAttr>
+<META content=TargetCPU:kbx86 name=MSHAttr>
+<META content=TargetOS:Windows name=MSHAttr>
+<META content=TargetOSVers:kbWinOS name=MSHAttr>
+<META content=Technology:COMt name=MSHAttr>
+<META content=TechnologyVers:kbCOMt name=MSHAttr>
+<META content=Technology:kbNetFramewk name=MSHAttr>
+<META content=TechnologyVers:kbNetFramewk name=MSHAttr>
+<META content=TopicType:kbArticle name=MSHAttr><!---VENUS_END---><LINK 
+href="callnetfrcom_files/css.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript>
+var doImage=doImage;var TType=TType;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&TYPE=' + tt + '&p=library_en-us_dndotnet_html&URI=%2flibrary%2ftoolbar%2f3.0%2fasp.aspx%3fmode%3dhead%26c%3d%2fnonlibraryshell.config%26h%3dmsdn%252Emicrosoft%252Ecom%26u%3d%252Flibrary%252Fen%252Dus%252Fdndotnet%252Fhtml%252Fcallnetfrcom%252Easp%26r%3dhttp%253A%252F%252Fmsdn%252Emicrosoft%252Ecom%252Flibrary%252Fshared%252Fdeeptree%252Fasp%252Frightframe%252Easp%253Fdtcfg%253D%252Flibrary%252Fdeeptreeconfig%252Exml%2526url%253D%252Flibrary%252Fen%252Dus%252Fdndotnet%252Fhtml%252Fcallnetfrcom%252Easp%253Fframe%253Dtrue%2526hidetoc%253Dfalse&GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61&r=http%3a%2f%2fmsdn.microsoft.com%2flibrary%2fshared%2fdeeptree%2fasp%2frightframe.asp%3fdtcfg%3d%2flibrary%2fdeeptreeconfig.xml%26url%3d%2flibrary%2fen-us%2fdndotnet%2fhtml%2fcallnetfrcom.asp%3fframe%3dtrue%26hidetoc%3dfalse" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>');}}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2668" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0">
+<TABLE height=24 cellSpacing=0 cellPadding=4 width="100%" bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=eyebrow vAlign=center align=left width="100%">&nbsp;&nbsp; <A 
+      class=small href="http://msdn.microsoft.com/default.asp" target=_top>MSDN 
+      Home</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp" target=_top>MSDN 
+      Library</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/netdevanchor.asp" 
+      target=_top>.NET Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndotnet/html/upgradingtodotnet.asp" 
+      target=_top>Upgrading to Microsoft .NET</A><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/"></A> 
+  </TD></TR></TBODY></TABLE>
+<TABLE class=clsContainer style="TABLE-LAYOUT: fixed" cellSpacing=0 
+cellPadding=15 width="100%" border=0 float="left">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=clsPartContainer id=topTable 
+      style="FLOAT: right; MARGIN-LEFT: 8px; MARGIN-RIGHT: 6px" cellSpacing=0 
+      cellPadding=0 width=145 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- Page Options web part Start -->
+            <TABLE class=clsPart id=BF309568-1CD4-4c9c-A46E-BB1CA97E0C97 
+            cellSpacing=0 cellPadding=0 width=145 border=0>
+              <TBODY>
+              <TR>
+                <TD class=clsPartHead vAlign=center align=left width=15 
+                height=19><IMG class=clsPartHead height=19 
+                  src="callnetfrcom_files/gripblue.gif" width=15 
+                  align=absMiddle> </TD>
+                <TD class=clsPartHead vAlign=center align=middle width=115><B 
+                  class=clsPartHead>Page Options</B> </TD>
+                <TD class=clsPartRight vAlign=center align=right width=25 
+                height=19><IMG class=clsMinimize height=19 
+                  src="callnetfrcom_files/downlevel.gif" width=25 
+                  align=absMiddle> </TD></TR>
+              <TR>
+                <TD colSpan=3>
+                  <TABLE id=Table1 cellSpacing=0 cellPadding=0 width="100%" 
+                  bgColor=#ffffff border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top width=1 bgColor=#6699cc>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD>
+                      <TD vAlign=top width=145 bgColor=#f1f1f1><IFRAME 
+                        id=frmRatingsOptions 
+                        src="callnetfrcom_files/ratings.htm" frameBorder=0 
+                        width="100%" scrolling=no height=130></IFRAME></TD>
+                      <TD vAlign=top width=1 bgColor=#6699cc>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD></TR>
+                    <TR>
+                      <TD vAlign=top bgColor=#6699cc colSpan=3 height=1>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Page Options web part end -->
+            <DIV class=storeUserData id=oLayout></DIV></TD></TR></TBODY></TABLE><!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END--><!-- Begin Content --><!--NONSCROLLING BANNER START-->
+      <DIV id=nsbanner>
+      <DIV id=TitleRow>
+      <H1 class=dtH1><A name=callnetfrcom></A>Calling a .NET Component from a 
+      COM Component</H1>
+      <H3 class=dtH1>Upgrading to Microsoft .NET</H3></DIV></DIV><!--NONSCROLLING BANNER END-->
+      <DIV id=nstext valign="bottom">&nbsp; 
+      <P>Mike Gunderloy<BR>Lark Group, Inc.</P>
+      <P>January 2002</P>
+      <P><B>Summary:</B> Walks through the details of how to call Microsoft .NET 
+      servers from COM clients. (12 printed pages)</P>
+      <H4 class=dtH1>Objectives</H4>
+      <UL type=disc>
+        <LI>Understand the concept of COM callable wrappers 
+        <LI>Create a .NET server that can be called from Microsoft® Visual 
+        Basic® 6.0 
+        <LI>Use the sn, regasm, and gacutil utilities 
+        <LI>Write Visual Basic 6.0 code that uses a .NET class </LI></UL>
+      <H4 class=dtH1>Assumptions</H4>
+      <P>The following should be true for you to get the most out of this 
+      document: 
+      <UL type=disc>
+        <LI>You are familiar with Visual Basic programming 
+        <LI>You are familiar with COM concepts 
+        <LI>You have access to Visual Basic .NET 
+        <LI>You understand the overall .NET architecture 
+        <LI>You understand how to create public classes in Visual Basic .NET 
+        </LI></UL>
+      <H4 class=dtH1>Contents</H4>
+      <P><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp?frame=true#callnetfrcom_topic1" 
+      target=_self>The Joy of Interoperability</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp?frame=true#callnetfrcom_topic2" 
+      target=_self>Creating .NET Classes for Use in COM Applications</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp?frame=true#callnetfrcom_topic3" 
+      target=_self>Practice Calling a .NET Component From COM</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp?frame=true#callnetfrcom_topic4" 
+      target=_self>What's New Since Visual Basic 6.0?</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp?frame=true#callnetfrcom_topic5" 
+      target=_self>Summary</A></P>
+      <H2 class=dtH1><A name=callnetfrcom_topic1></A>The Joy of 
+      Interoperability</H2>
+      <P>Sometimes a revolution in programming forces you to abandon all that's 
+      come before. To take an extreme example, suppose you have been writing 
+      Visual Basic applications for years now. If you're like many developers, 
+      you will have built up a substantial inventory of code in that time. And 
+      if you've been following the recommendations from various language gurus, 
+      that code is <I>componentized</I>. That is, by using COM (Component Object 
+      Model)—formerly Microsoft® ActiveX®—servers, you've broken your 
+      application into chunks of callable functionality. Of course, you're also 
+      likely to have a substantial investment in components, such as ActiveX 
+      controls, from other developers and other companies.</P>
+      <P>But what if you decide on the radical move of switching development to 
+      another operating system entirely? At that point, your entire investment 
+      in COM becomes worthless. You can't use any of your existing code, and you 
+      have to learn how to do everything on the new platform. This would 
+      undoubtedly be a severe blow to your productivity.</P>
+      <P>Fortunately, switching from COM to .NET involves no such radical loss 
+      of productivity. There are two key concepts that make it much easier to 
+      move from COM development to .NET development, without any loss of code 
+      base or productivity: 
+      <UL type=disc>
+        <LI>.NET components can call COM components. 
+        <LI>COM components can call .NET components. </LI></UL>
+      <P>This two-way interoperability is the key to moving from COM to .NET. As 
+      you learn the intricacies of .NET, you can continue to use COM components. 
+      There are a number of situations where this interoperability is useful: 
+      <UL type=disc>
+        <LI>The switch to .NET won't be instant. It takes time to learn the .NET 
+        programming concepts and implementation, so you will probably find that 
+        you need to continue working with COM code while you, your coworkers, 
+        and your suppliers come up to speed. 
+        <LI>The code that you can migrate to .NET can't be migrated all at once. 
+        You'll want to migrate, and then test, each migrated component 
+        individually. 
+        <LI>You may be using third-party COM components that you cannot convert 
+        to .NET, and where the supplier has not yet released a .NET version. 
+        <LI>Although Visual Basic 6.0 code will migrate to .NET, the migration 
+        isn't perfect. You may have components that can't be moved to .NET 
+        because of implementation or language quirks. </LI></UL>
+      <P>In this document, you'll learn the details of calling .NET servers from 
+      COM clients. In another document in this series, <A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callcomcomp.asp">Calling 
+      COM Components from .NET Clients</A>, you'll learn about calling in the 
+      other direction, from .NET clients to COM servers.</P>
+      <H2 class=dtH1><A name=callnetfrcom_topic2></A>Creating .NET Classes for 
+      Use in COM Applications</H2>
+      <P>Although COM clients can call code that is exposed in a public class by 
+      .NET servers, .NET code is not directly accessible to COM clients. In 
+      order to use .NET code from a COM client, you need to create a proxy known 
+      as a COM callable wrapper (CCW). In this section, you'll learn about the 
+      CCW architecture, as well as the steps necessary to create and deploy a 
+      .NET class to be used by COM clients.</P>
+      <H3 class=dtH1>COM Callable Wrappers</H3>
+      <P>Code that operates within the .NET Common Language Runtime (CLR) is 
+      called <I>managed code</I>. This code has access to all the services that 
+      the CLR brings to the table, such as cross-language integration, security 
+      and versioning support, and garbage collection. Code that does not operate 
+      within the CLR is called <I>unmanaged code</I>. Because COM was designed 
+      before the CLR existed, and COM code does not operate within the 
+      infrastructure provided by the CLR, it can't use any of the CLR services. 
+      All of your COM components are, by definition, unmanaged code. </P>
+      <P>Managed code components not only depend on the CLR, they require the 
+      components with which they interact to depend on the CLR. Because COM 
+      components don't operate within the CLR, they are unable to call managed 
+      code components directly. The unmanaged code simply cannot reach into the 
+      CLR to directly call managed components.</P>
+      <P>The way out of this dilemma is to use a <I>proxy</I>. In general terms, 
+      a proxy is a piece of software that accepts commands from a component, 
+      modifies them, and forwards them to another component. The particular type 
+      of proxy used in calling managed code from unmanaged code is known as a 
+      COM callable wrapper, or CCW. Figure 1 shows schematically how CCWs 
+      straddle the boundary between managed and unmanaged code. This figure 
+      includes a COM program named ComUI.exe, two .NET components named 
+      NETService.dll and Utility.dll, and the necessary technology that connects 
+      them.</P>
+      <P class=fig><IMG alt="" src="callnetfrcom_files/callnetfrcom01.gif" 
+      border=0></P>
+      <P class=label><B>Figure 1. Calling managed code with CCWs </B></P>
+      <H3 class=dtH1>Prerequisites for COM Callable Classes</H3>
+      <P>There are two prerequisites to keep in mind when creating a .NET class 
+      that will be used by COM clients.</P>
+      <P>First, explicitly define an interface in your Visual Basic .NET code, 
+      and have the class implement the interface. For example, this code snippet 
+      defines an interface named iFile, and a class that implements the 
+      interface:</P><PRE class=code>Public Interface iFile
+    Property Length() As Integer
+End Interface
+
+Public Class TextFile
+    Implements iFile
+    ' details omitted
+End Class
+</PRE>
+      <P>Implementing functionality through interfaces has a major benefit for 
+      COM clients. .NET keeps interfaces consistent with previous versions when 
+      generating CCWs. This helps keep changes to your .NET server from breaking 
+      COM clients.</P>
+      <P>Secondly, any class that is to be visible to COM clients must be 
+      declared public. The tools that create the CCW only define types based on 
+      public classes. The same rule applies to methods, properties, and events 
+      that will be used by COM clients.</P>
+      <P>You should also consider signing .NET assemblies containing classes 
+      that will be used by COM with a cryptographic key pair. Microsoft refers 
+      to this as signing the assembly with a <I>strong name</I>. Signing an 
+      assembly with a strong name helps .NET ensure that the code in the 
+      assembly has not been changed since the assembly was published. This is a 
+      requirement for all <I>global assemblies</I>, which are assemblies that 
+      are to be shared by multiple clients, although unsigned assemblies can 
+      also be called by COM clients.</P>
+      <BLOCKQUOTE class=dtBlock><B class=le>Note&nbsp;&nbsp;&nbsp;</B>It is 
+        possible to use an unsigned assembly from a COM client by deploying the 
+        assembly directly to the COM client's directory as a <I>private 
+        assembly</I>. This document does not cover the private assembly 
+        approach, because global assemblies are more compatible than private 
+        assemblies with the architecture of most COM applications.</BLOCKQUOTE>
+      <P>It's good practice to sign all assemblies, even private assemblies. 
+      This will help in generating better CLSIDs for managed classes, and help 
+      avoid collisions between classes in different assemblies.</P>
+      <P>To create a strong name, you can use the sn tool. There are many 
+      options for this command-line tool, and you can type <B>sn /?</B> at a 
+      command prompt to see them all. The option you need for signing an 
+      assembly is -k, which creates a key file. By default, key files use the 
+      extension .snk. For example, to create a key file named NETServer.snk, you 
+      could use this command line:</P><PRE class=code>sn -k NETServer.snk
+</PRE>
+      <H3 class=dtH1>Deploying an Application for COM Access</H3>
+      <P>After you've created a .NET assembly containing a class that will be 
+      called by a COM client, there are three steps to make the class available 
+      to COM.</P>
+      <P>First, you must create a type library for the assembly. A type library 
+      is the COM equivalent of the metadata contained within a .NET assembly. 
+      Type libraries are generally contained in files with the extension .tlb. A 
+      type library contains the necessary information to allow a COM client to 
+      determine which classes are located in a particular server, as well as the 
+      methods, properties, and events supported by those classes. The .NET 
+      Framework SDK includes a tool named tlbexp (type library exporter) that 
+      can create a type library from an assembly. Tlbexp includes a number of 
+      options, and you can type <B>tlbexp /?</B> at a command prompt to see all 
+      of them. One of these options is the /out option, which lets you specify 
+      the name of the generated type library. (One is created for you if you 
+      don't choose to create your own name.) For example, to extract the 
+      metadata from an assembly named NETServer.dll to a type library named 
+      NETServer.tlb, you could use this command line:</P><PRE class=code>tlbexp NETServer.dll /out:NETServer.tlb
+</PRE>
+      <P>Secondly, you should use the Assembly Registration Tool (regasm) from 
+      the .NET Framework SDK to both create the type library and register it in 
+      a single operation. This is the easiest tool to use when you're doing both 
+      .NET and COM development on a single computer. Like tlbexp, there are a 
+      number of options for regasm; type <B>regasm /?</B> at a command prompt to 
+      see them all. To create and register a type library using regasm, use a 
+      command line such as this:</P><PRE class=code>regasm /tlb:NETServer.tlb NETServer.dll
+</PRE>
+      <P>Thirdly, you must install the .NET assembly into the Global Assembly 
+      Cache (GAC) so that it will be available as a shared assembly. To install 
+      an assembly into the GAC, use the gacutil tool:</P><PRE class=code>gacutil /i NETServer.dll
+</PRE>
+      <P>Again, you can get a list of all the options for gacutil by typing 
+      <B>gacutil</B> /? at a command prompt.</P>
+      <H2 class=dtH1><A name=callnetfrcom_topic3></A>Practice Calling a .NET 
+      Component From COM</H2>
+      <P>In the following example, you will use properties and methods in a .NET 
+      component from COM code. You will use regasm to create a type library from 
+      the .NET assembly and to register an assembly, and you will use gacutil to 
+      make the assembly globally available. You'll then see how you can use this 
+      .NET assembly from within Visual Basic 6.0 COM code. </P>
+      <H3 class=dtH1>Create the .NET Assembly</H3>
+      <P>To create the .NET assembly containing a public class, follow these 
+      steps: 
+      <OL type=1>
+        <LI>Open Microsoft® Visual Studio® .NET and click <B>New Project </B>on 
+        the Start Page. 
+        <LI>Select <B>Visual Basic Project </B>from the tree view on the 
+        left-hand side of the screen. 
+        <LI>Select <B>Class Library </B>as the project template. 
+        <LI>Set the name of the application to <B>PhysServer2</B> and click 
+        <B>OK</B> to create the project. 
+        <LI>Highlight the class called Class1.vb in the Solution Explorer window 
+        and rename it to <B>NETTemperature.vb</B>. 
+        <LI>Select the code for Class1 in NETTemperature.vb (this will be an 
+        empty class definition) and replace it with the following code: <PRE class=code>Public Interface iTemperature
+    Property Celsius() As Double
+    Property Fahrenheit() As Double
+    Function GetCelsius() As Double
+    Function GetFahrenheit() As Double
+End Interface
+
+Public Class NET_Temperature
+    Implements iTemperature
+
+    Private mdblCelsius As Double
+    Private mdblFahrenheit As Double
+
+    Public Property Celsius() As Double _
+     Implements iTemperature.Celsius
+        Get
+            Celsius = mdblCelsius
+        End Get
+        Set(ByVal Value As Double)
+            mdblCelsius = Value
+            mdblFahrenheit = ((Value * 9) / 5) + 32
+        End Set
+    End Property
+
+    Public Property Fahrenheit() As Double _
+     Implements iTemperature.Fahrenheit
+        Get
+            Fahrenheit = mdblFahrenheit
+        End Get
+        Set(ByVal Value As Double)
+            mdblFahrenheit = Value
+            mdblCelsius = ((Value - 32) * 5) / 9
+        End Set
+    End Property
+
+    Public Function GetCelsius() As Double _
+     Implements iTemperature.GetCelsius
+        GetCelsius = mdblCelsius
+    End Function
+
+    Public Function GetFahrenheit() As Double _
+     Implements iTemperature.GetFahrenheit
+        GetFahrenheit = mdblFahrenheit
+    End Function
+End Class
+</PRE></LI></OL>
+      <P>This code starts by defining an interface named <B>iTemperature</B>. 
+      Because the interface is defined with the <B>Public</B> keyword, it will 
+      be exported to the type library you'll create from this assembly. You can 
+      think of an interface definition as the skeleton for all or part of a 
+      class definition. The interface definition can contain members 
+      (properties, methods—either functions or subs—and events), just like a 
+      class. But unlike a class, an interface definition contains no code for 
+      any of these members. A class can implement one interface (as in this 
+      example) or more than one interface.</P>
+      <P>This code defines the <B>NET_Temperature </B>class that uses the 
+      interface <B>iTemperature</B>. In particular, this line in the class 
+      definition sets up a contract between the class and the interface:</P><PRE class=code>Implements iTemperature
+</PRE>
+      <P>The contract says that the class will implement all of the members of 
+      the interface. It may also contain additional members that are not part of 
+      the interface, but you'll get an error if you try to build a class that 
+      does not completely implement an interface.</P>
+      <BLOCKQUOTE class=dtBlock><B class=le>Note&nbsp;&nbsp;&nbsp;</B>The 
+        class exposes two public properties and two public methods. (For the 
+        basics of creating classes, methods, and properties, see <A 
+        href="http://msdn.microsoft.com/library/en-us/dndotnet/html/creatingclasses.asp">Creating 
+        Classes in Visual Basic .NET</A>). </BLOCKQUOTE>
+      <P>Notice the syntax used to associate members in the class with members 
+      of the interface that the class implements. For example, the 
+      <B>Celsius</B> property in the <B>NET_Temperature </B>class is defined 
+      this way:</P><PRE class=code>Public Property Celsius() As Double _
+ Implements iTemperature.Celsius
+</PRE>
+      <P>That line of code defines a property that returns a Double, and tells 
+      the compiler that this property is an implementation of the <B>Celsius</B> 
+      property within the <B>iTemperature </B>interface.</P>
+      <H3 class=dtH1>Create a Key Pair and Sign the Assembly</H3>
+      <P>To make the assembly globally available, you need to create a key pair 
+      and use it to sign the assembly. In addition, you can make it easier to 
+      work with the assembly by adding a title and description.</P>
+      <P>To sign the assembly, you can run the sn utility and add the name of 
+      the key file by hand, or you can generate a strong name using the Visual 
+      Studio .NET user interface. We'll use the latter method. To do so, follow 
+      these steps: 
+      <OL type=1>
+        <LI>In the Solution Explorer in Visual Studio .NET, double-click the 
+        <B>AssemblyInfo.vb</B> file to open it in the editing window. 
+        <LI>In the Assembly Attributes section at the top of this file, modify 
+        the AssemblyTitle and AssemblyDescription lines to read: <PRE class=code>&lt;Assembly: AssemblyTitle("PhysServer2")&gt; 
+&lt;Assembly: AssemblyDescription(".NET Version of PhysServer")&gt; 
+</PRE>
+        <BLOCKQUOTE class=dtBlock><B 
+          class=le>Tip!&nbsp;&nbsp;&nbsp;</B>Assembly Attributes in Visual Basic 
+          .NET are the equivalent of Project Properties in Visual Basic 
+        6.0.</BLOCKQUOTE>
+        <LI>In the Solution Explorer, right-click the project node and choose 
+        <B>Properties</B>. Click the <B>Common Properties </B>folder and then 
+        the <B>Strong Name </B>property page. Select the box labeled <B>Generate 
+        Strong Name Using</B>. Click <B>Generate Key </B>to generate a key file 
+        and add it to your project. Click <B>OK</B> to close the property dialog 
+        box. </LI></OL>
+      <P>Now you're ready to create the assembly. Click <B>Build</B> or press 
+      <B>Ctrl+Shift+B</B> to build the assembly.</P>
+      <H3 class=dtH1>Register the Assembly and Create a Type Library</H3>
+      <P>At this point, you could use the new assembly and the 
+      <B>NET_Temperature </B>class from another .NET application. But, you still 
+      have to make the class and its members available to your COM applications. 
+      Open a Visual Studio .NET command prompt (Click <B>Start</B>, then 
+      <B>Programs</B>, then <B>Microsoft Visual Studio .NET 7.0</B>, then 
+      <B>Visual Studio .NET Tools</B>, and then <B>Visual Studio .NET Command 
+      Prompt</B>), change to the project directory for PhysServer2, and 
+type:</P>
+      <BLOCKQUOTE class=dtBlock>regasm /tlb:PhysServer2.tlb 
+      PhysServer2.dll</BLOCKQUOTE>
+      <P>The regasm utility will create a type library and register it in your 
+      Windows registry to make the classes in PhysServer2.dll available to COM 
+      clients. </P>
+      <H3 class=dtH1>Add the Assembly to the Global Assembly Cache</H3>
+      <P>Finally, to make the newly registered assembly globally available to 
+      all COM clients wherever they're located on your hard drive, switch back 
+      to the Visual Studio .NET command prompt and type:</P>
+      <BLOCKQUOTE class=dtBlock>gacutil /I PhysServer2.dll</BLOCKQUOTE>
+      <P>The gacutil utility will add the assembly to the GAC and print a status 
+      message to tell you that it's done so.</P>
+      <H3 class=dtH1>Write Visual Basic 6.0 Code to Call the .NET Class</H3>
+      <P>Now you're ready to write a COM client to use the <B>NET_Temperature 
+      </B>class. Follow these steps: 
+      <OL type=1>
+        <LI>Open Visual Basic 6.0 and in the New Project dialog box, click 
+        <B>New tab</B>. 
+        <LI>Select <B>Standard EXE </B>and click <B>Open</B>. 
+        <LI>Highlight the form called Form1 in the Project Explorer window and 
+        rename it to <B>frmTemperature</B>. 
+        <LI>Create the form shown in Figure 2 by adding the appropriate controls 
+        and setting the properties of those controls, as outlined in Table 1. 
+        <P class=label><B>Table 1. Controls for frmTemperature</B> 
+        <TABLE class=data>
+          <TBODY>
+          <TR vAlign=top>
+            <TH class=data align=left width="31%">Control Type</TH>
+            <TH class=data align=left width="27%">Property</TH>
+            <TH class=data align=left width="42%">Value</TH></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">Label</TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">lblFahrenheit</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Caption</TD>
+            <TD class=data width="42%">Fahrenheit</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">TextBox</TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">txtFahrenheit</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">(blank)</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">Button</TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">cmdConvertToC</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Caption</TD>
+            <TD class=data width="42%">Convert to C</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">Label</TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">lblCelsius</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Caption</TD>
+            <TD class=data width="42%">Celsius</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">TextBox</TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">txtCelsius</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">(blank)</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">Button</TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">cmdConvertToF</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Caption</TD>
+            <TD class=data width="42%">Convert to F</TD></TR></TBODY></TABLE>
+        <P class=fig1><IMG alt="" src="callnetfrcom_files/callnetfrcom02.gif" 
+        border=0> 
+        <P class=label><B>Figure 2. The test form design</B> </P>
+        <LI>To use the class in PhysServer2 through the CCW, click 
+        <B>Project</B>, and then click <B>References</B> to open the References 
+        dialog box. Select the reference for the .NET Version of PhysServer, as 
+        shown in Figure 3. Click <B>OK</B> to close the dialog box. 
+        <P class=fig1><IMG alt="" src="callnetfrcom_files/callnetfrcom03.gif" 
+        border=0> 
+        <P class=label><B>Figure 3. Setting a reference to the .NET 
+        component</B> </P></LI></OL>
+      <P>Now you're ready to write code that uses the methods and properties of 
+      the <B>NET_Temperature </B>class. On the <B>View</B> menu, click 
+      <B>Code</B>, and enter this code in the form module for 
+frmTemperature:</P><PRE class=code>Private moTempClass As PhysServer2.NET_Temperature
+Private moTemp As PhysServer2.iTemperature
+
+Private Sub cmdConvertToC_Click()
+    With moTemp
+        .Fahrenheit = txtFahrenheit.Text
+         txtCelsius.Text = .GetCelsius
+    End With
+End Sub
+
+Private Sub cmdConvertToF_Click()
+    With moTemp
+        .Celsius = txtCelsius.Text
+        txtFahrenheit.Text = .GetFahrenheit
+    End With
+End Sub
+
+Private Sub Form_Load()
+    Set moTempClass = New PhysServer2.NET_Temperature
+    Set moTemp = moTempClass
+End Sub
+</PRE>
+      <P>Remember, in the .NET project you defined the <B>Net_Temperature 
+      </B>class using the <B>iTemperature</B> interface. This code demonstrates 
+      how you can retrieve the interface (represented as an object named 
+      <B>moTemp</B>) back from the object. Although this may look like extra 
+      code, if you experiment in Visual Basic, you'll find that it's much more 
+      convenient to work with the interface than it is with the object. That's 
+      because the interface supports Microsoft® IntelliSense® command 
+      completion.</P>
+      <H3 class=dtH1>Try It Out</H3>
+      <P>To see the <B>NET_Temperature </B>class in action, follow these steps: 
+      <OL type=1>
+        <LI>Press <B>F5</B> to start the project. 
+        <LI>Enter <B>95 </B>in the Fahrenheit textbox and click <B>Convert to 
+        C</B>. The Celsius box should fill in with the value 35. 
+        <LI>Enter <B>-14</B> in the Celsius box and click <B>Convert to F</B>. 
+        The Fahrenheit box should fill in with the value 6.8. 
+        <LI>Close the form to stop the project. </LI></OL>
+      <H2 class=dtH1><A name=callnetfrcom_topic4></A>What's New Since Visual 
+      Basic 6.0?</H2>
+      <P>Of course, the entire process of calling .NET components from Visual 
+      Basic 6.0 is new, because .NET didn't exist when Visual Basic 6.0 was 
+      released. Visual Basic 6.0 does have the ability to create multiple 
+      components connected by COM calls, and the .NET CCWs make the .NET calls 
+      function like COM calls. The nice thing about the whole process is that 
+      you don't need to risk the safety and stability of .NET components to use 
+      them from COM code. By calling through the CLR, the CCWs still give your 
+      .NET components all the benefits of managed code, no matter where you use 
+      the .NET components.</P>
+      <H2 class=dtH1><A name=callnetfrcom_topic5></A>Summary</H2>
+      <P>Although .NET is an entirely new development environment, the designers 
+      did not ignore the issue of compatibility with existing code. By properly 
+      constructing your .NET components and using tools such as sn, tlbexp, 
+      regasm, and gacutil, you can expose classes from a .NET assembly to COM 
+      clients.</P>
+      <P>Calling a .NET component from a COM component is not a trivial 
+      exercise. As you've seen in this document, you need to make explicit code 
+      modifications to your .NET component to enable this scenario. But the 
+      modifications are minor, and there are certainly benefits from enabling 
+      COM clients to call .NET servers. If you're migrating a complex 
+      application from COM to .NET one component at a time, you'll find the 
+      techniques outlined in this document essential. </P>
+      <H3 class=dtH1>About the Author</H3>
+      <P><A href="mailto:MikeG1@larkfarm.com">Mike Gunderloy</A> writes about 
+      software and raises chickens in eastern Washington State. He's the 
+      co-author of <I>Access 2002 Developer's Handbook</I> and author of <I>SQL 
+      Server Developer's Guide to OLAP with Analysis Services</I>, both from 
+      Sybex. He's been writing code for Microsoft products since the prehistoric 
+      pre-Windows era, and has no intention of stopping any time soon. </P>
+      <H4 class=dtH1>About Informant Communications Group</H4>
+      <P>Informant Communications Group, Inc. (www.informant.com) is a 
+      diversified media company focused on the information technology sector. 
+      Specializing in software development publications, conferences, catalog 
+      publishing and Web sites, ICG was founded in 1990. With offices in the 
+      United States and the United Kingdom, ICG has served as a respected media 
+      and marketing content integrator, satisfying the burgeoning appetite of IT 
+      professionals for quality technical information.</P>
+      <P>Copyright © 2002 Informant Communications Group and Microsoft 
+      Corporation</P>
+      <P>Technical editing: PDSA, Inc. and KNG Consulting</P><!--closes the topic content div--><!--FOOTER_END--><!-- End Content --></DIV></TD></TR></TBODY></TABLE>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 600px" noWrap></TD></TR>
+  <TR>
+    <TD><IFRAME id=frmRatings 
+      src="O:\Documentation\Help Files\Calling a _NET Component from a COM Component_files\rightframe_files\callnetfrcom_files\ratings(1).htm" 
+      frameBorder=0 width="100%" scrolling=no 
+height=250></IFRAME></TD></TR></TBODY></TABLE><BR 
+style="OVERFLOW: hidden; LINE-HEIGHT: 1px" clear=all>
+<TABLE id=msviFooter cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=bottom>
+    <TD id=msviFooter2 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')">
+      <DIV id=msviLocalFooter><NOBR><A 
+      href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/isapi/gomscom.asp?target=/legal/" 
+      target=_parent>Legal</A> |</NOBR><WBR><NOBR><A 
+      href="http://go.microsoft.com/?linkid=2028439" target=_parent>Contact 
+      Us</A> |</NOBR><WBR><NOBR><A href="http://msdn.microsoft.com/flash/" 
+      target=_parent>MSDN Flash Newsletter</A></NOBR></DIV>
+      <DIV id=msviGlobalFooter><SPAN dir=ltr>© 2005 Microsoft Corporation. All 
+      rights reserved.&nbsp;</SPAN><NOBR><A 
+      href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+      Statement</A></NOBR></DIV></TD>
+    <TD width=105 bgColor=#669aff><IMG title="" height=29 alt=Microsoft 
+      src="callnetfrcom_files/text.jpg" width=105 border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>var msviFooter2;if (document.getElementById){msviFooter2 = document.getElementById("msviFooter2");msviFooter2.style.filter = "";}</SCRIPT>
+
+<TABLE height=58 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV style="WIDTH: 200px"></DIV></TD>
+    <TD 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')" 
+    width="100%"></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>footerjs(document);</SCRIPT>
+</BODY></HTML>

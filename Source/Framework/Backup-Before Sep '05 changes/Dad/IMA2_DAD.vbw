@@ -1,0 +1,11 @@
+frmMain = 0, 0, 0, 0, C, 44, 44, 615, 541, C
+ModMain = 0, 0, 0, 0, C
+frmSaveAs = 0, 0, 0, 0, C, 88, 88, 659, 585, C
+frmInsert = 0, 0, 0, 0, C, 22, 22, 593, 519, C
+frmBindings = 0, 0, 0, 0, C, 22, 22, 593, 519, C
+frmParams = 0, 0, 0, 0, C, 66, 66, 637, 563, C
+CmpView = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmTextSummary = 0, 0, 0, 0, C, 110, 110, 681, 607, C
+frmHelp = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+WebBrowser = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+AgentListview = 0, 0, 0, 0, C, 0, 0, 0, 0, C

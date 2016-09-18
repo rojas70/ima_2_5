@@ -1,0 +1,77 @@
+// IMA2_FrameGrabberLib.idl : IDL source for IMA2_FrameGrabberLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_FrameGrabberLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(608CC024-05D3-4BEB-81ED-73571175C6A3),
+		dual,
+		helpstring("IPXC_FG Interface"),
+		pointer_default(unique)
+	]
+	interface IPXC_FG : IDispatch
+	{
+//		[propget, id(1), helpstring("property Chroma")] HRESULT Chroma([out, retval] short *pVal);
+//		[propput, id(1), helpstring("property Chroma")] HRESULT Chroma([in] short newVal);
+//		[propget, id(2), helpstring("property FrameCount")] HRESULT FrameCount([out, retval] long *pVal);
+//		[propput, id(2), helpstring("property FrameCount")] HRESULT FrameCount([in] long newVal);
+//		[propget, id(3), helpstring("property Saturation")] HRESULT Saturation([out, retval] float *pVal);
+//		[propput, id(3), helpstring("property Saturation")] HRESULT Saturation([in] float newVal);
+//		[propget, id(4), helpstring("property Hue")] HRESULT Hue([out, retval] float *pVal);
+//		[propput, id(4), helpstring("property Hue")] HRESULT Hue([in] float newVal);
+//		[propget, id(5), helpstring("property FieldCount")] HRESULT FieldCount([out, retval] long *pVal);
+//		[propput, id(5), helpstring("property FieldCount")] HRESULT FieldCount([in] long newVal);
+//		[propget, id(6), helpstring("property Contrast")] HRESULT Contrast([out, retval] float *pVal);
+//		[propput, id(6), helpstring("property Contrast")] HRESULT Contrast([in] float newVal);
+//		[propget, id(8), helpstring("property Brightness")] HRESULT Brightness([out, retval] float *pVal);
+//		[propput, id(8), helpstring("property Brightness")] HRESULT Brightness([in] float newVal);
+		[propget, id(7), helpstring("property Camera")] HRESULT Camera([out, retval] short *pVal);
+		[propput, id(7), helpstring("property Camera")] HRESULT Camera([in] short newVal);
+		[propget, id(9), helpstring("property FrameGrabberID")] HRESULT FrameGrabberID([out, retval] long *pVal);
+		[propput, id(9), helpstring("property FrameGrabberID")] HRESULT FrameGrabberID([in] long newVal);
+		[propget, id(10), helpstring("property ImageTop")] HRESULT ImageTop([out, retval] long *pVal);
+		[propput, id(10), helpstring("property ImageTop")] HRESULT ImageTop([in] long newVal);
+		[propget, id(11), helpstring("property ImageLeft")] HRESULT ImageLeft([out, retval] long *pVal);
+		[propput, id(11), helpstring("property ImageLeft")] HRESULT ImageLeft([in] long newVal);
+		[propget, id(12), helpstring("property ImageDepth")] HRESULT ImageDepth([out, retval] long *pVal);
+		[propget, id(13), helpstring("property ImageHeight")] HRESULT ImageHeight([out, retval] long *pVal);
+		[propput, id(13), helpstring("property ImageHeight")] HRESULT ImageHeight([in] long newVal);
+		[propget, id(14), helpstring("property ImageWidth")] HRESULT ImageWidth([out, retval] long *pVal);
+		[propput, id(14), helpstring("property ImageWidth")] HRESULT ImageWidth([in] long newVal);
+		[propget, id(20), helpstring("property FrameGrabberName")] HRESULT FrameGrabberName([out, retval] BSTR *pVal);
+		[propput, id(20), helpstring("property FrameGrabberName")] HRESULT FrameGrabberName([in] BSTR newVal);		
+		[id(15), helpstring("method Initialize")] HRESULT Initialize();
+		[id(16), helpstring("method ObtainImage")] HRESULT ObtainImage();
+		[id(17), helpstring("method Reset")] HRESULT Reset();
+		[id(18), helpstring("method Close")] HRESULT Close();
+		[id(19), helpstring("method UpdateManager")] HRESULT UpdateManager([in]BSTR Interface,[out, retval] VARIANT *Data);
+
+	};
+
+[
+	uuid(5102A4A0-3418-488A-87C9-7CA402DB51BD),
+	version(1.0),
+	helpstring("(IMA2 Components) - FrameGrabber")
+]
+library IMA2_FRAMEGRABBERLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\Include\ima2.tlb"); 
+	importlib("O:\Include\IMA2_ImageRepLib.tlb");
+
+	[
+		uuid(103A665D-AC59-412E-AEFD-0164EF9CB582),
+		helpstring("PXC_FG Class")
+	]
+	coclass PXC_FG
+	{
+		[default] interface IPXC_FG;
+		interface IComponent; 
+		interface IImageRep;
+	};
+};

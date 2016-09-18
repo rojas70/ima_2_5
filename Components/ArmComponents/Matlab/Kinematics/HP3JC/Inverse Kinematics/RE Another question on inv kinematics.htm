@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Message</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16705" name=GENERATOR></HEAD>
+<BODY><B>From:</B> Cook, George E [george.e.cook@Vanderbilt.Edu]<BR><B>Sent:</B> 
+Monday, September 22, 2008 9:14 AM<BR><B>To:</B> Rojas Suarez del Real, Juan 
+Luis<BR><B>Cc:</B> Cook, George E<BR><B>Subject:</B> RE: Another question on inv 
+kinematics<BR>
+<DIV dir=ltr align=left><SPAN class=032210716-22092008><FONT 
+face=Arial>Juan,</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=032210716-22092008><FONT 
+face=Arial></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=032210716-22092008>&nbsp;&nbsp;&nbsp; <FONT 
+face=Arial>If I tell you to move your robot to a certain position and 
+orientation, I would normally do this in terms of the end effector with respect 
+to the station frame.&nbsp; You would first premultiply by Tbase-wrt-station and 
+postmultiply by Tendeffector-wrt-6 to get T06 for the specific position and 
+orientation that I have asked you to move to.&nbsp; I might give you this 
+information in terms of roll-pitch-yaw for the orientation (r values) and px, 
+py, pz for position.&nbsp; You would convert the roll-pitch-yaw to a nine 
+element r matrix and combine it with the p vector to get the 4 X 4 homogeneous 
+transformation matrix for the particular position and orientation that i have 
+ased you to move to.&nbsp; Once you get there, I may give you the next position 
+and orientation to move to, etc.&nbsp; For any one specified position and 
+orientation, the r's and p's are fixed for your inverse kinematics 
+solution.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=032210716-22092008><FONT 
+face=Arial></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=032210716-22092008>&nbsp;&nbsp;&nbsp; <FONT 
+face=Arial>G. Cook</FONT></SPAN></DIV>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Juan Rojas 
+[mailto:juan.rojas@vanderbilt.edu] <BR><B>Sent:</B> Monday, September 22, 2008 
+1:01 PM<BR><B>To:</B> Cook, George E<BR><B>Subject:</B> RE: Another question on 
+inv kinematics<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff size=2>Thanks 
+for the reply.</FONT></SPAN></DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff 
+size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff size=2>A 
+couple of questions:</FONT></SPAN></DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff 
+size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff size=2>1) 
+Aren't the r values of the inverse kinematics changing as a function of the 
+actual position?</FONT></SPAN></DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff size=2>2) If 
+I have a commerical robot where we don't get the values of the inverse 
+kinematics, how do I go about that?</FONT></SPAN></DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff 
+size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=093270018-22092008><FONT face=Arial color=#0000ff 
+size=2>Juan</FONT></SPAN></DIV>
+<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">
+  <DIV></DIV>
+  <DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left><FONT 
+  face=Tahoma size=2>-----Original Message-----<BR><B>From:</B> Cook, George E 
+  [mailto:george.e.cook@Vanderbilt.Edu] <BR><B>Sent:</B> Monday, September 22, 
+  2008 8:54 AM<BR><B>To:</B> Rojas Suarez del Real, Juan Luis<BR><B>Cc:</B> 
+  Cook, George E<BR><B>Subject:</B> RE: Another question on inv 
+  kinematics<BR><BR></FONT></DIV>
+  <DIV dir=ltr align=left><SPAN class=682164815-22092008><FONT 
+  face=Arial>Juan,</FONT></SPAN></DIV>
+  <DIV dir=ltr align=left><SPAN class=682164815-22092008><FONT 
+  face=Arial></FONT></SPAN>&nbsp;</DIV>
+  <DIV dir=ltr align=left><SPAN class=682164815-22092008>&nbsp;&nbsp;&nbsp; 
+  <FONT face=Arial>All of the r values, i.e., r13, r23, r33, etc., as well as 
+  the position vector px, py, pz, are assumed known for the inverse kinematics 
+  problem.&nbsp; That is, you know all of the values of the T06 matrix, which 
+  consists of the nine r values and the p vector.&nbsp; Knowing these, the 
+  problem is to solve for the thetas, 1-6, as a function of the r values, p 
+  values and link parameters, i.e., a's, alpha's, d's, etc.</FONT></SPAN></DIV>
+  <DIV dir=ltr align=left><SPAN class=682164815-22092008>&nbsp;&nbsp;&nbsp; 
+  <FONT face=Arial>The values you give for the r values are the forward 
+  kinematics.&nbsp; The inverse kinematics problem is to assume the r's known 
+  and solve for the thetas on the right hand side.</FONT></SPAN></DIV>
+  <DIV dir=ltr align=left><SPAN class=682164815-22092008><FONT 
+  face=Arial></FONT></SPAN>&nbsp;</DIV>
+  <DIV dir=ltr align=left><SPAN class=682164815-22092008>&nbsp;&nbsp;&nbsp; 
+  <FONT face=Arial>G. Cook</FONT></SPAN></DIV>
+  <DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+  <HR tabIndex=-1>
+  <FONT face=Tahoma size=2><B>From:</B> Juan Rojas 
+  [mailto:juan.rojas@vanderbilt.edu] <BR><B>Sent:</B> Monday, September 22, 2008 
+  10:15 AM<BR><B>To:</B> Cook, George E<BR><B>Subject:</B> Another question on 
+  inv kinematics<BR></FONT><BR></DIV>
+  <DIV></DIV>
+  <DIV><SPAN class=546240205-22092008><FONT face=Arial size=2>As I was studying 
+  the computation of theta 4, theta 5, and theta 6, I noticed that the solutions 
+  involve elements from the goal matrix, such as r13, r23, 
+  r33.</FONT></SPAN></DIV>
+  <DIV><SPAN class=546240205-22092008><FONT face=Arial 
+  size=2></FONT></SPAN>&nbsp;</DIV>
+  <DIV><SPAN class=546240205-22092008><FONT face=Arial size=2>For example, the 
+  solution for theta4 is:</FONT></SPAN></DIV>
+  <DIV><SPAN class=546240205-22092008><FONT face="Courier New" 
+  color=#228b22><FONT face="Courier New" color=#228b22><FONT face="Courier New" 
+  color=#228b22>
+  <P><FONT size=2>q4 = atan2(-r23c1+r13s1, 
+  r13c1c23+c2(r23c3s1+r33s3)+s2(r33c3-r23s1s3))</FONT></P>
+  <P><SPAN class=546240205-22092008><FONT face=Arial color=#000000 
+  size=2>However, </FONT></SPAN></P>
+  <P><SPAN class=546240205-22092008><FONT face=Arial color=#000000 size=2>When 
+  we look into r13, r23, r33, these variables are functions of theta4 and 
+  theta5:</FONT></SPAN></P><SPAN class=546240205-22092008><FONT face=Arial 
+  color=#000000 size=2><FONT face=Courier>
+  <P>r13 = Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT face=Courier>1] 
+  Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT face=Courier>4] 
+  Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>5]+Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>1] (Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>5] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2+</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3]+Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2+</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3] Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>4] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>5])</P></FONT></FONT></SPAN><SPAN class=546240205-22092008><FONT 
+  face=Arial color=#000000 size=2><FONT face=Courier>
+  <P>r23 = Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT face=Courier>5] 
+  Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT face=Courier>1] 
+  Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2+</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3]+(Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2] Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3] Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>4] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>1]-Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>4] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>1] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3]-Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>1] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>4]) Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>5]</P></FONT></FONT></SPAN><SPAN class=546240205-22092008><FONT 
+  face=Courier>
+  <P>r33 = -Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2+</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3] Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>5]+Cos[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>4] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>2+</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>3] Sin[</FONT><FONT face=Mathematica1Mono>q</FONT><FONT 
+  face=Courier>5]</FONT></P>
+  <P><FONT face=Courier><SPAN class=546240205-22092008><FONT face=Arial 
+  color=#000000 size=2>How can we solve for these if we have not yet computed 
+  theta 4 and theta 5?</FONT></SPAN></FONT></P>
+  <P><FONT face=Courier><SPAN class=546240205-22092008><FONT face=Arial 
+  color=#000000 size=2>Any input would be greatly 
+  appreciated.</FONT></SPAN></FONT></P>
+  <P><FONT face=Courier><SPAN class=546240205-22092008><FONT face=Arial 
+  color=#000000 
+  size=2>Juan</FONT></SPAN></P></FONT></SPAN></FONT></FONT></FONT></SPAN></DIV>
+  <DIV>&nbsp;</DIV><!-- Converted from text/rtf format -->
+  <P><SPAN lang=en-us><FONT face=Arial 
+  size=2>_________________________________________________</FONT></SPAN> 
+  <BR><SPAN lang=en-us><FONT face=Arial size=2>Juan L. Rojas</FONT></SPAN> 
+  <BR><SPAN lang=en-us><FONT face=Arial size=2>Cognitive Robotics 
+  Lab</FONT></SPAN> <BR><SPAN lang=en-us><FONT face=Arial size=2>Vanderbilt 
+  University</FONT></SPAN> <BR><SPAN lang=en-us><FONT face=Arial 
+  size=2>people.vanderbilt.edu/~juan.rojas</FONT></SPAN> <BR><SPAN 
+  lang=en-us><FONT face=Arial>&nbsp;</FONT></SPAN> </P>
+  <DIV>&nbsp;</DIV></BLOCKQUOTE></BODY></HTML>

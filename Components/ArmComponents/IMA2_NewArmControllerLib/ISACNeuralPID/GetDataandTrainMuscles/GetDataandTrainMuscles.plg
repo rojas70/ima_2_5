@@ -1,0 +1,64 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GetDataandTrainMuscles - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP59.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/GetDataandTrainMuscles.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\main.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\TrainMuscles01.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\TrainMuscles23.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\TrainMuscles4567Angle2.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\TrainMuscles4567Angle3.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\TrainMuscles891011Angle4.cpp"
+"C:\Program Files\Microsoft Visual Studio\MyProjects\ISACNeuralPID\GetDataandTrainMuscles\TrainMuscles891011Angle5.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP59.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5A.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib WINMOTENC.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/GetDataandTrainMuscles.pdb" /debug /machine:I386 /out:"Debug/GetDataandTrainMuscles.exe" /pdbtype:sept 
+".\Debug\main.obj"
+".\Debug\TrainMuscles01.obj"
+".\Debug\TrainMuscles23.obj"
+".\Debug\TrainMuscles4567Angle2.obj"
+".\Debug\TrainMuscles4567Angle3.obj"
+".\Debug\TrainMuscles891011Angle4.obj"
+".\Debug\TrainMuscles891011Angle5.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5A.tmp"
+<h3>Output Window</h3>
+Compiling...
+main.cpp
+c:\program files\microsoft visual studio\myprojects\isacneuralpid\headers\control.h(430) : warning C4305: 'initializing' : truncation from 'const double' to 'float'
+TrainMuscles01.cpp
+TrainMuscles23.cpp
+TrainMuscles4567Angle2.cpp
+TrainMuscles4567Angle3.cpp
+TrainMuscles891011Angle4.cpp
+TrainMuscles891011Angle5.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5C.tmp" with contents
+[
+/nologo /o"Debug/GetDataandTrainMuscles.bsc" 
+".\Debug\main.sbr"
+".\Debug\TrainMuscles01.sbr"
+".\Debug\TrainMuscles23.sbr"
+".\Debug\TrainMuscles4567Angle2.sbr"
+".\Debug\TrainMuscles4567Angle3.sbr"
+".\Debug\TrainMuscles891011Angle4.sbr"
+".\Debug\TrainMuscles891011Angle5.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5C.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+GetDataandTrainMuscles.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

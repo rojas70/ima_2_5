@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_BasicComponentsLib.VectorSignal.1 = s 'VectorSignal Class'
+	{
+		CLSID = s '{7F58ABCE-1E9C-495F-8433-81B304A4713B}'
+	}
+	IMA2_BasicComponentsLib.VectorSignal = s 'VectorSignal Class'
+	{
+		CLSID = s '{7F58ABCE-1E9C-495F-8433-81B304A4713B}'
+		CurVer = s 'IMA2_BasicComponentsLib.VectorSignal.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7F58ABCE-1E9C-495F-8433-81B304A4713B} = s 'VectorSignal Class'
+		{
+			ProgID = s 'IMA2_BasicComponentsLib.VectorSignal.1'
+			VersionIndependentProgID = s 'IMA2_BasicComponentsLib.VectorSignal'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{08D47F9E-6A98-4B2C-9AAC-A9EC210F3E0F}'
+		}
+	}
+}

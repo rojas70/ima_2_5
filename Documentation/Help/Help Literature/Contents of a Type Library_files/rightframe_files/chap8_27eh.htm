@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0077)http://msdn.microsoft.com/library/en-us/automat/htm/chap8_27eh.asp?frame=true -->
+<!--TOOLBAR_EXEMPT--><HTML xmlns:tool = 
+"http://www.microsoft.com/tooltip"><HEAD><TITLE>Contents of a Type Library</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="Type libraries are binary files (.tlb files) that include information about types and objects exposed by an ActiveX application." 
+name=Description>
+<META content="" name=Robots>
+<META content="" name=Keywords>
+<META content=en-us name=MS.LOCALE><LINK href="chap8_27eh_files/ie4.css" 
+type=text/css rel=stylesheet><LINK href="chap8_27eh_files/ie5.css" type=text/css 
+rel=stylesheet>
+<STYLE>BODY {
+	MARGIN: 0px; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<SCRIPT language=javascript src="chap8_27eh_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="chap8_27eh_files/Broker.js"></SCRIPT>
+<LINK href="chap8_27eh_files/backsdk4.css" type=text/css rel=stylesheet><LINK 
+href="chap8_27eh_files/default.css" type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.1; SV1";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+
+<SCRIPT>
+	if( self == top )
+{
+	location = "/library/en-us/automat/htm/chap8_27eh.asp";
+}
+
+</SCRIPT>
+<xml id=xmlPageContext><eyebrow findmenu="false">
+	<item label="MSDN Home" url="/default.asp"/>
+	<item label="MSDN Library" url="/library/default.asp"/>
+	<item label="Win32 and COM Development" url="/library/en-us/dnanchor/html/anch_win32com.asp" id="msdnlib1404" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1404_.xml"/><item label="Component Development" url="/library/en-us/dnanchor/html/componentdevelopmentank.asp" id="msdnlib1459" xmlsrc="/library/en-us/toc/msdnlib/msdnlib1459_.xml"/><item label="Automation" id="msdnlib1465"/><item label="SDK Documentation" url="/library/en-us/automat/htm/autoportal_7l45.asp" id="msdnlib1466"/><item label="Type Libraries and the Object Description Language" url="/library/en-us/automat/htm/chap8_75b9.asp" id="automat442" xmlsrc="/library/en-us/toc/automat/automat442_.xml"/><item label="Contents of a Type Library" url="/library/en-us/automat/htm/chap8_27eh.asp" id="automat443"/></eyebrow></xml><!--VENUS_START-->
+<META content="Contents of a Type Library" name=MSHTOCTitle>
+<META content="Contents of a Type Library" name=MSHRLTitle>
+<META content=_oa96_Contents_of_a_Type_Library name=MSHKeywordA>
+<META content="Contents of a Type Library" name=MSHKeywordK>
+<META content=TopicType:kbArticle name=MSHAttr>
+<META content=DocSet:PSDK name=MSHAttr>
+<META content=DocSet:LHSDK name=MSHAttr>
+<META content=Locale:kbEnglish name=MSHAttr>
+<META content=Technology:Automation name=MSHAttr>
+<META content=TopicType:kbOrient name=MSHAttr>
+<META content=ProgModel:win32 name=MSHAttr>
+<META content=TargetOS:Windows name=MSHAttr><!---VENUS_END---><LINK 
+href="chap8_27eh_files/css.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript>
+var doImage=doImage;var TType=TType;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&TYPE=' + tt + '&p=library_en-us_automat_htm_chap8&URI=%2flibrary%2ftoolbar%2f3.0%2fasp.aspx%3fmode%3dhead%26c%3d%2fnonlibraryshell.config%26h%3dmsdn%252Emicrosoft%252Ecom%26u%3d%252Flibrary%252Fen%252Dus%252Fautomat%252Fhtm%252Fchap8%255F27eh%252Easp%26r%3d&GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>');}}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2668" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0">
+<TABLE height=24 cellSpacing=0 cellPadding=4 width="100%" bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=eyebrow vAlign=center align=left width="100%">&nbsp;&nbsp; <A 
+      class=small href="http://msdn.microsoft.com/default.asp" target=_top>MSDN 
+      Home</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp" target=_top>MSDN 
+      Library</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/anch_win32com.asp" 
+      target=_top>Win32 and COM Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/componentdevelopmentank.asp" 
+      target=_top>Component Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/automat/htm/autoportal_7l45.asp" 
+      target=_top>SDK Documentation</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/automat/htm/chap8_75b9.asp" 
+      target=_top>Type Libraries and the Object Description Language</A><A 
+      href="http://msdn.microsoft.com/library/en-us/automat/htm/"></A> 
+  </TD></TR></TBODY></TABLE>
+<TABLE class=clsContainer style="TABLE-LAYOUT: fixed" cellSpacing=0 
+cellPadding=15 width="100%" border=0 float="left">
+  <TBODY>
+  <TR>
+    <TD vAlign=top><!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END--><!-- Begin Content -->
+      <TABLE class=buttonbarshade cellSpacing=0><A name=top></A>
+        <TBODY>
+        <TR>
+          <TD>&nbsp;</TD></TR></TBODY></TABLE>
+      <TABLE class=buttonbartable cellSpacing=0>
+        <TBODY>
+        <TR id=hdr>
+          <TD class=runninghead>Automation&nbsp;</TD></TR></TBODY></TABLE>
+      <H1><A name=_oa96_contents_of_a_type_library></A>Contents of a Type 
+      Library</H1>
+      <P>Type libraries are binary files (.tlb files) that include information 
+      about types and objects exposed by an ActiveX application. A type library 
+      can contain any of the following: 
+      <UL>
+        <LI>Information about data types, such as aliases, enumerations, 
+        structures, or unions. 
+        <LI>Descriptions of one or more objects, such as a module, interface, 
+        <B>IDispatch</B> interface (dispinterface), or component object class 
+        (coclass). Each of these descriptions is commonly referred to as a 
+        <I>typeinfo.</I> 
+        <LI>References to type descriptions from other type libraries. </LI></UL>
+      <P>By including the type library with a product, the information about the 
+      objects in the library can be made available to the users of the 
+      applications and programming tools. Type libraries can be shipped in any 
+      of the following forms: 
+      <UL>
+        <LI>A stand-alone binary file. The .tlb (type library) file output by 
+        the MIDL utility is a binary file. 
+        <LI>A resource in a dynamic link library (DLL). This resource should 
+        have the type TypeLib and an integer identifier. It must be declared in 
+        the resource (.rc) file as follows: <PRE>1 typelib mylib1.tlb
+2 typelib mylib2.tlb</PRE>
+        <LI>There can be multiple type library resources in a DLL. Application 
+        developers should use the resource compiler to add the .tlb file to 
+        their own DLL. A DLL with one or more type library resources typically 
+        has the file extension .olb (object library). 
+        <LI>A resource in an .exe file. The .exe file can contain multiple type 
+        library resources. </LI></UL>
+      <P>Object browsers, compilers, and similar tools access type libraries 
+      through the interfaces <B>ITypeLib</B>, <B>ITypeLib2</B>, 
+      <B>ITypeInfo</B>, <B>ITypeInfo2</B> and <B>ITypeComp</B>. Type library 
+      tools (such as MIDL) can be created using the interfaces 
+      <B>ICreateTypeLib</B>, <B>ICreateTypeLib2</B>, <B>ICreateTypeInfo</B> and 
+      <B>ICreateTypeInfo2</B>.</P><!-- End Content --></TD></TR></TBODY></TABLE><BR 
+style="OVERFLOW: hidden; LINE-HEIGHT: 1px" clear=all>
+<TABLE id=msviFooter cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=bottom>
+    <TD id=msviFooter2 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')">
+      <DIV id=msviLocalFooter><NOBR><A 
+      href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/isapi/gomscom.asp?target=/legal/" 
+      target=_parent>Legal</A> |</NOBR><WBR><NOBR><A 
+      href="http://go.microsoft.com/?linkid=2028439" target=_parent>Contact 
+      Us</A> |</NOBR><WBR><NOBR><A href="http://msdn.microsoft.com/flash/" 
+      target=_parent>MSDN Flash Newsletter</A></NOBR></DIV>
+      <DIV id=msviGlobalFooter><SPAN dir=ltr>© 2005 Microsoft Corporation. All 
+      rights reserved.&nbsp;</SPAN><NOBR><A 
+      href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+      Statement</A></NOBR></DIV></TD>
+    <TD width=105 bgColor=#669aff><IMG title="" height=29 alt=Microsoft 
+      src="chap8_27eh_files/text.jpg" width=105 border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>var msviFooter2;if (document.getElementById){msviFooter2 = document.getElementById("msviFooter2");msviFooter2.style.filter = "";}</SCRIPT>
+
+<TABLE height=58 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV style="WIDTH: 200px"></DIV></TD>
+    <TD 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')" 
+    width="100%"></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>footerjs(document);</SCRIPT>
+</BODY></HTML>

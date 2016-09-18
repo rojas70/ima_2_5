@@ -1,0 +1,15 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Softarm]
+"Type"=dword:00000001
+"Start"=dword:00000002
+"Group"="Extended Base"
+"ErrorControl"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Softarm\Interface0]
+"IoBaseAddress"=dword:00000302
+"IRQ"=dword:0000000a
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Softarm\Interface1]
+"IoBaseAddress"=dword:00000300
+"IRQ"=dword:0000000c

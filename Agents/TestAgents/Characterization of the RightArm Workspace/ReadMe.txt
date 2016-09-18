@@ -1,0 +1,1 @@
+This agent will be used to delineate the limitations of the reachable workspace by writing to file the cartesian coordinates as the arm is moved along its max and min ranges.

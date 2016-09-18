@@ -1,0 +1,6 @@
+Calling classes inside IMA25.
+
+For an ATL template, the pointer of a given class must be placed in the header file.
+The constructor should have the pointer set to NULL
+The CPP file is the one where 'new' is used to allocate sufficient memory for the class.
+Otherwise the Class object will be out of scope.

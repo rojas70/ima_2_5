@@ -1,0 +1,16 @@
+O:\Tools\Cameras\ColorModels\HologramRibbons\Blue\blueholog001.rgn 
+
+Works at 2:08pm on Nov 19.
+
+Left camera uses lambda of 1.2 
+with average results... centroid remains in place most of time. 
+Skipx = skipy = 2
+
+
+Right Camera uses lambda of 1.4 
+with average results. Target seems correct most of time, but a completely blank screen appears every other frame. 
+Skipx = skipy = 2
+
+
+Nov 2008.
+Juan Rojas

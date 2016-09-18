@@ -1,0 +1,22 @@
+% This function computes the wrist or P-point position of the robot based
+% on the end-effector coordinates. 
+
+% Input: Wrist_Pos (1x6) - XYZ RPY.
+%        optional 
+function P_Position = ComputePPos(Wrist_Pos,Q)
+
+    % DH Parameters d6 for motoman
+    d6 = -244.5;
+
+    if(nargin==2)
+        % Get the transformation matrix for the forward kinematics
+        M = HP3JC_Revised_Symbolic_Fwd_Kins('Modified_NumericalVersion',Q);
+    else
+        M = HP3JC_Revised_Symbolic_Fwd_Kins('Modified_NumericalVersion');
+    end
+
+    % Subtract from the wrist position the distance d6 x the z-element of the
+    % rotation matrix, R06.
+
+    P_Position = [Wrist_Pos(1);Wrist_Pos(2);Wrist_Pos(3)] - d6*(M(1:3,1:3)*[0;0;1]);
+end

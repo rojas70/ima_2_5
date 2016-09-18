@@ -1,0 +1,38 @@
+:Base MAXRemote.hlp
+:Title Measurement & Automation Explorer Remote Systems
+1 MAX Remote Systems Help=Welcome
+1 Conventions=Conventions
+1 Related Documentation=Related_Documentation
+1 Important Information
+2 Copyright=Copyright
+2 Warranty=Warranty
+2 Trademarks=Trademarks
+2 Medical Warning=Medical_Warning
+1 Remote System Configuration
+2 Making Network and Non-Network Connections=Network_Connections
+2 Using MAX to Detect Remote Systems=Using_MAX_to_Detect_Remote_Systems
+2 Configuring Your Remote System=Configuration
+2 Locking System Configuration=Locking_System_Configuration
+2 Remote DAQ Configuration=Remote_DAQ_Configuration
+2 IP Address Configuration
+3 Choosing an IP Address=Choosing_an_IP_Address
+3 Ethernet Parameters=Ethernet_Parameters
+3 Configuring an IP Address=Configuring_an_IP_Address
+3 For a Network Administered by a Network Administrator=For_a_Network_Administered_by_a_Network_Administrator
+3 For a Network Without a Network Administrator=For_a_Network_Without_a_Network_Administrator
+2 Software Installation
+3 Downloading Software to a Remote System=Firmware_Installation
+3 Rebooting Your Remote System=Rebooting_Your_Remote_System
+1 PXI Specific Information
+2 Booting into LabVIEW RT=Booting_into_LabVIEW_RT
+2 PXI Controller with Windows Installed=PXI_Controller_with_Windows_Installed
+2 PXI Controller with LabVIEW RT Installed=PXI_Controller_with_LabVIEW_RT_Installed
+2 Disk Utilities
+3 Disk Utilities=Disk_Utilities
+3 PXI Format Hard Drive Disk=PXI_Format_Hard_Drive_Disk
+3 PXI Uninstall Disk=PXI_Uninstall_Disk
+3 PXI Boot Disk=PXI_Boot_Disk
+3 PXI Launch Settings Reset Disk=PXI_Launch_Settings_Reset_Disk
+3 PXI IP Settings Reset Disk=PXI_IP_Settings_Reset_Disk
+1 Technical Support Resources
+2 Technical Support Resources=Technical_Support_Resources

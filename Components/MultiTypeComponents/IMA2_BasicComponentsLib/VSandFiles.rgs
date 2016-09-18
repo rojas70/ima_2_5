@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_BasicComponentsLib.VSandFiles.1 = s 'VSandFiles Class'
+	{
+		CLSID = s '{EBB38638-88D2-44EF-A142-8E2562706BEE}'
+	}
+	IMA2_BasicComponentsLib.VSandFiles = s 'VSandFiles Class'
+	{
+		CLSID = s '{EBB38638-88D2-44EF-A142-8E2562706BEE}'
+		CurVer = s 'IMA2_BasicComponentsLib.VSandFiles.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {EBB38638-88D2-44EF-A142-8E2562706BEE} = s 'VSandFiles Class'
+		{
+			ProgID = s 'IMA2_BasicComponentsLib.VSandFiles.1'
+			VersionIndependentProgID = s 'IMA2_BasicComponentsLib.VSandFiles'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{08D47F9E-6A98-4B2C-9AAC-A9EC210F3E0F}'
+		}
+	}
+}

@@ -1,0 +1,12 @@
+[MAX]
+ConfigFile = "config.mxs"
+
+[MAXComponents]
+CoreDictionary = "CoreDictionary"
+
+[CoreDictionary]
+Identifier = "790f6a90-e0d8-11d3-aa15-005004d131ee"
+FileName = "mxsdd.dll"
+SchemaVersion = 5
+FragmentRegistered = 0
+

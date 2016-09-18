@@ -1,0 +1,7 @@
+VBGROUP 5.0
+Project=Framework\Binding\IMA2_Binding.vbp
+Project=Framework\Helper\dll\IMA2_Helper.vbp
+Project=Framework\Helper\ocx\IMA2_HelperX.vbp
+Project=Framework\DadX\Copy of DADX - Before 4-15-05\IMA2_DadX.vbp
+Project=..\Base Classes\IMA2_PropertyBags\IMA2_PropertyBags.vbp
+StartupProject=Framework\Dad\IMA2_DAD.vbp

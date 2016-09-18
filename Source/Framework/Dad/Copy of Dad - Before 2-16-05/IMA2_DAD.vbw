@@ -1,0 +1,8 @@
+frmMain = 22, 29, 501, 481, C, 0, 0, 479, 452, C
+ModMain = 0, 0, 0, 0, C
+frmSaveAs = 0, 0, 0, 0, C, 66, 87, 545, 539, C
+frmInsert = 0, 0, 0, 0, C, 154, 203, 633, 655, C
+frmBindings = 0, 0, 0, 0, C, 132, 174, 611, 626, C
+frmParams = 0, 0, 0, 0, C, 44, 58, 523, 510, C
+ICmpView = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmTextSummary = 0, 0, 0, 0, C, 88, 116, 567, 568, C

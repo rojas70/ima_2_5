@@ -1,0 +1,4 @@
+VBGROUP 5.0
+StartupProject=Locator\IMA2_Locator.vbp
+Project=InfoService\IMA2_InfoService.vbp
+Project=EventService\IMA2_EventService.vbp

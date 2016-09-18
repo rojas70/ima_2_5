@@ -1,0 +1,10 @@
+LABVIEWRT 06010000
+INSTALL "/ni-rt/system/mxs.dll"
+INSTALL "/ni-rt/system/mxsemb.dll"
+INSTALL "/ni-rt/system/mxsin.dll"
+INSTALL "/ni-rt/system/mxsutils.dll"
+INSTALL "/ni-rt/system/mxsdd.dll"
+INSTALL "/ni-rt/system/mxsdd.mxf"
+INSTALL "/ni-rt/system/mxsdb.dll"
+INSTALL "/ni-rt/system/mxs.mxr"
+MERGE_INI "ni-rt.ini"

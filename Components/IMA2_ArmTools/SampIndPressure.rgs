@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ArmTools.SampIndPressure.1 = s 'SampIndPressure Class'
+	{
+		CLSID = s '{6AF8BEB2-72B5-464E-B3CE-55137C193BE1}'
+	}
+	IMA2_ArmTools.SampIndPressure = s 'SampIndPressure Class'
+	{
+		CLSID = s '{6AF8BEB2-72B5-464E-B3CE-55137C193BE1}'
+		CurVer = s 'IMA2_ArmTools.SampIndPressure.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6AF8BEB2-72B5-464E-B3CE-55137C193BE1} = s 'SampIndPressure Class'
+		{
+			ProgID = s 'IMA2_ArmTools.SampIndPressure.1'
+			VersionIndependentProgID = s 'IMA2_ArmTools.SampIndPressure'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5D2D9F10-844D-4BAF-8EED-B352AD107AB2}'
+		}
+	}
+}

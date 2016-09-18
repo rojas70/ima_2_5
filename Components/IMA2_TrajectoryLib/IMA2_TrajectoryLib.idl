@@ -1,0 +1,85 @@
+// IMA2_TrajectoryLib.idl : IDL source for IMA2_TrajectoryLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_TrajectoryLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(54E33F6C-B988-44FE-AEEF-4E233DAFD31B),
+		dual,
+		helpstring("(IMA2 Components) - Trajectory Lib"),
+		pointer_default(unique)
+	]
+	interface ITrajectoryGen : IDispatch
+	{
+		[propget, id(1), helpstring("property NumElements")] HRESULT NumElements([out, retval] long *pVal);
+		[propput, id(1), helpstring("property NumElements")] HRESULT NumElements([in] long newVal);
+		[propget, id(2), helpstring("property NumSteps")] HRESULT NumSteps([out, retval] long *pVal);
+		[propput, id(2), helpstring("property NumSteps")] HRESULT NumSteps([in] long newVal);
+		[propget, id(3), helpstring("property TravelPeriod")] HRESULT TravelPeriod([out, retval] double *pVal);
+		[propput, id(3), helpstring("property TravelPeriod")] HRESULT TravelPeriod([in] double newVal);
+		[propget, id(5), helpstring("property NumberTrajectoryPoints")] HRESULT NumberTrajectoryPoints([out, retval] long *pVal);
+		[propput, id(5), helpstring("property NumberTrajectoryPoints")] HRESULT NumberTrajectoryPoints([in] long newVal);
+		[propget, id(6), helpstring("property StartTime")] HRESULT StartTime([out, retval] double *pVal);
+		[propput, id(6), helpstring("property StartTime")] HRESULT StartTime([in] double newVal);
+		[propget, id(7), helpstring("property OutputFile")] HRESULT OutputFile([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property OutputFile")] HRESULT OutputFile([in] BSTR newVal);
+		[propget, id(8), helpstring("property TravelPeriodIndex")] HRESULT TravelPeriodIndex([out, retval] short *pVal);
+		[propput, id(8), helpstring("property TravelPeriodIndex")] HRESULT TravelPeriodIndex([in] short newVal);
+		[propget, id(9), helpstring("property NumStepsIndex")] HRESULT NumStepsIndex([out, retval] short *pVal);
+		[propput, id(9), helpstring("property NumStepsIndex")] HRESULT NumStepsIndex([in] short newVal);
+		[id(10), helpstring("method GenerateTrajectory")] HRESULT GenerateTrajectory();
+		[id(11), helpstring("method CheckForObject")] HRESULT CheckForObject();
+		[propget, id(12), helpstring("property SegmentedPixelThreshold")] HRESULT SegmentedPixelThreshold([out, retval] double *pVal);
+		[propput, id(12), helpstring("property SegmentedPixelThreshold")] HRESULT SegmentedPixelThreshold([in] double newVal);
+	};
+	[
+		object,
+		uuid(0049F005-9129-4E2D-8B0B-1F95F409A31B),
+		dual,
+		helpstring("ITrajectoryPlayer Interface"),
+		pointer_default(unique)
+	]
+	interface ITrajectoryPlayer : IDispatch
+	{
+		[id(1), helpstring("method OutputTrajectory")] HRESULT OutputTrajectory();
+		[id(2), helpstring("method Initialize")] HRESULT Initialize();
+		[propget, id(3), helpstring("property NumAxes")] HRESULT NumAxes([out, retval] long *pVal);
+		[propput, id(3), helpstring("property NumAxes")] HRESULT NumAxes([in] long newVal);
+		[propget, id(4), helpstring("property FileName")] HRESULT FileName([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property FileName")] HRESULT FileName([in] BSTR newVal);
+	};
+
+[
+	uuid(28F40331-1E2F-4F50-8AD2-7FEC3EADF71C),
+	version(1.0),
+	helpstring("(IMA2 Components) - Trajectory Lib")
+]
+library IMA2_TRAJECTORYLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(A8F3D778-0ABA-44A3-89E2-075F8EEA048B),
+		helpstring("TrajectoryGen Class")
+	]
+	coclass TrajectoryGen
+	{
+		[default] interface ITrajectoryGen;
+		interface IComponent; 
+	};
+	[
+		uuid(928A762F-F18E-4447-91C4-71B2E1338A3B),
+		helpstring("TrajectoryPlayer Class")
+	]
+	coclass TrajectoryPlayer
+	{
+		[default] interface ITrajectoryPlayer;
+		interface IComponent;
+	};
+};

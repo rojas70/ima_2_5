@@ -1,0 +1,234 @@
+:Base Nidaqfra.hlp>main
+:Title Aide de Measurement & Automation Explorer pour DAQ
+1 Aide de Measurement & Automation Explorer pour DAQ=MAX_DAQ_Provider_Help
+1 Conventions=Conventions
+1 Documentations associées=Related_Documentation
+1 Glossaire=Glossary
+1 Périphériques DAQ
+2 Accès aux périphériques DAQ
+3 Accès aux périphériques DAQ=IDH_DAQ_DEVICES_PANEL
+2 Ajout de périphériques DAQ
+3 Ajout de périphériques DAQ=IDH_ADDING_DAQ_DEVICES
+3 Ajout de périphériques DAQ sous Windows 2000/98/95=IDH_ADDING_DAQ_DEVICES_WIN95
+3 Ajout de périphériques DAQ sous Windows NT=IDH_ADDING_DAQ_DEVICES_WINNT
+3 Ajout de périphériques DAQ sous Mac OS=IDH_ADDING_DAQ_DEVICES_MACOS
+2 Ajout de périphériques déportés (RDA)
+3 Ajout de périphériques déportés (RDA)=IDH_RDA_ADDING
+3 Configuration des périphériques DAQ déportés=IDH_RMTCFG_MAIN
+3 Utilisateurs RDA multiples (DAQ)=IDH_RDA_MULTIPLE_USERS
+3 Considérations spécifiques à NI-DAQ RDA=IDH_RDA_CONSIDERATIONS
+3 Environnement de fonctionnement (DAQ)=IDH_RDA_OS
+3 Connexion au serveur (DAQ)=IDH_RDA_SERVER_CONNECTION
+3 Client RDA et serveur RDA simultanément (DAQ)=IDH_RDA_CLIENT_AND_SERVER
+3 Initialiser une configuration DAQ déportée=IDH_RMTCFG_LAUNCH
+3 Utilisation de la boîte de dialogue de configuration DAQ déportée=IDH_RMTCFG_HELP
+2 Configuration des périphériques DAQ
+3 Configuration des périphériques DAQ=IDH_CONFIGURING_DAQ_DEVICES
+3 Configuration des accessoires=IDH_ACCESSORY_SETTINGS
+3 Paramètres AI (entrées analogiques)=IDH_ANALOG_INPUT_SETTINGS
+3 Entrées analogiques : mode=IDH_AI_MODE
+3 Entrées analogiques : polarité/gamme=IDH_AI_POLARITY_RANGE
+3 Sortie analogique : tension de référence externe=IDH_AO_EXT_REFERENCE_VOLTAGE
+3 Sortie analogique : type de voie de sortie=IDH_AO_OUTPUT_CHANNEL_TYPE
+3 Sorties analogiques : polarité=IDH_AO_POLARITY
+3 Paramètres AO (sortie analogique)=IDH_ANALOG_OUTPUT_SETTINGS
+3 Numéro de périphérique (DAQ)=IDH_DEVICE_NUMBER
+3 Édition des accès directs à la mémoire=IDH_RESOURCES_EDIT_DMA
+3 Édition de la plage d'entrée/sortie=IDH_RESOURCES_EDIT_IO_RANGE
+3 Édition de la requête d'interruption=IDH_RESOURCES_EDIT_INT_REQ
+3 Édition de l'espace d'adresse logique=IDH_RESOURCES_EDIT_LOGICAL_ADDRESS
+3 Édition du port LPT (périphériques sur port parallèle uniquement)=IDH_RESOURCES_EDIT_LPT_PORT
+3 Édition de la plage mémoire=IDH_RESOURCES_EDIT_MEMORY_RANGE
+3 Édition du port parallèle=IDH_RESOURCES_EDIT_PARALLEL_PORT
+3 Édition de l'emplacement PC Card=IDH_RESOURCES_EDIT_PC_CARD_SOCKET
+3 Édition de l'espace d'adresse VXIbus (VXI-DAQ uniquement)=IDH_RESOURCES_EDIT_VXIBUS_ADDRESS
+3 Édition de la requête d'interruption VXI (VXI-DAQ)=IDH_RESOURCES_EDIT_VXI_IRQ
+3 Édition de la mémoire embarquée VXI (VXI-DAQ)=IDH_RESOURCES_EDIT_VXI_ONBOARD_MEM
+3 Configuration OPC=IDH_OPC_SETTINGS
+3 Ressources (DAQ)=IDH_RESOURCES
+3 Ressources système=IDH_SYSTEM_SETTINGS
+2 Suppression des périphériques DAQ
+3 Suppression des périphériques DAQ=IDH_REMOVING_DAQ_DEVICES
+2 Test des périphériques DAQ
+3 Test des périphériques DAQ=IDH_TESTING_DAQ_DEVICES
+1 Échelles
+2 Informations complémentaires sur les voies virtuelles et les échelles personnalisées=IDH_ADDITIONAL_CHANNEL_SCALE_INFORMATION
+2 Correction des configurations de voie invalides=IDH_CORRECTING_INVALID_VIRTUAL_CHANNELS
+2 Voies virtuelles et échelles personnalisées dans le cas d'une configuration SCXI=IDH_SCXI_CONFIGURATIONS_FOR_CHANNELS_SCALES
+2 Table d'échelle (DAQ)=IDH_TABLE_SCALE
+2 Personnalisation des échelles
+3 Personnalisation des échelles=IDH_CHANNEL_WIZARD_SCALES_PANEL
+2 Création d'une nouvelle échelle personnalisée
+3 Création d'une nouvelle échelle personnalisée=IDH_CREATING_NEW_SCALE
+3 Création d'une échelle linéaire=IDH_CREATING_LINEAR_SCALES
+3 Création d'une échelle polynomiale=IDH_CREATING_POLYNOMIAL_SCALES
+3 Création d'une table d'échelle=IDH_CREATING_TABLE_SCALES
+2 Édition des échelles personnalisées
+3 Édition des échelles personnalisées=IDH_EDITING_SCALES
+3 Édition de la description des voies=IDH_EDIT_SCALE_DESCRIPTION
+3 Édition des échelles linéaires=IDH_EDITING_LINEAR_SCALES
+3 Édition des échelles polynomiales=IDH_EDITING_POLYNOMIAL_SCALES
+3 Édition du nom des échelles=IDH_EDIT_SCALE_NAME
+3 Édition du type d'échelle=IDH_EDIT_SCALE_TYPE
+3 Édition des tables d'échelle=IDH_EDITING_TABLE_SCALES
+3 Importation des coefficients polynomiaux à partir d'un fichier=IDH_IMPORTING_POLYNOMIAL_COEFFICIENTS
+3 Importation des valeurs de table à partir d'un fichier (DAQ)=IDH_IMPORTING_TABLE_VALUES
+2 Suppression des voies virtuelles et des échelles personnalisées
+3 Suppression des voies virtuelles et des échelles personnalisées=IDH_DELETING_CHANNEL_SCALE
+1 Périphériques SCXI
+2 Accès aux périphériques SCXI=IDH_SCXI_DEVICES_PANEL
+2 Châssis SCXI
+3 Ajouter un châssis SCXI=IDH_ADDING_SCXI_CHASSIS
+3 Ajouter et configurer un châssis SCXI-1200=Adding_an_SCXI_1200_Chassis
+3 Supprimer un châssis SCXI=IDH_REMOVING_SCXI_CHASSIS
+3 Configurer un châssis SCXI
+4 Configurer un châssis SCXI=IDH_CONFIGURING_SCXI_CHASSIS
+4 Contrôle SCXI avec bus interne  (PXI-1010 uniquement)=IDH_SCXI_CHASSIS_INTERNAL_BUS
+4 Adresse de châssis SCXI=IDH_SCXI_CHASSIS_ADDRESS
+4 Débit en baud (SCXI-2000 uniquement)=IDH_SCXI_CHASSIS_BAUD_RATE
+4 Port COM (SCXI-2000 uniquement)=IDH_SCXI_CHASSIS_COM_PORT
+4 Adresse HDLC (SCXI-2000 uniquement)=IDH_SCXI_CHASSIS_HDLC_ADDRESS
+4 ID de châssis SCXI=IDH_SCXI_CHASSIS_ID
+4 Reprogrammation de châssis SCXI (SCXI-2000 uniquement)=IDH_SCXI_CHASSIS_REPROGRAM
+2 Module SCXI
+3 Ajouter un module SCXI=IDH_ADDING_SCXI_MODULES
+3 Supprimer un module SCXI=IDH_REMOVING_SCXI_MODULES
+3 Configurer un module SCXI
+4 Configurer un module SCXI=IDH_CONFIGURING_SCXI_MODULES
+4 Paramètres d'accessoires (SCXI)=IDH_SCXI_MODULE_ACCESSORY_SETTINGS
+4 Paramètres de voie (SCXI)=IDH_SCXI_MODULE_CHANNEL_SETTINGS
+4 Connecté à (SCXI)=IDH_SCXI_MODULE_GENERAL_CONNECTED_TO
+4 Paramètres généraux (SCXI)=IDH_SCXI_MODULE_GENERAL_SETTINGS
+4 Mode de fonctionnement=IDH_SCXI_MODULE_GENERAL_OP_MODE
+4 Reprogrammation SCXI (SCXI-2400 uniquement)=IDH_SCXI_MODULE_GENERAL_REPROGRAM
+3 Cavaliers et interrupteurs DIP des modules SCXI
+4 Cavaliers et interrupteurs DIP des modules SCXI=IDH_SCXI_MODULE_JUMPERS
+4 Cavaliers du SCXI-1100=IDH_SCXI_1100_JUMPERS
+4 Cavaliers des SCXI-1120, SCXI-1120D=IDH_SCXI_1120X_JUMPERS
+4 Cavaliers du SCXI-1121=IDH_SCXI_1121_JUMPERS
+4 Cavaliers du SCXI-1122=IDH_SCXI_1122_JUMPER
+4 Cavaliers du SCXI-1124=IDH_SCXI_1124_JUMPERS
+4 Cavaliers du SCXI-1140=IDH_SCXI_1140_JUMPERS
+4 Cavaliers du SCXI-1141/1142/1143=IDH_SCXI_1141_JUMPER
+4 Cavaliers du SCXI-1160=IDH_SCXI_1160_JUMPERS
+4 Cavaliers du SCXI-1161=IDH_SCXI_1161_JUMPERS
+4 Cavaliers du SCXI-1162=IDH_SCXI_1162_JUMPERS
+4 Cavaliers du SCXI-1162HV=IDH_SCXI_1162HV_JUMPERS
+4 Cavaliers du SCXI-1163=IDH_SCXI_1163_JUMPERS
+4 Cavaliers du SCXI-1163R=IDH_SCXI_1163R_JUMPERS
+4 Interrupteurs du SCXI-2400=IDH_SCXI_2400_JUMPERS
+2 Tester une configuration SCXI
+3 Tester une configuration SCXI=IDH_TESTING_SCXI_CONFIGURATION
+1 Considérations spécifiques
+2 Considérations spécifiques aux différents systèmes d'exploitation
+3 Considérations spécifiques aux différents systèmes d'exploitation=IDH_OS_CONSIDERATIONS
+3 Considérations spécifiques à Windows 2000/98/95
+4 Considérations spécifiques à Windows 2000/98/95=IDH_WIN95_SPECIAL_CONSIDERATIONS
+4 Modifier les ressources attribuées=IDH_WIN95_RESOURCE_ALLOCATION_CHANGE
+4 Configurer un nouveau périphérique VXI-DAQ sous Windows 2000/98/95=IDH_WIN95_VXIDAQ_CONFIGURING
+4 Distribution des canaux DMA entre plusieurs périphériques AT série E=IDH_WIN95_AT_E_SERIES_DISTRIB_DMA
+4 Considérations spécifiques aux ordinateurs EISA : Périphériques non Plug and Play=IDH_WIN95_EISA_BUS_NONPLUG_AND_PLAY
+4 Considérations spécifiques aux ordinateurs EISA:Périphériques AT série E=IDH_WIN95_EISA_BUS_AT_E_SERIES
+4 Libérer tous les canaux DMA d'un périphérique AT Série E=IDH_WIN95_AT_E_SERIES_FREEING_DMA
+4 Ajouter un périphérique VXI-DAQ manuellement sous Windows 2000/98/95=IDH_WIN95_VXIDAQ_MANUALLY_ADDING
+4 Entrées de base de registres réalisées par l'utilitaire Measurement & Automation Explorer=IDH_WIN95_REGISTRY_ENTRIES
+4 Limitations du Plug and Play=IDH_WIN95_AT_E_SERIES_LIMITATION
+4 Considérations spécifiques aux AT Série E sous Windows 2000/98/95=IDH_WIN95_AT_E_SERIES
+4 Considérations spécifiques aux ordinateurs EISA sous Windows 2000/98/95=IDH_WIN95_EISA_BUS
+4 Considérations spécifiques aux périphériques non Plug and Play et à port parallèle sous Windows 2000/98/95=IDH_WIN95_NON_PLUG_AND_PLAY
+4 Considérations spécifiques aux périphériques PCI et PXI sous Windows 2000/98/95=IDH_WIN95_PCI_DEVICES
+4 Considérations spécifiques aux périphériques Plug and Play sous Windows 2000/98/95=IDH_WIN95_PLUG_AND_PLAY
+4 Considérations spécifiques aux périphériques SCXI à port parallèle sous Windows 2000/98/95=IDH_WIN95_CONFIGURING_PARALLEL_PORT
+4 Considérations spécifiques aux périphériques VXI-DAQ sous Windows 2000/98/95=IDH_WIN95_VXIDAQ_DEVICES
+4 Supprimer les informations de configuration de NI-DAQ sous Windows 2000/98/95=IDH_WIN95_REMOVING_CONFIG_UTIL_INFO
+4 Allocation de ressources des périphériques les AT séries E=IDH_WIN95_AT_E_SERIES_RESOURCE_ALLOCATION
+4 Allocation de ressources sous Windows 2000/98/95=IDH_WIN95_RESOURCE_ALLOCATION
+4 Mise à jour de l'EEPROM des périphériques AT Série E=IDH_WIN95_AT_E_SERIES_EEPROM_UPDATE
+4 Afficher les ressources allouées=IDH_WIN95_RESOURCE_ALLOCATION_VIEW
+4 Gestionnaire de périphériques de Windows 2000/98/95=IDH_WIN95_DEVICE_MANAGER
+3 Considérations spécifiques à Windows NT
+4 Considérations spécifiques à Windows NT=IDH_WINNT_SPECIAL_CONSIDERATIONS
+4 Configurer un nouveau périphérique VXI-DAQ sous Windows NT=IDH_WINNT_VXIDAQ_CONFIGURING
+4 Ajouter un périphérique VXI-DAQ manuellement sous Windows NT=IDH_WINNT_VXIDAQ_MANUALLY_ADDING
+4 Considérations spécifiques aux périphériques Plug and Play : Périphériques ISA=IDH_WINNT_PNP_ISA_DEVICES
+4 Considérations spécifiques aux périphériques Plug and Play : Périphériques PC Card=IDH_WINNT_PNP_PCCARD_DEVICES
+4 Considérations spécifiques aux périphériques Plug and Play : périphériques PCI=IDH_WINNT_PNP_PCI_DEVICES
+4 Considérations spécifiques aux périphériques à port parallèle sous Windows NT=IDH_WINNT_CONFIGURING_PARALLEL_PORT
+4 Considérations spécifiques aux périphériques Plug and Play sous Windows NT=IDH_WINNT_PLUG_AND_PLAY
+4 Considérations spécifiques aux périphériques VXI-DAQ sous Windows NT=IDH_WINNT_VXIDAQ_DEVICES
+4 Supprimer les informations de configuration de NI-DAQ sous NT=IDH_WINNT_REMOVING_CONFIG_UTIL_INFO
+4 Réserver plus d'espace mémoire pour l'acquisition sous Windows NT=IDH_WINNT_RESERVING_MORE_MEMORY
+3 Considérations spécifiques à Mac OS
+4 Supprimer les informations de configuration de NI-DAQ sous Mac OS=IDH_MACOS_REMOVING_CONFIG_UTIL_INFO
+1 Voies virtuelles dans le voisinage des données
+2 Périphériques non supportés par les voies virtuelles=IDH_DEVICES_NOT_SUPPORTED_BY_CHANNELS
+2 Voies virtuelles et échelles personnalisées dans le cas d'une configuration SCXI=IDH_SCXI_CONFIGURATIONS_FOR_CHANNELS_SCALES
+2 Assistant Entrées/Sorties DAQ
+3 Assistant Entrées/Sorties DAQ=IDH_CHANNEL_WIZARD_PANELS
+3 Correction des configurations de voie invalides=IDH_CORRECTING_INVALID_VIRTUAL_CHANNELS
+3 Notification de configuration de voie invalide=IDH_INVALID_CHANNEL_CONFIGURATION_NOTIFICATION
+2 Création d'une nouvelle voie virtuelle
+3 Création d'une nouvelle voie virtuelle=IDH_CREATING_NEW_CHANNEL
+3 A propos des voies d'entrée analogique=IDH_ABOUT_AI_CHANNELS
+3 A propos des voies de sortie analogique=IDH_ABOUT_AO_CHANNELS
+3 A propos des voies d'E/S numériques=IDH_ABOUT_DIO_CHANNELS
+3 A propos des grandeurs physiques, des capteurs et des actionneurs=IDH_ABOUT_PHYSQUAN_SENSOR_ACTUATOR
+3 Compensation de soudure froide (DAQ)=IDH_CJC
+3 Formule de capteur RTD au platine (DAQ)=IDH_PLATINUM_RTD_FORMULA
+3 Gammes des thermocouples=IDH_THERMOCOUPLE_RANGES
+3 Noms de voie virtuelle valides=IDH_VALID_CHANNEL_NAMES
+3 Type de CSF : intégrée=IDH_CJC_TYPE_BUILT_IN
+3 Type de CSF : valeur fixe=IDH_CJC_TYPE_USER_VALUE
+3 Type de CSF : voie de CSF fournie par l'utilisateur=IDH_CJC_TYPE_USER_SPECIFIED
+3 Types de voies d'entrée analogique=IDH_TYPES_AI_CHANNELS
+3 Types de voies de sortie analogique=IDH_TYPES_AO_CHANNELS
+3 Types de voies d'E/S numériques=IDH_TYPES_DIO_CHANNELS
+3 Voie d'entrée analogique LVDT/RVDT=LVDT_RVDT_Channel
+3 Voie d'entrée analogique pour accéléromètre=Accelerometer_Channel
+3 Voie d'entrée de résistance (DAQ)=IDH_RESISTANCE_INPUT_CHANNEL
+3 Voie d'entrée en courant (DAQ)=IDH_CURRENT_INPUT_CHANNEL
+3 Voie d'entrée en fréquence (DAQ)=IDH_FREQUENCY_INPUT_CHANNEL
+3 Voie d'entrée en tension (DAQ)=IDH_VOLTAGE_INPUT_CHANNEL
+3 Voie d'entrée numérique - Lire sur une ligne (DAQ)=IDH_READ_LINE_CHANNEL
+3 Voie d'entrée numérique - Lire sur un port (DAQ)=IDH_READ_PORT_CHANNEL
+3 Voie de sortie en courant (DAQ)=IDH_CURRENT_OUTPUT_CHANNEL
+3 Voie de sortie en tension (DAQ)=IDH_VOLTAGE_OUTPUT_CHANNEL
+3 Voie de sortie numérique - Ecrire sur une ligne (DAQ)=IDH_WRITE_LINE_CHANNEL
+3 Voie de sortie numérique - Ecrire sur un port (DAQ)=IDH_WRITE_PORT_CHANNEL
+3 Voie de thermocouple de type connu (DAQ)=IDH_KNOWN_TYPE_THERMOCOUPLE_CHANNEL
+3 Voie de thermocouple personnalisé (DAQ)=IDH_CUSTOM_THERMOCOUPLE_CHANNEL
+3 Voie RTD (DAQ)=IDH_RTD_CHANNEL
+2 Édition des voies virtuelles
+3 Édition des voies virtuelles=IDH_EDITING_CHANNELS
+3 Édition des voies virtuelles d'entrée analogique=IDH_EDITING_AI_CONFIGURATION
+3 Édition des voies virtuelles de sortie analogique=IDH_EDITING_AO_CONFIGURATION
+3 Édition des noms de voies=IDH_EDIT_CHANNEL_NAME
+3 Édition de la description des voies=IDH_EDIT_CHANNEL_DESCRIPTION
+3 Édition des voies virtuelles d'E/S numériques=IDH_EDITING_DIGITAL_IO_CONFIGURATION
+3 Édition des grandeurs physiques d'acquisition analogique=IDH_EDIT_AI_PHYSICAL_QUANITY_PANEL
+3 Édition des grandeurs physiques de génération analogique=IDH_EDIT_AO_PHYSICAL_QUANITY_PANEL
+3 Édition de l'inversion des signaux=IDH_EDIT_DIO_INVERT_SIGNAL_PANEL
+3 Édition des actionneurs=IDH_EDIT_AO_ACTUATOR_PANEL
+3 Édition du matériel d'acquisition analogique=IDH_EDIT_AI_DAQ_HW_PANEL
+3 Édition du matériel de génération analogique=IDH_EDIT_AO_DAQ_HW_PANEL
+3 Édition du matériel d'E/S numériques=IDH_EDIT_DIO_HW_PANEL
+3 Édition des capteurs=IDH_EDIT_AI_SENSOR_PANEL
+3 Formules de mise à l'échelle (DAQ)=IDH_SCALING_FORMULA
+2 Duplication des voies virtuelles
+3 Duplication des voies virtuelles=IDH_COPYING_CHANNEL_CONFIGURATIONS
+2 Suppression des voies virtuelles
+3 Suppression des voies virtuelles et des échelles personnalisées=IDH_DELETING_CHANNEL_SCALE
+2 Test des voies virtuelles
+3 Test des voies virtuelles=IDH_TESTING_CHANNELS
+3 Test des voies d'entrée analogique=IDH_TESTING_AI_CHANNELS
+3 Test des voies de sortie analogique=IDH_TESTING_AO_CHANNELS
+3 Test des voies d'entrée numérique=IDH_TESTING_DI_CHANNELS
+3 Test des voies de sortie numérique=IDH_TESTING_DO_CHANNELS
+1 Informations importantes
+2 Informations importantes=Important_Information
+2 Copyright=Copyright
+2 Mises en garde médicales=Medical_Warning
+2 Marques déposées=Trademarks
+2 Garantie=Warranty
+1 Ressources de support technique
+2 Ressources de support technique=Technical_Support_Resources

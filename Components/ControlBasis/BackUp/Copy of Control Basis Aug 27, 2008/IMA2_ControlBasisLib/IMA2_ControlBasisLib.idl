@@ -1,0 +1,103 @@
+// IMA2_ControlBasisLib.idl : IDL source for IMA2_ControlBasisLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_ControlBasisLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CControlBasis: IDL source for IMA2_CControlBasis.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(3FA17E2C-11C9-4460-8247-F7CFD8FBE886),
+		dual,
+		helpstring("(IMA2 Components) - IControlBasis Lib"),
+		pointer_default(unique)
+	]
+	interface IControlBasis : IDispatch
+	{
+		[propget, id(1), helpstring("property WhatRobot")] HRESULT WhatRobot([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property WhatRobot")] HRESULT WhatRobot([in] BSTR newVal);
+
+		[propget, id(2), helpstring("property cont_NumControllers")] HRESULT cont_NumControllers([out, retval] short *pVal);
+		[propput, id(2), helpstring("property cont_NumControllers")] HRESULT cont_NumControllers([in] short newVal);
+
+		[propget, id(3), helpstring("property gain_PositionGain")] HRESULT gain_PositionGain([out, retval] double *pVal);
+		[propput, id(3), helpstring("property gain_PositionGain")] HRESULT gain_PositionGain([in] double newVal);
+		[propget, id(4), helpstring("property gain_ForceGain")] HRESULT gain_ForceGain([out, retval] double *pVal);
+		[propput, id(4), helpstring("property gain_ForceGain")] HRESULT gain_ForceGain([in] double newVal);
+		[propget, id(5), helpstring("property gain_MomentGain")] HRESULT gain_MomentGain([out, retval] double *pVal);
+		[propput, id(5), helpstring("property gain_MomentGain")] HRESULT gain_MomentGain([in] double newVal);
+
+		[propget, id(7), helpstring("property ErrorMessage")] HRESULT ErrorMessage([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] BSTR newVal);
+
+		[propget, id(8), helpstring("property dom_DesiredVector")] HRESULT dom_DesiredVector([out, retval] double *pVal);
+		[propput, id(8), helpstring("property dom_DesiredVector")] HRESULT dom_DesiredVector([in] double newVal);
+		[propget, id(9), helpstring("property dom_ActualVector")] HRESULT dom_ActualVector([out, retval] double *pVal);
+		[propput, id(9), helpstring("property dom_ActualVector")] HRESULT dom_ActualVector([in] double newVal);
+		[propget, id(10), helpstring("property dom_OutputVector")] HRESULT dom_OutputVector([out, retval] double *pVal);
+		[propput, id(10), helpstring("property dom_OutputVector")] HRESULT dom_OutputVector([in] double newVal);
+		[propget, id(11), helpstring("property dom_DesiredVectorIndex")] HRESULT dom_DesiredVectorIndex([out, retval] short *pVal);
+		[propput, id(11), helpstring("property dom_DesiredVectorIndex")] HRESULT dom_DesiredVectorIndex([in] short newVal);
+		[propget, id(12), helpstring("property dom_ActualVectorIndex")] HRESULT dom_ActualVectorIndex([out, retval] short *pVal);
+		[propput, id(12), helpstring("property dom_ActualVectorIndex")] HRESULT dom_ActualVectorIndex([in] short newVal);
+		[propget, id(13), helpstring("property dom_OutputVectorIndex")] HRESULT dom_OutputVectorIndex([out, retval] short *pVal);
+		[propput, id(13), helpstring("property dom_OutputVectorIndex")] HRESULT dom_OutputVectorIndex([in] short newVal);
+
+		[propget, id(14), helpstring("property sub_DesiredVector")] HRESULT sub_DesiredVector([out, retval] double *pVal);
+		[propput, id(14), helpstring("property sub_DesiredVector")] HRESULT sub_DesiredVector([in] double newVal);
+		[propget, id(15), helpstring("property sub_ActualVector")] HRESULT sub_ActualVector([out, retval] double *pVal);
+		[propput, id(15), helpstring("property sub_ActualVector")] HRESULT sub_ActualVector([in] double newVal);
+		[propget, id(16), helpstring("property sub_OutputVector")] HRESULT sub_OutputVector([out, retval] double *pVal);
+		[propput, id(16), helpstring("property sub_OutputVector")] HRESULT sub_OutputVector([in] double newVal);
+		[propget, id(17), helpstring("property sub_ActualVectorIndex")] HRESULT sub_ActualVectorIndex([out, retval] short *pVal);
+		[propput, id(17), helpstring("property sub_ActualVectorIndex")] HRESULT sub_ActualVectorIndex([in] short newVal);
+		[propget, id(18), helpstring("property sub_DesiredVectorIndex")] HRESULT sub_DesiredVectorIndex([out, retval] short *pVal);
+		[propput, id(18), helpstring("property sub_DesiredVectorIndex")] HRESULT sub_DesiredVectorIndex([in] short newVal);
+		[propget, id(19), helpstring("property sub_OutputVectorIndex")] HRESULT sub_OutputVectorIndex([out, retval] short *pVal);
+		[propput, id(19), helpstring("property sub_OutputVectorIndex")] HRESULT sub_OutputVectorIndex([in] short newVal);
+
+		[propget, id(20), helpstring("property cont_DomContType")] HRESULT cont_DomContType([out, retval] BSTR *pVal);
+		[propput, id(20), helpstring("property cont_DomContType")] HRESULT cont_DomContType([in] BSTR newVal);
+		[propget, id(21), helpstring("property cont_SubContType")] HRESULT cont_SubContType([out, retval] BSTR *pVal);
+		[propput, id(21), helpstring("property cont_SubContType")] HRESULT cont_SubContType([in] BSTR newVal);
+
+		[propget, id(22), helpstring("property gain_PositionGainIndex")] HRESULT gain_PositionGainIndex([out, retval] short *pVal);
+		[propput, id(22), helpstring("property gain_PositionGainIndex")] HRESULT gain_PositionGainIndex([in] short newVal);
+		[propget, id(23), helpstring("property gain_ForceGainIndex")] HRESULT gain_ForceGainIndex([out, retval] short *pVal);
+		[propput, id(23), helpstring("property gain_ForceGainIndex")] HRESULT gain_ForceGainIndex([in] short newVal);
+		[propget, id(24), helpstring("property gain_MomentGainIndex")] HRESULT gain_MomentGainIndex([out, retval] short *pVal);
+		[propput, id(24), helpstring("property gain_MomentGainIndex")] HRESULT gain_MomentGainIndex([in] short newVal);
+
+		[id(26), helpstring("method ComputeControlBasis")] HRESULT ComputeControlBasis();
+		[id(27), helpstring("method Initialize")] HRESULT Initialize();
+		[propget, id(28), helpstring("property AveragingWeight_JointAngles")] HRESULT AveragingWeight_JointAngles([out, retval] double *pVal);
+		[propput, id(28), helpstring("property AveragingWeight_JointAngles")] HRESULT AveragingWeight_JointAngles([in] double newVal);
+	};
+
+[
+	uuid(2408BA3C-414E-44F8-8FD4-E91B8FC604B3),
+	version(1.0),
+	helpstring("(IMA2 Components) - ControlBasis")
+]
+library IMA2_CONTROLBASISLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(2A43D57C-00F6-4054-9B0C-E831A9517CB7),
+		helpstring("(IMA2 Components) - ControlBasis")
+	]
+	coclass ControlBasis
+	{
+		[default] interface IControlBasis;
+		interface IComponent; 
+	};
+};

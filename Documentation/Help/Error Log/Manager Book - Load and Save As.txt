@@ -1,0 +1,21 @@
+Name: Juan Rojas
+Date: September 13th, 2004.
+
+Hey Roberto, 
+In Manager Book for the Load and Save As functions, you are doing so from some files that were in your desktop. I do not know what files are those, and so can't get them.
+
+Here is the code:
+    
+    Private Sub mnuFile_Load_Click()
+    
+    Call mtb.LoadFromFile("C:\Documents and Settings\olivarre\Desktop\file1.mgf")
+    
+    End Sub
+
+...
+
+    Private Sub mnuFile_SaveAs_Click()
+    
+        Call mtb.SaveToFile("C:\Documents and Settings\olivarre\Desktop\file1.mgf")
+
+What were these?

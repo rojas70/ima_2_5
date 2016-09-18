@@ -1,0 +1,149 @@
+// IMA2_ImageRepLib.idl : IDL source for IMA2_ImageRepLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_ImageRepLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(907053F1-3EC2-4402-A5D8-264382C34FFE),
+		dual,
+		helpstring("INetImgRep Interface"),
+		pointer_default(unique)
+	]
+	interface INetImgRep : IDispatch
+	{
+		[propget, id(1), helpstring("property ProxyDelay")] HRESULT ProxyDelay([out, retval] double *pVal);
+		[propput, id(1), helpstring("property ProxyDelay")] HRESULT ProxyDelay([in] double newVal);
+		[propget, id(2), helpstring("property ImgWidth")] HRESULT ImgWidth([out, retval] long *pVal);
+		[propput, id(2), helpstring("property ImgWidth")] HRESULT ImgWidth([in] long newVal);
+		[propget, id(3), helpstring("property ImgHeight")] HRESULT ImgHeight([out, retval] long *pVal);
+		[propput, id(3), helpstring("property ImgHeight")] HRESULT ImgHeight([in] long newVal);
+		[propget, id(4), helpstring("property ImgDepth")] HRESULT ImgDepth([out, retval] long *pVal);
+		[propput, id(4), helpstring("property ImgDepth")] HRESULT ImgDepth([in] long newVal);
+		[propget, id(5), helpstring("property Point")] HRESULT Point([out, retval] double *pVal);
+		[propput, id(5), helpstring("property Point")] HRESULT Point([in] double newVal);
+		[propget, id(6), helpstring("property PointIndex")] HRESULT PointIndex([out, retval] long *pVal);
+		[propput, id(6), helpstring("property PointIndex")] HRESULT PointIndex([in] long newVal);
+		[id(7), helpstring("method UpdateManager")] HRESULT UpdateManager([in] BSTR Interface, [out,retval] VARIANT* Data);
+	};
+
+//////////////////////////////////////////////////////////////////
+// IImageRep													//
+// Abstract image representation interface inherited			//
+// by all image representations. This interface provides a		//
+// uniform method of accessing image data and dimensions no		//
+// matter what type of memory allocation scheme is used.		//
+//////////////////////////////////////////////////////////////////
+	[
+		object,
+		uuid(7FDA7758-CBF3-48D0-AFF1-A298DAF54B9B),
+		dual,
+		helpstring("IImageRep Interface"),
+		pointer_default(unique)
+	]
+	interface IImageRep : IUnknown
+	{
+		[propget, id(1), helpstring("property Width")] HRESULT Width([out, retval] long *pVal);
+		[propput, id(1), helpstring("property Width")] HRESULT Width([in] long newVal);
+		[propget, id(2), helpstring("property Height")] HRESULT Height([out, retval] long *pVal);
+		[propput, id(2), helpstring("property Height")] HRESULT Height([in] long newVal);
+		[propget, id(5), helpstring("property Depth")] HRESULT Depth([out, retval] long *pVal);
+		[propput, id(5), helpstring("property Depth")] HRESULT Depth([in] long newVal);
+//		[propget, id(6), helpstring("property Time")] HRESULT Time(long m_lTimeFlag,[out, retval] double *pVal);
+//		[propput, id(6), helpstring("property Time")] HRESULT Time(long m_lTimeFlag,[in] double newVal);
+		[id(3), helpstring("method Data")] HRESULT Data( long lIndex, [out, retval] long* pVal);
+		[id(4), helpstring("method Update")] HRESULT Update([in] BYTE* pVal);
+		[id(7), helpstring("method UpdateManager")] HRESULT UpdateManager([in] BSTR Interface, [out,retval] VARIANT* Data);
+	};
+
+//////////////////////////////////////////////////////////////////////////
+// IFeatureInfo															//
+// Interface that allows the documenting of features					//
+// for the associated image. Currently, the following features			//
+// supported: centroid, area, width, height, bounding box upper cdts.,	//
+// and label															//
+//////////////////////////////////////////////////////////////////////////
+	[
+	object,
+	uuid(79DE6720-6D92-11d1-BC62-0020AFF12FB6),
+	helpstring("IFeatureInfo Interface"),
+	pointer_default(unique)
+	]
+
+	interface IFeatureInfo:IUnknown
+	{
+		[propget, id(1), helpstring("property FeatureWidth")] HRESULT FeatureWidth(long lIndex,[out, retval] long *pVal);
+		[propput, id(1), helpstring("property FeatureWidth")] HRESULT FeatureWidth(long lIndex,[in] long newVal);
+		[propget, id(2), helpstring("property FeatureHeight")] HRESULT FeatureHeight(long lIndex,[out, retval] long *pVal);
+		[propput, id(2), helpstring("property FeatureHeight")] HRESULT FeatureHeight(long lIndex,[in] long newVal);
+		[propget, id(3), helpstring("property FeatureArea")] HRESULT FeatureArea(long lIndex, [out, retval] long *pVal);
+		[propput, id(3), helpstring("property FeatureArea")] HRESULT FeatureArea(long lIndex, [in] long newVal);
+		[propget, id(4), helpstring("property FeatureLabel")] HRESULT FeatureLabel(long lIndex, [out, retval] long *pVal);
+		[propput, id(4), helpstring("property FeatureLabel")] HRESULT FeatureLabel(long lIndex, [in] long newVal);
+		[propget, id(5), helpstring("property FeatureIndex")] HRESULT FeatureIndex(long lFeatureLabel, [out, retval] long *pVal);
+		[propput, id(5), helpstring("property FeatureIndex")] HRESULT FeatureIndex(long lFeatureLabel, [in] long newVal);
+		[propget, id(6), helpstring("property FeatureOrientation")] HRESULT FeatureOrientation( long lIndex, [out, retval] long *pVal);
+		[propput, id(6), helpstring("property FeatureOrientation")] HRESULT FeatureOrientation( long lIndex, [in] long newVal);
+		[propget, id(7), helpstring("property FeatureName")] HRESULT FeatureName( long lIndex, [out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property FeatureName")] HRESULT FeatureName( long lIndex, [in] BSTR newVal);
+		[propget, id(8), helpstring("property FeatureLength")] HRESULT FeatureLength(long lIndex, [out, retval] long *pVal);
+		[propput, id(8), helpstring("property FeatureLength")] HRESULT FeatureLength(long lIndex, [in] long newVal);
+		[id(9), helpstring("method get_FeatureCentroid")] HRESULT get_FeatureCentroid( long lIndex, [out] long* pX, [out] long* pY );
+		[id(10), helpstring("method put_FeatureCentroid")] HRESULT put_FeatureCentroid( long lIndex, [in] long newX, [in] long newY);
+		[id(11), helpstring("method get_FeatureLocation")] HRESULT get_FeatureLocation( long lIndex, [out] long* pLeft, [out] long* pTop );
+		[id(12), helpstring("method put_FeatureLocation")] HRESULT put_FeatureLocation( long lIndex, [in] long newLeft, [in] long newTop);
+		[id(13), helpstring("method AddFeature")] HRESULT AddFeature(long lFeatureLabel, [out] long* plFeatureIndex );
+		[id(14), helpstring("method ClearFeatures")] HRESULT ClearFeatures();
+		[id(15), helpstring("method NumFeatures")] HRESULT NumFeatures(long* pVal);
+		[id(16), helpstring("method UpdateManager")] HRESULT UpdateManager([in] BSTR Interface, [out,retval] VARIANT* Data);
+	};
+
+//	[
+//		object,
+//		uuid(B787089D-A2A3-444C-A82F-CEDDF50B8968),
+//		dual,
+//		helpstring("IImageFeature Interface"),
+//		pointer_default(unique)
+//	]
+//	interface IImageFeature : IDispatch
+//	{
+//	};
+	
+//	[
+//		object,
+//		uuid(80273367-EA05-4ACA-89CB-33F2A0143952),
+//		dual,
+//		helpstring("IFeatureCollection Interface"),
+//		pointer_default(unique)
+//	]
+//	interface IFeatureCollection : IDispatch
+//	{
+//	};
+
+[
+	uuid(7481AFA4-383D-4148-B8FA-860C8EE927C1),
+	version(1.0),
+	helpstring("(IMA2 Components) - NetImageRep")
+]
+library IMA2_IMAGEREPLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(C37B8632-9581-4FB1-B0E1-4B95F472A7D3),
+		helpstring("NetImgRep Class")
+	]
+	coclass NetImgRep
+	{
+		[default] interface INetImgRep;
+		interface IImageRep;
+		interface IFeatureInfo;
+		interface IComponent;
+	};
+};

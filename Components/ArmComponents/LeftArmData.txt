@@ -1,0 +1,29 @@
+Left Arm values found in January of 2006 by Juan Rojas.
+As we build the components for the controller and the sampler for IMA 2.5, 
+we are revisiting or recomputing values for the left arm.
+
+From the original Sampler component in IMA 1.0, it seems that the values 
+for the InvertPressure are:
+
+InvertPressure
+
+1
+0
+1
+0
+1
+0
+
+By moving the arm to the home position and using the tools found in O:\System\Tools\Softarm Encoder Arm Test
+
+We computed the following offsets:
+
+Encoder Offset
+
+  2062
+ -6831
+ 10446
+-11708
+   833
+-29764
+

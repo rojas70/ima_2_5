@@ -1,0 +1,87 @@
+// IMA2_ColorSegmenterLib.idl : IDL source for IMA2_ColorSegmenterLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_ColorSegmenterLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(6D9415C2-3CB2-409A-B42C-49F67CE4E51F),
+		dual,
+		helpstring("IColorSegmenter Interface"),
+		pointer_default(unique)
+	]
+	interface IColorSegmenter : IDispatch
+	{
+		[propget, id(1), helpstring("property ColorModelFileName")] HRESULT ColorModelFileName([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property ColorModelFileName")] HRESULT ColorModelFileName([in] BSTR newVal);
+//		[propget, id(2), helpstring("property ColorModelType")] HRESULT ColorModelType([out, retval] BSTR *pVal);
+		[propget, id(4), helpstring("property seg_NumOfStdDevs")] HRESULT seg_NumOfStdDevs([out, retval] float *pVal);
+		[propput, id(4), helpstring("property seg_NumOfStdDevs")] HRESULT seg_NumOfStdDevs([in] float newVal);
+/*		[propget, id(7), helpstring("property LuminenceUpperLimit")] HRESULT LuminenceUpperLimit([out, retval] float *pVal);
+		[propput, id(7), helpstring("property LuminenceUpperLimit")] HRESULT LuminenceUpperLimit([in] float newVal);
+		[propget, id(8), helpstring("property LuminenceLowerLimit")] HRESULT LuminenceLowerLimit([out, retval] float *pVal);
+		[propput, id(8), helpstring("property LuminenceLowerLimit")] HRESULT LuminenceLowerLimit([in] float newVal);
+		[propget, id(9), helpstring("property CIEWhitePointX")] HRESULT CIEWhitePointX([out, retval] float *pVal);
+		[propput, id(9), helpstring("property CIEWhitePointX")] HRESULT CIEWhitePointX([in] float newVal);
+		[propget, id(10), helpstring("property CIEWhitePointY")] HRESULT CIEWhitePointY([out, retval] float *pVal);
+		[propput, id(10), helpstring("property CIEWhitePointY")] HRESULT CIEWhitePointY([in] float newVal);
+		[propget, id(11), helpstring("property CIEWhitePointZ")] HRESULT CIEWhitePointZ([out, retval] float *pVal);
+		[propput, id(11), helpstring("property CIEWhitePointZ")] HRESULT CIEWhitePointZ([in] float newVal);
+*/		[propget, id(23), helpstring("property ColorModelName")] HRESULT ColorModelName([out, retval] BSTR *pVal);
+		[propget, id(26), helpstring("property seg_SkipPixels")] HRESULT seg_SkipPixels([out, retval] short *pVal);
+		[propput, id(26), helpstring("property seg_SkipPixels")] HRESULT seg_SkipPixels([in] short newVal);
+		[propget, id(29), helpstring("property WindowLeft")] HRESULT WindowLeft([out, retval] short *pVal);
+		[propput, id(29), helpstring("property WindowLeft")] HRESULT WindowLeft([in] short newVal);
+		[propget, id(30), helpstring("property WindowTop")] HRESULT WindowTop([out, retval] short *pVal);
+		[propput, id(30), helpstring("property WindowTop")] HRESULT WindowTop([in] short newVal);
+		[propget, id(31), helpstring("property WindowWidth")] HRESULT WindowWidth([out, retval] short *pVal);
+		[propput, id(31), helpstring("property WindowWidth")] HRESULT WindowWidth([in] short newVal);
+		[propget, id(32), helpstring("property WindowHeight")] HRESULT WindowHeight([out, retval] short *pVal);
+		[propput, id(32), helpstring("property WindowHeight")] HRESULT WindowHeight([in] short newVal);
+		[propget, id(35), helpstring("property display_FilterOutputImage")] HRESULT display_FilterOutputImage([out, retval] short *pVal);
+		[propput, id(35), helpstring("property display_FilterOutputImage")] HRESULT display_FilterOutputImage([in] short newVal);
+		[propget, id(36), helpstring("property display_CrossMarker")] HRESULT display_CrossMarker([out, retval] BOOL *pVal);
+		[propput, id(36), helpstring("property display_CrossMarker")] HRESULT display_CrossMarker([in] BOOL newVal);
+		[propget, id(39), helpstring("property seg_NumSegmentedPixels")] HRESULT seg_NumSegmentedPixels([out, retval] double *pVal);
+		[propput, id(39), helpstring("property seg_NumSegmentedPixels")] HRESULT seg_NumSegmentedPixels([in] double newVal);		
+		[propget, id(40), helpstring("property filter_StdDevGain")] HRESULT filter_StdDevGain([out, retval] double *pVal);
+		[propput, id(40), helpstring("property filter_StdDevGain")] HRESULT filter_StdDevGain([in] double newVal);
+		[propget, id(41), helpstring("property filter_NumIterations")] HRESULT filter_NumIterations([out, retval] short *pVal);
+		[propput, id(41), helpstring("property filter_NumIterations")] HRESULT filter_NumIterations([in] short newVal);
+		[propget, id(42), helpstring("property stat_Average_X_BlobPosition")] HRESULT stat_Average_X_BlobPosition([out, retval] double *pVal);
+		[propput, id(42), helpstring("property stat_Average_X_BlobPosition")] HRESULT stat_Average_X_BlobPosition([in] double newVal);
+		[propget, id(43), helpstring("property stat_StdDev_X_Blob")] HRESULT stat_StdDev_X_Blob([out, retval] double *pVal);
+		[propput, id(43), helpstring("property stat_StdDev_X_Blob")] HRESULT stat_StdDev_X_Blob([in] double newVal);
+		[propget, id(44), helpstring("property stat_Average_Y_BlobPosition")] HRESULT stat_Average_Y_BlobPosition([out, retval] double *pVal);
+		[propput, id(44), helpstring("property stat_Average_Y_BlobPosition")] HRESULT stat_Average_Y_BlobPosition([in] double newVal);
+		[propget, id(45), helpstring("property stat_StdDev_Y_Blob")] HRESULT stat_StdDev_Y_Blob([out, retval] double *pVal);
+		[propput, id(45), helpstring("property stat_StdDev_Y_Blob")] HRESULT stat_StdDev_Y_Blob([in] double newVal);
+		[id(15), helpstring("method Initialize")] HRESULT Initialize();
+		[id(16), helpstring("method DoSegment")] HRESULT DoSegment();
+		[id(3), helpstring("method LoadColorModel")] HRESULT LoadColorModel();
+	};
+
+[
+	uuid(DE6046B8-5C92-48D1-AD92-DDB496CB2321),
+	version(1.0),
+	helpstring("(IMA2 Components) - ColorSegmenterLib")
+]
+library IMA2_COLORSEGMENTERLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(5B77B15E-47A3-4BDF-9763-61A93DDC7749),
+		helpstring("ColorSegmenter Class")
+	]
+	coclass ColorSegmenter
+	{
+		[default] interface IColorSegmenter;
+		interface IComponent;  
+	};
+};

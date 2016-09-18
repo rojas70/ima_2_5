@@ -1,0 +1,112 @@
+%% Null-space Projections
+% The purpose of this program is to test whether or not the output of controller Y
+% is actually being projected unto the null-space of the output of the controller X. 
+% That is, the gradient of X is not affected when the gradient of Y is projected unto
+% it. This is a 6D program.
+
+function SixD_Null_Space_Projection_Example;
+clc
+clear
+
+%% Designate the function for the trajectory
+
+%% (A) Create a trajectory for the joints
+HOME   = [0     1.57    -3.142  0   -1.57   0]; % ie ISACs home position
+GOAL   = [0.35  1.5     -2.8    0   1.57    0];
+step = 20;
+ct=jtraj(HOME,GOAL,step);           % Part of Peter Corke's matlab robotic toolbox.
+
+% Create vectors to hold joint angle trajectories.
+t1 = zeros(step,1);
+t2 = zeros(step,1);
+t3 = zeros(step,1);
+t4 = zeros(step,1);
+t5 = zeros(step,1);
+t6 = zeros(step,1);
+
+% Fill in our individual joint-element vectors
+for i=1:step
+    t1(i)=ct(i,1);  % Trajectory for Joint 1
+    t2(i)=ct(i,2);  % Trajectory for Joint 2
+    t3(i)=ct(i,3);  % Trajectory for Joint 3
+    t4(i)=ct(i,4);  % Trajectory for Joint 4
+    t5(i)=ct(i,5);  % Trajectory for Joint 5
+    t6(i)=ct(i,6);  % Trajectory for Joint 6
+end
+
+%% Plot in 6D
+t = 1:step;
+plot(t1,t, t2,t, t3,t, t4,t, t5,t, t6,t)
+
+% Cold play in trying to do it in matrix format
+% [xx,yy]=meshgrid(sin(t),cos(t));
+% zz = sin(xx)+cos(yy);
+% figure,surface(xx,yy,zz);
+% figure,contour(zz)  
+
+%% Compute the gradients for each of the joints
+diff_t1 = diff(t1);
+diff_t2 = diff(t2);
+diff_t3 = diff(t3);
+diff_t4 = diff(t4);
+diff_t5 = diff(t5);
+diff_t6 = diff(t6);
+
+[row cols] = size(diff_t1);
+
+% Create a (row x 6) matrix: X
+grad = [diff_t1 diff_t2 diff_t3 diff_t4 diff_t5 diff_t6];
+
+% Include a display of the direction of the gradient (2D works better when
+% plots are in matrix form).
+figure,quiver(diff_t1,diff_t2,diff_t3,diff_t4,diff_t5,diff_t6);
+
+%% Construction of projection matrix:
+
+% Basically, if we multiply a vector that is in the null-space of X with
+% this matrix operator (X), the result will be zero. If we multiply a regular
+% vector with this operator, it will project that vector such that it is in
+% the null-space of X. We could test the result by multiplying a vector with 
+% the null-space operator and then using that result to re-multiply it 
+% by the gradient output of X and expecting a result = 0.
+
+% Create a 6D eye matrix
+I=eye(6,6);
+
+% Generate the null-space projection operator wrt X and test it to see if 
+% whether or not the projected py onto px is in the null space.
+
+% To do so, we will try to imitate a real experiment by having a trajectory 
+% and then computing the gradient need to extract a gradient element from 
+% the trajectory. A way to do so is to use 6 'for-loops' to traverse 
+% all joint angle elements. 
+
+for i=1:row
+    for j=1:row
+        for k=1:row
+            for l=1:row
+                for m=1:row
+                    for n=1:row
+            
+        % Extract the joint angle gradient for X for a single step.
+        grad_element=[grad(i,1); grad(j,2); grad(k,3); grad(l,4); grad(m,5); grad(n,6)]
+
+        % Create a structure for the null-space matrix operator
+        % Composed of an outer product and a normalizing inner product
+        % element: I - [Px * inv(Px' * Px) * Px']
+        null_space_proj=I-(grad_element*inv(grad_element'*grad_element)*grad_element')
+
+        % Test
+        % By multiplying the null_space_proj operator (created using X)
+        % with the output gradient of X, we should expect a result of 0,
+        % hence proving that it is in the null-space.
+        result = null_space_proj * grad_element    % The 'result' is in the null-space.
+        zero   = (result < 1e-12)'    % Re-multiply. The product should be zero. This at least verifies that the results are consisten.
+                    end
+                end
+            end
+        end
+    end
+end
+
+

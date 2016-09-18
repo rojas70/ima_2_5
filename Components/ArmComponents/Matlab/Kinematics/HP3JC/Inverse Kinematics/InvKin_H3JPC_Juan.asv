@@ -1,0 +1,572 @@
+%% Derivation of Inverse Kinematics.
+% There are different approaches to the derivation of inverse kinematics.
+
+% In this file, I perform: (a) Simple Geometric Method, (b) Advanced
+% Geometric Method (allows for different joint angle solutions), and (c)
+% Algebraic method for a puma 560. 
+
+function Q = InvKin_H3JPC_Juan(XYZRPY,method)
+
+%% Declare global variables and initialize routines
+    
+    % Obtain the 3x3 R06 matrix from the roll-pitch-yaw angles.
+    R06 = RPY_2_R06(XYZRPY);
+
+    % Convert from End Effector coordinates to wrist coordiantes
+    % It takes off d6.
+    XYZRPY = ComputePPos(XYZRPY, R06); % Replace argument, used to be XYZRPY
+
+    % Now we extract the rotation matrix elements from R06
+    r11 = R06(1,1); 
+    r12 = R06(1,2); 
+    r13 = R06(1,3); 
+    r21 = R06(2,1); 
+    r22 = R06(2,2); 
+    r23 = R06(2,3); 
+    r31 = R06(3,1); 
+    r32 = R06(3,2); 
+    r33 = R06(3,3); 
+
+    % Extract the cartesian variables from the position vector
+    x = XYZRPY(1);
+    y = XYZRPY(2);
+    z = XYZRPY(3);
+
+    % DH Parameters
+
+    % Link 2
+    a2  =  260.00;
+    a3  =   29.98;
+    link2 = a2 + a3;
+
+    d4  = -270.000; 
+    d6  = 0;   % From the p-point to the end of the barret hand. Should not include once wrist derivation is done.
+    link3 = -(d4 + d6);
+
+    % Squared amounts
+    
+    a22 = a2^2;
+    a32 = a3^2;
+    d42 = d4^2;
+    
+    link22 = link2^2;
+    link32 = link3^2;
+
+    x2 = x^2;
+    y2 = y^2;
+    z2 = z^2;
+
+    % Define the hypoteneuse formed by X and Z, 'R'.
+    R = sqrt(x2 + y2 + z2); % changes from x2+z2
+
+    % Establish a value for q4 in case of a singularity
+    q4_old = pi;
+    
+%% Simple Geometric Method
+% Derived the angles by hand by geometrically visualizing the HP3JC on
+% paper.
+
+    if(strcmp(method,'SG'))
+
+        % ******Joint Angle 1******
+        
+        % q1 = inv (tan(y/x)) in radians.
+        if(x==0)
+            sprintf('The manipulator is in a singular configuration');
+            q1 = 0;
+        else
+            q1 = atan2(y,x);
+        end
+
+        % ******Joint Angle 2******
+
+        % We can compute theta2 by adding alpha and beta. Sub-angles are separated
+        % by the hypoteneuse joining the base of the manipulator to the P-point. 
+        % For this scenario all angles are negative.
+        % Three diferent cases are presented to solve for the variables
+
+        % Case 1: X > 0, typically theta2 < 90 degrees:
+        if(x>0)
+            % Alpha: easily solved using the arctangent << atan2(Z,X) in radians.
+            alpha = -atan2(z,x);
+
+            % Beta: can be solved using law of cosines.
+            beta = -acos( (link32 - R^2 - link22) / (-2*R*link2) );
+
+        % Case 2: X = 0; typically, theta2 == 90 degrees:
+        elseif(x==0)
+
+            % In cases where there is a right angle (ie x=0),
+            % we define alpha and beta.
+            alpha = -pi/2;   % In radians
+            beta  = 0;
+
+        % Case 3: X < 0; typically theta2 > 90 degrees:
+        else
+            % Need to add 90 degrees and then add the absolute value of theta
+            alpha = atan2(z,x); % x will be negative
+            alpha = -90 + abs(alpha);
+
+            % Beta: can be solved using law of cosines.
+            beta = acos( (link32 - R^2 - link22) / (-2*R*link2) );
+
+        end
+
+        % Theta 2 (in radians).
+        q2 = alpha + beta;
+
+        %% *****Joint Angle 3*****
+        
+        %% Elbow up
+        % To find this angle, we use the law of cosines exclusively. The angle
+        % between the links can be either > 90 or < 90. In both cases we can solve
+        % for theta3 by subtracting by 90 degrees.
+
+        % Variable to determine elbow-up or down.
+        ELBOW = 1;
+        
+        % Compute the law of cosines
+        theta_temp = acos( (R^2 - link22 - link32)/(-2*link2*link3) );
+        
+        %% Elbow up
+        if(ELBOW == 1)       
+            q3 = abs(pi/2 - theta_temp);  
+            
+            % An alternative solution using the sine law would be"
+            % q3 = pi/2 - ( asin(R*sin(-beta)/link3));
+        %% Elbow down
+        else
+            q3 = abs(3/2*pi - theta_temp);
+        end
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% WRIST ANGLES accroding to Cook for NR robot without a3
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        % The value for the following variables are computing in the
+        % following way:
+        % (LHS) R36 = (RHS) R(03)'*R06;
+        % Then we equate the corresponding elements of the LHS with
+        % elements in the RHS that help us solve for q4, q5, q6.
+        
+        % In summary, the joint angles are represented by:
+        % q4 = atan2(s4s5,c4s5) = atan2(-r23c1+r13s1, r13c1c23+c2(r23c3s1+r33s3)+s2(r33c3-r23s1s3))
+        % q5 = atan2(s5,c5)     = atan2(c4(c23(r13c1+r23s1)+r33s23)+s4(-r23c1+r13s1)),-r33c23+s23(r13c1+r23s1))
+        % q6 = atan2(s6,c6)     = atan2(c4(-r21c1+r11s1))-(c23(r11c1+r21s1)+r31s23)s4,c4(-r22c1+r12s1)-(c23(r12c1+r22s1)+r32s23)s4)              
+
+        % ***** Joint Angle 4*****       
+        % Check for singularity. 
+        % Singularity takes place when q5 = 0 or 180. This can be checked
+        % when the two arguments of the atan2() function for q4 approach
+        % zero. 
+        % In such a case, we make q4 equal the value it had right before
+        % the robot when into a singular configuration.         
+        
+        % atan2 variables:
+        A = -r23*cos(q1)+r13*sin(q1);
+        B = r13*cos(q1)*cos(q2+q3)+cos(q2)*(r23*cos(q3)*sin(q1)+r33*sin(q3))+sin(q2)*(r33*cos(q3)-r23*sin(q1)*sin(q3));
+        
+        % Singuarlity check
+        if ((abs(A) < 0.001) && (abs(B) < 0.001))
+            % If arguments are close to zero, keep the value before
+            % reaching the singularity. We'll adjust q6 nex
+            q4 = q4_old;
+        else
+            q4 = atan2(A, B);
+        end
+        
+        % ***** Joint Angle 5*****
+        % For motoman, the angle that would be home for the puma is -90.
+        % Hence we have to make up for this disparity.
+        q5 = -pi/2 + atan2(cos(q4)*(cos(q2+q3)*(r13*cos(q1)+r23*sin(q1))+r33*sin(q2+q3))+sin(q4)*(-r23*cos(q1)+r13*sin(q1)),-r33*cos(q2+q3)+sin(q2+q3)*(r13*cos(q1)+r23*sin(q1)));
+        
+        % ***** Joint Angle 6*****
+        q6 = atan2(cos(q4)*(-r21*cos(q1)+r11*sin(q1))-(cos(q2+q3)*(r11*cos(q1)+r21*sin(q1))+r31*sin(q2+q3))*sin(q4),cos(q4)*(-r22*cos(q1)+r12*sin(q1))-(cos(q2+q3)*(r12*cos(q1)+r22*sin(q1))+r32*sin(q2+q3))*sin(q4));
+        % Print out vector of joint angles.
+        Q = [q1; q2; q3;q4;q5;q6] * 180/pi;
+
+%% Advanced Geometric Method
+% Following the books derviation on p. 103 Spong, compute q3
+
+    elseif(strcmp(method,'AG'))
+        % **Declare and Initialize Variables**
+        % DH Parameters
+        
+        % Link 2
+        a2  =  260.00;
+        a3  =   29.98;
+        link2 = a2 + a3;
+
+        d4  = -270.000; 
+        d6  = 0;   % From the p-point to the end of the barret hand. Should not include once wrist derivation is done.
+        link3 = -(d4 + d6);
+
+        link22 = link2^2;
+        link32 = link3^2;
+
+        x2 = x^2;
+        y2 = y^2;
+        z2 = z^2;
+
+        a22 = a2^2;
+        a32 = a3^2;
+        d = 0; % no offset
+
+        % ****Joint Angle 1*****
+        
+        q1 = atan2(y,x) + atan2(d, sqrt(R^2 -d^2));
+        %q1 = atan2(y,x) + atan2(-d, -sqrt(R^2 -d^2)); original signs
+
+        % *****Joint Angle 3*****
+        
+        D = (x2 + y2 + z2 -link22 - link32)/(-2*link2*link3);%        D = ( (x^2 + y^2 + 0 + (z - a2)^2 -link22 - link32)/(-2*link2*link3);
+        q3 = atan2(D,sqrt(1-D^2));
+
+        % *****Joint Angle 2*****
+        q2 = atan2(z,sqrt(x2+y2)) - atan2((link3*sin(q3)),(link2+link3*cos(q3)) ); %q2 = -atan2( sqrt(x^2+y^2), (z-a2) ); %- atan2( (a2+a3*cos(q3)),(a3*sin(q3)) );
+        
+        % *****Joint Angle 4*****
+%        q4 = atan2(sin);
+        % **Joint Angle 5**
+        % **Joint Angle 6**
+
+        Q = [q1; q2; q3] * 180/pi;
+        
+%% Dr. Peter's Derivation
+
+    elseif(strcmp(method,'RAP')) % Peter's derivation
+        % Extract positions
+        x = XYZRPY(1)+244.5;
+        y = XYZRPY(2);
+        z = XYZRPY(3);
+
+        % Vector of joint angles
+        Q = zeros(6,1);
+
+        % DH Parameters
+
+        % Offset about the base
+        a1  =  0;
+
+        % Links 2 and 3
+        a2  =  259.994;
+        a3  =   30.00001;
+
+        % Effectively links 4-6
+        d4  =  -270;
+        d6  =  -241.5;%-244.499;
+        dt  = -(d4+d6);
+
+        % Squared variables
+        a22 = a2^2;
+        a32 = a3^2;
+        dt2 = dt*dt;
+
+        %% *****Joint Angle 1*****
+        q1  = atan2(y,x-244.5);
+
+        % X and Y distance generated by the offset at the base
+        J2x = a1*cos(q1);
+        J2y = a1*sin(q1);
+
+        % Difference in x and y between the base-offset and the end-effector
+        % position
+        xW1 = x - J2x;
+        yW1 = y - J2y;
+
+        % Hypoteneuse on the X-Y plane
+        x12 = xW1^2 + yW1^2;
+        x1  = sqrt(x12);
+
+        % Diagonal from base to end-effector on the XZ-plane
+        % Has a vertical component to it
+        d  = sqrt( x12 + z^2 );
+
+        % Define t
+        t2 = dt^2 + a32;
+        t  = sqrt( t2 );
+
+        % Define r using cosine law on the triangle formed by joints 2,3, and
+        % end-effector point.
+        % 
+        r  = (a2^2 - t2 + d^2) / (2*d);
+
+        % Projections
+        Px = r*x1/d;
+        Pz = r*z/d;
+
+        % Define h
+        h  = sqrt( a22 - r^2 );
+
+        % Define where joint 3 crosses the axes
+        J3x = Px - h*z/d;
+        J3z = Pz + h*x1/d;
+
+        % *****Joint Angle 2*****
+        q2 = atan2(J3x,J3z);
+        %q2 = pi/2 - q2;
+
+        q3t = acos( a3/t );
+        qt  = atan2( x1-J3x, z-J3z );
+
+        % *****Joint Angle 3*****
+        q3  = -(qt - q3t - q2);
+        %q3 = pi/2 - q3;
+        
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% WRIST ANGLES accroding Robot Modeling & Ctrl by Spong et al
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        % The value for the following variables are computing in the
+        % following way:
+        % (LHS) R36 = (RHS) R(03)'*R06;
+        % Then we equate the corresponding elements of the LHS with
+        % elements in the RHS that help us solve for q4, q5, q6.
+        
+        % In summary, the joint angles are represented by:
+        % q4 = atan2(-c1s23r13 - s1s23r23 + c23r33, c1c23r13 + s1c23r23 + s23r33);
+        % q5 = atan2(sqrt(1 - (s1r13-c1r23)^2),s1r13 - c1r23);
+        % q6 = atan2(s1r12 - c1r22, -s1r11+c1r21)
+
+        % ***** Joint Angle 4, 5, 6*****  
+                % Check for singularity. 
+        % Singularity takes place when q5 = 0 or 180. This can be checked
+        % when the two arguments of the atan2() function for q4 approach
+        % zero. 
+        % In such a case, we make q4 equal the value it had right before
+        % the robot when into a singular configuration.         
+        
+        % atan2 variables:
+        A = -cos(q1)*sin(q2+q3)*r13 - sin(q1)*sin(q2+q3)*r23 + cos(q2+q3)*r33;
+        B =  cos(q1)*cos(q2+q3)*r13 + sin(q1)*cos(q2+q3)*r23 + sin(q2+q3)*r33;
+        
+        % Singuarlity check
+        if ((abs(A) < 0.001) && (abs(B) < 0.001))
+            % If arguments are close to zero, keep the value before
+            % reaching the singularity. We'll adjust q6 nex
+            q4 = q4_old;
+            q5 = -pi/2; % This results is customized for hp3jc. normally it would be 0.0.
+            q6 = pi - q4;
+        else
+            q4 = atan2(A, B);        
+            q4 = abs(q4);
+            q5 = atan2(-sqrt(1 - (sin(q1)*r13-cos(q1)*r23)^2),sin(q1)*r13 - cos(q1)*r23);
+            q6 = -atan2( sin(q1)*r12 - cos(q1)*r22, -sin(q1)*r11 + cos(q1)*r21); % 
+
+        end
+        
+        % For this robot we notice that q4 and q6 always add up to 180, so
+        % just do a simple computation.
+        %q6 = pi - q4; %-atan2(sin(q1)*r12 - cos(q1)*r22, -sin(q1)*r11 + cos(q1)*r21); % 
+        
+        % Value of q6 should be: -180<= q6 <= 180
+        if q6>pi
+            q6 = q6 - 2*pi;
+        end
+     
+        % Vector of joint Angles with the wrist rigid.
+        Q(1) =    q1;
+        Q(2) =    -pi/2 + q2;
+        Q(3) =    q3;
+        Q(4) =    q4;
+        Q(5) =    q5;
+        Q(6) =    q6;
+
+        % Convert to degrees
+        Q = 180*Q/pi;
+        
+
+%% Algebraic Derivation
+% This derivation follows both the forward kinematics definitions and
+% inverse kinematics math found in the directory:
+% O:\Components\ArmComponents\KinematicsClass\Docuemantation\
+%
+% The variables can be visualized in the forward kinematics presentation
+% for the puma manipulator. The math can be followed in the inverse
+% kinematics presentation. 
+
+    elseif(strcmp(method,'AD')) % Algebraic derivation is called
+
+        % DH Parameters
+        a1  =   0;  % Motoman ignores this parameter in its internal computations.
+
+        % Link 2
+        a2  =  260.00;
+        a3  =   30;%29.98;
+        a4  =    0.00;
+        link2 = a2 + a3;
+
+        % Base offset
+        d3 =     0.000; % Readily seen as the offset between base and link3.
+        
+        % Link 3 and beyond
+        d4  = -270.000; % Readily seen as length of link 3.
+        d6  = 0;%-244.503; % From the p-point to the end of the barret hand. Should not include once wrist derivation is done.
+        link3 = -(d4 + d6);
+
+        % Squared values
+        link22 = link2^2;
+        link32 = link3^2;
+
+        x2 = x^2;
+        y2 = y^2;
+        z2 = z^2;
+        
+        a22 = a2^2;
+        a32 = a3^2;
+        d32 = d3^2;
+        d42 = d4^2;
+        
+        % Diagonal distance
+        rho = sqrt((x2+y2));
+        R = sqrt(x2+y2+z2);
+
+        % **Joint Angle 1**
+        % DIRECTION is a variable that determins which was the base will
+        % rotate. +1 = left shoulder. -1 = right shoulder.
+        % In our case this does not matter since we have not base offset,
+        % d3. But it's good practice.
+        DIRECTION = 1;
+        q1 = atan2(y,x) - atan2((d3/rho),DIRECTION*(sqrt(1-(d3^2/rho^2))));
+
+        % Joint Angle 3        
+        % Temp variable used in derivation
+        K = (x2+y2+z2-a22-a32-d32-d42)/(2*a2);
+        
+        % ELBOW is the variable that determins if we have an elbow up or
+        % down. +ve 1 = elbow-up and -ve = elbow-down.
+        ELBOW = 1;
+        q3 = atan2(a3,d4) - atan2(K, ELBOW*sqrt(a32+d42-K^2));
+        
+        % Joint Angle 2
+        % Need to declare a couple of temporary variables as in slide 48 of
+        % the inverse kinematics presentation. The solutions depends on
+        % values of theta1 and theta3
+        A = (-a3-a2*cos(q3))*z+(cos(q1)*x+sin(q1)*y)*(a2*sin(q3)-d4);
+        B = (a2*sin(q3)-d4)*z-(-a3-a2*cos(q3))*(cos(q1)*x+sin(q1)*y);
+        
+        % We can extract a common variable of q23 and then solve for q2
+        q23 = atan2(A,B);
+        q2 = q23 - q3;
+        
+        % There is a problem with the theta3 computation. We re-compute
+        % theta3 using the simple geometry equation that works well.
+               
+        % Compute the law of cosines
+        theta_temp = acos( (R^2 - link22 - link32)/(-2*link2*link3) );
+
+        
+        % Elbow up
+        if(ELBOW == 1)       
+            q3 = abs(pi/2 - theta_temp);
+            
+        % Elbow down
+        else
+            q3 = abs(3/2*pi - theta_temp);
+        end
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        %% WRIST ANGLES accroding to O'Malley which follows PUMA derivation.
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+        % The value for the following variables are computing in the
+        % following way:
+        % (LHS) R36 = (RHS) R(03)'*R06;
+        % Then we equate the corresponding elements of the LHS with
+        % elements in the RHS that help us solve for q4, q5, q6.
+        
+        % In summary, the joint angles are represented by:
+        % q4 = atan2(-r13s1 + r23c1, -r13c1c23 - r32s1c23 + s23r33)
+        % q5 = atan2(r13(c1c23c4+s1s4) + r23(s2c23c4 - c1s4) - r33(s23c4), r12(-c1s23) + r23(-s1s23) + r33(-c23)
+        % q6 = atan2(r11(c1c23s4 + s1c4) - r21(s1c23s4 + c1c4) + r31(s23s4), r11((c1c23c4+s1s4)c5 - c1s23s5) + r21((s1c23c4 - c1s4)c5 - s1s23s5) - r31(s23c4c5 + c23s5))
+
+        % ***** Joint Angle 4*****       
+        % Check for singularity. 
+        % Singularity takes place when q5 = 0 or 180. This can be checked
+        % when the two arguments of the atan2() function for q4 approach
+        % zero. 
+        % In such a case, we make q4 equal the value it had right before
+        % the robot when into a singular configuration.         
+        
+        % atan2 variables:
+        A = -r13*sin(q1) + r23*cos(q1);
+        B = -r13*cos(q1)*cos(q2+q3) - r32*sin(q1)*cos(q2+q3) + sin(q2+q3)*r33;
+        
+        % Singuarlity check
+        if ((abs(A) < 0.001) && (abs(B) < 0.001))
+            % If arguments are close to zero, keep the value before
+            % reaching the singularity. We'll adjust q6 nex
+            q4 = q4_old;
+        else
+            q4 = atan2(A, B);
+        end
+        
+        % ***** Joint Angle 5*****
+        % For motoman, the angle that would be home for the puma is -90.
+        % Hence we have to make up for this disparity.
+        q5 = atan2(r13*(cos(q1)*cos(q2+q3)*cos(q4) + sin(q1)*sin(q4)) + r23*(sin(q1)*cos(q2+q3)*cos(q4) - cos(q1)*sin(q4)) - r33*(sin(q2+q3)*cos(q4)), r13*(-cos(q1)*sin(q2+q3)) + r23*(-sin(q1)*sin(q2+q3)) + r33*(-cos(q2+q3)));
+        
+        % ***** Joint Angle 6*****
+        q6 = atan2(r11(cos(q1)*cos(q2+q3)*sin(q4) + sin(q1)*cos(q4)) - r21*((sin(q1)*cos(q2+q3)*sin(q4) + cos(q1)*cos(q4)) + r31*(sin(q2+q3)*sin(q4)), r11*((-cos(q1)*cos(q2+q3)*cos(q4) + sin(q1)*sin(q4))*cos(q5) - cos(q1)*sin(q2+q3sin(q1)*sin(q2+q3)*sin(q5)) - r31*((sin(q2+q3)*cos(q4)*cos(q5) + cos(q2+q3)*sin(q5)));
+        % Print out vector of joint angles.
+        Q = [q1; q2; q3;q4;q5;q6] * 180/pi;
+
+%% NR Robot        
+%  Follows the derivation of a robot similar to the PUMA560 but without an
+%  offset a3. The solutions for this robot can be found in Exam 4 of Dr.
+%  Cooks class EE271 - Intro to Robotics. 
+    elseif(strcmp(method,'NR')) % Follow's cooks's class derivation for NR robot.
+                                % In this case we ignore a3 and add it on
+                                % to a2. Their robot has no a3 offset.
+
+        % DH Parameters
+        a1  =   0;  % Motoman ignores this parameter in its internal computations.
+
+        % Link 2
+        a2  =  289.98;
+        a3  =    0.00;
+        a4  =    0.00;
+        link2 = a2 + a3;
+
+        % Base offset
+        d3 =     0.000; % Readily seen as the offset between base and link3.
+        
+        % Link 3 and beyond
+        %d4  = -270.000; % Readily seen as length of link 3.
+        %d6  = -244.503; % From the p-point to the end of the barret hand. Should not include once wrist derivation is done.
+        d4  = 514.503;
+
+        x2 = x^2;
+        y2 = y^2;
+        z2 = z^2;
+        
+        a22 = a2^2;
+        a32 = a3^2;
+        a42 = d4^2;
+        d32 = d3^2;
+        d42 = d4^2;
+        
+        % **Joint Angle 1**
+        % DIRECTION is a variable that determins which was the base will
+        % rotate. +1 = left shoulder. -1 = right shoulder.
+        % In our case this does not matter since we have not base offset,
+        % d3. But it's good practice.
+        DIR = -1;
+        q1 = atan2(DIR*y,DIR*x);
+        
+        % **Joint Angle 2**
+        % ELBOW +ve = up, -ve = down
+        ELBOW = -1;
+
+        % Simplified expressions
+        A = x*cos(q1) + y*sin(q1);          A2 = A^2;
+        C = (d42 - a2 -z2 - A^2)/(-2*a2);   C2 = C^2; 
+        q2 = atan2(z, A) + DIR*ELBOW*atan2(sqrt(A2 + z2 - C2),C);
+        
+        % **Joint Angle 3**
+        q3 = atan2(-a2+x*cos(q1)*cos(q2) + y*cos(q2)*sin(q1) + z*sin(q2),-(z*cos(q2) - x*cos(q1)*sin(q2) - y*sin(q1)*sin(q2)) );
+                   
+        Q = [q1;q2;q3;q4;q5;q6] * 180/pi;
+    end
+
+end

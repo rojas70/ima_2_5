@@ -1,0 +1,9 @@
+; IMA2_CopyRepsLib.def : Declares the module parameters.
+
+LIBRARY      "IMA2_CopyRepsLib.DLL"
+
+EXPORTS
+	DllCanUnloadNow     @1 PRIVATE
+	DllGetClassObject   @2 PRIVATE
+	DllRegisterServer   @3 PRIVATE
+	DllUnregisterServer	@4 PRIVATE

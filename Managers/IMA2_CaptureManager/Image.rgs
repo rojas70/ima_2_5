@@ -1,0 +1,55 @@
+HKCR
+{
+	IMA2_CaptureManager.Image.1 = s 'Image Class'
+	{
+		CLSID = s '{A3EA23AF-7B71-44F0-8276-93FB78B0B80E}'
+	}
+	IMA2_CaptureManager.Image = s 'Image Class'
+	{
+		CurVer = s 'IMA2_CaptureManager.Image.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A3EA23AF-7B71-44F0-8276-93FB78B0B80E} = s 'Image Class'
+		{
+			ProgID = s 'IMA2_CaptureManager.Image.1'
+			VersionIndependentProgID = s 'IMA2_CaptureManager.Image'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'Implemented Categories'
+			{
+				{515E31B4-0339-11D2-B88B-0020AFF12FBD}
+			}
+			ForceRemove 'Control'
+			ForceRemove 'Programmable'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '131473'
+			}
+			'TypeLib' = s '{A3EA23AF-7B71-44F0-8276-93FB78B0B80E}'
+			'Version' = s '1.0'
+		}
+	}
+}
+HKLM
+{
+	NoRemove SOFTWARE
+	{
+		NoRemove IMA
+		{
+			NoRemove Managers
+			{
+				ForceRemove IMA2_CaptureManager.Image.1 = s 'Image Class'
+				{
+					CLSID = s '{A3EA23AF-7B71-44F0-8276-93FB78B0B80E}'
+					ProgID = s 'IMA2_CaptureManager.Image.1'
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_SESInterface.SESInterface.1 = s 'SESInterface Class'
+	{
+		CLSID = s '{E57C703D-7019-4637-8A46-9AFE80518348}'
+	}
+	IMA2_SESInterface.SESInterface = s 'SESInterface Class'
+	{
+		CLSID = s '{E57C703D-7019-4637-8A46-9AFE80518348}'
+		CurVer = s 'IMA2_SESInterface.SESInterface.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E57C703D-7019-4637-8A46-9AFE80518348} = s 'SESInterface Class'
+		{
+			ProgID = s 'IMA2_SESInterface.SESInterface.1'
+			VersionIndependentProgID = s 'IMA2_SESInterface.SESInterface'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A99ABE6C-363D-40B1-8C47-8BE00B578003}'
+		}
+	}
+}

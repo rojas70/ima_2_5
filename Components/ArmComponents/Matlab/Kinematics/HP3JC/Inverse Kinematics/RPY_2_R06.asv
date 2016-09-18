@@ -1,0 +1,55 @@
+function R06 = RPY_2_R06(XYZRPY)
+
+%% Global variable
+    R06 = zeros(4,4);
+
+    % Precompute Trig Functions in radians to save on evaluations
+	ca = cos(XYZRPY(6)); sa = sin(XYZRPY(6));
+	cb = cos(XYZRPY(5)); sb = sin(XYZRPY(5));
+	cg = cos(XYZRPY(4)); sg = sin(XYZRPY(4));
+    
+    % Inverse solution for roll-pitch-yaw angle set
+    % R = Rz(alpha)Ry(Beta)Rx(gamma). Where,
+    % Rz_alpha = [ca -sa   0;
+    %             sa  ca   0;
+    %              0   0   1;];
+    % 
+    % Ry_beta  = [cb   0  sb;
+    %              0   0   1;
+    %            -sb   0  cb;];   
+    % 
+    % Rx_gamma = [ 1   0   0;
+    %              0  cg -sg;
+    %              0  sg  cb;];     
+    % R = | ca -sa 0 || cB  0 sB || 1  0 0  |		 | r11 r12 r13  Px|
+    % 	  | sa ca  0 || 0   1  0 || 0 cy -sy| = oM = | r21 r22 r23  Py|	// See Robot Simulation by Dr. Cook page A-12
+    % 	  | 0   0  1 ||-sB  0 cB || 0 sy cy |		 | r31 r32 r33  Pz|
+    %                                                |   0   0   0   1|   
+         
+%% R06 matrix computations                                             
+             
+	% First Column
+	R06(1)  = ca*cb;				% r11
+	R06(5)  = sa*cb;				% r21
+	R06(9)  = -sb;				 	% r31
+	R06(13) = 0.0;					% r41
+
+	% Second Column
+	R06(2)  = ca*sb*sg - sa*cg;		% r12
+	R06(6)  = sa*sb*sg + ca*cg;     % r22
+	R06(10) = cb*sg;				% r32
+	R06(14) = 0.0;					% r42
+	
+	% Third Column
+	R06(3)  = ca*sb*cg + sa*sg;		% r13
+	R06(7)  = sa*sb*cg - ca*sg;		% r23
+	R06(11) = cb*cg;				% r33
+	R06(15) = 0.0;					% r43
+
+	% Fourth Column -  position vector.
+	R06(4) = XYZRPY(1);			% X	
+	R06(8) = XYZRPY(2);			% Y
+	R06(12) = XYZRPY(3);			% Z
+	R06(16) = 1.0;
+    
+end

@@ -1,0 +1,48 @@
+// Matlab_test.idl : IDL source for Matlab_test.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Matlab_test.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CMEngine: IDL source for IMA2_CMEngine.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(03F54F4B-FB32-469B-B87B-98EB9FE1E2B9),
+		dual,
+		helpstring("(IMA2 Components) - IMEngine Lib"),
+		pointer_default(unique)
+	]
+	interface IMEngine : IDispatch
+	{
+		[id(1), helpstring("method Test")] HRESULT Test();
+		[propget, id(2), helpstring("property Prompt")] HRESULT Prompt([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Prompt")] HRESULT Prompt([in] BSTR newVal);
+	};
+
+[
+	uuid(4AE26227-0B1A-4C3F-83CF-6E038022A6A7),
+	version(1.0),
+	helpstring("Matlab_test 1.0 Type Library")
+]
+library MATLAB_TESTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(C8FD3D73-DB1C-40F4-AB53-257E9B109DE7),
+		helpstring("(IMA2 Components) - MEngine Class LIB")
+	]
+	coclass MEngine
+	{
+		[default] interface IMEngine;
+		interface IComponent; 
+	};
+};

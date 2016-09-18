@@ -1,0 +1,22 @@
+# Microsoft Developer Studio Generated Dependency File, included by PXC_IPL.mak
+
+.\pxc_display.c : \
+	".\Iframe.h"\
+	".\Pxc.h"\
+	".\pxc_display.h"\
+	"c:\program files\dxsdk\include\basetsd.h"\
+	
+
+.\pxc_ipl.c : \
+	".\Iframe.h"\
+	".\Pxc.h"\
+	".\pxc_display.h"\
+	"c:\program files\dxsdk\include\basetsd.h"\
+	"c:\program files\intel\plsuite\include\ipl.h"\
+	"c:\program files\intel\plsuite\include\iplerror.h"\
+	"c:\program files\intel\plsuite\include\iplmisc.h"\
+	
+
+.\dlg_main.rc : \
+	".\CYBER_PXClogo.ico"\
+	

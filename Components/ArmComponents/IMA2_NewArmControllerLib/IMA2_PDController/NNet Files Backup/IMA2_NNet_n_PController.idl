@@ -1,0 +1,107 @@
+// IMA2_NNet_n_PController.idl : IDL source for IMA2_NNet_n_PController.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_NNet_n_PController.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CNewValveController: IDL source for IMA2_CNewValveController.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(B53073D1-1C5C-4916-8A27-92A5B7402F17),
+		dual,
+		helpstring("(IMA2 Components) - INewValveController Lib"),
+		pointer_default(unique)
+	]
+	interface INewValveController : IDispatch
+	{
+		[id(1), helpstring("method DoHomingRoutine")] HRESULT DoHomingRoutine();
+		[id(2), helpstring("method Close")] HRESULT Close();
+		[propget, id(4), helpstring("property WhatArm")] HRESULT WhatArm([out, retval] BOOL *pVal);
+		[propput, id(4), helpstring("property WhatArm")] HRESULT WhatArm([in] BOOL newVal);
+//		[id(5), helpstring("method NeuralNetController")] HRESULT NeuralNetController();
+		[id(6), helpstring("method PIDController")] HRESULT PIDController();
+//		[id(7), helpstring("method AllocateNeuralNet")] HRESULT AllocateNeuralNet();
+		[id(8), helpstring("method GoToHomePosition")] HRESULT GoToHomePosition();
+		[id(9), helpstring("method InitializeValves")] HRESULT InitializeValves();
+		[propget, id(10), helpstring("property ErrorMessage")] HRESULT ErrorMessage([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] BSTR newVal);
+		[propget, id(12), helpstring("property ValveOutputsIndex")] HRESULT ValveOutputsIndex([out, retval] short *pVal);
+		[propput, id(12), helpstring("property ValveOutputsIndex")] HRESULT ValveOutputsIndex([in] short newVal);
+		[propget, id(13), helpstring("property ValveOutputs")] HRESULT ValveOutputs([out, retval] double *pVal);
+		[propput, id(13), helpstring("property ValveOutputs")] HRESULT ValveOutputs([in] double newVal);
+		[id(14), helpstring("method LogicalAngles")] HRESULT ReadLogicalAngles();
+		[propget, id(15), helpstring("property LogicalAngles")] HRESULT LogicalAngles([out, retval] double *pVal);
+		[propput, id(15), helpstring("property LogicalAngles")] HRESULT LogicalAngles([in] double newVal);
+		[propget, id(16), helpstring("property LogicalAnglesIndex")] HRESULT LogicalAnglesIndex([out, retval] short *pVal);
+		[propput, id(16), helpstring("property LogicalAnglesIndex")] HRESULT LogicalAnglesIndex([in] short newVal);
+		[id(17), helpstring("method SetArmVoltages")] HRESULT SetArmVoltages();
+		[propget, id(18), helpstring("property P_LeftValue")] HRESULT P_LeftValue([out, retval] double *pVal);
+		[propput, id(18), helpstring("property P_LeftValue")] HRESULT P_LeftValue([in] double newVal);
+		[propget, id(19), helpstring("property P_RightValue")] HRESULT P_RightValue([out, retval] double *pVal);
+		[propput, id(19), helpstring("property P_RightValue")] HRESULT P_RightValue([in] double newVal);
+		[propget, id(20), helpstring("property P_LeftValueIndex")] HRESULT P_LeftValueIndex([out, retval] short *pVal);
+		[propput, id(20), helpstring("property P_LeftValueIndex")] HRESULT P_LeftValueIndex([in] short newVal);
+		[propget, id(21), helpstring("property P_RightValueIndex")] HRESULT P_RightValueIndex([out, retval] short *pVal);
+		[propput, id(21), helpstring("property P_RightValueIndex")] HRESULT P_RightValueIndex([in] short newVal);
+
+	};
+
+// IMA2_CPIDController: IDL source for IMA2_CPIDController.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+/*	[
+		object,
+		uuid(411B80B2-058A-4BA5-8330-425D0C38AE65),
+		dual,
+		helpstring("(IMA2 Components) - IPIDController Lib"),
+		pointer_default(unique)
+	]
+	interface IPIDController : IDispatch
+	{
+
+
+
+	};
+*/
+
+[
+	uuid(72A62003-8AA6-4EA1-95C4-C3E5656F887D),
+	version(1.0),
+	helpstring("(IMA2 Components) - New Valve Controller")
+]
+
+
+library IMA2_NNET_N_PCONTROLLERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(71645483-B459-4EEA-A355-B3F3D8A5748D),
+		helpstring("(IMA2 Components) - New Valve Controller Class LIB")
+	]
+	coclass NewValveController
+	{
+		[default] interface INewValveController;
+		interface IComponent; 
+	};
+/*	importlib("O:\include\ima2.tlb");
+	[
+		uuid(D97F3365-F1EF-451F-BC53-C8FA02D75AAC),
+		helpstring("(IMA2 Components) - PID Controller Class LIB")
+	]
+	coclass PIDController
+	{
+		[default] interface IPIDController;
+		interface IComponent; 
+	};
+*/
+};

@@ -1,0 +1,72 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.9782.0 (742a271c).
+//
+// o:\components\controlbasis\matlab_test\debug\IMA2_PropertyBags.tlh
+//
+// C++ source equivalent of Win32 type library O:\Include\IMA2_PropertyBags.dll
+// compiler-generated file created 10/22/08 at 15:35:08 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("b22dcb11-73ed-45ec-85de-3162a2480c02"))
+/* dual interface */ _PropertyBagWrapper;
+struct /* coclass */ PropertyBagWrapper;
+typedef struct _PropertyBagWrapper PropertyBagWrapper___v0;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_PropertyBagWrapper, __uuidof(_PropertyBagWrapper));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("b22dcb11-73ed-45ec-85de-3162a2480c02"))
+_PropertyBagWrapper : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall GetPropertyBag (
+        VARIANT * _arg1 ) = 0;
+    virtual HRESULT __stdcall SetPropertyBag (
+        VARIANT * Contents ) = 0;
+    virtual HRESULT __stdcall AddToPropertyBag (
+        BSTR * ItemName,
+        VARIANT * ItemValue ) = 0;
+    virtual HRESULT __stdcall GetFromPropertyBag (
+        BSTR * ItemName,
+        VARIANT * _arg2 ) = 0;
+    virtual HRESULT __stdcall AddArrayToPropertyBag (
+        BSTR * ItemName,
+        VARIANT * ItemValue ) = 0;
+    virtual HRESULT __stdcall GetArrayFromPropertyBag (
+        BSTR * ItemName,
+        VARIANT * _arg2 ) = 0;
+};
+
+struct __declspec(uuid("e260b7bc-c918-4eba-ad52-665a7bca13b0"))
+PropertyBagWrapper;
+    // [ default ] interface _PropertyBagWrapper
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_IMA2_PropertyBags =
+    {0xe459f6f7,0x95a4,0x4232,{0x8b,0x53,0x5d,0xdc,0x8e,0xbc,0x49,0x5e}};
+extern "C" const GUID __declspec(selectany) IID__PropertyBagWrapper =
+    {0xb22dcb11,0x73ed,0x45ec,{0x85,0xde,0x31,0x62,0xa2,0x48,0x0c,0x02}};
+extern "C" const GUID __declspec(selectany) CLSID_PropertyBagWrapper =
+    {0xe260b7bc,0xc918,0x4eba,{0xad,0x52,0x66,0x5a,0x7b,0xca,0x13,0xb0}};
+
+#pragma pack(pop)

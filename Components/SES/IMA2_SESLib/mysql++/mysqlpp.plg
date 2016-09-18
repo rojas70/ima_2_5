@@ -1,0 +1,84 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mysqlpp - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\KATHER~1\LOCALS~1\Temp\RSP1D7.tmp" with contents
+[
+/nologo /MT /GX /O2 /I "mysql/include" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Fp"Release/mysqlpp.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\coldata.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\connection.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\datetime.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\field_names.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\field_types.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\manip.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\query.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\set.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\string_util.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\type_info.cpp"
+"C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\vallist.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\KATHER~1\LOCALS~1\Temp\RSP1D7.tmp" 
+Creating temporary file "C:\DOCUME~1\KATHER~1\LOCALS~1\Temp\RSP1D8.tmp" with contents
+[
+/nologo /out:"lib/mysql++mt.lib" 
+".\Release\coldata.obj"
+".\Release\connection.obj"
+".\Release\datetime.obj"
+".\Release\field_names.obj"
+".\Release\field_types.obj"
+".\Release\manip.obj"
+".\Release\query.obj"
+".\Release\result.obj"
+".\Release\set.obj"
+".\Release\sql_query.obj"
+".\Release\string_util.obj"
+".\Release\type_info.obj"
+".\Release\vallist.obj"
+".\mysql\lib\libmySQL.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\KATHER~1\LOCALS~1\Temp\RSP1D8.tmp"
+<h3>Output Window</h3>
+Compiling...
+coldata.cpp
+connection.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+datetime.cpp
+field_names.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+field_types.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+manip.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+query.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+result.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result.cpp(7) : warning C4355: 'this' : used in base member initializer list
+set.cpp
+sql_query.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+string_util.cpp
+type_info.cpp
+vallist.cpp
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+C:\Documents and Settings\Katherine\My Documents\SES Project\Kim's C++ SES\mysql++\sqlplus\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+Creating library...
+
+
+
+<h3>Results</h3>
+mysql++mt.lib - 0 error(s), 15 warning(s)
+</pre>
+</body>
+</html>

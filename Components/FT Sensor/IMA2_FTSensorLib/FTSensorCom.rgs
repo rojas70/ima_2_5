@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_FTSensorLib.FTSensorCom.1 = s 'FTSensorCom Class'
+	{
+		CLSID = s '{B76D0DD9-D211-43FB-AF30-0B1A6DF32CB3}'
+	}
+	IMA2_FTSensorLib.FTSensorCom = s 'FTSensorCom Class'
+	{
+		CLSID = s '{B76D0DD9-D211-43FB-AF30-0B1A6DF32CB3}'
+		CurVer = s 'IMA2_FTSensorLib.FTSensorCom.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B76D0DD9-D211-43FB-AF30-0B1A6DF32CB3} = s 'FTSensorCom Class'
+		{
+			ProgID = s 'IMA2_FTSensorLib.FTSensorCom.1'
+			VersionIndependentProgID = s 'IMA2_FTSensorLib.FTSensorCom'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{6A8400B2-A349-4AFA-9D26-218120F3D4BD}'
+		}
+	}
+}

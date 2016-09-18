@@ -1,0 +1,240 @@
+﻿<html>
+	<head>
+		<META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="_UpgradeReport_Files\UpgradeReport.css">
+		<title>IMA2_DAD.vbp Upgrade Report</title>
+		
+		<script language="javascript">
+			function outliner () {
+				oMe = window.event.srcElement
+				//get child element
+				var child = document.all[event.srcElement.getAttribute("child",false)];
+				//if child element exists, expand or collapse it.
+				if (null != child)
+					child.className = child.className == "collapsed" ? "expanded" : "collapsed";
+			}
+		
+			function changepic() {
+				uMe = window.event.srcElement;
+				var check = uMe.src.toLowerCase();
+				if (check.lastIndexOf("upgradereport_plus.gif") != -1)
+				{
+					uMe.src = "_UpgradeReport_Files/UpgradeReport_Minus.gif"
+				}
+				else
+				{
+					uMe.src = "_UpgradeReport_Files/UpgradeReport_Plus.gif"
+				}
+			}
+		</script>
+		
+	</head>
+	<body topmargin="0" leftmargin="0" rightmargin="0" onclick="outliner();">
+		<h1>Upgrade Report for IMA2_DAD.vbp</h1>
+		
+		<p><span class="note">
+		<b>Time of Upgrade:  </b>3/20/2002 4:59 PM<br>
+		</span></p>
+		
+		<h2>List of Project Files</h2>
+		<table cellpadding="2" cellspacing="0" width="98%" border="1"bordercolor="white" class="infotable"></TR>
+			<tr>
+				<td nowrap class="header">New Filename</td>
+				<td nowrap class="header">Original Filename</td>
+				<td nowrap class="header">File Type</td>
+				<td nowrap class="header">Status</td>
+				<td nowrap class="header">Errors</td>
+				<td nowrap class="header">Warnings</td>
+				<td nowrap class="header">Total Issues</td>
+			</tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue0">&nbsp;(Global Issues)</td>
+			<td class="content"></td>
+			<td class="content"></td>
+			<td class="content">
+		</td>	<td class="content">0</td>
+			<td class="content">0</td>
+			<td class="content">0</td>
+		</tr>
+			<tr class="collapsed" id="issue0" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Global update issues:</td></tr><tr><td class="issuenone">None</td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue1">&nbsp;ICmpView.ctl</td>
+			<td class="content">ICmpView.ctl</td>
+			<td class="content">User Control</td>
+			<td class="content">
+		Not upgraded</td>	<td class="content">1</td>
+			<td class="content">0</td>
+			<td class="content">1</td>
+		</tr>
+			<tr class="collapsed" id="issue1" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for ICmpView.ctl:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup4001"'>User Control ICmpView.ctl was not upgraded.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue2">&nbsp;frmBindings.vb</td>
+			<td class="content">frmBindings.frm</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">1</td>
+			<td class="content">5</td>
+			<td class="content">6</td>
+		</tr>
+			<tr class="collapsed" id="issue2" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for frmBindings.frm:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">frmBindings</td><td class="issuecontent">ScaleMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2038"'>Form property frmBindings.ScaleMode is not supported.</a></td></tr>
+					<tr><td width="10" class="issuecontent">2</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">(Declarations)</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1063"'>Arrays in structure m_Binding may need to be initialized before they can be used.</a></td></tr>
+					<tr><td width="10" class="issuecontent">3</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Binding</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object Binding.</a></td></tr>
+					<tr><td width="10" class="issuecontent">4</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent">Form</td><td class="issuecontent"></td><td class="issuecontent">Resize</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2075"'>Event frmBindings.Resize may fire when form is intialized.</a></td></tr>
+					<tr><td width="10" class="issuecontent">5</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Unload</td><td class="issuecontent">Form</td><td class="issuecontent">frmBindings</td><td class="issuecontent">Unload</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2065"'>Form event frmBindings.Unload has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">6</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">ShowDialog</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object m_Binding.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue3">&nbsp;frmInsert.vb</td>
+			<td class="content">frmInsert.frm</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">1</td>
+			<td class="content">1</td>
+			<td class="content">2</td>
+		</tr>
+			<tr class="collapsed" id="issue3" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for frmInsert.frm:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">frmInsert</td><td class="issuecontent">ScaleMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2038"'>Form property frmInsert.ScaleMode is not supported.</a></td></tr>
+					<tr><td width="10" class="issuecontent">2</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent">Form</td><td class="issuecontent"></td><td class="issuecontent">Resize</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2075"'>Event frmInsert.Resize may fire when form is intialized.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue4">&nbsp;frmMain.vb</td>
+			<td class="content">frmMain.frm</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">9</td>
+			<td class="content">21</td>
+			<td class="content">30</td>
+		</tr>
+			<tr class="collapsed" id="issue4" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for frmMain.frm:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">alv_ItemMenu</td><td class="issuecontent">Form</td><td class="issuecontent">frmMain</td><td class="issuecontent">PopupMenu</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2064"'>Form method frmMain.PopupMenu was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">2</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">atv_NodeMenu</td><td class="issuecontent">Form</td><td class="issuecontent">frmMain</td><td class="issuecontent">PopupMenu</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2064"'>Form method frmMain.PopupMenu was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">3</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">CheckATVMenus</td><td class="issuecontent">Clipboard</td><td class="issuecontent">Clipboard</td><td class="issuecontent">GetText</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2069"'>Clipboard method Clipboard.GetText was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">4</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">Form_Unload</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">Forms</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2068"'>Forms collection was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">5</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">mnuCmp_Copy_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">vbCFText</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2070"'>Constant vbCFText was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">6</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">mnuCmp_Copy_Click</td><td class="issuecontent">Clipboard</td><td class="issuecontent">Clipboard</td><td class="issuecontent">Clear</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2069"'>Clipboard method Clipboard.Clear was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">7</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">mnuCmp_Copy_Click</td><td class="issuecontent">Clipboard</td><td class="issuecontent">Clipboard</td><td class="issuecontent">SetText</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2069"'>Clipboard method Clipboard.SetText was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">8</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">frmMain</td><td class="issuecontent">ScaleMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2038"'>Form property frmMain.ScaleMode is not supported.</a></td></tr>
+					<tr><td width="10" class="issuecontent">9</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">ICmpView</td><td class="issuecontent">cmv</td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2067"'>ICmpView control cmv was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">10</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">atv_NodeMenu</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1041"'>TypeOf has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">11</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">CallMethod</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object Vars(I).</a></td></tr>
+					<tr><td width="10" class="issuecontent">12</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">DecodeParameters</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">TypeName</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1041"'>TypeName has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">13</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">DisplayFavorites</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object m_Favs().</a></td></tr>
+					<tr><td width="10" class="issuecontent">14</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Load</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object m_Icons.ImageList.UseMaskColor.</a></td></tr>
+					<tr><td width="10" class="issuecontent">15</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object TP_Height.</a></td></tr>
+					<tr><td width="10" class="issuecontent">16</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object TP_Top.</a></td></tr>
+					<tr><td width="10" class="issuecontent">17</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object BP_Left.</a></td></tr>
+					<tr><td width="10" class="issuecontent">18</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object BP_Top.</a></td></tr>
+					<tr><td width="10" class="issuecontent">19</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object BP_Height.</a></td></tr>
+					<tr><td width="10" class="issuecontent">20</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object BP_Width.</a></td></tr>
+					<tr><td width="10" class="issuecontent">21</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent">Form</td><td class="issuecontent"></td><td class="issuecontent">Resize</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2075"'>Event frmMain.Resize may fire when form is intialized.</a></td></tr>
+					<tr><td width="10" class="issuecontent">22</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Unload</td><td class="issuecontent">Form</td><td class="issuecontent">frmMain</td><td class="issuecontent">Unload</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2065"'>Form event frmMain.Unload has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">23</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">NewComponent</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">IsEmpty</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1041"'>IsEmpty was upgraded to IsNothing and has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">24</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">ReadProperty</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object V.</a></td></tr>
+					<tr><td width="10" class="issuecontent">25</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">ReadProperty</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object CallByName().</a></td></tr>
+					<tr><td width="10" class="issuecontent">26</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">ReadProperty</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object ReadProperty.</a></td></tr>
+					<tr><td width="10" class="issuecontent">27</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">ReadProperty</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">VarType</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1041"'>VarType has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">28</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">SetProperty</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object V.</a></td></tr>
+					<tr><td width="10" class="issuecontent">29</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">SetProperty</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object CallByName().</a></td></tr>
+					<tr><td width="10" class="issuecontent">30</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">UpdatePropertyValues</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CStr</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object ReadProperty().</a></td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue5">&nbsp;frmParams.vb</td>
+			<td class="content">frmParams.frm</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">1</td>
+			<td class="content">1</td>
+			<td class="content">2</td>
+		</tr>
+			<tr class="collapsed" id="issue5" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for frmParams.frm:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">frmParams</td><td class="issuecontent">ScaleMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2038"'>Form property frmParams.ScaleMode is not supported.</a></td></tr>
+					<tr><td width="10" class="issuecontent">2</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent">Form</td><td class="issuecontent"></td><td class="issuecontent">Resize</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2075"'>Event frmParams.Resize may fire when form is intialized.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue6">&nbsp;frmSaveAs.vb</td>
+			<td class="content">frmSaveAs.frm</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">1</td>
+			<td class="content">6</td>
+			<td class="content">7</td>
+		</tr>
+			<tr class="collapsed" id="issue6" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for frmSaveAs.frm:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">frmSaveAs</td><td class="issuecontent">ScaleMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2038"'>Form property frmSaveAs.ScaleMode is not supported.</a></td></tr>
+					<tr><td width="10" class="issuecontent">2</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Actualize</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">IsEmpty</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1041"'>IsEmpty was upgraded to IsNothing and has a new behavior.</a></td></tr>
+					<tr><td width="10" class="issuecontent">3</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Load</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object m_Icons.ImageList.GetOcx.</a></td></tr>
+					<tr><td width="10" class="issuecontent">4</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Resize</td><td class="issuecontent">Form</td><td class="issuecontent"></td><td class="issuecontent">Resize</td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2075"'>Event frmSaveAs.Resize may fire when form is intialized.</a></td></tr>
+					<tr><td width="10" class="issuecontent">5</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">GetFileName</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object GetFileName.</a></td></tr>
+					<tr><td width="10" class="issuecontent">6</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">ocb_OnOK</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object GetFileName().</a></td></tr>
+					<tr><td width="10" class="issuecontent">7</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">SynchronizeImages</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'>Couldn't resolve default property of object Nds().Image.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue7">&nbsp;Module1.vb</td>
+			<td class="content">Module1.bas</td>
+			<td class="content">Module</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">1</td>
+			<td class="content">0</td>
+			<td class="content">1</td>
+		</tr>
+			<tr class="collapsed" id="issue7" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for Module1.bas:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr">Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Compile Error</td><td class="issuecontent">(Declarations)</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup2068"'>PropertyBag object was not upgraded.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr valign="top">
+			<td class="foot">7 File(s)</td>
+			<td class="foot">&nbsp;</td>
+			<td class="foot">User Controls: 1<br>Forms: 5<br>Modules: 1</td>
+			<td class="foot">
+		Upgraded: 6<BR>
+		Not upgraded: 1
+		</td>
+			<td class="foot">15</td>
+			<td class="foot">34</td>
+			<td class="foot">49</td>
+		</tr>
+		</table>
+		<p class="help">
+			<A href='ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbtbsTroubleshootingApplicationsUpgradedFromVisualBasic60"'>Click here for help with troubleshooting upgraded projects</A>
+		</p>
+				<p>
+					<table class = "note">
+						<tr><td nowrap><b>Upgrade Settings</b></tr>
+						<tr><td nowrap><b>GenerateInterfacesForClasses:</b> FALSE</tr>
+						<tr><td nowrap><b>LogFile:</b> IMA2_DAD.log</tr>
+						<tr><td nowrap><b>MigrateProjectTo:</b> 0</tr>
+						<tr><td nowrap><b>OutputDir:</b> C:\Ima2\Source\Framework\Dad\IMA2_DAD.NET</tr>
+						<tr><td nowrap><b>OutputName:</b> IMA2_DAD.vbproj</tr>
+						<tr><td nowrap><b>ProjectName:</b> IMA2_DAD</tr>
+						<tr><td nowrap><b>ProjectPath:</b> C:\Ima2\Source\Framework\Dad\IMA2_DAD.vbp</tr>
+					</table>
+				</p>
+	</body>
+</html>

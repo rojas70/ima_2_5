@@ -1,0 +1,26 @@
+HKCR
+{
+	ExampleComp.Example.1 = s 'Example Class'
+	{
+		CLSID = s '{BCB67108-F739-4B9C-BD9C-BAC1703A077D}'
+	}
+	ExampleComp.Example = s 'Example Class'
+	{
+		CLSID = s '{BCB67108-F739-4B9C-BD9C-BAC1703A077D}'
+		CurVer = s 'ExampleComp.Example.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BCB67108-F739-4B9C-BD9C-BAC1703A077D} = s 'Example Class'
+		{
+			ProgID = s 'ExampleComp.Example.1'
+			VersionIndependentProgID = s 'ExampleComp.Example'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A9C789C6-6486-433A-B0DE-D8EE3C86B50B}'
+		}
+	}
+}

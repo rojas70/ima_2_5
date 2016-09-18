@@ -1,0 +1,15 @@
+Calling Matlab from C++
+
+- Steps required to install files
+
+1) Ensure that you can find the following files"
+matlabroot\bin\win32\libeng.dll
+matlabroot\bin\win32\libmx.dll
+matlabroot\bin\win32\icudt32l.dat
+
+
+2) Withing Matlab's help section look at MEX Files
+- These files will run faster that .m files. 
+
+3) Set Run-Time Library Path
+- Set path environment variable to "[matlabroot '\bin\win32']

@@ -1,0 +1,71 @@
+// IMA2_BarretLib.idl : IDL source for IMA2_BarretLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_BarretLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(5F38AA5F-6EDF-4841-8809-B42056B8B9FE),
+		dual,
+		helpstring("IBarretComp Interface"),
+		pointer_default(unique)
+	]
+	interface IBarretComp : IDispatch
+	{
+		[propget, id(1), helpstring("property HandParamter")] HRESULT HandParamter([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property HandParamter")] HRESULT HandParamter([in] BSTR newVal);
+		[propget, id(3), helpstring("property StepSize")] HRESULT StepSize([out, retval] long *pVal);
+		[propput, id(3), helpstring("property StepSize")] HRESULT StepSize([in] long newVal);
+		[id(6), helpstring("method Open")] HRESULT Open();
+		[id(7), helpstring("method Close")] HRESULT Close();
+		[id(8), helpstring("method GoHome")] HRESULT GoHome();
+		[id(9), helpstring("method StepOpen")] HRESULT StepOpen();
+		[id(10), helpstring("method StepClose")] HRESULT StepClose();
+		[id(11), helpstring("method Initialize")] HRESULT Initialize();	
+		[id(12), helpstring("method GoToPosition")] HRESULT GoToPosition();
+		[id(13), helpstring("method GoToDefaultPosition")] HRESULT GoToDefaultPosition();
+		[propget, id(14), helpstring("property Velocity")] HRESULT Velocity([out, retval] long *pVal);
+		[propput, id(14), helpstring("property Velocity")] HRESULT Velocity([in] long newVal);
+		[propget, id(15), helpstring("property StrainGauge")] HRESULT StrainGauge([out, retval] long *pVal);
+		[propget, id(16), helpstring("property DefaultPosition")] HRESULT DefaultPosition([out, retval] long *pVal);
+		[propput, id(16), helpstring("property DefaultPosition")] HRESULT DefaultPosition([in] long newVal);
+		[propget, id(17), helpstring("property ParameterFlag")] HRESULT ParameterFlag([out, retval] BSTR *pVal);
+		[propput, id(17), helpstring("property ParameterFlag")] HRESULT ParameterFlag([in] BSTR newVal);
+		[id(18), helpstring("method Get")] HRESULT Get();
+		[id(19), helpstring("method Set")] HRESULT Set();
+		[propget, id(20), helpstring("property ParameterValue")] HRESULT ParameterValue([out, retval] long *pVal);
+		[propput, id(20), helpstring("property ParameterValue")] HRESULT ParameterValue([in] long newVal);
+		[propget, id(21), helpstring("property Position")] HRESULT Position([out, retval] long *pVal);
+		[propput, id(21), helpstring("property Position")] HRESULT Position([in] long newVal);
+		[id(22), helpstring("method _ThreeFingerGrasp")] HRESULT _ThreeFingerGrasp();
+		[id(23), helpstring("method _ClosedHandGrasp")] HRESULT _ClosedHandGrasp();
+		[id(24), helpstring("method _IndexFingerPointing")] HRESULT _IndexFingerPointing();
+		[id(26), helpstring("method StopMotors")] HRESULT StopMotors();
+
+
+	};
+
+[
+	uuid(1DAE7BC7-0BE4-4375-B50B-10FC230D513B),
+	version(1.0),
+	helpstring("(IMA2 Components) - Barret Hand Lib")
+]
+library IMA2_BARRETLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(EA74A33A-60F9-4CBE-828D-C13A9B700A33),
+		helpstring("BarretComp Class")
+	]
+	coclass BarretComp
+	{
+		[default] interface IBarretComp;
+		interface IComponent; 
+	};
+};

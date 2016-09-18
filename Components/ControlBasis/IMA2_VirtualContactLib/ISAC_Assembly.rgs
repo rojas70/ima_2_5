@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_VirtualContactLib.ISAC_Assembly.1 = s 'ISAC_Assembly Class'
+	{
+		CLSID = s '{74FEEC9C-4F27-44B7-B837-964E34201573}'
+	}
+	IMA2_VirtualContactLib.ISAC_Assembly = s 'ISAC_Assembly Class'
+	{
+		CLSID = s '{74FEEC9C-4F27-44B7-B837-964E34201573}'
+		CurVer = s 'IMA2_VirtualContactLib.ISAC_Assembly.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {74FEEC9C-4F27-44B7-B837-964E34201573} = s 'ISAC_Assembly Class'
+		{
+			ProgID = s 'IMA2_VirtualContactLib.ISAC_Assembly.1'
+			VersionIndependentProgID = s 'IMA2_VirtualContactLib.ISAC_Assembly'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{74FEEC9C-4F27-44B7-B837-964E34201573}'
+			
+		}
+	}
+}

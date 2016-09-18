@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_NNet_n_PController.NewValveController.1 = s 'NewValveController Class'
+	{
+		CLSID = s '{71645483-B459-4EEA-A355-B3F3D8A5748D}'
+	}
+	IMA2_NNet_n_PController.NewValveController = s 'NewValveController Class'
+	{
+		CLSID = s '{71645483-B459-4EEA-A355-B3F3D8A5748D}'
+		CurVer = s 'IMA2_NNet_n_PController.NewValveController.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {71645483-B459-4EEA-A355-B3F3D8A5748D} = s 'NewValveController Class'
+		{
+			ProgID = s 'IMA2_NNet_n_PController.NewValveController.1'
+			VersionIndependentProgID = s 'IMA2_NNet_n_PController.NewValveController'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{71645483-B459-4EEA-A355-B3F3D8A5748D}'
+			
+		}
+	}
+}

@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_SESManager.SesManager.1 = s 'SesManager Class'
+	{
+		CLSID = s '{6E17776E-8396-4F5A-BADA-61BC13608A3D}'
+	}
+	IMA2_SESManager.SesManager = s 'SesManager Class'
+	{
+		CLSID = s '{6E17776E-8396-4F5A-BADA-61BC13608A3D}'
+		CurVer = s 'IMA2_SESManager.SesManager.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6E17776E-8396-4F5A-BADA-61BC13608A3D} = s 'SesManager Class'
+		{
+			ProgID = s 'IMA2_SESManager.SesManager.1'
+			VersionIndependentProgID = s 'IMA2_SESManager.SesManager'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{811951D3-639E-4C93-AEF8-0FBA60B85A24}'
+		}
+	}
+}

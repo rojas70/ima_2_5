@@ -1,0 +1,93 @@
+// IMA2_PTHeadLib.idl : IDL source for IMA2_PTHeadLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_PTHeadLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(868D647B-D30E-4A20-8991-D924224BE1A2),
+		dual,
+		helpstring("IPTCatch Interface"),
+		pointer_default(unique)
+	]
+	interface IPTCatch : IDispatch
+	{
+		[propget, id(1), helpstring("property DeviceFilename1")] HRESULT DeviceFilename1([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property DeviceFilename1")] HRESULT DeviceFilename1([in] BSTR newVal);
+		[propget, id(2), helpstring("property DeviceFilename2")] HRESULT DeviceFilename2([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property DeviceFilename2")] HRESULT DeviceFilename2([in] BSTR newVal);
+		[propget, id(3), helpstring("property LeftPanSpeed")] HRESULT LeftPanSpeed([out, retval] long *pVal);
+		[propput, id(3), helpstring("property LeftPanSpeed")] HRESULT LeftPanSpeed([in] long newVal);
+		[propget, id(4), helpstring("property RightPanSpeed")] HRESULT RightPanSpeed([out, retval] long *pVal);
+		[propput, id(4), helpstring("property RightPanSpeed")] HRESULT RightPanSpeed([in] long newVal);
+		[propget, id(5), helpstring("property LeftTiltSpeed")] HRESULT LeftTiltSpeed([out, retval] long *pVal);
+		[propput, id(5), helpstring("property LeftTiltSpeed")] HRESULT LeftTiltSpeed([in] long newVal);
+		[propget, id(6), helpstring("property RightTiltSpeed")] HRESULT RightTiltSpeed([out, retval] long *pVal);
+		[propput, id(6), helpstring("property RightTiltSpeed")] HRESULT RightTiltSpeed([in] long newVal);
+		[propget, id(7), helpstring("property LeftPanAccel")] HRESULT LeftPanAccel([out, retval] long *pVal);
+		[propput, id(7), helpstring("property LeftPanAccel")] HRESULT LeftPanAccel([in] long newVal);
+		[propget, id(8), helpstring("property RightPanAccel")] HRESULT RightPanAccel([out, retval] long *pVal);
+		[propput, id(8), helpstring("property RightPanAccel")] HRESULT RightPanAccel([in] long newVal);
+		[propget, id(9), helpstring("property LeftTiltAccel")] HRESULT LeftTiltAccel([out, retval] long *pVal);
+		[propput, id(9), helpstring("property LeftTiltAccel")] HRESULT LeftTiltAccel([in] long newVal);
+		[propget, id(10), helpstring("property RightTiltAccel")] HRESULT RightTiltAccel([out, retval] long *pVal);
+		[propput, id(10), helpstring("property RightTiltAccel")] HRESULT RightTiltAccel([in] long newVal);
+//		[propget, id(11), helpstring("property PanLimit")] HRESULT PanLimit([out, retval] long *pVal);
+//		[propput, id(11), helpstring("property PanLimit")] HRESULT PanLimit([in] double newVal);
+//		[propget, id(12), helpstring("property TiltLimit")] HRESULT TiltLimit([out, retval] long *pVal);
+//		[propput, id(12), helpstring("property TiltLimit")] HRESULT TiltLimit([in] double newVal);
+		[propget, id(13), helpstring("property AxisOffset")] HRESULT AxisOffset([out, retval] double *pVal);
+		[propput, id(13), helpstring("property AxisOffset")] HRESULT AxisOffset([in] double newVal);
+		[propget, id(14), helpstring("property AxisOffsetIndex")] HRESULT AxisOffsetIndex([out, retval] int *pVal);
+		[propput, id(14), helpstring("property AxisOffsetIndex")] HRESULT AxisOffsetIndex([in] int newVal);
+		[propget, id(15), helpstring("property CommParams1")] HRESULT CommParams1([out, retval] BSTR *pVal);
+		[propput, id(15), helpstring("property CommParams1")] HRESULT CommParams1([in] BSTR newVal);
+		[propget, id(16), helpstring("property CommParams2")] HRESULT CommParams2([out, retval] BSTR *pVal);
+		[propput, id(16), helpstring("property CommParams2")] HRESULT CommParams2([in] BSTR newVal);
+		[propget, id(17), helpstring("property AxisGain")] HRESULT AxisGain([out, retval] double *pVal);
+		[propput, id(17), helpstring("property AxisGain")] HRESULT AxisGain([in] double newVal);
+		[propget, id(18), helpstring("property AxisGainIndex")] HRESULT AxisGainIndex([out, retval] int *pVal);
+		[propput, id(18), helpstring("property AxisGainIndex")] HRESULT AxisGainIndex([in] int newVal);
+		[propget, id(19), helpstring("property AxisThreshold")] HRESULT AxisThreshold([out, retval] long *pVal);
+		[propput, id(19), helpstring("property AxisThreshold")] HRESULT AxisThreshold([in] long newVal);
+		[propget, id(20), helpstring("property AxisThresholdIndex")] HRESULT AxisThresholdIndex([out, retval] int *pVal);
+		[propput, id(20), helpstring("property AxisThresholdIndex")] HRESULT AxisThresholdIndex([in] int newVal);
+//		[propget, id(21), helpstring("property PanLimitIndex")] HRESULT PanLimitIndex([out, retval] int *pVal);
+//		[propput, id(21), helpstring("property PanLimitIndex")] HRESULT PanLimitIndex([in] int newVal);
+//		[propget, id(22), helpstring("property TiltLimitIndex")] HRESULT TiltLimitIndex([out, retval] int *pVal);
+//		[propput, id(22), helpstring("property TiltLimitIndex")] HRESULT TiltLimitIndex([in] int newVal);
+		[id(23), helpstring("method SampleHead")] HRESULT SampleHead([in,out] SAFEARRAY(double) Val);
+		[id(24), helpstring("method CommandHeadAbsolute")]	HRESULT CommandHeadAbsolute([in]SAFEARRAY(double) Val);
+		[id(26), helpstring("method Stop")] HRESULT Stop();
+		[id(28), helpstring("method Reset")] HRESULT Reset();
+		[id(29), helpstring("method HeadCommand")] HRESULT aaHeadCommand();
+		[id(30), helpstring("method HeadSample")] HRESULT aaHeadSample();	
+		[id(36), helpstring("method Initialize")] HRESULT Initialize();
+		// one propget/put less than in 1.0, left out CommmTimout1,2. Added many indeces.
+
+	};
+
+[
+	uuid(6B31DC86-3B53-40C3-99CB-40B1B49E86B9),
+	version(1.0),
+	helpstring("(IMA2 Components) - PT HeadLib")
+]
+library IMA2_PTHEADLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb"); 
+
+	[
+		uuid(84638812-DA4D-445F-8D46-04B2961F7A1F),
+		helpstring("PTCatch Class")
+	]
+	coclass PTCatch
+	{
+		[default] interface IPTCatch;
+		interface IComponent; 
+	};
+};

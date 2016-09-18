@@ -1,0 +1,73 @@
+%% ISACs Forward Kinematics and Jacobian
+%  By Juan Rojas, May 08.
+
+function ISACs_KINEMATICS
+%% Description
+
+% This program will produce a symbolic matrix for the DH Parameters, each
+% link in ISACs right manipulator, its complete forward kinematics, and its
+% manipulator Jacobian. 
+
+% We want the Jacobian in the symbolic form so that we can then use this
+% matrix in control computations. 
+
+% For more on Matlab's symbolic toolbox, do help sym.
+
+% The structure of the program is as follows:
+% 1) Derive the DH Parameters in symbolic form.
+% 2) Derive the link transforms
+% 3) Derive the Forward Kinematics (ie the transform from link_0 to link_6
+% 4) Derive the Jacobian
+
+% Note: Please note that you might have to consider a BASE transform and an
+% end-effector transform for these different robots. For example, ISACs
+% origin is in between his camera's eyes. So in code, there needs to be a
+% transform that adjusts for this difference. Same for an end-effector.
+%% Initialize Symbolic Values
+clear all,  clc, clf
+
+a2		=  330.0;
+a3      =  0;
+d3		= -200.0;			% Right Arm Parameter
+d4		=  290.0;
+
+% Alpha angles. The signs of these angles have been verified.
+alpha0 =   0;     
+alpha1 = -90;
+alpha2 =   0;
+alpha3 = -90;           
+alpha4 =  90;           
+alpha5 = -90;           
+% 
+% thetas (Thetas were changed to Angle so it is easier to code in C++
+% later).
+syms Angle0; % Theta1
+syms Angle1; % Theta2 
+syms Angle2; % Theta3
+syms Angle3; % Theta4
+syms Angle4; % Theta5
+syms Angle5; % Theta6
+%
+
+% Create transforms by calling the DH-Params
+%                  theta,   d,      a,     alpha     version
+T01=DHmatrix_sym(Angle0,   0,      0,       0,       1);
+T12=DHmatrix_sym(Angle0,   0,      0,     -90,       1);
+T23=DHmatrix_sym(Angle0,  d3,     a2,       0,       1);
+T34=DHmatrix_sym(Angle0,  d4,     a3,     -90,       1);
+T45=DHmatrix_sym(Angle4,   0,      0,      90,       1);
+T56=DHmatrix_sym(Angle5,   0,      0,     -90,       1);
+ 
+%% Symbolic Computation of ISACs Forward Kinematics
+T06_isac = T01*T12*T23*T34*T45*T56;
+T06_isac = simple(T06_isac);          % Simplify the expression
+
+%% Symbolic Computation of ISACs Manipulator Jacobian.
+%  The following equation is open source from matlab\toolbox\robotic\DiProdi.
+J_isac = jacobianT6_sym(T06_isac, [T01, T12, T23, T34, T45, T56],['R','R','R','R','R','R']);
+ 
+% The result is run then in mathematica for further simplification. Look at
+% O:\Documentation\Component Description\ControlBasis\Matlab n Mathematica
+% Files
+
+end

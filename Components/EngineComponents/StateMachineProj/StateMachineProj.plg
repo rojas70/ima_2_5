@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: StateMachineProj - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP109.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "C:\IMA2\Base Classes" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"O:\Components\EngineComponents\StateMachineProj\StateMachine.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP109.tmp" 
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP10A.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/StateMachineProj.pdb" /debug /machine:I386 /def:".\StateMachineProj.def" /out:"Debug/StateMachineProj.dll" /implib:"Debug/StateMachineProj.lib" /pdbtype:sept /libpath:"C:\IMA2\System\Framework" 
+.\Debug\StateMachine.obj
+.\Debug\StateMachineProj.obj
+.\Debug\StdAfx.obj
+.\Debug\ViewSM.obj
+.\Debug\StateMachineProj.res
+]
+Creating command line "link.exe @C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP10A.tmp"
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP10B.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\StateMachineProj.dll"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+copy .\Debug\StateMachineProj.dll c:\ima2\components\IMA2_MatlabStateMachine.dll
+copy .\Debug\StateMachineProj.dll o:\components\IMA2_MatlabStateMachine.dll
+copy .\StateMachineProj.h O:\Include\IMA2_MatlabStateMachineLib.h
+copy .\StateMachineProj_i.c O:\Include\IMA2_MatlabStateMachineLib_i.c
+]
+Creating command line "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP10B.bat"
+Compiling...
+StateMachine.cpp
+Linking...
+LINK : LNK6004: Debug/StateMachineProj.dll not found or not built by the last incremental link; performing full link
+   Creating library Debug/StateMachineProj.lib and object Debug/StateMachineProj.exp
+<h3>Output Window</h3>
+Performing registration
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+
+
+
+<h3>Results</h3>
+StateMachineProj.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

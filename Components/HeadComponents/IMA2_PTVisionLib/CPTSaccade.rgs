@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_PTVisionLib.CPTSaccade.1 = s 'CPTSaccade Class'
+	{
+		CLSID = s '{AFC66B00-F482-476A-A279-F71A8EA18E79}'
+	}
+	IMA2_PTVisionLib.CPTSaccade = s 'CPTSaccade Class'
+	{
+		CLSID = s '{AFC66B00-F482-476A-A279-F71A8EA18E79}'
+		CurVer = s 'IMA2_PTVisionLib.CPTSaccade.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AFC66B00-F482-476A-A279-F71A8EA18E79} = s 'CPTSaccade Class'
+		{
+			ProgID = s 'IMA2_PTVisionLib.CPTSaccade.1'
+			VersionIndependentProgID = s 'IMA2_PTVisionLib.CPTSaccade'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{D835AB70-870C-4B1A-8E1F-93F149F6D4FA}'
+		}
+	}
+}

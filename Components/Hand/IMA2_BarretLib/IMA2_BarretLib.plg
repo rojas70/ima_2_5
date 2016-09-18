@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: IMA2_BarretLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2C.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/IMA2_BarretLib.pdb" /debug /machine:I386 /def:".\IMA2_BarretLib.def" /out:"Debug/IMA2_BarretLib.dll" /implib:"Debug/IMA2_BarretLib.lib" /pdbtype:sept 
+.\Debug\BarretComp.obj
+.\Debug\bhand.obj
+.\Debug\IMA2_BarretLib.obj
+.\Debug\serial.obj
+.\Debug\StdAfx.obj
+.\Debug\IMA2_BarretLib.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2C.tmp"
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2D.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\IMA2_BarretLib.dll"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+copy   .\Debug\IMA2_BarretLib.dll   c:\ima2\components\
+copy  .\Debug\IMA2_BarretLib.dll  O:\Components
+]
+Creating command line "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2D.bat"
+Linking...
+   Creating library Debug/IMA2_BarretLib.lib and object Debug/IMA2_BarretLib.exp
+<h3>Output Window</h3>
+Performing registration
+        1 file(s) copied.
+        1 file(s) copied.
+Creating command line "bscmake.exe /nologo /o"Debug/IMA2_BarretLib.bsc"  .\Debug\StdAfx.sbr .\Debug\BarretComp.sbr .\Debug\bhand.sbr .\Debug\IMA2_BarretLib.sbr .\Debug\serial.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+IMA2_BarretLib.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

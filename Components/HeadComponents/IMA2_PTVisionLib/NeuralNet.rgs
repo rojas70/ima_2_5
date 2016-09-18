@@ -1,0 +1,23 @@
+HKCR
+{
+	IMA2_PTVisionLib.NeuralNet.1 = s 'NeuralNet Class'
+	{
+		CLSID = s '{C7D98D94-ED39-4606-863F-3AE1DFD88402}'
+	}
+	IMA2_PTVisionLib.NeuralNet = s 'NeuralNet Class'
+	{
+		CLSID = s '{C7D98D94-ED39-4606-863F-3AE1DFD88402}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C7D98D94-ED39-4606-863F-3AE1DFD88402} = s 'NeuralNet Class'
+		{
+			ProgID = s 'IMA2_PTVisionLib.NeuralNet.1'
+			VersionIndependentProgID = s 'IMA2_PTVisionLib.NeuralNet'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

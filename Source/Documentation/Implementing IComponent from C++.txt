@@ -1,0 +1,79 @@
+***************************************************************************************
+Title: 	How to implement IComponent from C++
+Author:	Roberto Olivares 
+Date:	11/28/01  	Last Updated: 2/28/02 by RO
+***************************************************************************************
+
+To implement an IMA2 component from C++:
+
+1) Create an ATL COM Project.
+2) Add an ATL "Simple COM Object" using the ATL Object wizard.
+3) Add the following three lines of code to your object's .H file.
+
+After your include files:
+	
+	#include "c:\Ima2\Source\Framework\BaseClasses\ComponentImpl.h"
+
+At the end of your inheritance list (remember to put a comma at the end of the line before it):
+
+	public CComponentImpl
+
+In your COM_INTERFACE_ENTRY map:
+
+	COM_INTERFACE_ENTRY(IComponent)
+
+This is all you should need to implment basic component functionality.
+
+
+
+4) In the IDL File find the Library section and modify the following lines by example:
+
+
+[
+	uuid(A682C743-8759-49B9-9801-7CA7F4BFB5CA),
+	version(1.0),
+***	helpstring("(IMA2 Components) - Softarm Hardware IO") ***
+]
+library IMA2_ArmMech
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+***	importlib("c:\ima2\system\framework\ima2.tlb"); ***
+
+	[
+		uuid(71E206EE-38E0-49DF-8063-8CB9B65B382D),
+		helpstring("Softarm Class")
+	]
+	coclass Softarm
+	{
+		[default] interface ISoftarm;
+***		interface IComponent; ***
+	};
+	[
+		uuid(6CEFF493-491B-4B96-9FCE-768BF83B77CB),
+		helpstring("Homer Class")
+	]
+	coclass Homer
+	{
+		[default] interface IHomer;
+***		interface IComponent; ***
+	};
+};
+
+
+5) After your compile your project, copy the DLL file to the c:\ima2\system\components directory to make them visible to DAD.
+   You can automate this by adding the following line to the end of the commands in your Project->Settings->Custom Build->Commands:
+
+	copy  $(TargetPath)  c:\ima2\system\components\  
+
+6) Remember that Visual C++ can only let you debug code running in its currently attached process, so to debug your component you'll have
+   to set your debug application in "Project->Settings->Debug->Executable for Debug Session" to:
+
+	C:\IMA2\System\Framework\IMA2_DAD.EXE 
+
+   You'll also have to create your component in an In-Process agent (ProgID = IMA2_AgentDLL.Agent) to be able to debug it from VC. Otherwise, it'll
+   seem like your breakpoints dont work.
+
+7) You may want to add an icon for your components to the folder in C:\IMA2\System\Icons, for IMA2_DAD to display the icon you must name the icon file
+   with the same name as the full ProgID for your class (such as MyProject.MyClass.1). You can edit an icon by draggin an existing icon into 
+   VC++ and then saving it as the name for your class. DO NOT SAVE OVER THE ICON YOU DRAGGED INTO VC.

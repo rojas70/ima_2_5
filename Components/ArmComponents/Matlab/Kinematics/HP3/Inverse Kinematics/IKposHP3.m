@@ -1,0 +1,59 @@
+% HP3 home position is (x,y,z) = (490,0,375)
+
+function Q = IKposHP3(x,y,z)
+
+    % Vector of joint angles
+    Q = zeros(6,1);
+
+    % DH Parameters
+    a1  =  0;
+    a2  =  260;
+    a3  =   30;
+    d4  =  -270.0;
+    d6  =  -244.5;
+    dt  = -(d4+d6);
+    a22 = a2^2;
+    a32 = a3^2;
+    dt2 = dt*dt;
+
+    % Joint Angle 1
+    q1  = atan2(y,x- 244.3);
+
+    J2x = a1*cos(q1);
+    J2y = a1*sin(q1);
+    xW1 = x - J2x;
+    yW1 = y - J2y;
+    x12 = xW1^2 + yW1^2;
+    x1  = sqrt(x12);
+
+    d  = sqrt( x12 + z^2 );
+    t2 = dt^2 + a32;
+    t  = sqrt( t2 );
+    r  = (a2^2 - t2 + d^2) / (2*d);
+    Px = r*x1/d;
+    Pz = r*z/d;
+    h  = sqrt( a22 - r^2 );
+    J3x = Px - h*z/d;
+    J3z = Pz + h*x1/d;
+
+    % Joint Angle 2
+    q2 = atan2(J3x,J3z);
+
+    q3t = acos( a3/t );
+    qt  = atan2( x1-J3x, z-J3z );
+
+    % Joint Angle 3
+    q3  = -(qt - q3t - q2);
+
+    % Vector of joint Angles with the wrist rigid.
+    Q(1) =    q1;
+    Q(2) =    q2 - pi/2;
+    Q(3) =    q3;
+    Q(4) =    pi;
+    Q(5) = -pi/2;
+    Q(6) =     0;
+
+    % Convert to degrees
+    Q = 180*Q/pi;
+
+end

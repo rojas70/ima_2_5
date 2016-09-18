@@ -1,0 +1,29 @@
+hi
+fdef
+gc
+go
+sc
+1FSET MCV 40
+2FSET MCV 100
+3FSET MCV 65
+1FSET MOV 100
+2FSET MOV 40
+3FSET MOV 65
+gc
+go
+so
+sfset mcv 55
+sfset mov 15
+sc
+so
+12fset mcv 35
+3fset mcv 45
+12fset dp 12500
+3fset dp 10700
+gm
+sfset mcv 16
+sc
+gfset mcv 150
+gfset mov 150
+gc
+o

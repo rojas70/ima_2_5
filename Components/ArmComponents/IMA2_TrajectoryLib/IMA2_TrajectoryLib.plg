@@ -1,0 +1,117 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: IMA2_TrajectoryLib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "midl.exe /tlb ".\IMA2_TrajectoryLib.tlb" /h "IMA2_TrajectoryLib.h" /iid "IMA2_TrajectoryLib_i.c" /Oicf "O:\Components\ArmComponents\IMA2_TrajectoryLib\IMA2_TrajectoryLib.idl""
+Creating command line "rc.exe /l 0x409 /fo"Debug/IMA2_TrajectoryLib.res" /d "_DEBUG" "O:\Components\ArmComponents\IMA2_TrajectoryLib\IMA2_TrajectoryLib.rc"" 
+Creating temporary file "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP8F.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"O:\Include\IMA2_BasicComponentsLib_i.c"
+"O:\Include\IMA2_ColorSegmenterLib_i.c"
+"O:\Include\IMA2_MatlabStateMachineLib_i.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP8F.tmp" 
+Creating temporary file "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP90.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/IMA2_TrajectoryLib.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"O:\Components\ArmComponents\IMA2_TrajectoryLib\IMA2_TrajectoryLib.cpp"
+"O:\Components\ArmComponents\IMA2_TrajectoryLib\TrajectoryGen.cpp"
+"O:\Components\ArmComponents\IMA2_TrajectoryLib\TrajectoryPlayer.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP90.tmp" 
+Creating temporary file "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP91.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/IMA2_TrajectoryLib.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"O:\Components\ArmComponents\IMA2_TrajectoryLib\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP91.tmp" 
+Creating temporary file "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP92.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/IMA2_TrajectoryLib.pdb" /debug /machine:I386 /def:".\IMA2_TrajectoryLib.def" /out:"Debug/IMA2_TrajectoryLib.dll" /implib:"Debug/IMA2_TrajectoryLib.lib" /pdbtype:sept 
+.\Debug\IMA2_BasicComponentsLib_i.obj
+.\Debug\IMA2_ColorSegmenterLib_i.obj
+.\Debug\IMA2_MatlabStateMachineLib_i.obj
+.\Debug\IMA2_TrajectoryLib.obj
+.\Debug\StdAfx.obj
+.\Debug\TrajectoryGen.obj
+.\Debug\TrajectoryPlayer.obj
+.\Debug\IMA2_TrajectoryLib.res
+]
+Creating command line "link.exe @C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP92.tmp"
+Creating temporary file "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP93.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\IMA2_TrajectoryLib.dll"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+copy          .\Debug\IMA2_TrajectoryLib.dll          c:\ima2\components\
+copy  .\Debug\IMA2_TrajectoryLib.dll  O:\Components
+]
+Creating command line "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSP93.bat"
+Creating Type Library...
+Microsoft (R) MIDL Compiler Version 5.01.0164  
+Copyright (c) Microsoft Corp 1991-1997. All rights reserved.
+Processing O:\Components\ArmComponents\IMA2_TrajectoryLib\IMA2_TrajectoryLib.idl
+IMA2_TrajectoryLib.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\oaidl.idl
+oaidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\objidl.idl
+objidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\unknwn.idl
+unknwn.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\wtypes.idl
+wtypes.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\ocidl.idl
+ocidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\oleidl.idl
+oleidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\servprov.idl
+servprov.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\urlmon.idl
+urlmon.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\msxml.idl
+msxml.idl
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+IMA2_BasicComponentsLib_i.c
+IMA2_ColorSegmenterLib_i.c
+IMA2_MatlabStateMachineLib_i.c
+Generating Code...
+Compiling...
+IMA2_TrajectoryLib.cpp
+TrajectoryGen.cpp
+TrajectoryPlayer.cpp
+Generating Code...
+Linking...
+   Creating library Debug/IMA2_TrajectoryLib.lib and object Debug/IMA2_TrajectoryLib.exp
+<h3>Output Window</h3>
+Performing registration
+        1 file(s) copied.
+        1 file(s) copied.
+Creating temporary file "C:\DOCUME~1\reecet\LOCALS~1\Temp\RSPA1.tmp" with contents
+[
+/nologo /o"Debug/IMA2_TrajectoryLib.bsc" 
+.\Debug\StdAfx.sbr
+.\Debug\IMA2_BasicComponentsLib_i.sbr
+.\Debug\IMA2_ColorSegmenterLib_i.sbr
+.\Debug\IMA2_MatlabStateMachineLib_i.sbr
+.\Debug\IMA2_TrajectoryLib.sbr
+.\Debug\TrajectoryGen.sbr
+.\Debug\TrajectoryPlayer.sbr]
+Creating command line "bscmake.exe @C:\DOCUME~1\reecet\LOCALS~1\Temp\RSPA1.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+IMA2_TrajectoryLib.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

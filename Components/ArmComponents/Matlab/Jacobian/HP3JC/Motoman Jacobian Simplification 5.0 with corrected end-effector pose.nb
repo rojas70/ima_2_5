@@ -1,0 +1,3611 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    119649,       3602]
+NotebookOptionsPosition[    117305,       3518]
+NotebookOutlinePosition[    117645,       3533]
+CellTagsIndexPosition[    117602,       3530]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"J1", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "15"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "-", 
+     RowBox[{"130", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{"130", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{"135", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{"135", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{"15", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}]}], 
+    ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "130"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"130", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{"135", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"135", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{"15", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "-", 
+     RowBox[{"15", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{"135", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "-", 
+     RowBox[{"135", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{"15", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"15", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "489"}], "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}]}], ",", "0"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.426448435171875*^9, 3.426448445234375*^9}, {
+  3.426448718828125*^9, 3.4264487778125*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"135", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"135", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{"130", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "-", 
+    RowBox[{"130", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "-", 
+    RowBox[{"15", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"15", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{"135", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"135", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{"130", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "-", 
+    RowBox[{"130", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "-", 
+    RowBox[{"15", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"15", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "135"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"135", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{"15", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"15", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["489", "8"]}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.4264488264375*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J1", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"MatrixForm", "[", "J1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.4264484480625*^9, 3.4264484599375*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "520"}], " ", 
+           RowBox[{"Cos", "[", "Angle1", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}]}], "-", 
+          RowBox[{"3", " ", 
+           RowBox[{"(", 
+            RowBox[{"180", "+", 
+             RowBox[{"163", " ", 
+              RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+          RowBox[{"489", " ", 
+           RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle3", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle4", "]"}]}], "+", 
+          RowBox[{"3", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "20"}], "+", 
+             RowBox[{"163", " ", 
+              RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+              RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"3", " ", 
+           RowBox[{"Cos", "[", "Angle1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Cos", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"180", "+", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}]}], "+", 
+             RowBox[{
+              RowBox[{"Sin", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"20", "-", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}], 
+          "+", 
+          RowBox[{
+           RowBox[{"Sin", "[", "Angle1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "520"}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"540", "+", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}], " ", 
+              RowBox[{"Sin", "[", "Angle2", "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"Cos", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "60"}], "+", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], 
+            ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["3", "4"]}], " ", 
+        RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"360", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+          RowBox[{"163", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2", "-", "Angle4"}], "]"}]}], "+", 
+          RowBox[{"163", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2", "+", "Angle4"}], "]"}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "20"}], "+", 
+             RowBox[{"163", " ", 
+              RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+              RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        FractionBox["489", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle3", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "Angle4", "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["489", "2"]}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"Cos", "[", "Angle4", "]"}]}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle3", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+              RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+              RowBox[{"Cos", "[", "Angle4", "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"Sin", "[", 
+               RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+              RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}]},
+      {"0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.426448841734375*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CForm", "[", "J1", "]"}]], "Input",
+ CellChangeTimes->{{3.42644846390625*^9, 3.4264484671875*^9}}],
+
+Cell["\<\
+MatrixForm(List((-520*Cos(Angle1)*Sin(Angle0) - 3*(180 + \
+163*Cos(Angle4))*Sin(Angle0)*Sin(Angle1 - Angle2) + \
+489*Cos(Angle0)*Sin(Angle3)*Sin(Angle4) + 
+       3*Cos(Angle1 - Angle2)*Sin(Angle0)*(-20 + \
+163*Cos(Angle3)*Sin(Angle4)))/2.,
+    (Cos(Angle0)*(3*Cos(Angle1)*(Cos(Angle2)*(180 + 163*Cos(Angle4)) + \
+Sin(Angle2)*(20 - 163*Cos(Angle3)*Sin(Angle4))) + 
+         Sin(Angle1)*(-520 + (540 + 489*Cos(Angle4))*Sin(Angle2) + \
+Cos(Angle2)*(-60 + 489*Cos(Angle3)*Sin(Angle4)))))/2.,
+    (-3*Cos(Angle0)*(360*Cos(Angle1 - Angle2) + 163*Cos(Angle1 - Angle2 - \
+Angle4) + 163*Cos(Angle1 - Angle2 + Angle4) + 
+         2*Sin(Angle1 - Angle2)*(-20 + 163*Cos(Angle3)*Sin(Angle4))))/4.,
+    (489*(Cos(Angle3)*Sin(Angle0) + Cos(Angle0)*Cos(Angle1 - \
+Angle2)*Sin(Angle3))*Sin(Angle4))/2.,
+    (-489*(-(Cos(Angle4)*Sin(Angle0)*Sin(Angle3)) + Cos(Angle0)*(Cos(Angle1 - \
+Angle2)*Cos(Angle3)*Cos(Angle4) + Sin(Angle1 - Angle2)*Sin(Angle4))))/2.,0))\
+\>", "Output",
+ CellChangeTimes->{3.426448841796875*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J2", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{"135", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{"15", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"15", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{"135", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{"130", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"130", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle0", "+", "Angle1"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "130"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"130", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{"135", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{"135", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{"15", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{"15", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{"135", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{"135", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "-", 
+     RowBox[{"15", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{"15", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "489"}], "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "16"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}]}], ",", "0"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.4264484698125*^9, 3.42644848684375*^9}, {
+  3.4264487193125*^9, 3.42644878296875*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"130", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "+", 
+    RowBox[{"130", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "+", 
+    RowBox[{"15", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"15", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"135", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"135", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "130"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1"}], "]"}]}], "+", 
+    RowBox[{"130", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1"}], "]"}]}], "+", 
+    RowBox[{"15", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"15", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"135", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"135", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "15"}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"15", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"135", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"135", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["489", "8"]}], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "16"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.426448841828125*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J2", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"MatrixForm", "[", "J2", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.426448496578125*^9, 3.42644850596875*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"489", " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle3", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle4", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"520", " ", 
+              RowBox[{"Cos", "[", "Angle1", "]"}]}], "+", 
+             RowBox[{"3", " ", 
+              RowBox[{"(", 
+               RowBox[{"180", "+", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}], " ", 
+              RowBox[{"Sin", "[", 
+               RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"60", "-", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], 
+            ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"3", " ", 
+           RowBox[{"Cos", "[", "Angle1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Cos", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"180", "+", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}]}], "+", 
+             RowBox[{
+              RowBox[{"Sin", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"20", "-", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}], 
+          "+", 
+          RowBox[{
+           RowBox[{"Sin", "[", "Angle1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "520"}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"540", "+", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}], " ", 
+              RowBox[{"Sin", "[", "Angle2", "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"Cos", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "60"}], "+", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], 
+            ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["3", "4"]}], " ", 
+        RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"360", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+          RowBox[{"163", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2", "-", "Angle4"}], "]"}]}], "+", 
+          RowBox[{"163", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2", "+", "Angle4"}], "]"}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "20"}], "+", 
+             RowBox[{"163", " ", 
+              RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+              RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["489", "2"]}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Cos", "[", "Angle3", "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle3", "]"}]}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", "Angle4", "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["489", "2"]}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+           RowBox[{"Cos", "[", "Angle4", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle0", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Cos", "[", "Angle4", "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle3", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]},
+      {"0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.4264488511875*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CForm", "[", "J2", "]"}]], "Input",
+ CellChangeTimes->{{3.426448508734375*^9, 3.42644851353125*^9}}],
+
+Cell["\<\
+MatrixForm(List((489*Sin(Angle0)*Sin(Angle3)*Sin(Angle4) + Cos(Angle0)*
+        (520*Cos(Angle1) + 3*(180 + 163*Cos(Angle4))*Sin(Angle1 - Angle2) + \
+Cos(Angle1 - Angle2)*(60 - 489*Cos(Angle3)*Sin(Angle4))))/2.,
+    (Sin(Angle0)*(3*Cos(Angle1)*(Cos(Angle2)*(180 + 163*Cos(Angle4)) + \
+Sin(Angle2)*(20 - 163*Cos(Angle3)*Sin(Angle4))) + 
+         Sin(Angle1)*(-520 + (540 + 489*Cos(Angle4))*Sin(Angle2) + \
+Cos(Angle2)*(-60 + 489*Cos(Angle3)*Sin(Angle4)))))/2.,
+    (-3*Sin(Angle0)*(360*Cos(Angle1 - Angle2) + 163*Cos(Angle1 - Angle2 - \
+Angle4) + 163*Cos(Angle1 - Angle2 + Angle4) + 
+         2*Sin(Angle1 - Angle2)*(-20 + 163*Cos(Angle3)*Sin(Angle4))))/4.,
+    (-489*(Cos(Angle0)*Cos(Angle3) - Cos(Angle1 - \
+Angle2)*Sin(Angle0)*Sin(Angle3))*Sin(Angle4))/2.,
+    (-489*(Cos(Angle1 - Angle2)*Cos(Angle3)*Cos(Angle4)*Sin(Angle0) + \
+Cos(Angle0)*Cos(Angle4)*Sin(Angle3) + Sin(Angle0)*Sin(Angle1 - \
+Angle2)*Sin(Angle4)))/2.,0))\
+\>", "Output",
+ CellChangeTimes->{3.42644885121875*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J3", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "260"}], "*", 
+      RowBox[{"Cos", "[", "Angle1", "]"}]}], "-", 
+     RowBox[{"30", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+     RowBox[{"270", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle4", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "-", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "-", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "-", "Angle4", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{"30", "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+     RowBox[{"270", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle4", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "-", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "-", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "-", "Angle4", "+", "Angle1"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "489"}], "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "-", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "-", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "489"}], "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle4", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "-", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "-", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"489", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "-", "Angle4", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"489", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}]}], ",", "0"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.42644852971875*^9, 3.426448545203125*^9}, {
+  3.426448720109375*^9, 3.42644878403125*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "260"}], " ", 
+     RowBox[{"Cos", "[", "Angle1", "]"}]}], "-", 
+    RowBox[{"30", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{"270", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{"30", " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{"270", " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["489", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["489", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["489", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}], ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.426448851234375*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J3", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"MatrixForm", "[", "J3", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.426448547296875*^9, 3.426448556734375*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"0"},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "3"}], " ", 
+           RowBox[{"Sin", "[", "Angle1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Cos", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"180", "+", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}]}], "+", 
+             RowBox[{
+              RowBox[{"Sin", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"20", "-", 
+                RowBox[{"163", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], ")"}]}], 
+          "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "520"}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"540", "+", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}], " ", 
+              RowBox[{"Sin", "[", "Angle2", "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"Cos", "[", "Angle2", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "60"}], "+", 
+                RowBox[{"489", " ", 
+                 RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+                 RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}], 
+            ")"}]}]}], ")"}]}]},
+      {
+       RowBox[{
+        RowBox[{
+         FractionBox["3", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{"180", "+", 
+           RowBox[{"163", " ", 
+            RowBox[{"Cos", "[", "Angle4", "]"}]}]}], ")"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{"30", "-", 
+           RowBox[{
+            FractionBox["489", "2"], " ", 
+            RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+            RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["489", "2"]}], " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+        RowBox[{"Sin", "[", "Angle3", "]"}], " ", 
+        RowBox[{"Sin", "[", "Angle4", "]"}]}]},
+      {
+       RowBox[{
+        FractionBox["489", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+           RowBox[{"Cos", "[", "Angle4", "]"}], " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+           RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]},
+      {"0"}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.42644885396875*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CForm", "[", "J3", "]"}]], "Input",
+ CellChangeTimes->{{3.426448559234375*^9, 3.426448561859375*^9}}],
+
+Cell["\<\
+MatrixForm(List(0,(-3*Sin(Angle1)*(Cos(Angle2)*(180 + 163*Cos(Angle4)) + \
+Sin(Angle2)*(20 - 163*Cos(Angle3)*Sin(Angle4))) + 
+       Cos(Angle1)*(-520 + (540 + 489*Cos(Angle4))*Sin(Angle2) + \
+Cos(Angle2)*(-60 + 489*Cos(Angle3)*Sin(Angle4))))/2.,
+    (3*(180 + 163*Cos(Angle4))*Sin(Angle1 - Angle2))/2. + Cos(Angle1 - \
+Angle2)*(30 - (489*Cos(Angle3)*Sin(Angle4))/2.),
+    (-489*Sin(Angle1 - \
+Angle2)*Sin(Angle3)*Sin(Angle4))/2.,(489*(Cos(Angle3)*Cos(Angle4)*Sin(Angle1 \
+- Angle2) - Cos(Angle1 - Angle2)*Sin(Angle4)))/2.,0))\
+\>", "Output",
+ CellChangeTimes->{3.426448854*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J4", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", 
+    RowBox[{"-", 
+     RowBox[{"Sin", "[", "Angle0", "]"}]}], ",", 
+    RowBox[{"Sin", "[", "Angle0", "]"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "2"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}]}], 
+    ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "+", "Angle2", "+", "Angle0", "-", "Angle1"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle2", "+", "Angle0", "-", 
+        "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "-", "Angle2", "+", "Angle0", "+", "Angle1"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle2", "+", "Angle0", "+", 
+        "Angle1"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle0", "+", "Angle3"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle0", "-", "Angle3"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.42644857140625*^9, 3.4264485788125*^9}, {
+  3.426448720203125*^9, 3.426448720296875*^9}, {3.42644876090625*^9, 
+  3.42644878496875*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{"-", 
+    RowBox[{"Sin", "[", "Angle0", "]"}]}], ",", 
+   RowBox[{"Sin", "[", "Angle0", "]"}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Sin", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.426448854015625*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J4", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"MatrixForm", "[", "J4", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.426448581390625*^9, 3.4264485895625*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"0"},
+      {
+       RowBox[{"-", 
+        RowBox[{"Sin", "[", "Angle0", "]"}]}]},
+      {
+       RowBox[{"Sin", "[", "Angle0", "]"}]},
+      {
+       RowBox[{
+        RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"Angle1", "-", "Angle2"}], "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{
+         RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle0", "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle3", "]"}]}]}]},
+      {
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle3", "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle4", "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "Angle4", "]"}], " ", 
+            RowBox[{"Sin", "[", 
+             RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+            RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+            RowBox[{"Sin", "[", "Angle4", "]"}]}]}], ")"}]}]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.4264488556875*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CForm", "[", "J4", "]"}]], "Input",
+ CellChangeTimes->{{3.42644859175*^9, 3.426448594546875*^9}}],
+
+Cell["\<\
+MatrixForm(List(0,-Sin(Angle0),Sin(Angle0),Cos(Angle0)*Sin(Angle1 - \
+Angle2),Cos(Angle3)*Sin(Angle0) + Cos(Angle0)*Cos(Angle1 - \
+Angle2)*Sin(Angle3),
+    Sin(Angle0)*Sin(Angle3)*Sin(Angle4) + Cos(Angle0)*(Cos(Angle4)*Sin(Angle1 \
+- Angle2) - Cos(Angle1 - Angle2)*Cos(Angle3)*Sin(Angle4))))\
+\>", "Output",
+ CellChangeTimes->{3.42644885571875*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J5", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", 
+    RowBox[{"Cos", "[", "Angle0", "]"}], ",", 
+    RowBox[{"-", 
+     RowBox[{"Cos", "[", "Angle0", "]"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle0", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle2", "+", "Angle0", "-", "Angle1"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle2", "+", "Angle0", "+", 
+        "Angle1"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "-", "Angle2", "+", "Angle0", "+", "Angle1"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle2", "+", "Angle0", "-", 
+        "Angle1"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "+", "Angle2", "+", "Angle0", "-", "Angle1"}], 
+       "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle0", "-", "Angle3"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle0", "+", "Angle3"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "-", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "+", "Angle3"}],
+        "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4", "-", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "8"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+       "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4", "+", "Angle3"}],
+        "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "+", "Angle4", "+", "Angle0"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "+", "Angle4", "+", "Angle0"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle3"}], "-", "Angle4", "+", "Angle0"}], "]"}]}], "-",
+      
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle3", "-", "Angle4", "+", "Angle0"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle0", "-", "Angle1", "+", 
+        "Angle2"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle0", "-", "Angle1", "+", "Angle2"}], 
+       "]"}]}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.426448596328125*^9, 3.426448610328125*^9}, {
+  3.4264487325*^9, 3.426448785859375*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{"Cos", "[", "Angle0", "]"}], ",", 
+   RowBox[{"-", 
+    RowBox[{"Cos", "[", "Angle0", "]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3"}], 
+      "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "4"]}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "-", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "-", "Angle3", "+", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle0", "+", "Angle3", "+", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "+", "Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{
+      "Angle0", "-", "Angle1", "+", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.426448855734375*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J5", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"MatrixForm", "[", "J5", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.42644861265625*^9, 3.4264486201875*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"0"},
+      {
+       RowBox[{"Cos", "[", "Angle0", "]"}]},
+      {
+       RowBox[{"-", 
+        RowBox[{"Cos", "[", "Angle0", "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+        RowBox[{"Sin", "[", 
+         RowBox[{"Angle1", "-", "Angle2"}], "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"Cos", "[", "Angle0", "]"}]}], " ", 
+         RowBox[{"Cos", "[", "Angle3", "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle3", "]"}]}]}]},
+      {
+       RowBox[{
+        RowBox[{
+         RowBox[{"Cos", "[", "Angle4", "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle0", "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+            RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+            RowBox[{"Sin", "[", "Angle0", "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"Cos", "[", "Angle0", "]"}], " ", 
+            RowBox[{"Sin", "[", "Angle3", "]"}]}]}], ")"}], " ", 
+         RowBox[{"Sin", "[", "Angle4", "]"}]}]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.42644885753125*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CForm", "[", "J5", "]"}]], "Input",
+ CellChangeTimes->{{3.426448622765625*^9, 3.426448625875*^9}}],
+
+Cell["\<\
+MatrixForm(List(0,Cos(Angle0),-Cos(Angle0),Sin(Angle0)*Sin(Angle1 - \
+Angle2),-(Cos(Angle0)*Cos(Angle3)) + Cos(Angle1 - \
+Angle2)*Sin(Angle0)*Sin(Angle3),
+    Cos(Angle4)*Sin(Angle0)*Sin(Angle1 - Angle2) - (Cos(Angle1 - \
+Angle2)*Cos(Angle3)*Sin(Angle0) + Cos(Angle0)*Sin(Angle3))*Sin(Angle4)))\
+\>", "Output",
+ CellChangeTimes->{3.4264488575625*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J6", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", "0", ",", "0", ",", 
+    RowBox[{"Cos", "[", 
+     RowBox[{"Angle1", "-", "Angle2"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle1", "-", "Angle2", "-", "Angle3"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle1", "-", "Angle2", "+", "Angle3"}], "]"}]}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "+", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "+", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle4"}], "-", "Angle3", "+", "Angle1", "-", 
+        "Angle2"}], "]"}]}], "-", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{"Angle4", "-", "Angle3", "+", "Angle1", "-", "Angle2"}], 
+       "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "-", "Angle4", "+", "Angle1"}], "]"}]}], "+",
+      
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{"Cos", "[", 
+       RowBox[{
+        RowBox[{"-", "Angle2"}], "+", "Angle4", "+", "Angle1"}], "]"}]}]}]}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.426448628625*^9, 3.426448640703125*^9}, {
+  3.426448732609375*^9, 3.426448732625*^9}, {3.426448763328125*^9, 
+  3.426448786046875*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "0", ",", "0", ",", 
+   RowBox[{"Cos", "[", 
+    RowBox[{"Angle1", "-", "Angle2"}], "]"}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle4"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "-", "Angle4"}], 
+      "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle4"}], "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "-", "Angle3", "+", "Angle4"}], 
+      "]"}]}], "-", 
+    RowBox[{
+     FractionBox["1", "4"], " ", 
+     RowBox[{"Cos", "[", 
+      RowBox[{"Angle1", "-", "Angle2", "+", "Angle3", "+", "Angle4"}], 
+      "]"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.426448857578125*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"J6", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"MatrixForm", "[", "J6", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.42644864234375*^9, 3.4264486518125*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", 
+   TagBox[GridBox[{
+      {"1"},
+      {"0"},
+      {"0"},
+      {
+       RowBox[{"Cos", "[", 
+        RowBox[{"Angle1", "-", "Angle2"}], "]"}]},
+      {
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}]}], " ", 
+        RowBox[{"Sin", "[", "Angle3", "]"}]}]},
+      {
+       RowBox[{
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+         RowBox[{"Cos", "[", "Angle4", "]"}]}], "+", 
+        RowBox[{
+         RowBox[{"Cos", "[", "Angle3", "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"Angle1", "-", "Angle2"}], "]"}], " ", 
+         RowBox[{"Sin", "[", "Angle4", "]"}]}]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.426448858*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CForm", "[", "J6", "]"}]], "Input",
+ CellChangeTimes->{{3.426448653828125*^9, 3.4264486564375*^9}}],
+
+Cell["\<\
+MatrixForm(List(1,0,0,Cos(Angle1 - Angle2),-(Sin(Angle1 - \
+Angle2)*Sin(Angle3)),Cos(Angle1 - Angle2)*Cos(Angle4) + \
+Cos(Angle3)*Sin(Angle1 - Angle2)*Sin(Angle4)))\
+\>", "Output",
+ CellChangeTimes->{3.426448858015625*^9}]
+}, Open  ]]
+},
+WindowSize->{1272, 683},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (June 19, 2007)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 15429, 461, 572, "Input"],
+Cell[16022, 486, 14182, 426, 861, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30241, 917, 200, 4, 31, "Input"],
+Cell[30444, 923, 5894, 157, 162, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36375, 1085, 122, 2, 31, "Input"],
+Cell[36500, 1089, 1011, 18, 156, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37548, 1112, 15404, 460, 572, "Input"],
+Cell[52955, 1574, 14205, 427, 857, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[67197, 2006, 203, 4, 31, "Input"],
+Cell[67403, 2012, 5806, 155, 162, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73246, 2172, 124, 2, 31, "Input"],
+Cell[73373, 2176, 991, 17, 156, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74401, 2198, 4955, 150, 192, "Input"],
+Cell[79359, 2350, 4257, 126, 249, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83653, 2481, 204, 4, 31, "Input"],
+Cell[83860, 2487, 3729, 105, 152, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87626, 2597, 125, 2, 31, "Input"],
+Cell[87754, 2601, 588, 11, 92, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88379, 2617, 4773, 144, 172, "Input"],
+Cell[93155, 2763, 4213, 129, 249, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[97405, 2897, 202, 4, 31, "Input"],
+Cell[97610, 2903, 2010, 58, 116, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[99657, 2966, 121, 2, 31, "Input"],
+Cell[99781, 2970, 358, 7, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[100176, 2982, 4725, 143, 172, "Input"],
+Cell[104904, 3127, 4279, 132, 249, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[109220, 3264, 201, 4, 31, "Input"],
+Cell[109424, 3270, 2034, 59, 116, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[111495, 3334, 122, 2, 31, "Input"],
+Cell[111620, 3338, 360, 7, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[112017, 3350, 1806, 53, 72, "Input"],
+Cell[113826, 3405, 1491, 44, 79, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[115354, 3454, 201, 4, 31, "Input"],
+Cell[115558, 3460, 1336, 41, 116, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[116931, 3506, 123, 2, 31, "Input"],
+Cell[117057, 3510, 232, 5, 44, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

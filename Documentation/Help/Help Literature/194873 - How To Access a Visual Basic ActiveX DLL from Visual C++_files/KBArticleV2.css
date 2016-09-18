@@ -1,0 +1,318 @@
+.KBPUBV2 {
+	DISPLAY: inline-block; FONT-SIZE: 100%; MARGIN: 0px 4px 4px 8px; FONT-FAMILY: verdana, arial, helvetica, sans-serif
+}
+.kbRightCol {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 16px; FONT-SIZE: 100%; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN: 8px 8px 0px 12px; WIDTH: 165px; PADDING-TOP: 0px; POSITION: static
+}
+.kbRightNav {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 16px; FONT-SIZE: 100%; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN: 8px 8px 0px 12px; WIDTH: 165px; PADDING-TOP: 0px; POSITION: static
+}
+.kbRightCol A {
+	FONT-WEIGHT: normal
+}
+.kbRightNav A {
+	FONT-WEIGHT: normal
+}
+.kbRightCol A:visited {
+	COLOR: purple
+}
+.kbRightNav A:visited {
+	COLOR: purple
+}
+.KBTT .dec {
+	LIST-STYLE-TYPE: decimal
+}
+.KBPUBV2 .dec {
+	LIST-STYLE-TYPE: decimal
+}
+.KBTT .alpha {
+	LIST-STYLE-TYPE: lower-alpha
+}
+.KBPUBV2 .alpha {
+	LIST-STYLE-TYPE: lower-alpha
+}
+.KBTT UL {
+	LIST-STYLE-TYPE: disc
+}
+.KBPUBV2 UL {
+	LIST-STYLE-TYPE: disc
+}
+.KBTT LI {
+	MARGIN-LEFT: -0.5em
+}
+.KBPUBV2 LI {
+	MARGIN-LEFT: -0.5em
+}
+.KBTT OL LI {
+	MARGIN-BOTTOM: 1px; MARGIN-LEFT: -0.2em; LINE-HEIGHT: 120%
+}
+.KBPUBV2 OL LI {
+	MARGIN-BOTTOM: 1px; MARGIN-LEFT: -0.2em; LINE-HEIGHT: 120%
+}
+.KBTT UL LI {
+	MARGIN-BOTTOM: 1px; MARGIN-LEFT: -0.5em; LINE-HEIGHT: 120%
+}
+.KBPUBV2 UL LI {
+	MARGIN-BOTTOM: 1px; MARGIN-LEFT: -0.5em; LINE-HEIGHT: 120%
+}
+.KBTT UL UL {
+	FONT-SIZE: 100%; LIST-STYLE-TYPE: square
+}
+.KBPUBV2 UL UL {
+	FONT-SIZE: 100%; LIST-STYLE-TYPE: square
+}
+.KBTT UL UL LI {
+	FONT-SIZE: 100%
+}
+.KBPUBV2 UL UL LI {
+	FONT-SIZE: 100%
+}
+.KBTT UL UL UL {
+	FONT-SIZE: 100%; LIST-STYLE-TYPE: circle
+}
+.KBPUBV2 UL UL UL {
+	FONT-SIZE: 100%; LIST-STYLE-TYPE: circle
+}
+.KBTT UL UL UL UL {
+	FONT-SIZE: 100%; LIST-STYLE-TYPE: square
+}
+.KBPUBV2 UL UL UL UL {
+	FONT-SIZE: 100%; LIST-STYLE-TYPE: square
+}
+.appliesto {
+	BORDER-TOP: #cccccc 1px solid; MARGIN-TOP: 2em; FONT-WEIGHT: bold; WIDTH: 99%; PADDING-TOP: 1em
+}
+.appliesto H3 {
+	FONT-SIZE: 110%; FONT-FAMILY: Verdana, Helvetica
+}
+.appliesto UL {
+	MARGIN-TOP: 0.5em; FONT-WEIGHT: normal
+}
+.appliesto UL UL {
+	MARGIN-TOP: 0em; FONT-SIZE: 100%; MARGIN-BOTTOM: 0.5em
+}
+.appliesto UL LI {
+	MARGIN-TOP: 0em; MARGIN-BOTTOM: 0em
+}
+.notice {
+	MARGIN-TOP: 1.4em; MARGIN-BOTTOM: 0em; PADDING-TOP: 4px
+}
+.KBTT .indent {
+	MARGIN-TOP: 1em; MARGIN-BOTTOM: 1em; MARGIN-LEFT: 2em
+}
+.KBPUBV2 .indent {
+	MARGIN-TOP: 1em; MARGIN-BOTTOM: 1em; MARGIN-LEFT: 2em
+}
+.copyright {
+	
+}
+.disclaimer {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.TableData TABLE {
+	MARGIN-TOP: 1em; MARGIN-BOTTOM: 1em; WIDTH: 95%
+}
+.TableData TH {
+	BORDER-RIGHT: white 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: white 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 100%; PADDING-BOTTOM: 4px; BORDER-LEFT: white 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: white 1px solid; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center
+}
+.TableData TR {
+	
+}
+.TableData TD {
+	BORDER-RIGHT: white 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: white 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 100%; PADDING-BOTTOM: 4px; BORDER-LEFT: white 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: white 1px solid; BACKGROUND-COLOR: #f4f4fc
+}
+.docinfo {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; WIDTH: 95%; BORDER-BOTTOM: medium none
+}
+.docinfo TD {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+.docinfo {
+	MARGIN-TOP: 12px
+}
+.docinfo TD.data {
+	FONT-SIZE: 100%; BACKGROUND-COLOR: #f4f4fc
+}
+.docinfo TD.label {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%; BACKGROUND-COLOR: #cccccc
+}
+.KBPUBV2 IMG.graphic {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.KBPUBV2 .E {
+	MARGIN-TOP: 0.5em; DISPLAY: block; MARGIN-BOTTOM: 0.3em
+}
+.KBPUBV2 KBD {
+	FONT-WEIGHT: bold
+}
+.KBPUBV2 .weboutput {
+	
+}
+.KBPUBV2 .weboutput TABLE OBJECT {
+	POSITION: static
+}
+.KBPUBV2 .URLLink:hover {
+	CURSOR: hand; COLOR: #ff9900
+}
+.KBPUBV2 .kblink:hover {
+	CURSOR: hand; COLOR: #ff9900
+}
+.KBPUBV2 .UNCLink:hover {
+	CURSOR: hand; COLOR: #ff9900
+}
+.KBPUBV2 .URLLink:link {
+	COLOR: #0000ff
+}
+.KBPUBV2 .kblink:link {
+	COLOR: #0000ff
+}
+.KBPUBV2 .UNCLink:link {
+	COLOR: #0000ff
+}
+.KBPUBV2 .URLLink:visited {
+	COLOR: #800080
+}
+.KBPUBV2 .kblink:visited {
+	COLOR: #800080
+}
+.KBPUBV2 .UNCLink:visited {
+	COLOR: #800080
+}
+.KBPUBV2 .URLLink:active {
+	COLOR: red
+}
+.KBPUBV2 .kblink:active {
+	COLOR: red
+}
+.KBPUBV2 .UNCLink:active {
+	COLOR: red
+}
+.errormsg {
+	MARGIN-TOP: 12px; DISPLAY: block; FONT-WEIGHT: normal; MARGIN-BOTTOM: 12px; MARGIN-LEFT: 24px; COLOR: red
+}
+.message {
+	MARGIN-TOP: 12px; MARGIN-BOTTOM: 12px; MARGIN-LEFT: 24px
+}
+PRE {
+	PADDING-RIGHT: 0.5em; MARGIN-TOP: 1em; PADDING-LEFT: 0.5em; MARGIN-BOTTOM: 1em; PADDING-BOTTOM: 0.5em; MARGIN-LEFT: 24px; WIDTH: 100%; COLOR: black; PADDING-TOP: 0.5em; FONT-FAMILY: "Courier New", courier, monospace; BACKGROUND-COLOR: #eeeeee
+}
+PRE.in_text {
+	COLOR: black; FONT-FAMILY: "Courier New", courier, monospace
+}
+H1 {
+	MARGIN-TOP: 6px; FONT-WEIGHT: bold; FONT-SIZE: 170%; MARGIN-LEFT: 0px; TEXT-DECORATION: none
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 105%; MARGIN-BOTTOM: 12px; MARGIN-LEFT: 0px; TEXT-DECORATION: none
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-LEFT: 0px; TEXT-DECORATION: none
+}
+H5 {
+	FONT-WEIGHT: bold; FONT-SIZE: 95%; MARGIN-LEFT: 0px; TEXT-DECORATION: none
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 110%; MARGIN: 8px 12px 6px -12px; COLOR: #cc6600; PADDING-TOP: 8px; FONT-FAMILY: Verdana, Helvetica; FONT-VARIANT: small-caps
+}
+.disclaimer {
+	FONT-WEIGHT: 100; FONT-SIZE: 95%
+}
+.NOTICE {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.SUMMARY {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.MOREINFORMATION {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.SYMPTOMS {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.CAUSE {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.RESOLUTION {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.STATUS {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.WORKAROUND {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.REFERENCES {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.CAUSE {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.WHATTOTRY {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.ERRORMESSAGE {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 12px
+}
+.internal .head {
+	FONT-WEIGHT: bold; COLOR: red; BORDER-TOP-STYLE: solid; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+P.internal {
+	MARGIN-LEFT: 5%; MARGIN-RIGHT: 5%
+}
+.internal .tail {
+	COLOR: red; BACKGROUND-COLOR: white; BORDER-BOTTOM-STYLE: solid
+}
+.partner .head {
+	FONT-WEIGHT: bold; COLOR: #ffaa00; BORDER-TOP-STYLE: solid; BACKGROUND-COLOR: white; TEXT-ALIGN: center
+}
+P.partner {
+	MARGIN-LEFT: 5%; MARGIN-RIGHT: 5%
+}
+.partner .tail {
+	COLOR: #ffaa00; BACKGROUND-COLOR: white; BORDER-BOTTOM-STYLE: solid
+}
+.KBSC {
+	DISPLAY: inline-block; MARGIN: 0px 8px 4px 6px; FONT-FAMILY: verdana, arial, helvetica, sans-serif
+}
+.KBQA {
+	DISPLAY: inline-block; MARGIN: 0px 8px 4px 6px; FONT-FAMILY: verdana, arial, helvetica, sans-serif
+}
+.KBTT {
+	DISPLAY: inline-block; MARGIN: 0px 8px 4px 6px; FONT-FAMILY: verdana, arial, helvetica, sans-serif
+}
+.KBSI {
+	DISPLAY: inline-block; MARGIN: 0px 8px 4px 6px; FONT-FAMILY: verdana, arial, helvetica, sans-serif
+}
+.KBSI {
+	MARGIN: 0px 0px 4px
+}
+.SectionImage {
+	PADDING-LEFT: 8px; FLOAT: right; MARGIN: 4px 10px 8px 4px; WIDTH: 110px; POSITION: static
+}
+.dropCap {
+	FONT-SIZE: x-large
+}
+.qaText {
+	PADDING-TOP: 9px
+}
+.blurb {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 5px; PADDING-BOTTOM: 10px; PADDING-TOP: 0px
+}
+.g_graphic {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 0px; BORDER-LEFT: #999999 1px solid; PADDING-TOP: 0px
+}
+.b_graphic {
+	BORDER-RIGHT: #999999 1px solid; PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.kbRightCol {
+	FLOAT: none
+}
+.KBSI H1 {
+	MARGIN-LEFT: 10px
+}
+.KBSI H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 110%; MARGIN: 10px 2px 6px 0px; COLOR: #cc6600; PADDING-TOP: 4px; FONT-FAMILY: Verdana, Helvetica; FONT-VARIANT: small-caps
+}
+.kbQA .Summary {
+	PADDING-RIGHT: 24px; BORDER-TOP: #999999 1px solid; MARGIN-TOP: 0px; PADDING-LEFT: 12px
+}

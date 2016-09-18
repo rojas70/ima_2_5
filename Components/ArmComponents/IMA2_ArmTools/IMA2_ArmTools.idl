@@ -1,0 +1,280 @@
+// IMA2_ArmTools.idl : IDL source for IMA2_ArmTools.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_ArmTools.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(547AD78C-6C0D-45FF-8A7F-D04DE3A9BD51),
+		dual,
+		helpstring("IPID_NonLinController Interface"),
+		pointer_default(unique)
+	]
+	interface IPID_NonLinController : IDispatch
+	{
+		[propget, id(1), helpstring("property InvertPressure")] HRESULT InvertPressure([out, retval] BOOL *pVal);
+		[propput, id(1), helpstring("property InvertPressure")] HRESULT InvertPressure([in] BOOL newVal);
+		[propget, id(2), helpstring("property A0")] HRESULT A0([out, retval] double *pVal);
+		[propput, id(2), helpstring("property A0")] HRESULT A0([in] double newVal);
+		[propget, id(3), helpstring("property A1")] HRESULT A1([out, retval] double *pVal);
+		[propput, id(3), helpstring("property A1")] HRESULT A1([in] double newVal);
+		[propget, id(4), helpstring("property A2")] HRESULT A2([out, retval] double *pVal);
+		[propput, id(4), helpstring("property A2")] HRESULT A2([in] double newVal);
+		[propget, id(5), helpstring("property A3")] HRESULT A3([out, retval] double *pVal);
+		[propput, id(5), helpstring("property A3")] HRESULT A3([in] double newVal);
+		[propget, id(6), helpstring("property A4")] HRESULT A4([out, retval] double *pVal);
+		[propput, id(6), helpstring("property A4")] HRESULT A4([in] double newVal);
+		[propget, id(7), helpstring("property MinClamp")] HRESULT MinClamp([out, retval] double *pVal);
+		[propput, id(7), helpstring("property MinClamp")] HRESULT MinClamp([in] double newVal);
+		[propget, id(8), helpstring("property MaxClamp")] HRESULT MaxClamp([out, retval] double *pVal);
+		[propput, id(8), helpstring("property MaxClamp")] HRESULT MaxClamp([in] double newVal);
+		[propget, id(9), helpstring("property Kp")] HRESULT Kp([out, retval] double *pVal);
+		[propput, id(9), helpstring("property Kp")] HRESULT Kp([in] double newVal);
+		[propget, id(10), helpstring("property Ki")] HRESULT Ki([out, retval] double *pVal);
+		[propput, id(10), helpstring("property Ki")] HRESULT Ki([in] double newVal);
+		[propget, id(11), helpstring("property Kd")] HRESULT Kd([out, retval] double  *pVal);
+		[propput, id(11), helpstring("property Kd")] HRESULT Kd([in] double  newVal);
+		[propget, id(12), helpstring("property Control_Law")] HRESULT Control_Law([out, retval] int  *pVal);
+		[propput, id(12), helpstring("property Control_Law")] HRESULT Control_Law([in] int  newVal);
+		[propget, id(13), helpstring("property BiasedPressure")] HRESULT BiasedPressure([out, retval] double *pVal);
+		[propput, id(13), helpstring("property BiasedPressure")] HRESULT BiasedPressure([in] double newVal);
+		[propget, id(17), helpstring("property InvertPressureIndex")] HRESULT InvertPressureIndex([out, retval] short *pVal);
+		[propput, id(17), helpstring("property InvertPressureIndex")] HRESULT InvertPressureIndex([in] short newVal);
+		[propget, id(18), helpstring("property A0Index")] HRESULT A0Index([out, retval] short *pVal);
+		[propput, id(18), helpstring("property A0Index")] HRESULT A0Index([in] short newVal);
+		[propget, id(19), helpstring("property A1Index")] HRESULT A1Index([out, retval] short *pVal);
+		[propput, id(19), helpstring("property A1Index")] HRESULT A1Index([in] short newVal);
+		[propget, id(20), helpstring("property A2Index")] HRESULT A2Index([out, retval] short *pVal);
+		[propput, id(20), helpstring("property A2Index")] HRESULT A2Index([in] short newVal);
+		[propget, id(21), helpstring("property A3Index")] HRESULT A3Index([out, retval] short *pVal);
+		[propput, id(21), helpstring("property A3Index")] HRESULT A3Index([in] short newVal);
+		[propget, id(22), helpstring("property A4Index")] HRESULT A4Index([out, retval] short *pVal);
+		[propput, id(22), helpstring("property A4Index")] HRESULT A4Index([in] short newVal);
+		[propget, id(23), helpstring("property MinClampIndex")] HRESULT MinClampIndex([out, retval] short *pVal);
+		[propput, id(23), helpstring("property MinClampIndex")] HRESULT MinClampIndex([in] short newVal);
+		[propget, id(24), helpstring("property MaxClampIndex")] HRESULT MaxClampIndex([out, retval] short *pVal);
+		[propput, id(24), helpstring("property MaxClampIndex")] HRESULT MaxClampIndex([in] short newVal);
+		[propget, id(25), helpstring("property KpIndex")] HRESULT KpIndex([out, retval] short *pVal);
+		[propput, id(25), helpstring("property KpIndex")] HRESULT KpIndex([in] short newVal);
+		[propget, id(26), helpstring("property KiIndex")] HRESULT KiIndex([out, retval] short *pVal);
+		[propput, id(26), helpstring("property KiIndex")] HRESULT KiIndex([in] short newVal);
+		[propget, id(27), helpstring("property KdIndex")] HRESULT KdIndex([out, retval] short *pVal);
+		[propput, id(27), helpstring("property KdIndex")] HRESULT KdIndex([in] short newVal);
+		[propget, id(28), helpstring("property Control_LawIndex")] HRESULT Control_LawIndex([out, retval] short *pVal);
+		[propput, id(28), helpstring("property Control_LawIndex")] HRESULT Control_LawIndex([in] short newVal);
+		[propget, id(29), helpstring("property BiasedPressureIndex")] HRESULT BiasedPressureIndex([out, retval] short *pVal);
+		[propput, id(29), helpstring("property BiasedPressureIndex")] HRESULT BiasedPressureIndex([in] short newVal);
+		[propget, id(30), helpstring("property AlphaIndex")] HRESULT AlphaIndex([out, retval] short *pVal);
+		[propput, id(30), helpstring("property AlphaIndex")] HRESULT AlphaIndex([in] short newVal);
+		[id(16), helpstring("method Initial")] HRESULT Initial();
+		[id(33), helpstring("method PID_NonLin_6Press")] HRESULT PID_NonLin_6Press();
+		[id(34), helpstring("method PID_NonLin_12Press")] HRESULT PID_NonLin_12Press();
+		[id(36), helpstring("method Read_CurrentPressure")] HRESULT Read_CurrentPressure();
+		[propget, id(37), helpstring("property LeftArm")] HRESULT LeftArm([out, retval] short *pVal);
+		[propput, id(37), helpstring("property LeftArm")] HRESULT LeftArm([in] short newVal);
+	};
+	[
+		object,
+		uuid(EF1AF1A7-0FBB-42D0-AF5D-E6EFF12B96B5),
+		dual,
+		helpstring("ISampIndPressure Interface"),
+		pointer_default(unique)
+	]
+	interface ISampIndPressure : IDispatch
+	{
+		[propget, id(1), helpstring("property DeviceFilename")] HRESULT DeviceFilename([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property DeviceFilename")] HRESULT DeviceFilename([in] BSTR newVal);
+		[propget, id(2), helpstring("property SamplingPeriod")] HRESULT SamplingPeriod([out, retval] short *pVal);
+		[propput, id(2), helpstring("property SamplingPeriod")] HRESULT SamplingPeriod([in] short newVal);
+		[propget, id(3), helpstring("property EncoderGain")] HRESULT EncoderGain([out, retval] double *pVal);
+		[propput, id(3), helpstring("property EncoderGain")] HRESULT EncoderGain([in] double newVal);
+		[propget, id(4), helpstring("property EncoderOffset")] HRESULT EncoderOffset([out, retval] double *pVal);
+		[propput, id(4), helpstring("property EncoderOffset")] HRESULT EncoderOffset([in] double newVal);
+		[propget, id(5), helpstring("property BiasedPressure")] HRESULT BiasedPressure([out, retval] double *pVal);
+		[propput, id(5), helpstring("property BiasedPressure")] HRESULT BiasedPressure([in] double newVal);
+		[propget, id(6), helpstring("property PressureMax")] HRESULT PressureMax([out, retval] double *pVal);
+		[propput, id(6), helpstring("property PressureMax")] HRESULT PressureMax([in] double newVal);
+		[propget, id(7), helpstring("property EncoderMax")] HRESULT EncoderMax([out, retval] double *pVal);
+		[propput, id(7), helpstring("property EncoderMax")] HRESULT EncoderMax([in] double newVal);
+		[propget, id(8), helpstring("property EncoderMin")] HRESULT EncoderMin([out, retval] double *pVal);
+		[propput, id(8), helpstring("property EncoderMin")] HRESULT EncoderMin([in] double newVal);
+		[propget, id(9), helpstring("property ZMask")] HRESULT ZMask([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ZMask")] HRESULT ZMask([in] long newVal);
+		[propget, id(14), helpstring("property InvertPressure")] HRESULT InvertPressure([out, retval] BOOL *pVal);
+		[propput, id(14), helpstring("property InvertPressure")] HRESULT InvertPressure([in] BOOL newVal);
+		[propget, id(15), helpstring("property HomeAngles")] HRESULT HomeAngles([out, retval] double *pVal);
+		[propput, id(15), helpstring("property HomeAngles")] HRESULT HomeAngles([in] double newVal);
+		[propget, id(19), helpstring("property NumAxes")] HRESULT NumAxes([out, retval] long *pVal);
+		[propput, id(19), helpstring("property NumAxes")] HRESULT NumAxes([in] long newVal);
+		[propget, id(22), helpstring("property HomeAnglesIndex")] HRESULT HomeAnglesIndex([out, retval] short *pVal);
+		[propput, id(22), helpstring("property HomeAnglesIndex")] HRESULT HomeAnglesIndex([in] short newVal);
+		[propget, id(25), helpstring("property EncoderMinIndex")] HRESULT EncoderMinIndex([out, retval] short *pVal);
+		[propput, id(25), helpstring("property EncoderMinIndex")] HRESULT EncoderMinIndex([in] short newVal);
+		[propget, id(26), helpstring("property EncoderMaxIndex")] HRESULT EncoderMaxIndex([out, retval] short *pVal);
+		[propput, id(26), helpstring("property EncoderMaxIndex")] HRESULT EncoderMaxIndex([in] short newVal);
+		[propget, id(27), helpstring("property PressureMaxIndex")] HRESULT PressureMaxIndex([out, retval] short *pVal);
+		[propput, id(27), helpstring("property PressureMaxIndex")] HRESULT PressureMaxIndex([in] short newVal);
+		[propget, id(28), helpstring("property BiasedPressureIndex")] HRESULT BiasedPressureIndex([out, retval] short *pVal);
+		[propput, id(28), helpstring("property BiasedPressureIndex")] HRESULT BiasedPressureIndex([in] short newVal);
+		[propget, id(29), helpstring("property EncoderOffsetIndex")] HRESULT EncoderOffsetIndex([out, retval] short *pVal);
+		[propput, id(29), helpstring("property EncoderOffsetIndex")] HRESULT EncoderOffsetIndex([in] short newVal);
+		[propget, id(30), helpstring("property EncoderGainIndex")] HRESULT EncoderGainIndex([out, retval] short *pVal);
+		[propput, id(30), helpstring("property EncoderGainIndex")] HRESULT EncoderGainIndex([in] short newVal);
+		[propget, id(36), helpstring("property InvertPressureIndex")] HRESULT InvertPressureIndex([out, retval] short *pVal);
+		[propput, id(36), helpstring("property InvertPressureIndex")] HRESULT InvertPressureIndex([in] short newVal);
+		[propget, id(37), helpstring("property LeftArm")] HRESULT LeftArm([out, retval] short *pVal);
+		[propput, id(37), helpstring("property LeftArm")] HRESULT LeftArm([in] short newVal);
+		//[id(38), helpstring("method NewServoTest")] HRESULT NewServoTest();
+		[id(23), helpstring("method Initial")] HRESULT Initialize();
+		[id(24), helpstring("method Reset")] HRESULT Reset();		
+		[id(31), helpstring("method HW_IO_6")] HRESULT HW_IO_6();
+		[id(32), helpstring("method HW_IO_12")] HRESULT HW_IO_12();
+		[id(33), helpstring("method Enable_ZMasking")] HRESULT Enable_ZMasking();
+		[id(34), helpstring("method Disable_ZMasking")] HRESULT Disable_ZMasking();
+		[id(35), helpstring("method WriteHomePositions")] HRESULT WriteHomePositions();
+	};
+	[
+		object,
+		uuid(C934E656-A909-4C6D-99E7-925D3E068619),
+		dual,
+		helpstring("IKinematicModel Interface"),
+		pointer_default(unique)
+	]
+	interface IKinematicModel : IDispatch
+	{
+		[propget, id(1), helpstring("property WhatArm")] HRESULT WhatArm([out, retval] BSTR *pVal);
+		[propput, id(1), helpstring("property WhatArm")] HRESULT WhatArm([in] BSTR newVal);
+
+		[propget, id(3), helpstring("property param_A2")] HRESULT param_A2([out, retval] double *pVal);
+		[propput, id(3), helpstring("property param_A2")] HRESULT param_A2([in] double newVal);
+		[propget, id(4), helpstring("property param_A3")] HRESULT param_A3([out, retval] double *pVal);
+		[propput, id(4), helpstring("property param_A3")] HRESULT param_A3([in] double newVal);
+		[propget, id(5), helpstring("property param_D3")] HRESULT param_D3([out, retval] double *pVal);
+		[propput, id(5), helpstring("property param_D3")] HRESULT param_D3([in] double newVal);
+		[propget, id(6), helpstring("property param_D4")] HRESULT param_D4([out, retval] double *pVal);
+		[propput, id(6), helpstring("property param_D4")] HRESULT param_D4([in] double newVal);
+		
+		[propget, id(19), helpstring("property transform_BaseXformIndex")] HRESULT transform_BaseXformIndex([out, retval] short *pVal);
+		[propput, id(19), helpstring("property transform_BaseXformIndex")] HRESULT transform_BaseXformIndex([in] short newVal);
+		[propget, id(20), helpstring("property transform_EndEffXformIndex")] HRESULT transform_EndEffXformIndex([out, retval] short *pVal);
+		[propput, id(20), helpstring("property transform_EndEffXformIndex")] HRESULT transform_EndEffXformIndex([in] short newVal);		
+		[propget, id(14), helpstring("property transform_EndEffXform")] HRESULT transform_EndEffXform([out, retval] double *pVal);
+		[propput, id(14), helpstring("property transform_EndEffXform")] HRESULT transform_EndEffXform([in] double newVal);
+		[propget, id(16), helpstring("property transform_BaseXform")] HRESULT transform_BaseXform([out, retval] double *pVal);
+		[propput, id(16), helpstring("property transform_BaseXform")] HRESULT transform_BaseXform([in] double newVal);
+
+		[propget, id(7), helpstring("property AxisMax")] HRESULT AxisMax([out, retval] double *pVal);
+		[propput, id(7), helpstring("property AxisMax")] HRESULT AxisMax([in] double newVal);
+		[propget, id(8), helpstring("property AxisMin")] HRESULT AxisMin([out, retval] double *pVal);
+		[propput, id(8), helpstring("property AxisMin")] HRESULT AxisMin([in] double newVal);
+		[propget, id(17), helpstring("property AxisMaxIndex")] HRESULT AxisMaxIndex([out, retval] short *pVal);
+		[propput, id(17), helpstring("property AxisMaxIndex")] HRESULT AxisMaxIndex([in] short newVal);
+		[propget, id(18), helpstring("property AxisMinIndex")] HRESULT AxisMinIndex([out, retval] short *pVal);
+		[propput, id(18), helpstring("property AxisMinIndex")] HRESULT AxisMinIndex([in] short newVal);
+
+		[id(21), helpstring("method kin_ForwardKinematics")] HRESULT kin_ForwardKinematics();
+		[id(22), helpstring("method kin_InverseKinematics")] HRESULT kin_InverseKinematics();
+		[id(23), helpstring("method Initialize")] HRESULT Initialize();
+	};
+	[
+		object,
+		uuid(313A8403-E0B0-47A2-9987-3ABBF724D137),
+		dual,
+		helpstring("IHomingController Interface"),
+		pointer_default(unique)
+	]
+	interface IHomingController : IDispatch
+	{
+		[propget, id(1), helpstring("property OutputMinIndex")] HRESULT OutputMinIndex([out, retval] short *pVal);
+		[propput, id(1), helpstring("property OutputMinIndex")] HRESULT OutputMinIndex([in] short newVal);
+		[propget, id(2), helpstring("property OutputMaxIndex")] HRESULT OutputMaxIndex([out, retval] short *pVal);
+		[propput, id(2), helpstring("property OutputMaxIndex")] HRESULT OutputMaxIndex([in] short newVal);
+		[propget, id(3), helpstring("property OutputMin")] HRESULT OutputMin([out, retval] double *pVal);
+		[propput, id(3), helpstring("property OutputMin")] HRESULT OutputMin([in] double newVal);
+		[propget, id(4), helpstring("property OutputMax")] HRESULT OutputMax([out, retval] double *pVal);
+		[propput, id(4), helpstring("property OutputMax")] HRESULT OutputMax([in] double newVal);
+		[id(5), helpstring("method Initial")] HRESULT Initial();
+		[propget, id(6), helpstring("property HomingSteps")] HRESULT HomingSteps([out, retval] float *pVal);
+		[propput, id(6), helpstring("property HomingSteps")] HRESULT HomingSteps([in] float newVal);
+		[id(7), helpstring("method ComputeHomingPressures")] HRESULT ComputeHomingPressures();
+		[propget, id(8), helpstring("property LeftArm")] HRESULT LeftArm([out, retval] short *pVal);
+		[propput, id(8), helpstring("property LeftArm")] HRESULT LeftArm([in] short newVal);
+		[id(9), helpstring("method MoveThroughDexterousWorkspace")] HRESULT MoveThroughDexterousWorkspace();
+		[id(10), helpstring("method MoveRightArmUpperQuadrant")] HRESULT MoveRightArmUpperQuadrant();
+	};
+	[
+		object,
+		uuid(51CFCA6D-0D8E-4FF7-B36A-0B9C3469A7B5),
+		dual,
+		helpstring("IStepFilter Interface"),
+		pointer_default(unique)
+	]
+	interface IStepFilter : IDispatch
+	{
+		[propget, id(1), helpstring("property alpha")] HRESULT alpha([out, retval] double *pVal);
+		[propput, id(1), helpstring("property alpha")] HRESULT alpha([in] double newVal);
+		[propget, id(2), helpstring("property AlphaIndex")] HRESULT AlphaIndex([out, retval] short *pVal);
+		[propput, id(2), helpstring("property AlphaIndex")] HRESULT AlphaIndex([in] short newVal);
+		[id(3), helpstring("method FilterDesiredAngles")] HRESULT FilterDesiredAngles();
+	};
+
+[
+	uuid(5D2D9F10-844D-4BAF-8EED-B352AD107AB2),
+	version(1.0),
+	helpstring("(IMA2 Components) - ArmLib")
+]
+library IMA2_ARMTOOLSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(60F271DF-84CD-4945-8C66-6731D71E96D8),
+		helpstring("PID_NonLinController Class")
+	]
+	coclass PID_NonLinController
+	{
+		[default] interface IPID_NonLinController;
+		interface IComponent; 
+	};
+	[
+		uuid(6AF8BEB2-72B5-464E-B3CE-55137C193BE1),
+		helpstring("SampIndPressure Class")
+	]
+	coclass SampIndPressure
+	{
+		[default] interface ISampIndPressure;
+		interface IComponent;
+	};
+	[
+		uuid(1B0D7731-DF1B-42A5-8CC2-FA878BE758C5),
+		helpstring("KinematicModel Class")
+	]
+	coclass KinematicModel
+	{
+		[default] interface IKinematicModel;
+		interface IComponent;
+	};
+	[
+		uuid(534ADA75-66E2-4AEA-AD32-50EC69EC8B71),
+		helpstring("HomingController Class")
+	]
+	coclass HomingController
+	{
+		[default] interface IHomingController;
+		interface IComponent;
+	};
+	[
+		uuid(F119E00B-89CE-4876-A58C-9958C30A7DD4),
+		helpstring("StepFilter Class")
+	]
+	coclass StepFilter
+	{
+		[default] interface IStepFilter;
+		interface IComponent;
+	};
+};

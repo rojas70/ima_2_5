@@ -1,0 +1,240 @@
+:Base Nidaqdeu.hlp>main
+:Title Hilfe zum Measurement & Automation Explorer für DAQ
+1 Hilfe zum Measurement & Automation Explorer für DAQ=Max_DAQ_Provider_Help
+1 Schreibkonventionen=Conventions
+1 Verwandte Dokumentationsmaterialien=Related_Documentation
+1 Glossar=Glossary
+1 Wichtige Informationen
+2 Copyright=Copyright
+2 Warenzeichen=Trademarks
+2 Garantie=Warranty
+2 Warnhinweis bezüglich des Einsatzes von Produkten von National Instruments für medizinische und klinische Zwecke=Medical_Warning
+1 Einführung
+2 Leistungsmerkmale des Measurement & Automation Explorers für die Datenerfassung (DAQ)=Capabilities_of_Measurement_Automation_Explorer_for_DAQ
+2 DAQ-Ansichten=DAQ_Related_Views
+2 Einführung in die DAQ-Konfiguration mit dem Measurement & Automation Explorer=Introduction_to_DAQ_Configuration_with_Measurement_Automation_Explorer
+2 Menüoptionen für DAQ=Menu_Options_for_DAQ
+2 Verwalten mehrerer DAQ-Konfigurationsdateien=Managing_Multiple_DAQ_Configuration_Files
+2 Verwendung des Measurement & Automation Explorers zur DAQ-Konfiguration=Using_Measurement_Automation_Explorer_for_DAQ_Configuration
+1 DAQ-Geräte
+2 Zugriff auf DAQ-Geräte
+3 Zugriff auf DAQ-Geräte=IDH_DAQ_DEVICES_PANEL
+2 DAQ-Geräte hinzufügen
+3 DAQ-Geräte hinzufügen=IDH_ADDING_DAQ_DEVICES
+3 Hinzufügen von DAQ-Geräten unter Windows 98/95=IDH_ADDING_DAQ_DEVICES_WIN95
+3 Hinzufügen von DAQ-Geräten unter Windows NT=IDH_ADDING_DAQ_DEVICES_WINNT
+3 Hinzufügen von DAQ-Geräten unter Mac OS=IDH_ADDING_DAQ_DEVICES_MACOS
+2 Hinzufügen von RDA-Geräten (Remote Device Access - RDA) in NI-DAQ
+3 Hinzufügen von RDA-Geräten (Remote Device Access - RDA) in NI-DAQ=IDH_RDA_ADDING
+3 RDA-DAQ-Geräte konfigurieren=IDH_RMTCFG_MAIN
+3 Mehrere RDA-Anwender (DAQ)=IDH_RDA_MULTIPLE_USERS
+3 Spezielle Hinweise zu NI-DAQ RDA=IDH_RDA_CONSIDERATIONS
+3 Funktionsumgebung (DAQ)=IDH_RDA_OS
+3 Verbindung zum Server (DAQ)=IDH_RDA_SERVER_CONNECTION
+3 Computer als simultaner RDA-Client- und RDA-Server (DAQ)=IDH_RDA_CLIENT_AND_SERVER
+3 RDA-DAQ-Verbindungen herstellen=IDH_RMTCFG_LAUNCH
+3 Verwendung des Dialogfeldes RDA-DAQ-Konfiguration=IDH_RMTCFG_HELP
+2 DAQ-Geräte konfigurieren
+3 DAQ-Geräte konfigurieren=IDH_CONFIGURING_DAQ_DEVICES>main
+3 Einstellungen des Zubehörs (DAQ)=IDH_ACCESSORY_SETTINGS
+3 AI-Einstellungen (Analogeingang)=IDH_ANALOG_INPUT_SETTINGS
+3 Analogeingang: Modus (DAQ)=IDH_AI_MODE
+3 Analogeingang: Polarität/Bereich (DAQ)=IDH_AI_POLARITY_RANGE
+3 Analogausgang: Externe Referenzspannung (DAQ)=IDH_AO_EXT_REFERENCE_VOLTAGE
+3 Analogausgang: Ausgangskanaltyp (DAQ)=IDH_AO_OUTPUT_CHANNEL_TYPE
+3 Analogausgang: Polarität (DAQ)=IDH_AO_POLARITY
+3 AO-Einstellungen (Analogausgang)=IDH_ANALOG_OUTPUT_SETTINGS
+3 Gerätenummer (DAQ)=IDH_DEVICE_NUMBER
+3 Direct Memory Access (DMA) bearbeiten=IDH_RESOURCES_EDIT_DMA
+3 Input/Output-Bereich bearbeiten (DAQ)=IDH_RESOURCES_EDIT_IO_RANGE
+3 Interrupt Request bearbeiten (DAQ)=IDH_RESOURCES_EDIT_INT_REQ
+3 Logischen Adressraum bearbeiten (nur für VXI-DAQ-Geräte)=IDH_RESOURCES_EDIT_LOGICAL_ADDRESS
+3 LPT-Port bearbeiten (nur für DAQ-Geräte mit paralleler Schnittstelle)=IDH_RESOURCES_EDIT_LPT_PORT
+3 Speicherbereich bearbeiten (DAQ)=IDH_RESOURCES_EDIT_MEMORY_RANGE
+3 Parallelanschluss bearbeiten (DAQ)=IDH_RESOURCES_EDIT_PARALLEL_PORT
+3 PC Card-Socket bearbeiten (DAQ)=IDH_RESOURCES_EDIT_PC_CARD_SOCKET
+3 VXIbus-Adressraum bearbeiten (nur für VXI-DAQ-Geräte)=IDH_RESOURCES_EDIT_VXIBUS_ADDRESS
+3 VXI-Interrupt Request bearbeiten (VXI-DAQ)=IDH_RESOURCES_EDIT_VXI_IRQ
+3 VXI On-Board-Speicher bearbeiten (VXI-DAQ)=IDH_RESOURCES_EDIT_VXI_ONBOARD_MEM
+3 OPC-Einstellungen (DAQ)=IDH_OPC_SETTINGS
+3 Ressourcen (DAQ)=IDH_RESOURCES
+3 Systemeinstellungen in DAQ=IDH_SYSTEM_SETTINGS
+2 DAQ-Geräte entfernen
+3 DAQ-Geräte entfernen=IDH_REMOVING_DAQ_DEVICES
+2 DAQ-Geräte testen
+3 DAQ-Geräte testen=IDH_TESTING_DAQ_DEVICES
+1 Skalierungen
+2 Zusätzliche Informationen zu virtuellen Kanälen und benutzerspezifischen Skalen (DAQ)=IDH_ADDITIONAL_CHANNEL_SCALE_INFORMATION
+2 Korrektur unzulässiger virtueller Kanäle in DAQ=IDH_CORRECTING_INVALID_VIRTUAL_CHANNELS
+2 SCXI-Konfigurationen für virtuelle Kanäle und benutzerspezifische Skalierungen=IDH_SCXI_CONFIGURATIONS_FOR_CHANNELS_SCALES
+2 Skalierungen anpassen in DAQ
+3 Skalierungen anpassen in DAQ=IDH_CHANNEL_WIZARD_SCALES_PANEL
+2 Erstellen neuer benutzerspezifischer Skalen in DAQ
+3 Erstellen neuer benutzerspezifischen Skalen in DAQ=IDH_CREATING_NEW_SCALE
+3 Erstellen linearer Skalen in DAQ=IDH_CREATING_LINEAR_SCALES
+3 Erstellen von Polynomskalen in DAQ=IDH_CREATING_POLYNOMIAL_SCALES
+3 Erstellen von Tabellenskalen in DAQ=IDH_CREATING_TABLE_SCALES
+2 Bearbeiten benutzerspezifischer Skalen in DAQ
+3 Bearbeiten benutzerspezifischer Skalen in DAQ=IDH_EDITING_SCALES
+3 Bearbeiten der Kanalbeschreibung in DAQ=IDH_EDIT_SCALE_DESCRIPTION
+3 Bearbeiten linearer Skalen in DAQ=IDH_EDITING_LINEAR_SCALES
+3 Bearbeiten von Polynomskalen in DAQ=IDH_EDITING_POLYNOMIAL_SCALES
+3 Bearbeiten des Skalennamens in DAQ=IDH_EDIT_SCALE_NAME
+3 Bearbeiten des Skalentyps in DAQ=IDH_EDIT_SCALE_TYPE
+3 Bearbeiten von Tabellenskalen in DAQ=IDH_EDITING_TABLE_SCALES
+3 Polynom-Koeffizienten aus einer Datei importieren (DAQ)=IDH_IMPORTING_POLYNOMIAL_COEFFICIENTS
+3 Tabellenwerte aus einer Datei importieren (DAQ)=IDH_IMPORTING_TABLE_VALUES
+2 Löschen benutzerspezifischer Skalen
+3 Löschen benutzerspezifischer Skalen=IDH_DELETING_CHANNEL_SCALE
+1 SCXI-Geräte
+2 Zugriff auf SCXI-Geräte=IDH_SCXI_DEVICES_PANEL
+2 SCXI-Chassis
+3 SCXI-Chassis hinzufügen=IDH_ADDING_SCXI_CHASSIS
+3 SCXI-Chassis entfernen=IDH_REMOVING_SCXI_CHASSIS
+3 SCXI-Chassis konfigurieren
+4 SCXI-Chassis konfigurieren=IDH_CONFIGURING_SCXI_CHASSIS
+4 SCXI-Steuerung über internen Bus (Nur für PXI-1010)=IDH_SCXI_CHASSIS_INTERNAL_BUS
+4 SCXI-Chassis-Adresse=IDH_SCXI_CHASSIS_ADDRESS
+4 Baudrate des SCXI Chassis (Nur für SCXI-2000)=IDH_SCXI_CHASSIS_BAUD_RATE
+4 COM-Anschluss des SCXI Chassis (Nur für SCXI-2000)=IDH_SCXI_CHASSIS_COM_PORT
+4 HDLC-Adresse des SCXI Chassis (Nur für SCXI-2000)=IDH_SCXI_CHASSIS_HDLC_ADDRESS
+4 SCXI-Chassis-ID=IDH_SCXI_CHASSIS_ID
+4 SCXI neu programmieren (Nur für SCXI-2000)=IDH_SCXI_CHASSIS_REPROGRAM
+2 SCXI-Module
+3 SCXI-Module hinzufügen=IDH_ADDING_SCXI_MODULES
+3 SCXI-Module entfernen=IDH_REMOVING_SCXI_MODULES
+3 SCXI-Module entfernen
+4 SCXI-Module konfigurieren=IDH_CONFIGURING_SCXI_MODULES
+4 Einstellungen des Zubehörs=IDH_SCXI_MODULE_ACCESSORY_SETTINGS
+4 Kanaleinstellungen=IDH_SCXI_MODULE_CHANNEL_SETTINGS
+4 Verbunden mit=IDH_SCXI_MODULE_GENERAL_CONNECTED_TO
+4 Allgemeine Einstellungen=IDH_SCXI_MODULE_GENERAL_SETTINGS
+4 Betriebsart=IDH_SCXI_MODULE_GENERAL_OP_MODE
+4 Neu programmieren (Nur für SCXI-2400)=IDH_SCXI_MODULE_GENERAL_REPROGRAM
+3 Jumper und DIP-Schalter von SCXI-Modulen
+4 Jumper und DIP-Schalter von SCXI-Modulen=IDH_SCXI_MODULE_JUMPERS
+4 SCXI-1100-Jumper=IDH_SCXI_1100_JUMPERS
+4 SCXI-1120- und SCXI-1120D-Jumper=IDH_SCXI_1120X_JUMPERS
+4 SCXI-1121-Jumper=IDH_SCXI_1121_JUMPERS
+4 SCXI-1122-Jumper=IDH_SCXI_1122_JUMPER
+4 SCXI-1124-Jumper=IDH_SCXI_1124_JUMPERS
+4 SCXI-1140-Jumper=IDH_SCXI_1140_JUMPERS
+4 SCXI-1141, SCXI-1142 und SCXI-1143-Jumper=IDH_SCXI_1141_JUMPER
+4 SCXI-1160-Jumper=IDH_SCXI_1160_JUMPERS
+4 SCXI-1161-Jumper=IDH_SCXI_1161_JUMPERS
+4 SCXI-1162-Jumper=IDH_SCXI_1162_JUMPERS
+4 SCXI-1162HV-Jumper=IDH_SCXI_1162HV_JUMPERS
+4 SCXI-1163-Jumper=IDH_SCXI_1163_JUMPERS
+4 SCXI-1163R-Jumper=IDH_SCXI_1163R_JUMPERS
+4 SCXI-2400-Schalter=IDH_SCXI_2400_JUMPERS
+2 Testen Ihrer SCXI-Konfiguration
+3 Testen Ihrer SCXI-Konfiguration=IDH_TESTING_SCXI_CONFIGURATION
+1 Spezielle Hinweise
+2 Betriebssystemsspezifische Hinweise
+3 Betriebssystemspezifische Hinweise=IDH_OS_CONSIDERATIONS
+3 Spezielle Hinweise zu Windows 2000/98/95
+4 Spezielle Hinweise zu Windows 2000/98/95 (DAQ)=IDH_WIN95_SPECIAL_CONSIDERATIONS
+4 Zugewiesene Ressourcen ändern in DAQ=IDH_WIN95_RESOURCE_ALLOCATION_CHANGE
+4 Neue VXI-DAQ-Geräte konfigurieren (DAQ)=IDH_WIN95_VXIDAQ_CONFIGURING
+4 DMA-Kanäle über mehrere Geräte verteilen (DAQ)=IDH_WIN95_AT_E_SERIES_DISTRIB_DMA
+4 Hinweise zu EISA Bus Computern: Nicht-Plug and Play-Geräte (DAQ)=IDH_WIN95_EISA_BUS_NONPLUG_AND_PLAY
+4 Hinweise zu EISA-Bus-Computern: Geräte der AT E-Serie (DAQ)=IDH_WIN95_EISA_BUS_AT_E_SERIES
+4 Alle DMA-Kanäle eines Gerätes der AT E-Serie freigeben (DAQ)=IDH_WIN95_AT_E_SERIES_FREEING_DMA
+4 VXI-DAQ-Geräte unter Windows 2000/98/95 manuell hinzufügen (DAQ)=IDH_WIN95_VXIDAQ_MANUALLY_ADDING
+4 Registry-Einträge des Measurement & Automation Explorer (DAQ)=IDH_WIN95_REGISTRY_ENTRIES
+4 Plug and Play-Einschränkung (DAQ)=IDH_WIN95_AT_E_SERIES_LIMITATION
+4 Spezielle Hinweise zu Geräten der AT E-Serie unter Windows 2000/98/95 (DAQ)=IDH_WIN95_AT_E_SERIES
+4 Spezielle Hinweise für EISA-Bus-Computer unter Windows 2000/98/95 (DAQ)=IDH_WIN95_EISA_BUS
+4 Spezielle Hinweise zu Nicht-Plug and Play-Geräten und Geräten mit paralleler Schnittstelle unter Windows 2000/98/95 (DAQ)=IDH_WIN95_NON_PLUG_AND_PLAY
+4 Spezielle Hinweise zu PCI- und PXI-Geräten unter Windows 2000/98/95 (DAQ)=IDH_WIN95_PCI_DEVICES
+4 Spezielle Hinweise zu Plug and Play-Geräten unter Windows 2000/98/95 (DAQ)=IDH_WIN95_PLUG_AND_PLAY
+4 Spezielle Hinweise zu SCXI-Geräten mit paralleler Schnittstelle unter Windows 2000/98/95 (DAQ)=IDH_WIN95_CONFIGURING_PARALLEL_PORT
+4 Spezielle Hinweise zu VXI-DAQ-Geräten unter Windows 2000/98/95 (DAQ)=IDH_WIN95_VXIDAQ_DEVICES
+4 Entfernen von NI-DAQ Konfigurationsinformationen unter Windows 2000/98/95 (DAQ)=IDH_WIN95_REMOVING_CONFIG_UTIL_INFO
+4 Zuweisung von Ressourcen für Geräte der AT E-Serie (DAQ)=IDH_WIN95_AT_E_SERIES_RESOURCE_ALLOCATION
+4 Zuweisung von Ressourcen unter Windows 2000/98/95 (DAQ)=IDH_WIN95_RESOURCE_ALLOCATION
+4 Ihren EEPROM der AT E-Serie aktualisieren (DAQ)=IDH_WIN95_AT_E_SERIES_EEPROM_UPDATE
+4 Zugewiesene Ressourcen ansehen in DAQ=IDH_WIN95_RESOURCE_ALLOCATION_VIEW
+4 Der Gerätemanager von Windows 2000/98/95 (DAQ)=IDH_WIN95_DEVICE_MANAGER
+3 Spezielle Hinweise zu Windows NT
+4 Spezielle Hinweise zu Windows NT-Geräten (DAQ)=IDH_WINNT_SPECIAL_CONSIDERATIONS
+4 Neue VXI-DAQ-Geräte unter Windows NT konfigurieren (DAQ)=IDH_WINNT_VXIDAQ_CONFIGURING
+4 VXI-DAQ-Geräte unter Windows NT manuell hinzufügen (DAQ)=IDH_WINNT_VXIDAQ_MANUALLY_ADDING
+4 Hinweise zu Plug and Play-Geräten: ISA-Geräte (DAQ)=IDH_WINNT_PNP_ISA_DEVICES
+4 Hinweise zu Plug and Play-Geräten: PC Card-Geräte (DAQ)=IDH_WINNT_PNP_PCCARD_DEVICES
+4 Hinweise zu Plug and Play-Geräten: PCI-Geräte (DAQ)=IDH_WINNT_PNP_PCI_DEVICES
+4 Spezielle Hinweise zu Geräten mit paralleler Schnittstelle unter Windows NT (DAQ)=IDH_WINNT_CONFIGURING_PARALLEL_PORT
+4 Spezielle Hinweise zu Plug and Play-Geräten unter Windows NT (DAQ)=IDH_WINNT_PLUG_AND_PLAY
+4 Spezielle Hinweise zu VXI-DAQ-Geräten unter Windows NT (DAQ)=IDH_WINNT_VXIDAQ_DEVICES
+4 Entfernen von NI-DAQ-Konfigurationsinformationen unter Windows NT=IDH_WINNT_REMOVING_CONFIG_UTIL_INFO
+4 Reservierung von zusätzlichem Datenerfassungsspeicher in DAQ=IDH_WINNT_RESERVING_MORE_MEMORY
+3 Spezielle Hinweise zu Mac OS
+4 Entfernen von NI-DAQ-Konfigurationsinformationen unter Mac OS=IDH_MACOS_REMOVING_CONFIG_UTIL_INFO
+1 Virtuelle Kanäle in der Datenumgebung
+2 Geräte, die von virtuellen Kanälen nicht unterstützt werden=IDH_DEVICES_NOT_SUPPORTED_BY_CHANNELS
+2 SCXI-Konfigurationen für virtuelle Kanäle und benutzerspezifische Skalierungen=IDH_SCXI_CONFIGURATIONS_FOR_CHANNELS_SCALES
+2 Kanalassistent für die Datenumgebung von DAQ
+3 Kanalassistent für die Datenumgebung von DAQ=IDH_CHANNEL_WIZARD_PANELS
+3 Korrektur unzulässiger virtueller Kanäle in DAQ=IDH_CORRECTING_INVALID_VIRTUAL_CHANNELS
+3 Meldung eines unzulässigen virtuellen Kanals (DAQ)=IDH_INVALID_CHANNEL_CONFIGURATION_NOTIFICATION
+2 Erstellen neuer virtueller Kanäle
+3 Erstellen neuer virtueller Kanäle=IDH_CREATING_NEW_CHANNEL
+3 Über analoge Eingangskanäle in DAQ=IDH_ABOUT_AI_CHANNELS
+3 Über analoge Ausgangskanäle in DAQ=IDH_ABOUT_AO_CHANNELS
+3 Über digitale Eingangs- und Ausgangskanäle (I/O) in DAQ=IDH_ABOUT_DIO_CHANNELS
+3 Über physikalische Größen, Sensoren und Aktoren in DAQ=IDH_ABOUT_PHYSQUAN_SENSOR_ACTUATOR
+3 Kanal für Beschleunigungsmesser=Accelerometer_Channel
+3 Kaltstellenkompensation (Cold-Junction Compensation - CJC)=IDH_CJC
+3 CJC-Typ: Vordefiniert (DAQ)=IDH_CJC_TYPE_BUILT_IN
+3 CJC-Typ: CJC-Anwenderkanal (DAQ)=IDH_CJC_TYPE_USER_SPECIFIED
+3 CJC-Typ: Anwenderwert (DAQ)=IDH_CJC_TYPE_USER_VALUE
+3 Eingangskanal zur Strommessung (DAQ)=IDH_CURRENT_INPUT_CHANNEL
+3 Stromausgangskanal (DAQ)=IDH_CURRENT_OUTPUT_CHANNEL
+3 Benutzerspezifischer Thermoelement-Kanal (DAQ)=IDH_CUSTOM_THERMOCOUPLE_CHANNEL
+3 Digitaler Eingangskanal - Von Leitung lesen (DAQ)=IDH_READ_LINE_CHANNEL
+3 Digitaler Eingangskanal - Von Anschluss lesen (DAQ)=IDH_READ_PORT_CHANNEL
+3 Digitaler Ausgangskanal - Auf Leitung schreiben (DAQ)=IDH_WRITE_LINE_CHANNEL
+3 Digitaler Ausgangskanal - Auf Anschluss schreiben (DAQ)=IDH_WRITE_PORT_CHANNEL
+3 Eingangskanal zur Frequenzmessung (DAQ)=IDH_FREQUENCY_INPUT_CHANNEL
+3 Kanal für Thermoelemente bekannten Typs (DAQ)=IDH_KNOWN_TYPE_THERMOCOUPLE_CHANNEL
+3 LVDT/RVDT Kanal=LVDT_RVDT_Channel
+3 Platin-RTD-Formel (DAQ)=IDH_PLATINUM_RTD_FORMULA
+3 RTD-Kanal (DAQ)=IDH_RTD_CHANNEL
+3 Eingangskanal zur Widerstandsmessung (DAQ)=IDH_RESISTANCE_INPUT_CHANNEL
+3 Bereiche von Thermoelementen in DAQ=IDH_THERMOCOUPLE_RANGES
+3 Analoge Eingangskanaltypen (DAQ)=IDH_TYPES_AI_CHANNELS
+3 Analoge Ausgangskanaltypen in DAQ=IDH_TYPES_AO_CHANNELS
+3 Digitale I/O-Kanaltypen in DAQ=IDH_TYPES_DIO_CHANNELS
+3 Zulässige virtuelle Kanalnamen in DAQ=IDH_VALID_CHANNEL_NAMES
+3 Eingangskanal zur Spannungsmessung (DAQ)=IDH_VOLTAGE_INPUT_CHANNEL
+3 Spannungsausgangskanal (DAQ)=IDH_VOLTAGE_OUTPUT_CHANNEL
+2 Bearbeiten virtueller Kanäle
+3 Bearbeiten virtueller Kanäle=IDH_EDITING_CHANNELS
+3 Bearbeiten analoger virtueller Eingangskanäle in DAQ=IDH_EDITING_AI_CONFIGURATION
+3 Bearbeiten analoger virtueller Ausgangskanäle in DAQ=IDH_EDITING_AO_CONFIGURATION
+3 Bearbeiten von Kanalnamen in DAQ=IDH_EDIT_CHANNEL_NAME
+3 Bearbeiten von Kanalbeschreibungen in DAQ=IDH_EDIT_CHANNEL_DESCRIPTION
+3 Bearbeiten digitaler virtueller I/O-Kanäle in DAQ=IDH_EDITING_DIGITAL_IO_CONFIGURATION
+3 Bearbeiten von physikalischen Größen in DAQ (Analogeingang)=IDH_EDIT_AI_PHYSICAL_QUANITY_PANEL
+3 Bearbeiten von physikalischen Größen in DAQ (Analogausgang)=IDH_EDIT_AO_PHYSICAL_QUANITY_PANEL
+3 Signale invertieren in DAQ=IDH_EDIT_DIO_INVERT_SIGNAL_PANEL
+3 Bearbeiten von Aktoreigenschaften in DAQ=IDH_EDIT_AO_ACTUATOR_PANEL
+3 AI-Hardwareeinstellungen in DAQ (Analogeingang)=IDH_EDIT_AI_DAQ_HW_PANEL
+3 AO-Hardwareeinstellungen in DAQ (Analogausgang)=IDH_EDIT_AO_DAQ_HW_PANEL
+3 Digitale I/O-Hardwareeinstellungen in DAQ=IDH_EDIT_DIO_HW_PANEL
+3 Bearbeiten von Sensoreigenschaften in DAQ=IDH_EDIT_AI_SENSOR_PANEL
+3 Skalierungsformel=IDH_SCALING_FORMULA
+2 Kopieren virtueller Kanäle
+3 Kopieren virtueller Kanäle in DAQ=IDH_COPYING_CHANNEL_CONFIGURATIONS
+2 Löschen virtueller Kanälen
+3 Löschen von virtuellen Kanälen beziehungsweise benutzerspezifischen Skalen in DAQ=IDH_DELETING_CHANNEL_SCALE
+2 Testen virtueller Kanäle in DAQ
+3 Testen virtueller Kanäle in DAQ=IDH_TESTING_CHANNELS
+3 Testen analoger Eingangskanäle in DAQ=IDH_TESTING_AI_CHANNELS
+3 Testen analoger Ausgangskanäle in DAQ=IDH_TESTING_AO_CHANNELS
+3 Testen digitaler Eingangskanäle in DAQ=IDH_TESTING_DI_CHANNELS
+3 Testen digitaler Ausgangskanäle in DAQ=IDH_TESTING_DO_CHANNELS
+2 Benutzerspezifische Kanalansichten
+3 Löschen von virtuellen Kanälen beziehungsweise benutzerspezifischen Skalen in DAQ=IDH_DELETING_CHANNEL_SCALE
+1 Technischer Support
+2 Technischer Support=Technical_Support_Resources

@@ -1,0 +1,169 @@
+// IMA2_ImageProcessingLib.idl : IDL source for IMA2_ImageProcessingLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_ImageProcessingLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(2B6D762F-3A73-4645-B0C0-4DE8E7DF8F3A),
+		dual,
+		helpstring("IIntelIPL Interface"),
+		pointer_default(unique)
+	]
+	interface IIntelIPL : IDispatch
+	{
+		[propget, id(3), helpstring("property InputIndex")] HRESULT InputIndex([out, retval] long *pVal);
+		[propput, id(3), helpstring("property InputIndex")] HRESULT InputIndex([in] long newVal);
+		[propget, id(6), helpstring("property FlipAxis")] HRESULT FlipAxis([out, retval] long *pVal);
+		[propput, id(6), helpstring("property FlipAxis")] HRESULT FlipAxis([in] long newVal);
+		[propget, id(10), helpstring("property ConvKernel")] HRESULT ConvKernel( [out, retval] long *pVal);
+		[propput, id(10), helpstring("property ConvKernel")] HRESULT ConvKernel( [in] long newVal);
+		[id(11), helpstring("method Initial")] HRESULT Initial(int InputWidth, int InputHeight, int InputDepth);
+		[id(12), helpstring("method Mirror")] HRESULT Mirror(long Input, long Output, long FlipAxis);
+		[id(13), helpstring("method Not")] HRESULT Not(long Input, long Output);
+		[id(14), helpstring("method ColorToGray")] HRESULT ColorToGray(long Input, long Output);
+		[id(15), helpstring("method Erode")] HRESULT Erode(long Input, long Output, long Iteration);
+		[id(16), helpstring("method Dilate")] HRESULT Dilate(long Input, long Output, long Iteration);
+		[id(17), helpstring("method Open")] HRESULT Open(long Input, long Output, long Iteration);
+		[id(18), helpstring("method Close")] HRESULT Close(long Input, long Output, long Iteration);
+		[id(19), helpstring("method Subtract")] HRESULT Subtract(long InputA, long InputB, long Output, long FlipAxis);
+		[id(20), helpstring("method CreateConvolutionKernel")] HRESULT CreateConvolutionKernel(long* Values, long Rows, long Columns, long AnchorX, long AnchorY, long nShiftR, long Number);
+		[id(21), helpstring("method Convolve2D")] HRESULT Convolve2D(long Input, long Output, long nKernels, long combineMethod);
+		[propget, id(22), helpstring("property NumberColumns")] HRESULT NumberColumns([out, retval] long *pVal);
+		[propput, id(22), helpstring("property NumberColumns")] HRESULT NumberColumns([in] long newVal);
+		[propget, id(23), helpstring("property NumberRows")] HRESULT NumberRows([out, retval] long *pVal);
+		[propput, id(23), helpstring("property NumberRows")] HRESULT NumberRows([in] long newVal);
+		[propget, id(24), helpstring("property AnchorX")] HRESULT AnchorX([out, retval] long *pVal);
+		[propput, id(24), helpstring("property AnchorX")] HRESULT AnchorX([in] long newVal);
+		[propget, id(25), helpstring("property AnchorY")] HRESULT AnchorY([out, retval] long *pVal);
+		[propput, id(25), helpstring("property AnchorY")] HRESULT AnchorY([in] long newVal);
+		[id(26), helpstring("method Blur")] HRESULT Blur(long Input, long Output, long nRows, long nCols, long anchorX, long anchorY);
+		[id(27), helpstring("method MedianFilter")] HRESULT MedianFilter(long Input, long Output, long nRows, long nCols, long anchorX, long anchorY);
+		[id(28), helpstring("method MinFilter")] HRESULT MinFilter(long Input, long Output, long nRows, long nCols, long anchorX, long anchorY);
+		[id(29), helpstring("method MaxFilter")] HRESULT MaxFilter(long Input, long Output, long nRows, long nCols, long anchorX, long anchorY);
+		[propget, id(30), helpstring("property Threshold")] HRESULT ThresholdValue([out, retval] long *pVal);
+		[propput, id(30), helpstring("property Threshold")] HRESULT ThresholdValue([in] long newVal);
+		[id(31), helpstring("method Threshold")] HRESULT Threshold(long Input, long Output, long threshold);
+		[id(32), helpstring("method AND")] HRESULT AND(long InputA, long InputB, long Output);
+		[id(33), helpstring("method OR")] HRESULT OR(long InputA, long InputB, long Output);
+		[id(34), helpstring("method XOR")] HRESULT XOR(long InputA, long InputB, long Output);
+		[id(35), helpstring("method Square")] HRESULT Square(long Input, long Output);
+		[id(36), helpstring("method Multiply")] HRESULT Multiply(long Input, long Output, long value);
+		[id(37), helpstring("method MultiplyScale")] HRESULT MultiplyScale(long Input, long Output, long value);
+		[id(38), helpstring("method MultiplyImage")] HRESULT MultiplyImage(long InputA, long InputB, long Output);
+		[id(39), helpstring("method MultiplyImageScale")] HRESULT MultiplyImageScale(long InputA, long InputB, long Output);
+		[id(40), helpstring("method RGBToHSV")] HRESULT RGBToHSV(long InputRGB, long OutputHSV);
+		[id(41), helpstring("method aaInitialize")] HRESULT aaInitialize(ULONG ulFlags);
+		[id(42), helpstring("method aaThreshold")] HRESULT aaThreshold(ULONG ulFlags);
+		[id(43), helpstring("method aaMaxFilter")] HRESULT aaMaxFilter(ULONG ulFlags);
+		[id(44), helpstring("method aaMinFilter")] HRESULT aaMinFilter(ULONG ulFlags);
+		[id(45), helpstring("method aaMedianFilter")] HRESULT aaMedianFilter(ULONG ulFlags);
+		[id(46), helpstring("method aaBlur")] HRESULT aaBlur(ULONG ulFlags);
+		[id(47), helpstring("method aaSubtract")] HRESULT aaSubtract(ULONG ulFlags);
+		[id(48), helpstring("method aaClose")] HRESULT aaClose(ULONG ulFlags);
+		[id(49), helpstring("method aaOpen")] HRESULT aaOpen(ULONG ulFlags);
+		[id(50), helpstring("method aaDilate")] HRESULT aaDilate(ULONG ulFlags);
+		[id(51), helpstring("method aaErode")] HRESULT aaErode(ULONG ulFlags);
+		[id(52), helpstring("method aaColortoGray")] HRESULT aaColortoGray(ULONG ulFlags);
+		[id(53), helpstring("method aaConvolve2D")] HRESULT aaConvolve2D(ULONG ulFlags);
+		[id(54), helpstring("method aaDecimate")] HRESULT aaDecimate(ULONG ulFlags);
+		[id(55), helpstring("method aaCopy")] HRESULT aaCopy(ULONG ulFlags);
+		[id(56), helpstring("method aaNot")] HRESULT aaNot(ULONG ulFlags);
+
+	};
+	[
+		object,
+		uuid(8398F1C1-5FD8-4078-8A0B-DEDADB721F46),
+		dual,
+		helpstring("IIntelSPL Interface"),
+		pointer_default(unique)
+	]
+	interface IIntelSPL : IDispatch
+	{
+		[id(1), helpstring("method fCopy")] HRESULT fCopy(float* src, float* dst, int n);
+		[id(2), helpstring("method dCopy")] HRESULT dCopy(double* src, double* dst, int n);
+		[id(3), helpstring("method sCopy")] HRESULT sCopy(short* src, short* dst, int n);
+		[id(4), helpstring("method fSet")] HRESULT fSet(float val, float* dst, int n);
+		[id(5), helpstring("method dSet")] HRESULT dSet(double val, double* dst, int n);
+		[id(6), helpstring("method sSet")] HRESULT sSet(short val, short* dst, int n);
+		[id(7), helpstring("method fZero")] HRESULT fZero(float* dst, int n);
+		[id(8), helpstring("method dZero")] HRESULT dZero(double* dst, int n);
+		[id(9), helpstring("method sZero")] HRESULT sZero(short* dst, int n);
+		[id(10), helpstring("method fMax")] HRESULT fMax(float* vec, int n, float* outval, int* index);
+		[id(11), helpstring("method dMax")] HRESULT dMax(double* vec, int n, double* outval, int* index);
+		[id(12), helpstring("method sMax")] HRESULT sMax(short* vec, int n, short* outval, int* index);
+		[id(13), helpstring("method fMin")] HRESULT fMin(float* vec, int n, float* outval, int* index);
+		[id(14), helpstring("method dMin")] HRESULT dMin(double* vec, int n, double* outval, int* index);
+		[id(15), helpstring("method sMin")] HRESULT sMin(short* vec, int n, short* outval, int* index);
+		[id(16), helpstring("method fMean")] HRESULT fMean(float* vec, int n, float* outval);
+		[id(17), helpstring("method dMean")] HRESULT dMean(double* vec, int n, double* outval);
+		[id(18), helpstring("method sMean")] HRESULT sMean(short* vec, int n, short* outval);
+		[id(19), helpstring("method fNorm")] HRESULT fNorm(float* srcA, float* srcB, int n, int flag, float* outval);
+		[id(20), helpstring("method dNorm")] HRESULT dNorm(double* srcA, double* srcB, int n, int flag, double* outval);
+		[id(21), helpstring("method sNorm")] HRESULT sNorm(short* srcA, short* srcB, int n, int flag, float* outval);
+		[id(22), helpstring("method fAutoCorr")] HRESULT fAutoCorr(float* src, int len, float* dst, int nLags, int flag);
+		[id(23), helpstring("method dAutoCorr")] HRESULT dAutoCorr(double* src, int len, double* dst, int nLags, int flag);
+		[id(24), helpstring("method sAutoCorr")] HRESULT sAutoCorr(short* src, int len, short* dst, int nLags, int flag);
+		[id(25), helpstring("method fCrossCorr")] HRESULT fCrossCorr(float* srcA, int lenA, float* srcB, int lenB, float* dst, int loLag, int hiLag);
+		[id(26), helpstring("method dCrossCorr")] HRESULT dCrossCorr(double* srcA, int lenA, double* srcB, int lenB, double* dst, int loLag, int hiLag);
+		[id(27), helpstring("method sCrossCorr")] HRESULT sCrossCorr(short* srcA, int lenA, short* srcB, int lenB, short* dst, int loLag, int hiLag);
+		[id(28), helpstring("method fRealFFT")] HRESULT fRealFFT(float* samps, int order);
+		[id(29), helpstring("method fRealFFTip")] HRESULT fRealFFTip(float* inSamps, float* outSamps, int order);
+		[id(30), helpstring("method dRealFFT")] HRESULT dRealFFT(double* samps, int order);
+		[id(31), helpstring("method dRealFFTip")] HRESULT dRealFFTip(double* inSamps, double* outSamps, int order);
+		[id(32), helpstring("method sRealFFT")] HRESULT sRealFFT(short* samps, int order);
+		[id(33), helpstring("method sRealFFTip")] HRESULT sRealFFTip(short* inSamps, short* outSamps, int order);
+		[id(34), helpstring("method fRealInvFFT")] HRESULT fRealInvFFT(float* samps, int order);
+		[id(35), helpstring("method fRealInvFFTip")] HRESULT fRealInvFFTip(float* inSamps, float* outSamps, int order);
+		[id(36), helpstring("method dRealInvFFT")] HRESULT dRealInvFFT(double* samps, int order);
+		[id(37), helpstring("method dRealInvFFTip")] HRESULT dRealInvFFTip(double* inSamps, double* outSamps, int order);
+		[id(38), helpstring("method sRealInvFFT")] HRESULT sRealInvFFT(short* samps, int order);
+		[id(39), helpstring("method sRealInvFFTip")] HRESULT sRealInvFFTip(short* inSamps, short* outSamps, int order);
+		[id(40), helpstring("method fReal2FFT")] HRESULT fReal2FFT(float* xSamps, float* ySamps, int order);
+		[id(41), helpstring("method fReal2FFTip")] HRESULT fReal2FFTip(float* xInSamps, float* xOutSamps, float* yInSamps, float* yOutSamps, int order);
+		[id(42), helpstring("method dReal2FFT")] HRESULT dReal2FFT(double *xSamps, double *ySamps, int order);
+		[id(43), helpstring("method dReal2FFTip")] HRESULT dReal2FFTip(double* xInSamps, double* xOutSamps, double* yInSamps, double* yOutSamps, int order);
+		[id(44), helpstring("method sReal2FFT")] HRESULT sReal2FFT(short* xSamps, short* ySamps, int order);
+		[id(45), helpstring("method sReal2FFTip")] HRESULT sReal2FFTip(short* xInSamps, short* xOutSamps, short* yInSamps, short* yOutSamps, int order);
+		[id(46), helpstring("method fReal2InvFFT")] HRESULT fReal2InvFFT(float* xSamps, float* ySamps, int order);
+		[id(47), helpstring("method dReal2InvFFT")] HRESULT dReal2InvFFT(double* xSamps, double* ySamps, int order);
+		[id(48), helpstring("method sReal2InvFFT")] HRESULT sReal2InvFFT(short* xSamps, short* ySamps, int order);
+		[id(49), helpstring("method dScalarMultiply")] HRESULT dScalarMultiply(double val, double* dst, int n);
+		[id(50), helpstring("method fScalarMultiply")] HRESULT fScalarMultiply(float val, float* dst, int n);
+		[id(51), helpstring("method sScalarMultiply")] HRESULT sScalarMultiply(short val, short* dst, int n);
+
+	};
+
+[
+	uuid(97C5FC94-57ED-4DC6-8CFD-484E6F75C441),
+	version(1.0),
+	helpstring("(IMA2 Components) - ImageProcessingLib")
+]
+library IMA2_IMAGEPROCESSINGLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(950C6005-DE09-4A09-9EC4-C0798A1AA46D),
+		helpstring("IntelIPL Class")
+	]
+	coclass IntelIPL
+	{
+		[default] interface IIntelIPL;
+		interface IComponent; 
+	};
+	[
+		uuid(F5F6D14E-4AB0-490C-BBD9-73FFAC43E3BD),
+		helpstring("IntelSPL Class")
+	]
+	coclass IntelSPL
+	{
+		[default] interface IIntelSPL;
+		interface IComponent; 
+	};
+};

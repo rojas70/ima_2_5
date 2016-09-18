@@ -1,0 +1,1567 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=Shift_JIS">
+<title>NI-DAQ 6.9.3 Readmeファイル</title>
+<style>
+<!--
+
+@font-face
+	{font-family:Courier;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Tms Rmn";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Helv;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1           { page-break-after: avoid; font-size: 24pt; font-family: Arial; font-weight:
+               bold; margin-left: 0in; margin-right: 0in; margin-top: 12.0pt;
+               margin-bottom: 3.0pt }
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:20.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h3           { font-size: 16.0; font-family: Arial; font-weight: bold; margin-left: 0in;
+               margin-right: 0in }
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.Indent1, li.Indent1, div.Indent1
+	{
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.Indent2, li.Indent2, div.Indent2
+	{
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:1.0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.BulletedTOC, li.BulletedTOC, div.BulletedTOC
+	{
+	margin-right:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.Note, li.Note, div.Note
+	{
+	margin-right:0in;
+	margin-left:.5in;
+	text-indent:-.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+li {margin-bottom:0.0pt;}
+	{font-size:12.0pt;}
+
+-->
+</style>
+</head>
+
+<body link=blue vlink=blue>
+
+<div class=Section1>
+
+<h1><b><span
+style='font-size:20.0pt'><font size=5 face=Arial><a name="return to top"></a></font></span><font face="Arial" size="6">NI-DAQ 6.9.3 Readmeファイル</font></b></h1>
+
+<p class=MsoNormal style='text-autospace:none'><font
+size=3 face="Times New Roman"><span style='font-size:12.0pt'>c Copyright 2002 <a
+href="http://ni.com/">National Instruments</a>.All rights reserved.</span></font><font
+color=black><span style='color:black'>NI-DAQソフトウェアは1つまたは複数の下記の特許に適用されています。</span></font></p>
+
+<p class=MsoNormal style='text-autospace:none'><font
+size=3 face="Times New Roman"><span style='font-size:12.0pt'>U.S. Patent No(s).: 5,619,702; 6,067,584; 6,096,094; 6,052,743; 6,148,438; 5,926,775; 5,987,530; 6,073,205</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Windows 2000/NT/ME/9x対応のNational Instruments NI-DAQ 6.9.3をご使用いただき、誠にありがとうございます。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>このファイルには、このバージョンのNI-DAQに関する重要な情報が含まれています。これをよくお読みになり、問題点や不適合点について認識いただきますようお願いします。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>このファイルに含まれる情報は、以下の項目に分かれています。</span></font></p>
+
+<ul>
+<li><font face="Arial" size="2"> <a href="#Changes in NI-DAQ 6.9.3 from NI-DAQ 6.9.2">NI-DAQ 6.9.2からNI-DAQ6.9.3への変更点</a></font></li>
+<li><font face="Arial" size="2"> <a href="#Changes in NI-DAQ 6.9.2 from NI-DAQ 6.9.">NI-DAQ 6.9.1からNI-DAQ6.9.2への変更点</a></font></li>
+<li><font face="Arial" size="2"><a href="#Changes in NI-DAQ 6.9.1 from NI-DAQ 6.9">NI-DAQ 6.9からNI-DAQ6.9.1への変更点</a></font></li>
+<li><font face="Arial" size="2"><a href="#New Features and Products Supported in NI-DAQ 6.9 and Later">NI-DAQ6.9以降でサポートされる新機能と新製品</a></font></li>
+<li><font face="Arial" size="2"><a href="#Products Supported in Prior Versions">NI-DAQの旧バージョンでサポートされたが、このバージョンではサポートされない製品</a></font></li>
+<li><font face="Arial" size="2"><a href="#Updates to the Data Acquisition Library for LabVIEW Version 4.x">NI-DAQ6.7以降でサポートされていない、LabVIEW 4.xのデータ集録ライブラリのアップデート</a></font></li>
+<li><font face="Arial" size="2"><a href="#Changes to the LabVIEW for Windows Data Acquisition Library LLBs for NI-DAQ 6.7">NI-DAQ 6.7以降のWindows対応LabVIEWデータ集録ライブラリ（LLB)の変更点</a></font></li>
+<li><font face="Arial" size="2"><a href="#New, Renamed, and Removed">DAQサンプルプログラムに関する情報 （新しいサンプル、変更されたサンプル、削除されたサンプル）</a></font></li>
+<li><font face="Arial" size="2"><a href="#Compiling and Running NI-DAQ Examples">Microsoft Visual C++でのNI-DAQサンプルプログラムのコンパイルおよび実行に関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#What to Do if Your Device Is Not Listed in MAX">デバイスがMeasurement &amp;amp; Automationエクスプローラに記載されていない場合の注意点</a></font></li>
+<li><font face="Arial" size="2"><a href="#DSA Devices (44XX, 45XX)">DSA デバイス （44XX、45XX）</a></font></li>
+<li><font face="Arial" size="2"><a href="#DAQPad-6020E Notes">DAQPad-6020Eの注意事項</a></font></li>
+<li><font face="Arial" size="2"><a href="#DAQPad-6070E/DAQPad-6052E Notes">DAQPad-6070E/DAQPad-6052Eの注意事項</a></font></li>
+<li><font face="Arial" size="2"><a href="#NI 6527 Information">NI 6527に関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#NI 6534 Information">NI 6534に関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#NI 660X Valid Ranges">NI 660Xの有効範囲に関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#Updating the RT Series PXI Controller">LabVIEW 5.1.2ユーザのためのRTシリーズPXIコントローラのアップデートに関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#Interrupt Performance Issues">PCIデバイスとWindows 98における割り込み性能の問題</a></font></li>
+<li><font face="Arial" size="2"><a href="#USB and 1394 Support Requirements">USBおよび1394のサポート条件と制約</a></font></li>
+<li><font face="Arial" size="2"><a href="#SCXI Calibrate Note">SCXI_Calibrateの注意事項</a></font></li>
+<li><font face="Arial" size="2"><a href="#Remote SCXI Devices">リモートSCXIデバイスの使用に関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#Remote Device Access (RDA)">リモートデバイスアクセス (RDA)の使用に関する情報</a></font></li>
+<li><font face="Arial" size="2"><a href="#Modifying the DAQ Configuration Files in MAX">Measurement &amp;amp; AutomationエクスプローラでDAQ構成ファイルを修正する際の注意点</a></font></li>
+<li><font face="Arial" size="2"><a href="#NI-DAQ Documentation Changes">NI-DAQ文書の変更点</a></font></li>
+</ul>
+
+<h3><font face="Arial" size="5"><a name="Changes in NI-DAQ 6.9.3 from NI-DAQ 6.9.2"></a>NI-DAQ 6.9.2からNI-DAQ6.9.3への変更点</font></h3>
+<p><font face="Times New Roman" size="3">このリリースでは、新しいデバイスのサポートを追加し、NI-DAQの前のリリースからのいくつかの問題を修正します。</font></p>
+<h4><font face="Arial" size="3">このバージョンでサポートされる新製品</font></h4>
+<ul>
+  <li>
+<p class="MsoNormal">PCI対応NI 6013</li>
+  <li>
+<p class="MsoNormal">PCI対応NI 6014</li>
+</ul>
+<h4>NI-6534用 DIO Clear (DIG_Block_Clear) の修正</h4>
+<p>DIO Clear.VI （またはDIG_Block_Clear関数）を呼び出すと、NI 6534にあるポートが断続的に他のステートにトグルしていた問題を修正しました。デバイスがリセットされるまで、ステートは入力または出力の最後の値から変更することはありません。</p>
+<h4><font size="3">NI 6120の問題点の修正</font></h4>
+<ul>
+  <li>
+<p class="MsoNormal">NI 6120デバイスは、最大レートでサンプルできるように修正されました。</li>
+  <li>
+<p class="MsoNormal">さまざまなキャリブレーションの問題点が解決されました。</li>
+  <li>
+<p class="MsoNormal">NI 6120 12ビット アナログトリガDACのサポートが追加されました。</li>
+</ul>
+<h4><font size="3">オンボード集録メモリのNI 6115およびNI 6120サポート</font></h4>
+<p>NI-DAQ 6.9.3では、オンボードメモリでの16MS（メガサンプル）または32MS（メガサンプル）のシングルバッファ集録をサポートします。詳細については、技術サポートデータベースのID番号 2MBBRQB5、Using NI 6115 and NI 6120 Onboard Memory to Store Acquisition Data for Later Retrievalを参照してください。</p>
+<h4><font size="3" face="Arial">NI 6052Eの問題点の修正</font></h4>
+<p>NI-DAQ6.9.3は、NI-DAQ6.9.2で問題だった、NI 6052Eを最大サンプルレートで実行するときに生成されるエラーの問題を修正しました。</p>
+<h4><font size="3" face="Arial">LabWindows/CVIでの長い仮想チャネル名のサポート</font></h4>
+<p>NI-DAQ6.9.3では、LabWindows/CVIのEasy I/O関数で、100文字以上の長さの仮想チャネル名を使用できるようになりました。</p>
+<h4><font face="Arial" size="3">SCXI-1520のひずみ仮想チャネルの問題点の修正</font></h4>
+<p>NI-DAQ6.9.3では、NI-DAQ6.9.2で問題だったひずみの仮想チャネルの問題点を解決しました。残りのオフセットなしに、SCXI-1520で、ひずみの仮想チャネル上で、オフセットのゼロ化を行うことができます。 </font><span style="font-size:10.0pt;font-family:
+Helv;color:black"><o:p></o:p></span></p>
+<h4><font face="Arial" size="3">PXI対応NI 6025E、PXI-1010、およびSCXI-1125の認識に関する問題点の修正</font></h4>
+<p>あるバージョンのPXI対応NI 6025EをPXI-1010シャーシで使用するときに、SCXI-1125が構成されない問題点が解決されました。すべてのリビジョンのPXI対応NI 6025EでのSCXI-1125の構成が可能です。</p>
+<h4><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><font face="Arial" size="3">NI 4472での連続集録の問題点の修正</font><o:p></o:p></span></h4>
+<p>NI-DAQ6.9.3では、LabVIEW RTおよび（ごくまれですが）Windowsオペレーティングシステムで発生する自然的なバッファオーバーフローエラーの問題に対処します。この問題はPCIおよびPXI対応NI 4772での連続（ダブルバッファ）集録に影響します。この問題が現れるとスキャンバックログが突然大きな値になり、-10846バッファオーバーランエラーが発生し、集録が停止します。</p>
+
+<p><a href="#return to top">最初に戻る</a><font face="Times New Roman" size="3"><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"></o:p></span></font></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Changes in NI-DAQ 6.9.2 from NI-DAQ 6.9."></a></font></span><font face="Arial" size="5">NI-DAQ 6.9.1からNI-DAQ6.9.2への変更点</font></b></h3>
+
+<p>NI-DAQ 6.9.2のアップデートの主な目的は、新しいデバイスおよびWindows XPへのサポートを追加する点です。このリリースには、NI-DAQ 6.9.1からのいくつかの問題点を修正するNI-PALのアップグレードも含まれます。</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI-PALで修正される問題点</span></font></b></h4>
+
+<p class=MsoNormal style='line-height:12.0pt;text-autospace:none'>NI-PALでは次の機能を提供します。 </span></font></p>
+
+<ul>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; line-height: 12.0pt; text-autospace: none; margin-left: 0.0in"><font color=black><span style='color:black'>2つの同一のPCMCIA DAQCardのインストールおよび構成が、Windows 2000で可能になりました。</span></font></li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; line-height: 12.0pt; text-autospace: none; margin-left: 0.0in">Windows NTでPCMCIA DAQCard用のCardWizard CardおよびSocket Servicesサポートを追加します。このサポートにより、一度に一つのNational Instruments DAQCardデバイスがインストールされるようになります。</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; line-height: 12.0pt; text-autospace: none; margin-left: 0.0in">これは<font face="Courier New" size="2">nipalu.dll</font>を2番目以降のプロセスでロードするのを妨げる、DLL競合エラーを防止します。National Instrumentsは、第3者のDLLと競合を避けるため、<font face="Courier New" size="2">nipalu.dll</font>の優先ロードアドレスを変更しました。</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>新しい機能</span></font></b></h4>
+
+<dir>
+  <li>
+<p style="margin-left:0in;text-indent:0in;">Windows XPのサポート</li>
+  <li>
+<p style="margin-left:0in;text-indent:0in;">Windows NTでCardWizardをサポート</li>
+</dir>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>このバージョンでサポートされる新製品</span></font></b></h4>
+
+<ul>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">1394用DAQPad-6052E</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">PCIおよびPXI/Compact PCI対応NI 6731</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">PCIおよびPXI/Compact PCI対応NI 6733</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">DAQCard-6035E</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">DAQCard-6024E</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">PCIおよびPXI/Compact PCI対応NI 6120</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-CO20</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0"><font size=2 face=Symbol><span
+style='font-size:10.0pt;font-family:Symbol'><font
+size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'></span></font></span></font>SCC-RLY-01</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-TC03</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-TC13</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-TC16</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-AI16</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0"><font size=2 face=Symbol><span
+style='font-size:10.0pt;font-family:Symbol'><font
+size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'></span></font></span></font>SCC-AI00</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-AO03</li>
+  <li>
+<p style="text-indent: -0.00in; margin-left: 0.0">SCC-SG24</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI 4451で転送状態を構成する</span></font></b></h4>
+
+<p>NI 4451デバイスでは、<kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Change_Parameter</span></font></kbd>関数を使用して、AO FIFO転送状態を構成できます。それぞれの選択可能な転送状態では、デフォルトのFIFO 転送カウントが使用されます（FIFO 転送カウントはプログラムできません）。AO FIFO転送状態とデフォルトのFIFO転送カウントの情報については、「NI-DAQ Function Reference Help」を参照してください。</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>複数のDSAデバイスを同期する </span></font></b></h4>
+
+<p>DSAデバイスを同期するには、次の点に注意してください。 </span></font></p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">DSAデバイスは、同じタイプのDSAデバイスと一緒に同期することができます。例えば、NI 4772を同期するには、他のNI 4772デバイスを使用しなければなりません。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">LabVIEWヘルプのSynchronizing Multiple PCI-DSA Devicesトピックの、あるサンプルのダイアグラムにエラーがあります。スレーブデバイスでは、AI Start VIに配線されているトリガソースは、RTSI 0ではなく、RTSI 1であるべきです。このサンプルのダイアグラムでは、マスタデバイスはRTSI 1で、AI Start Trigger VIを制御するので、スレーブデバイスはRTSI 1上で、AI Start Trigger VIを受信しなければなりません。</li>
+</ul>
+
+<h4>Windows2000ユーザのゲストアクセスの問題点</h4>
+<p><span style="mso-bidi-font-size:10.0pt">ゲストアクセスでWindows 2000をログオンすると、NI-DAQを使用できません。<span style="mso-spacerun: yes"></span></span></p>
+
+<h4>NI-DAQ6.9.2互換デバイスの小さな問題点</h4>
+<p><span style="mso-bidi-font-size:10.0pt">DAQ Pad-16XE-50およびSCXI-1200は、Windows XPではサポートされていません。</span></p>
+
+<p style="text-indent: 0.0in; margin-left: 0.0in"><a href="#return to top">最初に戻る</a>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Changes in NI-DAQ 6.9.1 from NI-DAQ 6.9"></a></font></span><font face="Arial" size="5">NI-DAQ 6.9からNI-DAQ6.9.1への変更点</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI-DAQ 6.9.1のリリースの主な目的は、LabVIEW RT6.0.3対応のために、Measurement &amp; Automationエクスプローラをバージョン2.1にアップグレードすることです。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>これには、NI-PAL 1.4.4へのアップグレードも含まれ、ある条件でEシリーズデバイスを使用して、アナログ出力操作を実行するとシステムがハングアップするという問題がなくなりました。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>このリリースに2つの新しいデバイスのサポートが追加されました。</span></font></p>
+
+<ul>
+  <li>
+<p class="Note" style="text-indent: 0; margin-left: 0">SCXI-1581</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">PCI対応NI 6036E</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>最高64個のデバイス、64までのデバイス番号をサポート：この機能に関する一般的な問題については、<a href="http://www.ni.com/public">Knowledge Base</a>でIDナンバー <b><span
+style='font-weight:bold'>27C9QJQI</span></b>を入力して、参照してください。.</span></font></p>
+
+<p><font size=3 color=black face="Times New Roman"><span style='font-size:12.0pt;
+color:black'>NI-DAQ6.9.1以降でPXI/CompactPCI用NI 5112を使用するには、NI-Scope 1.6.2以降を使用する必要があります。詳細については、</span></font><u><font
+color=blue><span style='color:blue'><a href="http://www.ni.com/public">Knowledge Base</a></span></font></u><font color=black><span style='color:black'>でIDナンバー<b><span
+style='font-weight:bold'>27CCBKV2</span></b>を入力して参照してください。</span></font></p>
+
+<h4>NI-DAQ6.9.1互換デバイスの小さな問題点</h4>
+<p><span style="mso-bidi-font-size:10.0pt;color:black">ATシリーズプラグアンドプレイデバイス、DAQPad-16XE-50およびSCXI-1200は、Windows XPではサポートされていません。<o:p></o:p></span></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>このReadmeファイルのすべての他の情報は、NI-DAQ6.9、NI-DAQ6.9.1、NI-DAQ6.9.2およびNI-DAQ6.9.3に適応されます。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="New Features and Products Supported in NI-DAQ 6.9 and Later"></a></font></span><font face="Arial" size="5">NI-DAQ6.9以降でサポートされる新機能と新製品</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>このバージョンでサポートされる新機能</span></font></b></h4>
+
+<ul>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">ひずみ測定をMeasurement &amp;amp; Automationエクスプローラでサポート</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-SGひずみゲージ入力（SCC-SG01、SG02、SG03、およびSG04）を仮想チャネルでサポート</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">RDAをパスワードで保護：この機能の詳細については、リモートデバイスアクセス（RDA）の使用に関する情報のセクションを参照してください。</li>
+  <li>
+<p class="Note" style="text-indent: 0; margin-left: 0">PXI 6608を使いGPSを使ったネットワーク測定の同期</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">Windows Meをサポート</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>このバージョンでサポートされる新製品</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下の新製品はすべてNI-DAQ6.9でサポートされています。</span></font></p>
+
+<ul>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">DAQCard-6024E</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">DAQCard-6601</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">DAQCard-6533 CardBus</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">PXI/Compact PCI対応NI 4472</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">PCIおよびPXI/Compact PCI対応NI 6534</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">PCIおよびPXI/Compact PCI対応NI 6115</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-FV01</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-LP04</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-ICP01</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-RTD01</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI-1128</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI-1190</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI-1191</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI-1192</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI-1313</li>
+  <li>
+<p class="Note" style="text-indent: 0; margin-left: 0">SCXI-1314</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0">TBX-1316</li>
+</ul>
+
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">&nbsp;
+<p class="MsoNormal" style="text-indent: 0; margin-left: 0"><a href="#return to top">最初に戻る</a>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Products Supported in Prior Versions"></a></font></span><font face="Arial" size="5">NI-DAQの旧バージョンでサポートされたが、このバージョンではサポートされない製品</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下は、NI-DAQ 6.5以上でサポートされない製品のリストです。（ ）内はその製品をサポートする最後のNI-DAQバージョンを示します。</span></font></p>
+
+<ul>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16 (NI-DAQ 6.1)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16D (NI-DAQ 6.1)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16F-5 (NI-DAQ 6.1)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16X (NI-DAQ 6.1)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-64F-5 (NI-DAQ 6.1)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-A2150 (NI-DAQ 4.9.0)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-DSP-2200 (NI-DAQ 4.9.0)</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">EISA-A2000 (NI-DAQ 4.9.0)</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>これらの製品を使用するには、（ ）内のバージョン以前のNI-DAQを使用する必要があります。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span style='font-size:14.0pt'><font size=4 face=Arial><a name="Updates to the Data Acquisition Library for LabVIEW Version 4.x"></a></font></span><font face="Arial" size="5">NI-DAQ6.7以降でサポートされていない、LabVIEW 4.xのデータ集録ライブラリのアップデート</font></b></h3>
+
+<p>Windows対応NI-DAQのバージョン6.7より、NI-DAQセットアップユーティリティはWindows対応LabVIEWバーション4.xのデータ集録サポートファイルをインストールするオプションがなくなります（英語版と日本語版）。</p>
+
+<p>Windows対応LabVIEW4.xデータ集録サポートファイルを再インストールし、Windows対応NI-DAQ 6.7ドライバを使用する必要がある場合は、Windows対応NI-DAQの旧バージョンから、ドライバとLabVIEW 4.xDAQサポートファイルをインストールしてから（推奨: 英語版はNI-DAQ6.6、日本語版はNI-DAQ6.1）、その上にWindows対応NI-DAQ6.7のドライバをインストールしてください。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Changes to the LabVIEW for Windows Data Acquisition Library LLBs for NI-DAQ 6.7"></a></font></span><font face="Arial" size="5">NI-DAQ 6.7以降のWindows対応LabVIEWデータ集録ライブラリ（LLB)の変更点</font></b></h3>
+
+<p>NI-DAQ6.7より、以下に示されているWindows対応LabVIEWのデータ集録ライブラリのLLB（&lt;LabVIEW&gt;\vi.lib\daqのフォルダにインストールされる）はLVDAQ.DLLと言うDLLに含まれる関数を呼び出すようになりました。（このDLLはLLBと同じディレクトリにあり、以前は各VIに組み込まれていたコードインタフェースノード（CIN)を入れ換えます）。</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><font
+size=2 face=Symbol><span style='font-size:10.0pt;
+font-family:Symbol'><font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'></span></font></span></font><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>_daq301.llb</span></font></kbd></li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>_nidaq32.llb</span></font></kbd></li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>dqchnutl.llb</span></font></kbd></li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>misc.llb</span></font></kbd></li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>zadvd.llb</span></font></kbd></li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>zadvdctr.llb</span></font></kbd></li>
+</ul>
+
+<p>これらLLBとDLLはWindows対応LabVIEW5.x、LabVIEW/RTバージョン5.1.2以降、BridgeVIEW 2.x、および学生版LabVIEWバージョン5.xに対応しています。尚、これらLLBはWindows対応NI-DAQバージョン5.0以降に対応しています（実行ボタンの矢印が壊れずにロードします）。サポートされていない機能がある場合は、VIが実行された際に、DAQエラーコード</span></font><kbd><b><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:bold'>-10242</span></font></b></kbd> (<kbd><b><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:bold'>functionNotFoundError</span></font></b></kbd>)を返します。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>CINではなくDLLを呼び出すことにより、VIのロード時間が大幅に短縮されます。ベンチマークとしまして、Windows NT 4.0 SP4搭載のPentium III500 MHz Dell Precision 610でテストした結果、</span></font><kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>NIDAQ32.DLL</span></font></kbd>がメモリにロードされた後に、最初のDAQ VIがLabVIEWにロードされる時間が平均で75%削減されました。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下のWindows対応LabVIEWの関連ファイルは、NI-DAQ 6.7以降のデータ集録LLBを使用している場合は必要ありません：</span></font></p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">&lt;LabVIEW&gt;\vi..lib\flatten.lsb (LVDAQ.DLLに含まれています)</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">&lt;LabVIEW&gt;\daqdrv (同じ機能がLVDAQ.DLLに含まれています)</li>
+</ul>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>メモ: </span></font></b></strong>  LabVIEWアプリケーションビルダでDAQライブラリVIを呼び出しているEXEファイルを作成している場合、ビルドスクリプトに<kbd><font size=2><span style='font-size:10.0pt;'>LVDAQ.DLL</span></font></kbd>の参照を手動で追加する必要があるかも知れません。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="New, Renamed, and Removed"></a></font></span><font face="Arial" size="5">DAQサンプルプログラムに関する情報 （新しいサンプル、変更されたサンプル、削除されたサンプル）</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>下記は、NI-DAQ6.9の最新のLabVIEWデータ集録サンプルのリストで、デフォルトのファイルのインストール先によってグループ化されています。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下のサンプルVIが、</span></font><kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>vi.lib</span></font></kbd>フォルダに追加されます。</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>Daq\misc.llb\DSA AI Get Overloaded Channels.vi</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下のサンプルVIが、</span></font><kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>examples</span></font></kbd>フォルダに追加されます。</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\GPS - Time 1 Hardware Event (NI-TIO).vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\GPS - Time N Software Events (NI-TIO).vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\Measure Position - non-TTL (NI-TIO).vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\Measure Pulse - non-TTL (NI-TIO).vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\CAN-DAQ RTSI Clear.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\CAN-DAQ RTSI Config.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\Compute Waveform.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AI CAN-Receive Example.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AI CAN-Transmit Example.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AO CAN-Receive Example.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AO CAN-Transmit Example.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\653x.llb\Dig Read backlog.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqCDI with AI (E).vi （6115/6220デバイスのみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqCDO with AO (E).vi （6115/6220デバイスのみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqCDIO with AIO (E).vi （6115/6220デバイスのみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqCDIO with external clock (E).vi （6115/6220デバイスのみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqSingle Point clocked by Counter (E).vi （6115/6220のみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqSingle Point clocked by Counter (E).vi （6115/6220のみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqCDI Single Point (E).vi （6115/6220デバイスのみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daqCDO Single Point (E).vi （6115/6220デバイスのみ）</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Channel String to Channel List and Number.vi </span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\compute digital waveform.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Logical to Physical Data Fileter.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Physical to Logical Data Fileter.vi</span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><font size="2">D</font><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>aq\scxi\scxi1520.llb\SCXI-1520 Strain.vi</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下のNI-DAQ C APIサンプルは、Visual BasicまたはVisual C++、CVI、Borland C++で書かれており、</span></font><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>&lt;Examples Directory&gt;\daq\CDIO\</span></font></kbd><kbd></kbd>に追加されます。</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">CDISinglePointClockedByCounter （6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">CDISinglePointClockedByCounter （6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">DoubleBufferedCDIOusingExternalClock（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">DoubleBufferedCDIOwithAIO（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">DoubleBufferedCDIwithAI（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">DoubleBufferedCOwithAO（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">ImmediateCDISinglePoint（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">ImmediateCDOSinglePoint（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">SingleBufferedCDIusingExternalClock（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">SingleBufferedCDIwithAI（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">SingleBufferedCDOusingExternalClock（6115/6120デバイスのみ）</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">SingleBufferedCDOwithAO（6115/6120デバイスのみ）</li>
+</ul>
+
+<p style="text-indent: 0.0in; margin-left: 0.0in"><a href="#return to top">最初に戻る</a>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Compiling and Running NI-DAQ Examples"></a></font></span><font face="Arial" size="5">Microsoft Visual C++でのNI-DAQサンプルプログラムのコンパイルおよび実行に関する情報</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>サンプルをコンパイルし、実行するには、以下の手順に従ってください：</span></font></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+<li class=MsoNormal><b><span style='font-weight:bold'>File→New</span></b>から、新しいプロジェクトを開きます。<b><span style='font-weight:bold'>Projects</span></b>タブが、デフォルトで出てくるはずです。 </span></font></li>
+<li class=MsoNormal><b><span
+     style='font-weight:bold'>Win32 Console Application</span></b>をプロジェクトタイプとして選択し、プロジェクト名を記入します。 </span></font></li>
+<li class=MsoNormal><b><span
+     style='font-weight:bold'>Empty Application</span></b>を選択します。新規プロジェクトを作成したら、フォルダメニューを左に、ファイルスクリーンを右に表示します。プロジェクトにあるファイルをダブルクリックすると、右側にそのファイルが表示されます。ナビゲーションを簡単にするには、 <b><span style='font-weight:bold'>Class View</span></b>から<b><span
+     style='font-weight:bold'>File View</span></b>に変更します。</li>
+<li class=MsoNormal><b><span
+     style='font-weight:bold'>Project→Add to Project→File</span></b>を選択します。 </span></font></li>
+<li class=MsoNormal>NI-DAQ\LIBzディレクトリを選択し、nidaq32.libファイルとnidex32.libファイルを追加します。またNI-DAQ\Includeフォルダから、nidaqex.hとnidaq.hファイルを追加します。2つのライブラリおよびヘッダファイルをプロジェクトに追加すると、ほとんどのデータ集録アプリケーションのサンプルに、ソースコードを統合します。 </li>
+<li class=MsoNormal><b><span
+     style='font-weight:bold'>Tools→Options</span></b>から<b><span
+     style='font-weight:bold'>Directories</span></b>タブを選択します。 </span></font></li>
+</ol>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span
+style='font-size:12.0pt'>a.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>     </span></font></span></font><b><span style='font-weight:bold'>Include Files</span></b>にオプションを設定します。NI-DAQ\Includeに同じディレクトリを指定します。
+</p>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span
+style='font-size:12.0pt'>b.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>     </span></font></span></font>同じタブから、<b><span style='font-weight:bold'>Libraries</span></b>にオプションを設定して、NI-DAQ\LIBにパスを設定します。</p>
+
+<ol style='margin-top:0in' start=7 type=1>
+<li class=MsoNormal>Easy I/O関数を使用するアプリケーションを使用する場合、Easy I/O関数は、CVI Run-Timeライブラリからいくつかの関数を使用するので、追加ファイルを含む必要があります。追加ライブラリは、</span></font><kbd><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>easyio.lib</span></font></kbd>、<kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+     font-family:"Courier New"'>cvisupp.lib</span></font></kbd>、<kbd><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>cvirt.lib</span></font></kbd>、そして<kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+     font-family:"Courier New"'>cviwmain.lib</span></font></kbd>です。これらは<kbd><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>CVI\EXTLIB </span></font></kbd>ディレクトリに存在します。
+     </li>
+</ol>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span
+style='font-size:12.0pt'>a.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>　 </span></font></span></font><b><span style='font-weight:bold'>Tools→Options</span></b>から<b><span
+style='font-weight:bold'>Directories</span></b>タブを選択します。 </p>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>b.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>   </span></font></span></font><b><span style='font-weight:bold'>Include Files</span></b>にオプションを設定します。<kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>CVI\INCLUDE</span></font></kbd> ディレクトリを指定します。 </p>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>c.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>  </span></font></span></font>同じタブから、<b><span style='font-weight:bold'>Libraries</span></b>にオプションを設定して、<kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>CVI\EXTLIB</span></font></kbd>にパスを設定します。</p>
+
+<ol start=8 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt;'>使用するプロジェクトに必要な場合、ソースコードとヘッダを追加します。 </span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>これでプロジェクトを実行ファイルに作成することができます。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="What to Do if Your Device Is Not Listed in MAX"></a></font></span><font face="Arial" size="5">デバイスがMeasurement &amp;amp; Automationエクスプローラに記載されていない場合の注意点</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Measurement &amp; Automationエクスプローラを使用していて、使用中のデバイスが表示されない場合、F5ボタンを押すか、<b><span
+style='font-weight:bold'>表示→最新の情報に更新</span></b>を選択して、Measurement &amp; Automationエクスプローラをリフレッシュします。</span></font></p>
+
+<p>Windows XPを使用していて、 使用中のデバイスがリストされていない場合、<b>コントロール パネル→パフォーマンスとメンテナンス→システム</b>（または<b>コントロール パネル→システム</b>）を選択します。<b>ハードウェアタブ</b>を選択します。<b>デバイスマネージャ</b>ボタンを選択して、<b>その他のデバイス</b>を選択します。<b>その他のデバイス</b>タブにリストされているデバイスを右クリックして、<b>ドライバ</b>タブを選択します。<b>ドライバの更新…</b>を選択します。ドライバがロードされたら、Measurement &amp; Automationエクスプローラを起動して、F5ボタンを押すか、<b>表示→最新の情報を更新</b>を選択して、Measurement &amp;  Automationエクスプローラを更新します。</p>
+
+<h3><b><span style='font-size:14.0pt'><font size=4 face=Arial><a name="DSA Devices (44XX, 45XX)"></a></font></span><font face="Arial" size="5">DSA デバイス （44XX、45XX）</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>サポートされない機能</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>DSAデバイスはアナログ入出力非バッファ型操作をサポートしません。LabVIEWでは、AI SingleScanおよびAO Single Update VIがサポートされません。</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>必要となる新規計測器ドライバ</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>DSA計測器ドライバを既にインストールしている場合は、NI-DAQ 6.9で動作するよう最新バージョンをインストールする必要があります。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="DAQPad-6020E Notes"></a></font></span><font face="Arial" size="5">DAQPad-6020Eの注意事項</font></b></h3>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>外部タイミングによるA/D</span></font></b>:DAQPad-6020Eは、外部サンプルインターバルおよびスキャンインターバルタイミングを低速(すなわち最大約90 Hz)でサポートします。より高速で外部からサンプリングするには、<kbd>Set DAQ Device Information VI</kbd> （または同等のもの）を、<b><span style='font-weight:
+bold'>情報タイプ</span></b>： 割り込み生成モード、<b><span
+style='font-weight:bold'>情報設定</span></b>：FIFO半分毎に割り込みを生成に設定して実行します。</p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>ソフトウェアアナログトリガ</span></font></b>：DAQPad-6020Eは、低速集録（最大約75サンプル/秒）の場合のみ、ソフトウェアアナログトリガをサポートします。この制限は他のタイプのトリガには適用されません。アナログトリガについては、「NI-DAQ Function Reference Manual」の「Config_DAQ_Event_Message」の項目、またはLabVIEWのデータ集録ヘルプのAI Trigger Config.viの項目を参照してください。</p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>連続低速AI転送</span></font></b>：DAQPad-6020Eを使用すると、連続低速AI転送(すなわち、80から約400サンプル/秒)の開始時に、データが集録バッファに入ってくる前に顕著な遅延が見られます。この理由は、A/D変換が生成されても、AI FIFOが少なくとも半分満たされるまでデバイスはPCへのデータ転送を開始しないためです。</p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>タイミングによる非バッファ型AI</span></font></b>：DAQPad-6020Eでは、LabVIEWのサンプル「Cont Acq&amp;Chart (hw timed).vi」 で説明するようなタイミングによる非バッファ型AI操作は、約50 Hzに制限されます。それより高速の場合、NI-DAQがデバイスから一度に1スキャンずつ読み取ってAI FIFOを空にしようとする際、LabVIEWが応答しなくなることがあります。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="DAQPad-6070E/DAQPad-6052E Notes"></a></font></span><font face="Arial" size="5">DAQPad-6070E/DAQPad-6052Eの注意事項</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>1394アダプタボードの中には、不正確なFIFOサイズを報告するものがあります。したがって、FIFOサイズには最小公分母を使用しています。1394アダプタボードのFIFO深度が456バイト以上であったり、FIFO が誤った速度を報告する場合は、弊社のftpサイトの<kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'><a
+href="ftp://ftp.natinst.com/support/daq/pc/ieee1394">ftp://ftp.natinst.com/support/daq/pc/ieee1394</a></span></font></kbd>から、</span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>fwctl.exe</span></font></kbd>および<kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>readme.txt</span></font></kbd>をダウンロードして、性能を向上させる必要があります。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>通常、制御アプリケーション内のボードとmini-MITE FIFOを無効にして、速度を改善することができます。ただし、この方法はDAQPad-6070E上のすべてのDMAチャネル転送に影響を及ぼします。また、FIFOサイズはDMA転送を実行する前のみ変更が可能です。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI 6527 Information"></a></font></span><font face="Arial" size="5">NI 6527に関する情報</font></b></h3>
+
+<p>6527デバイスの割り込みレベル（IRQL）が、USBホストコントローラまたは1394ホストコントローラのIRQLと一致する場合、検出の変更はできない可能性があります。この問題とそれを回避する方法については、「PCIデバイスとWindows 98で割り込みを使用する際の問題点」を参照してください。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI 6534 Information"></a></font></span><font face="Arial" size="5">NI 6534に関する情報</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>サポートされる新機能</span></font></b></h4>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>改善されたバッファ出力操作</span></font></b>：6534デバイスには、メモリモジュールがボードに2つ、1グループにつき1つあります。デフォルトでは、出力操作を開始する前に、NI DAQが全データバッファか全メモリモジュールのどちらか小さい方でSCARABをプリロードして、バスの帯域幅制限を除去します。ただし、デフォルトのプリロードに上書きすることもできます： </p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: .0in">LabVIEWでは<kbd>DIO Parameter VI</kbd>を<span style='font-weight:bold'>Parameter name</span></b> = SCARABs Preload Enable、<b><span style='font-weight:bold'>Value in</span></b> = Offで実行します。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: .0in">NI-DAQ APIで、C言語でプログラムしている場合、<kbd><font
+size=2 face=Courier><span style='font-size:10.0pt;font-family:Courier;'>Set_DAQ_Device_Info</span></font></kbd>を <b><span style='font-weight:bold'>infoType</span></b> = ND_FIFO_TRANSFER_COUNT、<b><span style='font-weight:bold'>infoValue</span></b> = ND_NONEで呼び出します。</li>
+</ul>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>リピートデータの連続高速出力</span></font></b>：6534デバイスは、出力データがSCARABに一度だけロードされる出力メモリのループモードをサポートします。バッファサイズがオンボードメモリと同じサイズかそれより小さい場合、全バッファは何度も繰り返し使用されます。</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">LabVIEWでは、<b><span style='font-weight:bold'>Parameter Name</span></b>をPattern Generation Loop Enableに設定して、<kbd>DIO Parameter VI</kbd>を実行します。そして、再生成モードをイネーブルにし、連続出力向けの一般的なDIO構成に設定します。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">C言語でプログラムしている場合、<kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Set_DAQ_Device_Info</span></font></kbd>を<b><span style='font-weight:bold'>infoType</span></b> = ND_PATTERN_GENERATION_LOOP_NABLE、<b><span style='font-weight:bold'>infoValue</span></b> = ND_ONでset_DAQ_Device_Infoを呼び出します。</li>
+</ul>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>オンボードメモリサイズ</span></font></b>：6534デバイスのメモリモジュールには、さまざまなサイズがあります。6534デバイスのメモリサイズを調べるには、下記の方法があります：</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">LabVIEWでは、<b><span style='font-weight:bold'>Information type</span></b> = SCARAB A Memory Size (group 1)またはScarab B Memory Size (group 2)として、<kbd>Get DAQ Device Information VI</kbd>を実行します。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">他の開発環境を使用している場合、<b><span style='font-weight:bold'>info Type</span></b> = ND_SCARAB_A_MEMORY_SIZE (group 1)またはND_SCARAB_B_MEMORY_SIZE （group2）として、Get_DAQ_Device_Info （NI-DAQ API内）を呼び出します。</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>メモリのサイズはバイトで返されます。 </span></font></p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt;
+font-weight:bold'>20 MHz パターン I/O</span></font></b>:<kbd>Digital Clock Config VI</kbd>または<kbd>DIO Config VI</kbd>を実行すると、クロック周波数を20MHzに設定できます。C言語でプログラミングをしている場合、<b><span style='font-weight:bold'>timebase</span></b> = -3および<b><span
+style='font-weight:bold'>interval</span></b> = 1として<kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Block_PG_Config</span></font></kbd>を呼び出してください。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI 660X Valid Ranges"></a></font></span><font face="Arial" size="5">NI 660Xの有効範囲に関する情報</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI 660Xデバイスの有効範囲は、次の関数では0になります。 </span></font></p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line </span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Prt </span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Line_Config </span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Line </span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Prt </span></font></kbd></li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Prt_Config</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>この範囲を<b><span style='font-weight:bold'>Port</span></b>パラメータで設定します。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Updating the RT Series PXI Controller"></a></font></span><font face="Arial" size="5">LabVIEW 5.1.2ユーザのためのRTシリーズPXIコントローラのアップデートに関する情報</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>LabVIEW5.1.2をRTシリーズPXIコントローラとともに使用する場合、LabVIEW5.1.2がご使用のコンピュータにインストールされていると、NI-DAQ6.9はRemote System Explorerを検出し、自動的にデータ集録ファイルをアップデートします。NI-DAQのインストールが完了したら、以下の手順に従い、PXIコントローラをアップデートしてください。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Remote System Explorerを起動します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>アップグレードするPXIシステムを選択し、<b><span style='font-weight:bold'>ツール→ソフトウェアのインストール&amp;アップグレード</span></b>をクリックしてソフトウェアのインストール&amp;アップグレートダイアログボックスを開きます。</span></font></li>
+<li class=MsoNormal>インストール画像として、～Remote System Explorer\install\pxiディレクトリからinstall.rtsを選びます。</li>
+<li class=MsoNormal> <b><span
+     style='font-weight:bold'>インストール</span></b>をクリックします。</li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>インストールするソフトウェアのリストを確認し、<b><span style='font-weight:bold'>継続</span></b>をクリックしてインストールを続けます。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>インストールが完了したら、<b><span style='font-weight:bold'>閉じる</span></b>をクリックします。そして、コンピュータを再起動するように指示されたら、<b><span style='font-weight:bold'>はい</span></b>をクリックします。</span></font></li>
+</ol>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Interrupt Performance Issues"></a></font></span><font face="Arial" size="5">PCIデバイスとWindows 98における割り込み性能の問題</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>割り込み処理は、以下のすべての条件に適合するシステム上で遅くなることがあります。</span></font></p>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">コンピュータにUSBポートがある。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">コンピュータがWindows 98のリリース版で動作している。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">PCIデータ集録デバイスを使用している。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">データ集録アプリケーションは割り込みを頻繁に発生させる操作を実行している (たとえばハンドシェイクやメッセージ処理など)。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">PCIデバイスの割り込みレベル（IRQL）がUSBホストコントローラのIRQLと一致する（「PCI DAQデバイスとUSB/1394ホストコントローラのIRQLを決定する」を参照）。</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>以下のすべての条件に適合すると、極端な遅れ、タイムアウト、またはロックアップがシステム上で起こる可能性があります。</span></font></p>
+
+<ul>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">コンピュータに1394アダプタポートがある。</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">コンピュータがWindows 98のリリース版で動作している。</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">PCIデータ集録デバイスを使用している。</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">データ集録アプリケーションは、割り込みを頻繁に発生させる操作 (たとえば、アナログソフトウェアトリガ、非同期オカーレンス、その他のメッセージ処理など) を実行している。</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">PCIデバイスの割り込みレベル（IRQL）が1394ホストコントローラのIRQLと一致する（「PCI DAQデバイスとUSB/1394ホストコントローラのIRQLを決定する」を参照）。</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>PCI DAQデバイスとUSB/1394ホストコントローラのIRQLを決定する</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>PCI DAQデバイスおよびUSB/1394ホストコントローラのIRQLが同じかどうかを確認するには、以下の手順に従ってください。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>通常画面の左上にある<b><span
+     style='font-weight:bold'>マイコンピュータ</span></b>アイコンを右クリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>ポップアップメニューから<b><span
+     style='font-weight:bold'>プロパティ</span></b>を選択し、システムのプロパティウィンドウを開きます。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>デバイスマネージャ</span></b>タブをクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>コンピュータ</span></b>をダブルクリックして「コンピュータのプロパティ」ウィンドウを開きます。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>割り込み要求 (IRQ)</span></b>が選択されていることを確認します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>選択</span></b>ボックスをスクロールし、PCI DAQデバイスを探します。見つかったら、<b><span
+     style='font-weight:bold'>設定</span></b>の欄にある番号を書き止めます（デバイスのIRQ）。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>選択ボックスをスクロールし、USB/1394ホストコントローラが見つかったら、<b><span style='font-weight:bold'>設定</span></b>の欄にあるIRQを書き止めます。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>PCI DAQデバイスの番号をUSB/1394コントローラの番号と比較します。</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>PCIデータ集録デバイスの設定番号がUSB/1394ホストコントローラと一致する場合は、以下の方法で、割り込み処理の性能を向上することができます。</span></font></p>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>メモ: </span></font></b></strong>?@USB/1394ホストコントローラとPCIデータ集録デバイス間でIRQLを共有すると、割り込み処理の速度にのみ影響します。DMAや他のI/Oに対する影響はありません。また、IRQLをPCIデータ集録デバイスまたは他のPCIデバイス（ビデオやネットワークアダプタなど）間で共有しても、割り込み処理速度には影響しないはずです。</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>割り込み処理速度を上げる方法（初級）</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>現在USB/1394デバイスを使用していなくて、今後も当分使用する予定がない場合は、以下の手順で割り込み速度を上げることができます。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>通常画面の左上にある<b><span      style='font-weight:bold'>マイコンピュータ</span></b>アイコンを右クリックします。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>ポップアップメニューから<b><span      style='font-weight:bold'>プロパティ</span></b>を選択し、システムのプロパティウィンドウを開きます。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'><b><span      style='font-weight:bold'>デバイスマネージャ</span></b>タブをクリックします。</span></font></li>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span
+style='font-family: Symbol'><font face="Symbol" size="2">・<span
+style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>      </span></font></span>USBの場合：</p>
+
+<ol start=3 type=1>
+ <ol start=1 type=a>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'><b><span
+      style='font-weight:bold'>ユニバーサルシリアルバスコントローラ</span></b>をダブルクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'><b><span
+      style='font-weight:bold'>USBホストコントローラ</span></b>をダブルクリックします。</span></font></li>
+ </ol>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span
+style='font-family: Symbol'><font face="Symbol" size="2">&middot;<span
+style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></span>1394:</p>
+
+<ol start=3 type=1>
+ <ol start=1 type=a>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'><b><span
+      style='font-weight:bold'>1394バスコントローラ</span></b>（名前が異なる場合があります）をダブルクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>1394バスコントローラをダブルクリックします。</span></font></li>
+ </ol>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>全般</span></b>タブをクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>このハードウェアプロファイルで<b><span
+     style='font-weight:bold'>使用不可</span></b>にするをチェックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>OK</span></b>をクリックして設定を保存し、システムのプロパティウィンドウを終了します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを再起動します。</span></font></li>
+</ol>
+
+<p>USB/1394デバイスを使用している場合、また使用する予定がある場合は、以下の手順でも割り込み速度を上げることができるかもしれません。</p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを終了し、電源コードを外します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>PCI DAQデバイスを別のPCIスロットに移動します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを起動します。 </span></font></li>
+<li class=MsoNormal>IRQレベルがまだ同じかどうかを調べるには、「PCI DAQデバイスとUSB/1394ホストコントローラのIRQLを決定する」セクションの手順に従ってください。</li>
+</ol>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>割り込み処理速度を上げる方法（上級）</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>現在USB/1394デバイスを使用していなくて、今後も当分使用する予定がない場合は、以下の手順で割り込み速度を上げることができます。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを再起動し、BIOSの設定画面に入ります（コンピュータに同梱されていたマニュアルの手順に従ってください）。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>BIOSコントローラでUSB/1394ポートの設定ができる場合は、設定を使用不可にします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>BIOSコントローラでPCI IRQレベルを有効/無効に設定できる場合は、IRQLをなるべく共有しないようにするため、できる限り多くのIRQレベルをアクティブにします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>使用していないデバイス(例えば、内蔵サウンドカード、LPT2ポート、COM2ポートなど)をすべて無効にして、リソースを開放します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>BIOSの設定を保存します。 </span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを再起動します。</span></font></li>
+</ol>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>メモ: </span></font></b></strong>  デバイスによっては、BIOS設定を使って無効にできないものがあります。そのような場合は、Windowsのデバイスマネージャでデバイスを使用不可にすることを試してみてください。</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>割り込み処理速度を上げる方法（最後の手段）</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>上記の方法で処理速度を上げることができない場合は、以下の方法を試してください。</span></font></p>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>メモ: </span></font></b></strong>  この方法は、コンピュータのリソースを手動で変更しなければならないため、最後の手段としてのみ実行してください。</p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを再起動し、BIOSの設定画面に入ります（コンピュータに同梱されていたマニュアルの手順に従ってください）。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>プラグアンドプレイを無効にします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>BIOSの設定を保存します。 </span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コンピュータを再起動します。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>通常画面の左上にある<b><span      style='font-weight:bold'>マイコンピュータ</span></b>アイコンを右クリックします。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>ポップアップメニューから<b><span      style='font-weight:bold'>プロパティ</span></b>を選択し、システムのプロパティウィンドウを開きます。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'><b><span      style='font-weight:bold'>デバイスマネージャ</span></b>タブをクリックします。</span></font></li>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span style='font-family: Symbol'><font face="Symbol" size="2">・<span style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>      </span></font></span>USBの場合：</p>
+
+<ol start=7 type=1>
+ <ol start=1 type=a>
+<li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'><b><span       style='font-weight:bold'>ユニバーサルシリアルバスコントローラ</span></b>をダブルクリックします。</span></font></li>
+<li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'><b><span       style='font-weight:bold'>USBホストコントローラ</span></b>をダブルクリックします。</span></font></li>
+ </ol>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span
+style='font-family: Symbol'><font face="Symbol" size="2">&middot;<span
+style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></span>1394:</p>
+
+<ol start=7 type=1>
+ <ol start=1 type=a>
+<li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'><b><span       style='font-weight:bold'>1394バスコントローラ</span></b>（名前が異なる場合があります）をダブルクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>1394バスコントローラをダブルクリックします。</span></font></li>
+ </ol>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'><b><span      style='font-weight:bold'>リソース</span></b>タブをクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>自動</span></b>設定を使うのチェックを解除します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>割り込み要求</span></b>をダブルクリックして、PCIデータ集録デバイスと異なる設定レベルを選択します。</span></font></li>
+</ol>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="USB and 1394 Support Requirements"></a></font></span><font face="Arial" size="5">USBおよび1394のサポート条件と制約</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>USBおよび1394に対するオペレーティングシステムのサポート</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI-DAQ 6.7では、USBおよび1394へのソフトウェアサポートはWindows 2000/XP/Me/98搭載のシングルプロセッサシステムのみです。他のバージョンのWindowsを実行している場合、USBや1394デバイスを使用するには、オペレーティングシステムのアップグレードが必要です。</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>USBと1394に対するナショナルインスツルメンツのソフトウェアのサポート</span></font></b></h4>
+
+<ul>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">USB DAQデバイスを使用するには、NI-DAQ バージョン6.5以降が必要です。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">1394 DAQデバイスを使用するには、NI-DAQ バージョン6.6以降が必要です。</li>
+  <li>
+<p style="text-indent: 0.0in; margin-left: 0.0in">USBまたは1394を使用するには、LabVIEW 4.0以降が必要です。</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>起こりうる問題点</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>USBまたは1394 DAQPadをPCに接続し、電源を入れてから、DAQアプリケーションやMeasurement &amp; Automationエクスプローラを起動してください。DAQアプリケーションをロードした後にDAQPadを接続したり電源を入れたりした場合、LabVIEWの中にある<kbd>Device Reset VI</kbd>を実行するか、あるいはNI-DAQ APIにある</span></font><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>Init_DA_Brds()</span></font></kbd>を呼び出して、DAQPadを使用する前にソフトウェア上でデバイスをリセットしてください。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>手動によるリセットに対応していないDAQアプリケーションを使用している場合は（Virtual Benchなど）、アプリケーションを実行する前に、USBまたは1394 DAQPadを接続し電源をオンにする必要があります。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Windowsのエクスプローラ（Internet Explorerを含む）ウィンドウが開いていると、ごくまれにUSBまたは1394デバイスがMeasurement &amp; Automationエクスプローラに表示されない場合があります。この問題が発生したときは、エクスプローラウィンドウをすべて閉じ、&lt;F5&gt;を押してMeasurement &amp;amp; Automationエクスプローラのウィンドウをリフレッシュしてください。それでも問題が起こる場合は、コンピュータを再起動してください。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>USBおよび1394 DAQPadは、Windows 2000/XP/Me/98のサスペンドモードをサポートしていません。</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>構成と電源の管理</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>USBおよび1394デバイスは、プラグアンドプレイ構成とホットスワップをサポートしています。また、Windows Me/98は電源の管理をサポートします。これらの機能によってデバイス構成は容易になりますが、構成における問題を防ぐには以下のガイドラインに従ってください。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>場合によっては、データ集録中に複数の1394デバイスの接続を同時に切ると、問題が発生することがあります。デバイスの接続してから、あるいは接続を切ってから、データ集録ソフトウェアをロードすることが重要です。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>デバイスの接続を切った後や電源をオフにした後は、デバイスを再びオンにするまで5～10秒（または砂時計アイコンが消えるまで）待つ必要があります。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>コンピュータによっては、電源の管理がUSBまたは1394デバイスを使用するアクティブなDAQアプリケーションに干渉することがあります。コンピュータの無人運転中にDAQアプリケーションを実行しなければならない場合、スクリーンセーバーだけではなく、オペレーティングシステムやBIOSにおいて電源の管理を無効にしてください。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Windows XP/Me/98で電源の管理を無効にするには、以下の手順に従ってください。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コントロールパネルを開きます（<b><span style='font-weight:bold'>スタート→設定→コントロールパネル</span></b>をクリックします）。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'> <b><span
+     style='font-weight:bold'>電源の管理アイコン</span></b>（Windows XPでは<b><span
+     style='font-weight:bold'>電源オプション</span></b>）をダブルクリックし、電源の管理アプレットを起動します。次に<b><span style='font-weight:
+     bold'>電源設定</span></b>タブをクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>電源設定リストボックスで、<b><span style='font-weight:bold'>常にオン</span></b>を選択します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>「常にオン」の電源設定で、パラメータを以下のように設定します。</span></font></li>
+ <ol start=1 type=a>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>システムのスタンバイ：<b><span
+      style='font-weight:bold'>なし</span></b>（Windows XPでは、<b><span
+      style='font-weight:bold'>休止状態</span></b>タブを選択し、<b><span
+      style='font-weight:bold'>休止状態</span></b>を無効にします）</span></font></li>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>モニタの電源を切る：どれでも選択可能</span></font></li>
+<li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>ハードディスクの電源を切る：<b><span style='font-weight:bold'>なし</span></b></span></font></li>
+ </ol>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>OK</span></b>をクリックして設定を保存し、電源の管理アプレットを閉じます。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>コントロールパネルを閉じます。</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>電源の管理機能がBIOSに組み込まれているかどうか、そしてBIOSの電源管理機能を無効にする手順を確認するには、次の手順に従ってください。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>スクリーンセーバーを無効にするには、次の手順に従ってください。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Windowsのデスクトップ上の任意の場所で右クリックし、ポップアップメニューから<b><span style='font-weight:bold'>プロパティ</span></b>を選択してディスプレイのプロパティを開きます。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'><b><span      style='font-weight:bold'>スクリーンセーバー</span></b>タブをクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>スクリーンセーバータブで、<b><span style='font-weight:bold'>なし</span></b>を選択します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>OK</span></b>をクリックして設定を保存して、画面のプロパティウィンドウを終了します。</span></font></li>
+</ol>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>性能</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>USB/1394の性能は、CPU速度やメモリアーキテクチャ、システムチップセットの特性など、システム固有の要素によって大きく影響されます。USBおよび1394の操作はOSに対し、ソフト的に負荷が大きいため、データ集録操作中に他のアプリケーションを実行すると、性能に影響が出ることがあります。高速USBおよび1394の操作も、他のアプリケーションの性能に影響を及ぼす可能性があります。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>PCに接続されているUSBおよび1394デバイスはすべて、同じ帯域幅を共有しています。複数のUSBおよび1394デバイスを同時に使用すると、DAQアプリケーションの性能に影響が出ることがあります。また、PCのUSBおよび1394ホストコントローラはPCIバスに常駐しているため、他のPCIバス帯域幅を多く使うPCIデバイスを使用すると性能に影響が出る可能性があります。</span></font></p>
+
+<p class=MsoNormal><font
+size=3 face="Times New Roman"><span style='font-size:12.0pt'>データはUSBおよび1394バス上をパケット単位で転送されるため、少量または正確な量のデータを転送する操作のタイミングは、プラグインDAQデバイスの場合ほど決定的ではありません。たとえば、メッセージ処理や割り込みを頻繁に使用する操作のタイミングは、USBおよび1394デバイスの場合より大きく変化することが考えられます。</span></font></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="SCXI Calibrate Note"></a></font></span><font face="Arial" size="5">SCXI_Calibrateの注意事項</font></b></h3>
+
+<p>SCXI_Calibrateを使用して内部キャリブレーションを実行する前に、スキャン操作を行った場合は、<kbd><b><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:bold'>-10636 </span></font></b></kbd>エラーが発生する可能性があります（同期関数でダブルバッファ操作を開始できないためです）。C言語で開発している場合、キャリブレーションを行うDAQデバイスの番号と<b><span style='font-weight:bold'>Dbmode</span></b> = 0を<kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DAQ_DB_Config</span></font></kbd>関数へ渡して、関数を呼び出します。LabVIEWを使用している場合、DAQデバイスの<kbd>Device Reset VI</kbd>を実行してください。また、一度、開発環境を終了して、再起動することもできます。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Remote SCXI Devices"></a></font></span><font face="Arial" size="5">リモートSCXIデバイスの使用に関する情報</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>SCXI-1104またはSCXI-1125をリモートSCXI構成で使用する場合は、SCXI-2000シャーシまたはSCXI-2400モジュールのファームウェアを更新する必要があります。リモートSCXIを持っていてSCXI-1104またはSCXI-1125を使用する予定がない場合は、更新の必要はありません。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>ファームウェアの更新を行うには、次の手順に従ってください。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>リモートSCXIが正しく機能していてオンになっていることを確認します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>Measurement &amp; Automation</span></b>エクスプローラのアイコンをダブルクリックし、Measurement &amp; Automationエクスプローラを開きます。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>デバイスとインタフェース</span></b>をクリックして、デバイスツリーを表示します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>プロパティ</span></b>を選択します。SCXI-2000シャーシを使用している場合は、そのフォルダを右クリックして<b><span
+     style='font-weight:bold'>プロパティ</span></b>を選択します。SCXI-2400モジュールを使用している場合、そのモジュールが入っているシャーシのフォルダをダブルクリックしてから、SCXI-200フォルダを右クリックして<b><span
+     style='font-weight:bold'>プロパティ</span></b>を選択します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>再プログラム</span></b>をクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>更新されたリモートSCXIイメージファイルへのパスを入力し、<b><span style='font-weight:
+     bold'>OK</span></b>をクリックします。</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>新しいファームウェアがご使用のリモートSCXIシャーシまたはモジュールにダウンロードされます。ケーブルをはずしたり、この操作を中断したりしないでください。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Remote Device Access (RDA)"></a></font></span><font face="Arial" size="5">リモートデバイスアクセス (RDA)の使用に関する情報</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>RDAアプリケーションでNI-DAQ 6.9を使用するには、クライアント（ローカル）とRDAサーバ（リモート）のコンピュータ両方にNI-DAQ　6.9を必ず使用してください。これは、このバージョンに追加された新しいRDA保護機能のために必要です。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>この保護機能により、サーバで構成されている各デバイスのパスワードを指定することができます。これは、そのデバイスへのRDAを正しいパスワードを知っているクライアントに限定するためです。デバイスのパスワードを設定するには、以下の手順に従います。</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>サーバのコンピュータで、<b><span style='font-weight:bold'>Measurement &amp; Automation</span></b>エクスプローラを開きます（デスクトップのMeasurement &amp; Automationエクスプローラのアイコンをダブルクリックします）。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>デバイスとインタフェース</span></b>をダブルクリックして、デバイスツリーを展開します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>アクセスを制限したいデバイスを右クリックし、ポップアップメニューから<b><span
+     style='font-weight:bold'>プロパティ</span></b>を選択して、「デバイスの構成」ウィンドウを開きます。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'><b><span      style='font-weight:bold'>リモートアクセス</span></b>タブをクリックします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>パスワードの設定をクリックして<b><span
+     style='font-weight:bold'>「パスワードの設定」</span></b>ダイアログボックスを開き、パスワードを入力します。</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>デバイスのパスワードを設定した後、RDAを使用してデバイスを使用するには、RDAのクライアントは正しいパスワードを指定する必要があります。デフォルトでは、パスワードは空白です。これは、デバイスはパスワードにより保護されていないことを示します。パスワードの変更時に、クライアントがRDAデバイスを使用している場合、正しいパスワードが設定されるまで</span></font><kbd><b><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:bold'>-10340</span></font></b></kbd>エラーが発生します。デバイスの正しいパスワードを設定するには、以下の手順に従います。</p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>クライアントのコンピュータで、<b><span style='font-weight:bold'>Measurement &amp; Automation</span></b>エクスプローラを開きます（デスクトップのMeasurement &amp; Automationエクスプローラのアイコンをダブルクリックします）。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'><b><span      style='font-weight:bold'>デバイスとインタフェース</span></b>をダブルクリックして、デバイスツリーを展開します。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>アクセスを制限したいデバイスを右クリックし、ポップアップメニューから<b><span      style='font-weight:bold'>プロパティ</span></b>を選択して、「デバイスの構成」ウィンドウを開きます。 </span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>デバイスの正しいパスワードを入力します。</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>サーバに設定できる各デバイスレベルのパスワードに加えて、ルートレベルのパスワードがあります。これを設定すると、アクセス権限のないユーザがRDAサーバをリモート構成するのを防ぐことができます。サーバのコンピュータでこのパスワードを設定するには、サーバでMeasurement &amp; Automationエクスプローラを開き、<b><span style='font-weight:bold'>ツール→NI-DAQ構成→リモート構成パスワードの設定</span></b>を選択します。このパスワードを設定した後、Measurement &amp; Automationエクスプローラを通じてサーバをリモート構成しようとする（<b><span style='font-weight:bold'>ツール→NI-DAQ構成→リモートDAQ構成</span></b>をクリックして）クライアントは、まず、正しいパスワードを入力する必要があります。ルートレベルの正しいパスワードを知っているクライアントは、デバイスレベルの各パスワードと同様、リモートDAQ構成でそのサーバのルートレベルのパスワードを変更することができます。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI-DAQ6.7以降では、RDAにはタイムアウトの機能が備わっています。RDAクライアントコンピュータがRDAサーバコンピュータからの応答を待機している間、ネットワーク接続を失ったときに、この機能が役立ちます。タイムアウト機能がなければ、RDAクライアントは永久に待機し、LabVIEWのプログラムがハングアップしたように見えます。タイムアウト機能があれば、LabVIEWは</span></font><kbd><b><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New";
+font-weight:bold'>-10340 noConnectError</span></font></b></kbd>を返します。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>タイムアウトのデフォルト値は240,000ミリ秒（4分）です。これを変更するには、既存のレジストリキーに値を追加する必要があります。以下の手順で、タイムアウト値を変更します：</span></font></p>
+
+<ol start=1 type=1>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>regedit.exe</span></font></kbd> または <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+     font-family:"Courier New"'>regedt32.exe</span></font></kbd>を実行します。</li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><kbd><b><span
+     style='font-weight:bold'>HKEY_LOCAL_MACHINE→SOFTWARE→National Instruments→NI-DAQ→CurrentVersion→Configuration Manager</span></b></kbd></span></font><kbd><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>を開きます。</span></font></kbd></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>編集メニューから<kbd><b><span
+     style='font-weight:bold'>新規→DWORD値</span></b></kbd>を選択します。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>新しい値の名称をReceiveTimeoutValueにします。</span></font></li>
+<li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'><b><span
+     style='font-weight:bold'>ReceiveTimeoutValue</span></b>をダブルクリックして、データ値を入力するダイアログボックスを開きます。ミリ秒単位でタイムアウトを入力します。基数が10進であることを確認します。タイムアウトを0にすると、NI-DAQ6.7以前のバージョンのように無限に待機するように設定されます。</span></font></li>
+<li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>regedit.exe</span></font></kbd> または <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;      font-family:"Courier New"'>regedt32.exe</span></font></kbd>を終了します。</li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>データの読み取りまたは書き込みをするNI-DAQの操作は指定された速度とデータの量により、かなりの時間がかかる場合があることに注意してください。10スキャン/秒でデータを集録中に、<kbd>AI Buffer Read VI</kbd>を呼び出し、100スキャン読み取るには、10秒かかります。<b><span
+style='font-weight:bold'>ReceiveTimeoutValue</span></b>が10000ミリ秒未満に設定されていると、ネットワークの接続が正常でも、</span></font><kbd><b><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New";font-weight:bold'>?10340</span></font></b></kbd>エラーが発生します。</p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Modifying the DAQ Configuration Files in MAX"></a></font></span><font face="Arial" size="5">Measurement &amp;amp; AutomationエクスプローラでDAQ構成ファイルを修正する際の注意点</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Measurement &amp; Automationエクスプローラのバージョン2.0から2.2では、<b><span style='font-weight:
+bold'>ツール→NI-DAQ構成</span></b>の中にあるメニューオプションを使用して、DAQ構成ファイルを操作します。<b><span style='font-weight:bold'>アクティブ構成</span></b>を設定オプションで、DAQ構成ファイルをアクティブファイルに設定します。 <b><span style='font-weight:bold'>別名で構成を保存</span></b>オプションは、現在の構成ファイルを新しいファイルとして保存します。<b><span
+style='font-weight:bold'>新規構成を作成</span></b>オプションは、新しい構成ファイルを、ファイル名を選択して作成します。</span></font></p>
+
+<p><a href="#return to top">最初に戻る</a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI-DAQ Documentation Changes"></a></font></span><font face="Arial" size="5">NI-DAQ文書の変更点</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>DAQ Hardware Overview Guide</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>PCI-6110EおよびPCI-6111Eの有効なアナログ入力範囲は、&plusmn;42Vです。 </span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>データ集録VIのヘルプ</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'><kbd>AI Config VI</kbd>のヘルプでは、PCI-5911およびVXI-5912を1つまたは複数のバッファを割り当てることを、表記しています。これは誤りです。PCI-5911をプログラムするには、NI-SCOPEを使用するべきです。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'><kbd>AI Control VI</kbd>のヘルプでは、集録のポストトリガスキャンの数をバッファに割り当てられているスキャン数からプレトリガスキャンの数を引いた物として、定義しています。これは誤りです。ポストトリガスキャン数は、集録するスキャンの合計数からプレトリガスキャン数を引いた物に等しくなります。</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>61XXまたは617Xデバイスで、<kbd>AO Write VI</kbd>、<kbd>AO Waveform Gen　VI</kbd>、<kbd>AO Continuous Gen VI</kbd>、そして AO Buffer VIを使用するとき、スケールデータまたは波形データのパラメータは偶数の値でなければなりません。そうでなければ、負のカウントエラーが返され、データは書き込まれません。例えば、3つのチャネルに101ポイントだと失敗しますが、3つのチャネルに102ポイントあるいは2つのチャネルに101ポイントだと、正常に動作ます。</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>Route Signal VIのヘルプは、PLL リファレンスクロックを<b><span style='font-weight:bold'>信号ソース</span></b>パラメータの21として、記述しています。これは誤りです。ボードクロックが21番目の選択肢です。</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>&nbsp;</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>ヘルプでは、AI Parameter VIにより設定されるパラメータについての記述がありません。このパラメータ、<b><span style='font-weight:bold'>FIFO Transfer Count</span></b>は、各割り込み上で、バッファからどれくらいのデータポイントを転送するかを設定します。</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI-DAQ Function Reference Help</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AI_Get_Overloaded_Channels</span></font></kbd>関数は、PCI用NI 4454を除き、DSAデバイスのみをサポートします。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'></span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Configure</span></font></kbd><kbd>関数</kbd>では、<b><span style='font-weight:bold'>chan</span></b>パラメータの記述は下記を含みます。</p>
+
+<ul>
+  <li>
+<p style="text-indent: 0; margin-left: 0.0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt">PCI-6073では0から15</li>
+  <li>
+<p style="text-indent: 0; margin-left: 0.0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size=2 face=Symbol><span
+style='font-size:10.0pt;font-family:Symbol'><font
+size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>?</span></font></span></font>PCI/PXI-6704では0から31</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Read_Buffer</span></font></kbd>関数では、正しいプロトタイプは、<kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Read_Buffer</span></font></kbd> (<b><span style='font-weight:bold'>deviceNumber</span></b>, <b><span
+style='font-weight:bold'>gpctrNum</span></b>, <b><span style='font-weight:bold'>readMode</span></b>, <b><span style='font-weight:bold'>readOffset</span></b>, <b><span
+style='font-weight:bold'>numPtsToRead</span></b>, <b><span style='font-weight:
+bold'>timeOut</span></b>, <b><span style='font-weight:bold'>numPtsRead</span></b>, <b><span style='font-weight:bold'>buffer</span></b>)です。パラメータの記述に、下記のパラメータが含まれるべきです：</p>
+
+<ul>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><font size=2 face=Symbol><span
+style='font-size:10.0pt;font-family:Symbol'><font
+size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>?</span></font></span></font><b><span style='font-weight:bold'>numPtsToRead</span></b>は、使用されたバッファから回収されるポイント数です。このパラメータはリファレンスで渡されます。</li>
+  <li>
+<p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><b><span style='font-weight:bold'>numPtsRead</span></b>は、関数が返ったときに、読み取られる入力の実際の数の値を保持します。</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SCAN_Start</span></font></kbd>関数では、<b><span style='font-weight:bold'>sampTimebase</span></b>パラメータの有効な値は-3で、Eシリーズデバイスでは2になります。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SCXI_Track_Hold_Setup</span></font></kbd>関数では、この関数はEシリーズデバイスと動作しないと記述していますが、これは誤りです。Eシリーズデバイスに、SCXI-1530、SCXI-1531、SCXI-1140、SCXI-1520等のモジュールが接続されている場合、この関数を使用して、マルチプレクスモードでチャネルスキャンの操作をセットアップすることができます。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'> </span></font><kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Block_PG_Config</span></font></kbd> 関数では、<b><span style='font-weight:bold'>reqInterval</span></b>の有効な範囲は1から65535になります。</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>AT-AO-6/10、DAQ-AO-2DC、そしてNI 671Xデバイスでサポートされている関数のリストは下記のとおりです：</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>AT-AO-6/10:</span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>AO_Calibrate</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Configure</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_Update</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_VScale</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_VWrite</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Write</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Config_DAQ_Event_Message</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_In_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Out_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Prt_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Get_NI_DAQ_Version</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Init_DA_Brds</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>RTSI_Clear</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>RTSI_Clock</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>RTSI_Conn</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>RTSI_DisConn</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Timeout_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Chan_Control</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Check</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_ClockRate</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_DB_HalfReady</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Transfer</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_from_Disk</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Group_Control</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Group_Setup</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Load</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Op</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Rate</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Scale</span></font></kbd></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>DAQ-AO-2DC:</span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>AO_Change_Parameter</span></font></kbd>, <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Configure</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_VWrite</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_In_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Out_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Prt_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Get_DAQ_Device_Info</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Get_NI_DAQ_Version</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Init_DA_Brds</span></font></kbd></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI 671X:</span></font><kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Change_Parameter</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_Configure</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Update</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_VScale</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_VWrite</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_Write</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Calibrate_E_Series</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Config_DAQ_Event_Message</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_In_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Line_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Out_Line</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Prt</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Prt_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Get_DAQ_Device_Info</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Get_NI_DAQ_Version</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Change_Parameter</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>GPCTR_Config_Buffer</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Control</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>GPCTR_Set_Application</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Watch</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Init_DA_Brds</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Select_Signal</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Set_DAQ_Device_Info</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Timeout_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Check</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_ClockRate</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_DB_HalfReady</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Transfer</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_from_Disk</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Group_Control</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Group_Setup</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Load</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Op</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Rate</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Scale</span></font></kbd></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI-DAQ Function Reference Manual</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>National Instrumentsは「NI-DAQ Function Reference Manual」の印刷を中止しました。すべてのNI-DAQ関数の説明は、NI-DAQ Function Referenceヘルプに記載されています。NI-DAQ Function Referenceヘルプを表示するには<b><span
+style='font-weight:bold'>スタート→プログラム→National Instruments→NI-DAQ→NI-DAQヘルプ</span></b>を選択します。</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI-DAQ User Manual</span></font></b></h4>
+
+<p><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>SCXI_Strain_Null</span></font></kbd>についての情報がありません。この関数は、内部のポテンショメータを調整することで、SCXI-1520ひずみゲージモジュールの指定されたひずみゲージのオフセットを無効にします。</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Visual Basicで16-Bitと32-BitのUnsigned Integerパラメータを渡す</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Unsigned 16-bitパラメータ：Visual BasicのINTEGERタイプはsigned値で、32,767よりも大きい値は、負の値として考えられます。解決方法は、下記のとおりです：</span></font></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+<li class=MsoNormal><font
+     size=3 face="Times New Roman"><span style='font-size:12.0pt'>関数がunsigned 16-bit integerを返す場合、負の数を読み戻し、その負の数に5,336を追加します。 </span></font></li>
+</ol>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>例えば：</span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt (Long) </span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim RetCnt (Integer) </span></font></kbd> <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'> </span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>`（retCntは呼び出された関数から、返される値です）</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>`unsigned 16-bit値を返すDAQ関数を呼び出して、retCntに格納することができます。</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if retCnt &lt; 0 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = CInt(retCnt) + 65536</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = retCnt</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+<li class=MsoNormal><font
+     size=3 face="Times New Roman"><span style='font-size:12.0pt'>unsigned 16-bit値をunsigned 16-bitタイプのパラメータと一緒の関数に渡す場合、関数に渡す値を最初に計算する必要があります。</span></font></li>
+</ol>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>例えば：</span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt (Long)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim ToPassVal</span></font></kbd> <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>(Integer)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>`関数に渡す値を計算して、myUnsignedCntに格納します。</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if myUnsignedCnt &gt; 32767 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CInt(myUnsignedCnt - 65536)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CInt(myUnsignedCnt)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Unsigned 32-bitパラメータ：Visual BasicのLONG integerタイプはsigned32-bitタイプで、2,147,483,647よりも大きい値は、負の値として考えられます。解決方法は、下記のとおりです：</span></font></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+<li class=MsoNormal><font
+     size=3 face="Times New Roman"><span style='font-size:12.0pt'>関数がunsigned 32-bit integerを返す場合、負の数を読み戻し、その負の数に4,294,967,296を追加します。 </span></font></li>
+</ol>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>例えば： </span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt (Double)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim retCnt</span></font></kbd> <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>(Long)</span></font></kbd> </p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>`（retCntは呼び出された関数から、返される値です）</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>`unsigned 16-bit値を返すDAQ関数を呼び出して、retCntに格納することができます。</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if retCnt &lt; 0 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = CInt(retCnt) +4294967296</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = retCnt</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;'><font size=3 face="Times New Roman"><span
+style='font-size:12.0pt'>2.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>    </span></font></span></font>unsigned 32-bit値をunsigned 32-bitタイプのパラメータと一緒の関数に渡す場合、関数に渡す値を最初に計算する必要があります。</p>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>例えば：</span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt (Double)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim ToPassVal (Long)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>`関数に渡す値を計算して、myUnsignedCntに格納します。</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if myUnsignedCnt &gt; 2147483647 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CLng(myUnsignedCnt - 4294967296)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CLng(myUnsignedCnt)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>&nbsp;</span></font></p>
+
+<h3><b><font size=3 face=Arial><span style='font-size:12.0pt;'>基準（旧式）</span></font></b></h3>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>DIN 43760は、RTDの温度カーブの旧式基準です。現在の基準は、<br>DIN EN 60751です。</span></font></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a href="#return to top">最初に戻る</a></p>
+
+</div>
+
+</body>
+
+</html>

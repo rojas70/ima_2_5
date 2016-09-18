@@ -1,0 +1,38 @@
+:Base MAXremotejpn.hlp
+:Title Measurement & Automationエクスプローラ (MAX) リモートシステムヘルプ
+1 Measurement & Automationエクスプローラ (MAX) リモートシステムヘルプ=Welcome
+1 表記規則=Conventions
+1 関連文書=Related_Documentation
+1 リモートシステム構成
+2 ネットワークで接続またはネットワークなしで接続する=Network_Connections
+2 MAXを使用してリモートシステムを検出する=Using_MAX_to_Detect_Remote_Systems
+2 リモートシステムを構成する=Configuration
+2 システム構成をロックする=Locking_System_Configuration
+2 リモートDAQ構成=Remote_DAQ_Configuration
+2 IPアドレス構成
+3 IPアドレスを選択する=Choosing_an_IP_Address
+3 イーサネットパラメータ=Ethernet_Parameters
+3 IPアドレスを構成する=Configuring_an_IP_Address
+3 ネットワーク管理者によってネットワークが管理されている場合=For_a_Network_Administered_by_a_Network_Administrator
+3 ネットワーク管理者によってネットワークが管理されていない場合=For_a_Network_Without_a_Network_Administrator
+2 ソフトウェアのインストール
+3 リモートシステムにソフトウェアをダウンロードする=Firmware_Installation
+3 リモートシステムを再起動する=Rebooting_Your_Remote_System
+1 PXI特有の情報
+2 LabVIEW RTで起動する=Booting_into_LabVIEW_RT
+2 LabVIEW RT がインストールされているPXIコントローラ=PXI_Controller_with_LabVIEW_RT_Installed
+2 WindowsがインストールされているPXIコントローラ=PXI_Controller_with_Windows_Installed
+2 ディスクユーティリティ
+3 ディスクユーティリティ=Disk_Utilities
+3 PXIフォーマットハードドライブ=PXI_Format_Hard_Drive_Disk
+3 PXI アンインストールディスク=PXI_Uninstall_Disk
+3 PXI 起動ディスク=PXI_Boot_Disk
+3 PXI起動設定リセットディスク=PXI_Launch_Settings_Reset_Disk
+3 PXI IP設定リセットディスク=PXI_IP_Settings_Reset_Disk
+1 重要情報
+2 保証=Warranty
+2 著作権=Copyright
+2 商標=Trademarks
+2 ナショナルインスツルメンツの製品を医療用に使用する際の警告=Medical_Warning
+1 技術サポートのリソース
+2 技術サポートのリソース=Technical_Support_Resources

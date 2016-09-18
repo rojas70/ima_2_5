@@ -1,0 +1,18 @@
+REGEDIT4
+
+# Installation script for Pxc
+# This file can simply be double clicked or run to enter the information into
+# the registry.  Note that all numbers in this file are expressed in hex,
+# and should never include a "0x" prefix.
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\EventLog\System\Pxc]
+"EventMessageFile"="%SystemRoot%\\System32\\IoLogMsg.dll;%SystemRoot%\\System32\\Drivers\\Pxc.sys"
+"TypesSupported"=dword:00000007
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Pxc]
+"Type"=dword:00000001
+"Start"=dword:00000002
+"Group"="Extended Base"
+"ErrorControl"=dword:00000001
+
+

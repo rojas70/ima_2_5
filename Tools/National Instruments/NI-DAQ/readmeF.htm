@@ -1,0 +1,1386 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Fichier Readme de NI-DAQ 6.9.3</title>
+<style>
+<!--
+ 
+@font-face
+	{font-family:Courier;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Tms Rmn";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Helv;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1           { page-break-after: avoid; font-size: 24pt; font-family: Arial; font-weight: 
+               bold; margin-left: 0in; margin-right: 0in; margin-top: 12.0pt; 
+               margin-bottom: 3.0pt }
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:20.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h3           { font-size: 16.0; font-family: Arial; font-weight: bold; margin-left: 0in; 
+               margin-right: 0in }
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.Indent1, li.Indent1, div.Indent1
+	{
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.Indent2, li.Indent2, div.Indent2
+	{
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:1.0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.BulletedTOC, li.BulletedTOC, div.BulletedTOC
+	{
+	margin-right:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.Note, li.Note, div.Note
+	{
+	margin-right:0in;
+	margin-left:.5in;
+	text-indent:-.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+li {margin-bottom:0.0pt;}
+	{font-size:12.0pt;}
+
+-->
+</style>
+</head>
+
+<body link=blue vlink=blue>
+
+<div class=Section1>
+
+<h1><b><span
+style='font-size:20.0pt'><font size=5 face=Arial><a name="return to top"></a></font></span><font face="Arial" size="6">Fichier Readme de NI-DAQ 6.9.3</font></b></h1>
+
+<p class=MsoNormal style='text-autospace:none'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>&copy; Copyright 2002 <a href="http://ni.com/">National Instruments</a>. Tous droits r&eacute;serv&eacute;s. </span></font><font
+color=black><span style='color:black'>Le logiciel NI-DAQ est couvert par un ou plusieurs des brevets suivants :</span></font></p>
+
+<p class=MsoNormal style='text-autospace:none'><font
+size=3 face="Times New Roman"><span style='font-size:12.0pt'>Brevet U.S. num&eacute;ro : 5.619.702; 6.067.584; 6.096.094; 6.052.743; 6.148.438; 5.926.775; 5.987.530; 6.073.205</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Nous vous remercions d'utiliser la version 6.9.3 du logiciel NI-DAQ de National Instruments pour compatibles PC sous Windows 2000/NT/XP/Me/9<i><span style='font-style:italic'>x</span></i>.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Ce fichier contient des informations importantes sur cette version de NI-DAQ. Veuillez donc le lire attentivement pour prendre connaissance des probl&egrave;mes et des incompatibilit&eacute;s d&eacute;j&agrave; identifi&eacute;s.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Ce fichier est organis&eacute; suivant les sections ci-dessous :</span></font></p>
+
+<ul>
+  <li><font face="Arial" size="2"> <a href="#Changes in NI-DAQ 6.9.3 from NI-DAQ 6.9.2">Modifications apport&eacute;es entre NI-DAQ 6.9.2 et NI-DAQ 6.9.3</a></font></li>
+  <li><font face="Arial" size="2"> <a href="#Changes in NI-DAQ 6.9.2 from NI-DAQ 6.9.">Modifications apport&eacute;es entre NI-DAQ 6.9.1 et NI-DAQ 6.9.2</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Changes in NI-DAQ 6.9.1 from NI-DAQ 6.9">Modifications apport&eacute;es entre NI-DAQ 6.9 et NI-DAQ 6.9.1</a></font></li>
+  <li><font face="Arial" size="2"><a href="#New Features and Products Supported in NI-DAQ 6.9 and Later">Nouvelles fonctionnalit&eacute;s et produits support&eacute;s sous NI-DAQ 6.9 et versions ult&eacute;rieures</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Products Supported in Prior Versions">Produits support&eacute;s par des versions ant&eacute;rieures de NI-DAQ et qui ne le sont plus par cette version </a></font></li>
+  <li><font face="Arial" size="2"><a href="#Updates to the Data Acquisition Library for LabVIEW Version 4.x">Les biblioth&egrave;ques DAQ pour les versions 4.<i><span style='font-style:italic'>x</span></i> de LabVIEW ne sont plus support&eacute;es depuis la version 6.7 de NI-DAQ</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Changes to the LabVIEW for Windows Data Acquisition Library LLBs for NI-DAQ 6.7">Changements affectant les biblioth&egrave;ques DAQ de LabVIEW pour Windows pour NI-DAQ 6.7 et les versions ult&eacute;rieures</a></font></li>
+  <li><font face="Arial" size="2"><a href="#New, Renamed, and Removed">Exemples DAQ ajout&eacute;s, renomm&eacute;s ou supprim&eacute;s</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Compiling and Running NI-DAQ Examples">Compilation et ex&eacute;cution d'exemples NI-DAQ sous Microsoft Visual C++</a></font></li>
+  <li><font face="Arial" size="2"><a href="#What to Do if Your Device Is Not Listed in MAX">Que faire si votre p&eacute;riph&eacute;rique n&rsquo;est pas list&eacute; sous MAX&nbsp;?</a></font></li>
+  <li><font face="Arial" size="2"><a href="#DSA Devices (44XX, 45XX)">P&eacute;riph&eacute;riques DSA (44<i><span style='font-style:italic'>XX</span></i>, 45<i><span style='font-style:italic'>XX</span></i>)</a></font></li>
+  <li><font face="Arial" size="2"><a href="#DAQPad-6020E Notes">Remarques sur le DAQPad-6020E</a></font></li>
+  <li><font face="Arial" size="2"><a href="#DAQPad-6070E/DAQPad-6052E Notes">Remarques sur le DAQPad-6070E/DAQPad-6052E</a></font></li>
+  <li><font face="Arial" size="2"><a href="#NI 6527 Information">Informations sur la famille NI 6527</a></font></li>
+  <li><font face="Arial" size="2"><a href="#NI 6534 Information">Informations sur la famille NI 6534</a></font></li>
+  <li><font face="Arial" size="2"><a href="#NI 660X Valid Ranges">Gammes valides pour la famille NI 660<em> X</em></a></font></li>
+  <li><font face="Arial" size="2"><a href="#Updating the RT Series PXI Controller">Mise-&agrave;-jour du contr&ocirc;leur PXI RT Series pour les utilisateurs de LabVIEW 5.1.2</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Interrupt Performance Issues">Probl&egrave;mes de performance li&eacute;s aux transferts par interruptions avec les p&eacute;riph&eacute;riques PCI sous Windows 98</a></font></li>
+  <li><font face="Arial" size="2"><a href="#USB and 1394 Support Requirements">Conditions requises et limitations pour le support des bus USB et 1394</a></font></li>
+  <li><font face="Arial" size="2"><a href="#SCXI Calibrate Note">Remarque sur SCXI_Calibrate</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Remote SCXI Devices">P&eacute;riph&eacute;riques SCXI d&eacute;port&eacute;s</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Remote Device Access (RDA)">Acc&egrave;s aux p&eacute;riph&eacute;riques d&eacute;port&eacute;s (RDA)</a></font></li>
+  <li><font face="Arial" size="2"><a href="#Modifying the DAQ Configuration Files in MAX">Modification des fichiers de configuration DAQ sous MAX</a></font></li>
+  <li><font face="Arial" size="2"><a href="#NI-DAQ Documentation Changes">Modifications apport&eacute;es &agrave; la documentation NI-DAQ</a></font></li>
+</ul>
+
+<h3><font face="Arial" size="5"><a name="Changes in NI-DAQ 6.9.3 from NI-DAQ 6.9.2"></a>Modifications apport&eacute;es entre NI-DAQ 6.9.2 et NI-DAQ 6.9.3</font></h3>
+<p><font face="Times New Roman" size="3">Le but de cette version est d'ajouter du support pour de nouveaux p&eacute;riph&eacute;riques et de rem&eacute;dier &agrave; certains probl&egrave;mes rencontr&eacute;s sous la pr&eacute;c&eacute;dente version de NI-DAQ.</font></p>
+<h4><font face="Arial" size="3">Nouveaux p&eacute;riph&eacute;riques support&eacute;s</font></h4>
+<ul>
+  <li>
+    <p class="MsoNormal">NI 6013 pour PCI</li>
+  <li>
+    <p class="MsoNormal">NI 6014 pour PCI</li>
+</ul>
+<h4>Probl&egrave;me r&eacute;solu pour DIO R&eacute;-initialiser (DIG_Block_Clear) avec NI 6534</h4>
+<p><font face="Times New Roman" size="3">Lorsque vous appelez le VI </font><span style="mso-bidi-font-size: 12.0pt"><font face="Courier New" size="2">DIO R&eacute;-initialiser (DIO Clear.VI)</font></span><font face="Times New Roman" size="3"> (ou la fonction </font><span style="mso-bidi-font-size: 12.0pt"><font face="Courier New" size="2">DIG_Block_Clear</font></span><font face="Times New Roman" size="3">), les ports sur le p&eacute;riph&eacute;rique NI 6534 ne basculeront plus sur un autre &eacute;tat de fa&ccedil;on intermittente. L'&eacute;tat reste inchang&eacute; depuis la derni&egrave;re valeur ayant &eacute;t&eacute; transmise ou retourn&eacute;e jusqu'&agrave; ce que le p&eacute;riph&eacute;rique soit r&eacute;initialis&eacute;.</font></p>
+<h4><font size="3">Probl&egrave;mes r&eacute;solus avec le p&eacute;riph&eacute;rique NI 6120</font></h4>
+<ul>
+  <li>
+    <p class="MsoNormal">Les p&eacute;riph&eacute;riques NI 6120 peuvent maintenant &ecirc;tre &eacute;chantillonn&eacute;s &agrave; leur vitesse maximale.</li>
+  <li>
+    <p class="MsoNormal">Plusieurs probl&egrave;mes d'&eacute;talonnage ont &eacute;t&eacute; r&eacute;solus.</li>
+  <li>
+    <p class="MsoNormal">Le support pour le C N/A &agrave; d&eacute;clenchement analogique 12 bits a &eacute;t&eacute; ajout&eacute; pour le NI 6120.</li>
+</ul>
+<h4><font size="3">Support pour m&eacute;moire d'acquisition embarqu&eacute;e sur les p&eacute;riph&eacute;riques NI 6115 et NI 6120</font></h4>
+<p><font size="3" face="Times New Roman">NI-DAQ 6.9.3 supporte avec LabVIEW les acquisitions &agrave; simple buffer de 16 ou 32 m&eacute;ga&eacute;chantillons vers la m&eacute;moire embarqu&eacute;e. Veuillez consulter l'entr&eacute;e 2MBBRQB5 de la Knowledge Base (base de connaissances), &ldquo;Using NI 6115 and NI 6120 Onboard Memory to Store Acquisition Data for Later Retrieval,&rdquo; pour obtenir plus d'informations<span style="mso-spacerun: yes">&nbsp;</span>Ce mode ne supporte pas les acquisitions &agrave; pr&eacute;-d&eacute;clenchement.</font></p>
+<h4><font size="3" face="Arial">R&eacute;solution du probl&egrave;me rencontr&eacute; avec le p&eacute;riph&eacute;rique NI 6052E</font></h4>
+<p><font size="3" face="Times New Roman">Par rapport &agrave; NI-DAQ 6.9.2, NI-DAQ 6.9.3 r&eacute;sout le <span style="mso-bidi-font-size:10.0pt; color:black">probl&egrave;me qui g&eacute;n&eacute;rait une erreur </span>lors de l'utilisation du p&eacute;riph&eacute;rique NI 6052E &agrave; sa vitesse d'&eacute;chantillonnage maximale.</font></p>
+<h4><font size="3" face="Arial">Noms de voies virtuelles plus longs support&eacute;s avec LabWindows/CVI</font></h4>
+<p><font face="Times New Roman" size="3">NI-DAQ 6.9.3 autorise l'utilisation de noms de voies virtuelles poss&eacute;dant plus de 100 caract&egrave;res avec les fonctions d'E/S simples de LabWindows/CVI.</font><span style="mso-spacerun: yes">&nbsp;</span></p>
+<h4><font face="Arial" size="3">R&eacute;solution du probl&egrave;me li&eacute; aux voies virtuelles pour mesures de contrainte rencontr&eacute; avec le SCXI-1520</font></h4>
+<p><font face="Times New Roman" size="3">NI-DAQ 6.9.3 r&eacute;sout le probl&egrave;me li&eacute; aux voies virtuelles pour mesures de contrainte rencontr&eacute; avec NI-DAQ 6.9.2. </font><span style="font-size:10.0pt;font-family:
+Helv;color:black"><o:p></o:p></span></p>
+<h4><font face="Arial" size="3">R&eacute;solution du probl&egrave;me de reconnaissance rencontr&eacute; avec le p&eacute;riph&eacute;rique NI 6025E pour PXI, le PXI-1010 et le SCXI-1125</font></h4>
+<p><font face="Times New Roman" size="3">Le probl&egrave;me du SCXI-1125 qui ne peut pas &ecirc;tre configur&eacute; lorsqu'il est utilis&eacute; avec certaines versions du p&eacute;riph&eacute;rique NI PXI-6025E dans un ch&acirc;ssis PXI-1010 a &eacute;t&eacute; r&eacute;solu.  Vous pouvez maintenant configurer le SCXI-1125 pour un fonctionnement avec toutes les r&eacute;visions du p&eacute;riph&eacute;rique NI PXI-6025E.</font><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><font face="Times New Roman" size="3"></font><o:p></o:p></span></p>
+<h4><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><font face="Arial" size="3">R&eacute;solution du probl&egrave;me rencontr&eacute; lors d'acquisitions continues avec le p&eacute;riph&eacute;rique NI 4472</font><o:p></o:p></span></h4>
+<p><font face="Times New Roman" size="3">NI-DAQ 6.9.3 traite une erreur de d&eacute;bordement de buffer qui peut se produire avec LabVIEW RT et (rarement) avec les syst&egrave;mes d'exploitation Windows. Le probl&egrave;me affecte des acquisitions continues (&agrave; buffer circulaire) sur le p&eacute;riph&eacute;rique NI 4472 pour PCI et PXI. Lorsque ce probl&egrave;me se manifeste, le nombre de balayages restants monte brusquement et l'acquisition s'interrompt avec une erreur -10846 de d&eacute;bordement de buffer.<span style="mso-fareast-font-family:&quot;MS Mincho&quot;"><o:p>&nbsp;</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a><font face="Times New Roman" size="3"><span style="mso-fareast-font-family:&quot;MS Mincho&quot;"></o:p></span></font></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Changes in NI-DAQ 6.9.2 from NI-DAQ 6.9."></a></font></span><font face="Arial" size="5">Modifications apport&eacute;es entre NI-DAQ 6.9.1 et NI-DAQ 6.9.2</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Le but principal de cette mise &agrave; jour est d'ajouter le support pour de nouveaux p&eacute;riph&eacute;riques ainsi que pour Windows XP. Cette version contient &eacute;galement une version mise &agrave; jour de NI-PAL qui r&eacute;sout certains probl&egrave;mes rencontr&eacute;s sous NI-DAQ 6.9.1.</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Probl&egrave;mes r&eacute;solus par NI-PAL</span></font></b></h4>
+
+<p class=MsoNormal style='line-height:12.0pt;text-autospace:none'><font size=3 color=black face="Times New Roman"><span style='font-size:12.0pt; color:black'>NI-PAL fournit d&eacute;sormais les nouvelles fonctionnalit&eacute;s suivantes : </span></font></p>
+
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; line-height: 12.0pt; text-autospace: none; margin-left: 0.0in"><font color=black><span style='color:black'>Support de deux DAQCards identiques sous Windows 2000.</span></font></li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; line-height: 12.0pt; text-autospace: none; margin-left: 0.0in">Support de CardWizard et de Socket Services sous Windows NT pour les PCMCIA DAQCards Ce support ne permet que l'installation d'une seule carte DAQCard &agrave; la fois.</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; line-height: 12.0pt; text-autospace: none; margin-left: 0.0in">Il permet d'&eacute;viter des erreurs de collision de DLL emp&ecirc;chant <font face="Courier New" size="2">nipalu.dll</font> de se charger lors du second process et des process ult&eacute;rieurs. National Instruments a modifi&eacute; l'<font COLOR="#000000">adresse de chargement par d&eacute;faut de</font> <font COLOR="#000000"><font size="2" face="Courier New">nipalu.dll</font> pour &eacute;viter des conflits connus avec certaines DLLs provenant d'autres fabricants.</font></li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Nouvelles fonctionnalit&eacute;s</span></font></b></h4>
+
+<dir>
+  <li>
+    <p style="margin-left:0in;text-indent:0in;">Support de Windows XP</li>
+  <li>
+    <p style="margin-left:0in;text-indent:0in;">Support de CardWizard sous Windows NT</li>
+</dir>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Nouveaux p&eacute;riph&eacute;riques support&eacute;s</span></font></b></h4>
+
+<ul>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">DAQPad-6052E pour bus IEEE 1394</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">NI 6731 pour PCI et PXI/Compact PCI</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">NI 6733 pour PCI et PXI/Compact PCI</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">DAQCard-6035E</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">DAQPad-6024E</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">PCI/PXI-6120</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-CO20</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0"><span style='font-size:10.0pt;font-family:Symbol'><font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;</span></font></span></font>SCC-RLY-01</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-TC03</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-TC13</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-TC16</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-AI16</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0"><font size=2 face=Symbol><span style='font-size:10.0pt;font-family:Symbol'><font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;</span></font></span></font>SCC-AI00</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-AO03</li>
+  <li>
+    <p style="text-indent: -0.00in; margin-left: 0.0">SCC-SG24</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Configuration des conditions de transfert avec le NI-4451</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour les p&eacute;riph&eacute;riques NI 4451, vous pouvez d&eacute;sormais configurer la condition de transfert AO FIFO avec la fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Change_Parameter</span></font></kbd>. Pour chaque condition de transfert s&eacute;lectionnable, le nombre de transferts FIFO par d&eacute;faut est utilis&eacute; (le nombre de transferts FIFO ne peut pas &ecirc;tre programm&eacute;.) Pour plus d'informations sur les conditions de transfert FIFO et les nombres par d&eacute;faut de transfert FIFO, veuillez consulter l'aide en ligne <i><span style='font-style:italic'> NI-DAQ Function Reference</span></i> .</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Synchronisation de plusieurs p&eacute;riph&eacute;riques DSA </span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour synchroniser les p&eacute;riph&eacute;riques DSA, veuillez prendre note des informations suivantes : </span></font></p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Les p&eacute;riph&eacute;riques DSA ne peuvent &ecirc;tre synchronis&eacute;s qu&rsquo;avec des p&eacute;riph&eacute;riques DSAQ de m&ecirc;me type. Par exemple, pour synchroniser un p&eacute;riph&eacute;rique NI 4472, vous devez  utiliser un autre p&eacute;riph&eacute;rique de la famille NI 4472.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><font size=3 face=Symbol><span style='font-size:12.0pt;font-family:Symbol'><font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;</span></font></span></font>Dans le sujet <i><span style='font-style:italic'>Synchronisation de plusieurs p&eacute;riph&eacute;riques PCI-DSA</span></i> de l'<i><span style='font-style:italic'> Aide LabVIEW</span></i>, une erreur existe au niveau du diagramme de l'exemple. Pour le p&eacute;riph&eacute;rique esclave, la source de d&eacute;clenchement c&acirc;bl&eacute;e au VI AI-D&eacute;marrer devrait &ecirc;tre RTSI1 &agrave; la place de RTSI 0. Dans le diagramme de l'exemple, le ma&icirc;tre envoie le signal AI Start Trigger sur RTSI 1; donc l'esclave doit recevoir le signal AI Start Trigger sur RTSI 1.</li>
+</ul>
+
+<h4>Probl&egrave;mes d'acc&egrave;s en tant qu'invit&eacute; pour les utilisateurs de Windows 2000</h4>
+<p><span style="mso-bidi-font-size:10.0pt">NI-DAQ ne fonctionnera pas sous Windows 2000 si un utilisateur se connecte en tant qu'invit&eacute;.<span style="mso-spacerun: yes">&nbsp;</span></span></p>
+
+<h4>P&eacute;riph&eacute;riques compatibles avec 6.9.2 moyennant de petits d&eacute;tails</h4>
+<p><span style="mso-bidi-font-size:10.0pt">Les DAQPad-16XE-50 et SCXI-1200 ne sont pas support&eacute;s sous Windows XP.</span></p>
+
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><a href="#return to top">Retour vers le haut </a>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Changes in NI-DAQ 6.9.1 from NI-DAQ 6.9"></a></font></span><font face="Arial" size="5">Modifications apport&eacute;es entre NI-DAQ 6.9 et NI-DAQ 6.9.1</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La modification principale de NI-DAQ 6.9.1 a consist&eacute; &agrave; mettre &agrave; jour le logiciel Measurement &amp; Automation Explorer (MAX) en version 2.1 afin de supporter LabVIEW RT 6.0.3. De plus, la version 6.9.1 de NI-DAQ a &eacute;t&eacute; localis&eacute;e en fran&ccedil;ais, allemand et japonais.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI-PAL a &eacute;galement &eacute;t&eacute; mis &agrave; jour en version 1.4.4 pour r&eacute;soudre un cas o&ugrave; l&rsquo;ordinateur pouvait se figer lors d&rsquo;op&eacute;ration de sorties analogiques avec des p&eacute;riph&eacute;riques de la s&eacute;rie E.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Le support de deux nouveaux p&eacute;riph&eacute;riques a &eacute;t&eacute; ajout&eacute; dans cette version :</span></font></p>
+
+<ul>
+  <li>
+    <p class="Note" style="text-indent: 0; margin-left: 0">SCXI -1581</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">NI 6036E pour PCI</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI-DAQ 6.9.1 supporte d&eacute;sormais jusqu&rsquo;&agrave;  64 p&eacute;riph&eacute;riques ou num&eacute;ros de p&eacute;riph&eacute;riques. Veuillez consulter l&rsquo;entr&eacute;e <b><span style='font-weight:bold'>27C9QJQI</span></b> de la <a href="http://www.ni.com/public">Knowledge Base</a> (base de connaissances) pour obtenir plus d&rsquo;informations sur les probl&egrave;mes connus avec cette fonctionnalit&eacute;.</p>
+
+<p><font size=3 color=black face="Times New Roman"><span style='font-size:12.0pt; color:black'>Pour utiliser le p&eacute;riph&eacute;rique NI 5112 pour PXI/CompactPCI avec NI-DAQ 6.9.1 ou plus r&eacute;cent, vous devez utiliser NI-SCOPE 1.6.2 ou plus r&eacute;cent. Veuillez consulter </span></font><font color=black><span style='color:black'>l&rsquo;entr&eacute;e <b><span style='font-weight:bold'>27CCBKV2</span></b> de la <u><font color=blue><span style='color:blue'><a href="http://www.ni.com/public">Knowledge Base</a></span></font></u> pour obtenir plus d&rsquo;informations.</span></font></p>
+
+<h4>P&eacute;riph&eacute;riques compatibles avec 6.9.1 moyennant de petits d&eacute;tails</h4>
+<p><span style="mso-bidi-font-size:10.0pt;color:black">Les p&eacute;riph&eacute;riques AT plug and play , DAQPad-16XE-50 et SCXI-1200 ne sont pas support&eacute;s sous Windows XP.<o:p></o:p></span></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Toutes les autres informations contenues dans ce fichier Readme se rapportent &agrave; NI-DAQ 6.9, NI-DAQ 6.9.1, NI-DAQ 6.9.2 et NI-DAQ 6.9.3.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="New Features and Products Supported in NI-DAQ 6.9 and Later"></a></font></span><font face="Arial" size="5">Nouvelles fonctionnalit&eacute;s et produits support&eacute;s sous NI-DAQ 6.9 et versions ult&eacute;rieures</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Nouvelles fonctionnalit&eacute;s support&eacute;es par cette version</span></font></b></h4>
+
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">Les mesures de contraintes sont d&eacute;sormais support&eacute;es sous MAX.</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">Les entr&eacute;es SCC-SG (SCC-SG01, SG02, SG03 et SG04) des jauges de contrainte sont d&eacute;sormais support&eacute;es avec les voies virtuelles</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">S&eacute;curit&eacute; du mot de passe pour RDA&mdash;Pour plus d&rsquo;informations concernant cette fonctionnalit&eacute;, reportez-vous &agrave; la section <i><span style='font-style:italic'>Acc&egrave;s aux p&eacute;riph&eacute;riques d&eacute;port&eacute;s (RDA)</span></i>.</li>
+  <li>
+    <p class="Note" style="text-indent: 0; margin-left: 0">La synchronisation des mesures en r&eacute;seau avec GPS utilisant le PXI -6608 est d&eacute;sormais support&eacute;e.</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">Windows Me est d&eacute;sormais support&eacute;.</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Nouveaux produits support&eacute;s par cette version</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Tous les nouveaux produits suivants sont support&eacute;s sous NI-DAQ 6.9 :</span></font></p>
+
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">DAQCard-6024E</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">DAQCard-6601</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">DAQCard-6533 Cardbus</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">NI 4472 pour PXI/Compact PCI</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">NI 6534 pour PCI et PXI/Compact PCI</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">PCI/PXI-6115</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-FV01</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-LP04</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-ICP01</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCC-RTD01</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI -1128</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI -1190</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI -1191</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI -1192</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">SCXI -1313</li>
+  <li>
+    <p class="Note" style="text-indent: 0; margin-left: 0">SCXI -1314</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">TBX -1316</li>
+</ul>
+
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0">&nbsp;
+    <p class="MsoNormal" style="text-indent: 0; margin-left: 0"><a href="#return to top">Retour vers le haut </a>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Products Supported in Prior Versions"></a></font></span><font face="Arial" size="5">Produits support&eacute;s par des versions ant&eacute;rieures de NI-DAQ et qui ne le sont plus par cette version </font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les produits ci dessous ne sont plus support&eacute;s depuis la version 6.5 de NI-DAQ&nbsp;; la version la plus r&eacute;cente de NI-DAQ les supportant est indiqu&eacute;e entre parenth&egrave;ses&nbsp;:</span></font></p>
+
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16 (NI-DAQ 6.1)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16D (NI-DAQ 6.1)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16F-5 (NI-DAQ 6.1)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16X (NI-DAQ 6.1)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-MIO-16F-5 (NI-DAQ 6.1)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-A2150 (NI-DAQ 4.9.0)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">AT-DSP-2200 (NI-DAQ 4.9.0)</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">EISA-A2000 (NI-DAQ 4.9.0)</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour utiliser l'un de ces produits, vous devez installer la version de NI-DAQ pr&eacute;cis&eacute;e entre parenth&egrave;ses ou une version ant&eacute;rieure.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span style='font-size:14.0pt'><font size=4 face=Arial><a name="Updates to the Data Acquisition Library for LabVIEW Version 4.x"></a></font></span><font face="Arial" size="5">Les biblioth&egrave;ques DAQ pour les versions 4.<i><span style='font-style:italic'>x</span></i> de LabVIEW ne sont plus support&eacute;es depuis la version 6.7 de NI-DAQ</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Depuis la version 6.7 de NI-DAQ pour Windows, l'installeur de NI-DAQ ne propose plus en option d'installer les fichiers support DAQ pour les versions 4.<i><span style='font-style:italic'>x</span></i> de LabVIEW pour Windows (anglais et japonais).</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si pour quelque raison que ce soit, vous devez r&eacute;installer les fichiers support DAQ d'une version 4.<i><span style='font-style:italic'>x</span></i> de LabVIEW et que vous devez utiliser la version 6.7 du driver NI-DAQ, vous pouvez d'abord installer le noyau du driver et les fichiers support DAQ pour LabVIEW 4.<i><span style='font-style:italic'>x</span></i> &agrave; partir d'une version ant&eacute;rieure de NI-DAQ (nous recommandons  NI-DAQ 6.6 en anglais et NI-DAQ 6.1 en japonais), puis installer par-dessus le noyau de la version 6.7 du driver NI-DAQ.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Changes to the LabVIEW for Windows Data Acquisition Library LLBs for NI-DAQ 6.7"></a></font></span><font face="Arial" size="5">Changements affectant les biblioth&egrave;ques DAQ de LabVIEW pour Windows pour NI-DAQ 6.7 et les versions ult&eacute;rieures</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Depuis NI-DAQ 6.7, les biblioth&egrave;ques d'acquisition de donn&eacute;es de LabVIEW pour Windows, mentionn&eacute;es ci-dessous et install&eacute;es dans le r&eacute;pertoire </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;LabVIEW&gt;</span></font></kbd> appellent d&eacute;sormais les fonctions d'une DLL (Dynamic Link Library) appel&eacute;e <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>LVDAQ.DLL</span></font></kbd>. Cette DLL se trouve dans le m&ecirc;me r&eacute;pertoire que les LLB et remplace les CIN (Code Interface Nodes) qui &eacute;taient jusqu'alors incorpor&eacute;s dans chaque VI.</p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><font size=2 face=Symbol><span style='font-size:10.0pt; font-family:Symbol'><font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;</span></font></span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>_daq301.llb</span></font></kbd></li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>_nidaq32.llb</span></font></kbd></li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>dqchnutl.llb</span></font></kbd></li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>misc.llb</span></font></kbd></li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>zadvd.llb</span></font></kbd></li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>zadvdctr.llb</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Ces LLB sont compatibles avec LabVIEW 5.<i><span style='font-style:italic'>x</span></i> pour Windows , LabVIEW RT version 5.1.2 ou plus r&eacute;cente, BridgeVIEW 2.<i><span style='font-style:italic'>x</span></i>, ainsi qu&rsquo;avec LabVIEW Student Edition version 5.<i><span style='font-style:italic'>x</span></i> pour Windows. Ces LLB assurent une compatibilit&eacute; descendante, c&rsquo;est-&agrave;-dire qu&rsquo;elles peuvent &ecirc;tre charg&eacute;es sous NI-DAQ pour Windows version 5.0 ou plus r&eacute;cente sans que le bouton Ex&eacute;cution n&rsquo;apparaisse bris&eacute;. Si une op&eacute;ration ou fonction particuli&egrave;re n'est pas support&eacute;e, certains VIs renvoient un code derreur DAQ </span></font><kbd><b><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"; font-weight:bold'>&ndash;10242</span></font></b></kbd> (<kbd><b><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"; font-weight:bold'>functionNotFoundError</span></font></b></kbd>) quand vous les ex&eacute;cutez.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>L&rsquo;int&eacute;r&ecirc;t de l&rsquo;appel d&rsquo;une DDL en lieu et place des CIN est que le temps de chargement de ces VIs est am&eacute;lior&eacute; de mani&egrave;re drastique. Nos &eacute;valuations de performance, effectu&eacute;es sur un Pentium III500 MHz Dell Precision 610 tournant sous Windows NT 4.0 SP4, ont montr&eacute; une r&eacute;duction du temps de chargement d&rsquo;au moins 75% en moyenne, apr&egrave;s le chargement initial de la biblioth&egrave;que </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>NIDAQ32.DLL</span></font></kbd> lors du premier chargement d&rsquo;un VI DAQ sous LabVIEW.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les fichiers suivants ne sont plus n&eacute;cessaires &agrave; LabVIEW pour Windows lorsque sont utilis&eacute;es les LLB d'acquisition de donn&eacute;es install&eacute;es par la version 6.7 ou une version ult&eacute;rieure de NI-DAQ :</span></font></p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;LabVIEW&gt;\vi.lib\flatten.lsb</span></font></kbd> (maintenant compris dans <kbd><font size=2 face="Courier New"><span style='font-size: 10.0pt;font-family:"Courier New"'>LVDAQ.DLL</span></font></kbd>)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;LabVIEW&gt;\daqdrv</span></font></kbd> (m&ecirc;me fonctionnalit&eacute; maintenant comprise dans <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>LVDAQ.DLL</span></font></kbd>)</li>
+</ul>
+
+<p class=Note><strong><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Remarque :</span></font></b></strong>&nbsp;&nbsp; Si vous utilisez l'Application Builder pour cr&eacute;er un ex&eacute;cutable qui appelle des VIs des biblioth&egrave;ques DAQ, vous aurez peut-&ecirc;tre &agrave; ajouter manuellement une r&eacute;f&eacute;rence &agrave; <kbd><font size=2><span style='font-size:10.0pt;'>LVDAQ.DLL</span></font></kbd> dans votre script de construction.</p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="New, Renamed, and Removed"></a></font></span><font face="Arial" size="5">Exemples DAQ ajout&eacute;s, renomm&eacute;s ou supprim&eacute;s</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Ci-dessous figurent des listes d&rsquo;exemples d&rsquo;acquisition de donn&eacute;es qui sont nouveaux dans NI-DAQ 6.9 et group&eacute;s selon les emplacements o&ugrave; les fichiers sont install&eacute;s par d&eacute;faut.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les exemples suivants sont ajout&eacute;s au r&eacute;pertoire </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>vi.lib</span></font></kbd> :</p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>Daq\misc.llb\DSA AI Get Overloaded Channels.vi</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les exemples suivants sont ajout&eacute;s au r&eacute;pertoire </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>examples</span></font></kbd> :</p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\GPS - Time 1 Hardware Event (NI-TIO).vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\GPS - Time N Software Events (NI-TIO).vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\Measure Position - non-TTL (NI-TIO).vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\counter\ni-tio.llb\Measure Pulse - non-TTL (NI-TIO).vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\CAN-DAQ RTSI Clear.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\CAN-DAQ RTSI Config.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\Compute Waveform.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AI CAN-Receive Example.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AI CAN-Transmit Example.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AO CAN-Receive Example.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\daqcan\DAQCAN.llb\DAQ-AO CAN-Transmit Example.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\653x.llb\Dig Read backlog.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Continuous CDI with AI (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Continuous CDO with AO (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Continuous CDIO with external clock (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\CDI Single Point clocked by Counter (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\CDO Single Point clocked by Counter (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\CDO Single Point clocked by Counter (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Immediate CDI Single Point (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Immediate CDO Single Point (E).vi (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Channel String to Channel List and Number.vi </span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\compute digital waveform.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Logical to Physical Data Filter.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>daq\digital\E-series.llb\Physical to Logical Data Filter.vi</span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><font size="2">D</font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>aq\scxi\scxi1520.llb\SCXI-1520 Strain.vi</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les exemples NI-DAQ pour l&rsquo;API C suivants &eacute;crits en Visual Basic, Visual C++, CVI, ou Borland C++ sont ajout&eacute;s &agrave; </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>&lt;R&eacute;pertoire d&rsquo;exemples&gt;\daq\CDIO\</span></font></kbd><kbd>:</kbd></p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>CDISinglePointClockedByCounter</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>CDOSinglePointClockedByCounter</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DoubleBufferedCDIOusingExternalClock</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DoubleBufferedCDIOwithAIO</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DoubleBufferedCDIwithAI</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DoubleBufferedCDOwithAO</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>ImmediateCDISinglePoint</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>ImmediateCDOSinglePoint</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SingleBufferedCDIusingExternalClock</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SingleBufferedCDIwithAI</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SingleBufferedCDIusingExternalClock</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SingleBufferedCDOwithAO</span></font></kbd> (avec p&eacute;riph&eacute;riques 6115/6120 seulement)</li>
+</ul>
+
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><a href="#return to top">Retour vers le haut </a>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Compiling and Running NI-DAQ Examples"></a></font></span><font face="Arial" size="5">Compilation et ex&eacute;cution d'exemples NI-DAQ sous Microsoft Visual C++</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour compiler et ex&eacute;cuter les exemples, veuillez suivre les &eacute;tapes suivantes :</span></font></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>Ouvrez un nouveau projet via le menu <b><span style='font-weight:bold'>File&raquo;New</span></b>. L&rsquo;onglet <b><span style='font-weight:bold'>Projects</span></b> devrait appara&icirc;tre par d&eacute;faut. </span></font></li>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionnez <b><span      style='font-weight:bold'>Win32 Console Application</span></b> comme type de projet et donnez un nom &agrave; votre projet. </span></font></li>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionnez <b><span      style='font-weight:bold'>Empty Application</span></b>. Lorsque vous cr&eacute;ez un nouveau projet, votre structure de r&eacute;pertoire appara&icirc;t sur la gauche et les fichiers sur la droite. Lorsque vous double-cliquez sur n&rsquo;importe quel fichier du projet, le fichier s&rsquo;affiche sur la partie droite. Pour faciliter votre navigation, basculez de <b><span style='font-weight:bold'>Class View</span></b> en <b><span      style='font-weight:bold'>File View</span></b>.</span></b></li>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>Lancez <b><span      style='font-weight:bold'>Project&raquo;Add to Project&raquo;File</span></b>. </span></font></li>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionnez le r&eacute;pertoire </span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>NI-DAQ\LIB</span></font></kbd> et ajoutez les fichiers <kbd><font size=2 face="Courier New"><span      style='font-size:10.0pt;font-family:"Courier New"'>nidaq32.lib</span></font></kbd> et <kbd><font size=2 face="Courier New"><span style='font-size:      10.0pt;font-family:"Courier New"'>nidex32.lib</span></font></kbd>. Ins&eacute;rez &eacute;galement les fichiers <kbd><font size=2 face="Courier New"><span      style='font-size:10.0pt;font-family:"Courier New"'>nidaqex.h</span></font></kbd> et <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;      font-family:"Courier New"'>nidaq.h</span></font></kbd> &agrave; partir du r&eacute;pertoire <kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>NI-DAQ\Include</span></font></kbd>. L&rsquo;ajout de ces deux biblioth&egrave;ques et fichiers header int&egrave;gre le code source de la plupart des exemples d&rsquo;applications d&rsquo;acquisition de donn&eacute;es. </li>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>Allez dans <b><span      style='font-weight:bold'>Tools&raquo;Options</span></b> et s&eacute;lectionnez l&rsquo;onglet <b><span      style='font-weight:bold'>Directories</span></b>. </span></font></li>
+</ol>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>a.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font></span></font>Activez l&rsquo;option <b><span style='font-weight:bold'>Include Files</span></b>. Assurez-vous que vous pointez vers le m&ecirc;me r&eacute;pertoire dans <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>NI-DAQ\Include</span></font></kbd>.
+</p>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>b.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font></span></font>A partir du m&ecirc;me onglet, activez l&rsquo;option <b><span style='font-weight:bold'>Libraries</span></b> et d&eacute;finissez un chemin pour <kbd><font size=2 face="Courier New"><span style='font-size: 10.0pt;font-family:"Courier New"'>NI-DAQ\LIB</span></font></kbd>.</p>
+
+<ol style='margin-top:0in' start=7 type=1>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si l&rsquo; application utilise des fonctions de type Easy I/O, vous devez inclure des fichiers suppl&eacute;mentaires car ces  fonctions utilisent des fonctions des biblioth&egrave;ques Run-Time de CVI. Les biblioth&egrave;ques suppl&eacute;mentaires sont </span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>easyio.lib</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;      font-family:"Courier New"'>cvisupp.lib</span></font></kbd>, <kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>cvirt.lib</span></font></kbd> et <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;      font-family:"Courier New"'>cviwmain.lib</span></font></kbd> et sont situ&eacute;es dans le r&eacute;pertoire <kbd><font size=2 face="Courier New"><span      style='font-size:10.0pt;font-family:"Courier New"'>CVI\EXTLIB</span></font></kbd>.
+     </li>
+</ol>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>a.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></font></span></font>Allez dans <b><span style='font-weight:bold'>Tools&raquo;Options</span></b> et s&eacute;lectionnez l&rsquo;onglet <b><span style='font-weight:bold'>Directories</span></b>. </p>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>b.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></font></span></font>Activez l&rsquo;option <b><span style='font-weight:bold'>Include Files</span></b>. Pointez vers le r&eacute;pertoire <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt; font-family:"Courier New"'>CVI\INCLUDE</span></font></kbd>. </p>
+
+<p class=Indent2 style='text-indent:-.25in;'><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>c.<font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></font></span></font>A partir du m&ecirc;me onglet, activez l&rsquo;option <b><span style='font-weight:bold'>Libraries</span></b> et d&eacute;finissez un chemin pour <kbd><font size=2 face="Courier New"><span style='font-size: 10.0pt;font-family:"Courier New"'>CVI\EXTLIB</span></font></kbd>.</p>
+
+<ol start=8 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt;'>Ajoutez le code source et le header si n&eacute;cessaire dans le projet que vous utilisez. </span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Vous devriez pouvoir cr&eacute;er un ex&eacute;cutable &agrave; partir du projet.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="What to Do if Your Device Is Not Listed in MAX"></a></font></span><font face="Arial" size="5">Que faire si votre p&eacute;riph&eacute;rique n&rsquo;est pas list&eacute; sous MAX&nbsp;?</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous utilisez MAX et si votre p&eacute;riph&eacute;rique n&rsquo;est pas list&eacute;, appuyez sur la touche F5 ou allez dans le menu <b><span style='font-weight:bold'>Affichage&raquo;Rafra&icirc;chir</span></b> pour mettre &agrave; jour l&rsquo;affichage de MAX.</p>
+
+<p>Si vous utilisez Windows XP et que vous ne voyez pas votre p&eacute;riph&eacute;rique list&eacute;, allez dans <b>Panneau de configuration&raquo;Syst&egrave;me</b>. S&eacute;lectionnez l'onglet <b>Propri&eacute;t&eacute;s</b>. S&eacute;lectionnez le bouton <b>Gestionnaire de p&eacute;riph&eacute;riques</b>, puis <b>Autres p&eacute;riph&eacute;riques</b>. Effectuez un clic droit sur les p&eacute;riph&eacute;riques list&eacute;s dans <b>Autres p&eacute;riph&eacute;riques</b> et s&eacute;lectionnez l'onglet <b>Pilote</b>. S&eacute;lectionnez <b>Mettre le pilote &agrave; jour…</b>. Lorsque le pilote a &eacute;t&eacute; charg&eacute;, allez dans MAX et appuyez sur la touche F5 ou allez dans le menu <b>Affichage&raquo;Rafra&icirc;chir</b> pour mettre &agrave; jour l&rsquo;affichage de MAX.</p>
+
+<h3><b><span style='font-size:14.0pt'><font size=4 face=Arial><a name="DSA Devices (44XX, 45XX)"></a></font></span><font face="Arial" size="5">P&eacute;riph&eacute;riques DSA (44<i><span style='font-style:italic'>XX</span></i>, 45<i><span style='font-style:italic'>XX</span></i>)</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Fonctionnalit&eacute; non support&eacute;e</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les p&eacute;riph&eacute;riques DSA ne supportent pas les op&eacute;rations d'entr&eacute;es/sorties analogiques non buff&eacute;ris&eacute;es. Dans LabVIEW, les VIs AI-balayageUnique et AO-Mettre &agrave; jour une seule fois ne sont pas support&eacute;s.</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Nouveau driver d'instrument n&eacute;cessaire</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous avez d&eacute;j&agrave; install&eacute; une version du driver d&rsquo;instrument DSA, vous devez installer sa derni&egrave;re version pour travailler avec NI-DAQ 6.9.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="DAQPad-6020E Notes"></a></font></span><font face="Arial" size="5">Remarques sur le DAQPad-6020E</font></b></h3>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>Conversion A/N cadenc&eacute;e par une source externe</span></font></b> : Par d&eacute;faut et pour des faibles vitesse (&lt;90Hz), les horloges d&rsquo;&eacute;chantillonnage et de balayage du DAQPad-6020E sont externes.  Pour des vitesses sup&eacute;rieures, ex&eacute;cuter le VI <kbd>D&eacute;finir les infos d&rsquo;un p&eacute;riph&eacute;rique DAQ (ou un &eacute;quivalent)</kbd> comme suit&nbsp;: <b><span style='font-weight: bold'>type d'information</span></b> = mode de g&eacute;n&eacute;ration d'interruption et <b><span style='font-weight:bold'>param&egrave;tre d'information =</span></b> g&eacute;n&eacute;rer une interruption toutes les demi-FIFOs.</p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>D&eacute;clenchement analogique logiciel </span></font></b> : Cette fonction n'est possible avec le DAQPad-6020E que pour des acquisitions &agrave; faible vitesse (jusqu'&agrave; environ 75 &eacute;chantillons/s). Cette restriction ne s'applique pas aux autres types de d&eacute;clenchement. Pour plus d'informations sur le d&eacute;clenchement analogique, reportez-vous au sujet <i><span style='font-style:italic'>Config_DAQ_Event_Message</span></i> de l'aide en ligne <strong><b><i><span style='font-weight:normal;font-style:italic'>NI-DAQ Function Reference</span></i></b></strong> ou &agrave; <kbd>AI Trigger Config.vi (AI-Configurer un d&eacute;clenchement)</kbd> dans l&rsquo;<i><span style='font-style:italic'>Aide LabVIEW</span></i> .</p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>Transferts en continu de donn&eacute;es acquises &agrave; faibles vitesse</span></font></b> : Lorsque le DAQPad-6020E commence &agrave; acqu&eacute;rir des donn&eacute;es &agrave; faible vitesse (entre environ 80 et 400 &eacute;chantillons/s), un d&eacute;lai notable s'&eacute;coule avant que les premi&egrave;res donn&eacute;es n'arrivent dans le buffer d'acquisition. La raison en est que, bien que des conversions A/N aient commenc&eacute;, le p&eacute;riph&eacute;rique ne transf&egrave;re pas de donn&eacute;es vers l&rsquo;ordinateur avant que sa FIFO ne soit au moins &agrave; moiti&eacute; pleine.</p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>AI cadenc&eacute; non buff&eacute;ris&eacute;</span></font></b> : Sur le DAQPad-6020E, les op&eacute;rations AI cadenc&eacute;es non buff&eacute;ris&eacute;es, comme illustr&eacute;es dans le VI d&rsquo;exemple de LabVIEW Cont Acq&amp;Chart (hw timed), sont limit&eacute;es &agrave; environ 50 Hz. A des vitesses sup&eacute;rieures, LabVIEW peut se figer lorsque le driver NI-DAQ tente de vider la FIFO d&rsquo;acquisition analogique en lisant un balayage &agrave; la fois sur le p&eacute;riph&eacute;rique.</p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="DAQPad-6070E/DAQPad-6052E Notes"></a></font></span><font face="Arial" size="5">Remarques sur le DAQPad-6070E/DAQPad-6052E</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Certaines cartes IEEE-1394 renvoient des tailles de FIFO incorrectes. En cons&eacute;quence, nous utilisons le plus petit d&eacute;nominateur commun pour les tailles de FIFO. Si votre carte d'interface 1394 poss&egrave;de une FIFO de plus de 456 octets ou fait &eacute;tat d'une vitesse incorrecte, veuillez t&eacute;l&eacute;charger les fichiers </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>fwctl.exe</span></font></kbd> et <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt; font-family:"Courier New"'>readme.txt</span></font></kbd> &agrave; partir de <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'><a
+href="ftp://ftp.natinst.com/support/daq/pc/ieee1394">ftp://ftp.natinst.com/support/daq/pc/ieee1394</a></span></font></kbd> afin d'am&eacute;liorer les performances.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Typiquement, vous pouvez d&eacute;sactiver les FIFO de la carte et du mini-MITE au sein des applications de contr&ocirc;le pour &eacute;liminer toute lenteur. Cependant, cela affecte tous les transferts par canaux DMA sur le DAQPad-6070E. En outre, vous ne pouvez changer les tailles des FIFO qu'avant le d&eacute;but de tout transfert DMA.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI 6527 Information"></a></font></span><font face="Arial" size="5">Informations sur la famille NI 6527</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Lorsqu'un p&eacute;riph&eacute;rique 6527 utilise un niveau de requ&ecirc;te d'interruption (IRQL) qui correspond &agrave; l'IRQL d'un contr&ocirc;leur h&ocirc;te USB ou 1394, la d&eacute;tection de changement peut ne pas fonctionner. Reportez-vous &agrave; la section <i><span style='font-style:italic'>Probl&egrave;mes de performance li&eacute;s aux transferts par interruptions avec les p&eacute;riph&eacute;riques PCI sous Windows 98</span></i>pour plus d'informations sur ce probl&egrave;me et les moyens de le contourner.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI 6534 Information"></a></font></span><font face="Arial" size="5">Informations sur la famille NI 6534</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Nouvelles fonctions support&eacute;es</span></font></b></h4>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>Am&eacute;liorations des op&eacute;rations bufferis&eacute;es</span></font></b> : Les p&eacute;riph&eacute;riques 6534 comprennent deux modules m&eacute;moire embarqu&eacute;s sur la carte, un pour chaque groupe. Par d&eacute;faut et avant de commencer toute op&eacute;ration de sortie, NI-DAQ va pr&eacute;charger les puces SCARABs avec la totalit&eacute;, soit du buffer de donn&eacute;es, soit du module m&eacute;moire (c-&agrave;-d avec celui de plus petit taille), &eacute;liminant ainsi les limitations de la bande passante du bus. Cependant, il vous est possible de contourner le chargement par d&eacute;faut&nbsp;: </p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: .0in">Sous LabVIEW, utilisez le VI <kbd>DIO-Param&egrave;tre</kbd> avec <b><span style='font-weight:bold'>nom de param&egrave;tre</span></b> = Autoriser le pr&eacute;chargement de Scarab et <b><span style='font-weight:bold'>valeur d'entr&eacute;e</span></b>= Off.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: .0in">Si vous programmez en C, appelez <kbd><font size=2 face=Courier><span style='font-size:10.0pt;font-family:Courier;'>Set_DAQ_Device_Info</span></font></kbd> avec <b><span style='font-weight:bold'>infoType</span></b> = ND_FIFO_TRANSFER_COUNT et <b><span style='font-weight:bold'>infoValue</span></b> = ND_NONE.</li>
+</ul>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>Sortie continue, tr&egrave;s haute vitesse, avec donn&eacute;es r&eacute;p&eacute;titives</span></font></b> : Les p&eacute;riph&eacute;riques 6534 supportent le mode de m&eacute;moire en boucle dans lequel les donn&eacute;es de sortie sont charg&eacute;es dans le SCARAB en une seule fois et le contenu du buffer tout entier est g&eacute;n&eacute;r&eacute; en boucle, pour autant que la taille du buffer soit inf&eacute;rieure ou &eacute;gale &agrave; celle de la m&eacute;moire embarqu&eacute;e sur la carte.</p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Pour cela, ex&eacute;cutez le VI <kbd>DIO-Param&egrave;tre</kbd> en s&eacute;lectionnant comme <b><span style='font-weight:bold'>nom de param&egrave;tre</span></b> = G&eacute;n&eacute;ration en boucle du Pattern autoris&eacute;e; puis configurez normalement votre E/S num&eacute;rique pour une op&eacute;ration de sortie continue en autorisant le mode de r&eacute;g&eacute;n&eacute;ration.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Si vous programmez en C, appelez <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Set_DAQ_Device_Info</span></font></kbd> avec <b><span style='font-weight:bold'>infoType</span></b> = ND_PATTERN_GENERATION_LOOP_ENABLE et <b><span style='font-weight:bold'>infoValue</span></b> = ND_ON.</li>
+</ul>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>	Taille de la m&eacute;moire embarqu&eacute;e sur la carte</span></font></b> : Les p&eacute;riph&eacute;riques 6534 pr&eacute;sentent des modules m&eacute;moire de diff&eacute;rentes tailles. Pour obtenir la taille de la m&eacute;moire embarqu&eacute;e sur votre p&eacute;riph&eacute;rique 6534&nbsp;:</p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Sous LabVIEW, ex&eacute;cutez le VI <kbd>Obtenir des infos sur un p&eacute;riph&eacute;rique DAQ</kbd> avec <b><span style='font-weight:bold'>type dinformation</span></b> = Taille m&eacute;moire du SCARAB A (pour le groupe 1) ou Taille m&eacute;moire du SCARAB B (pour le groupe 2).</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Si vous utilisez un autre environnement de programmation, appelez <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt; font-family:"Courier New"'>Get_DAQ_Device_Info (API NI-DAQ)</span></font></kbd> avec <b><span style='font-weight:bold'>info Type</span></b> = ND_SCARAB_A_MEMORY_SIZE (pour le groupe 1) ou ND_SCARAB_B_MEMORY_SIZE (pour le groupe 2).</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La taille de la m&eacute;moire est donn&eacute;e en octets. </span></font></p>
+
+<p><b><font size=3 face="Times New Roman"><span style='font-size:12.0pt; font-weight:bold'>	E/S de patterns &agrave; 20 MHz</span></font></b> : Vous pouvez fixer la fr&eacute;quence d&rsquo;horloge &agrave; 20 MHz en ex&eacute;cutant le VI <kbd>Configurer une horloge num&eacute;rique</kbd> ou le VI <kbd>DIO-Configurer</kbd>. Si vous programmez en C, appelez call <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Block_PG_Config</span></font></kbd> avec <b><span style='font-weight:bold'>timebase</span></b> = -3 et <b><span style='font-weight:bold'>interval</span></b> = 1.</p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span style='font-size:14.0pt'><font size=4 face=Arial><a name="NI 660X Valid Ranges"></a></font></span><font face="Arial" size="5">Gammes valides pour la famille NI 660<i><span style='font-style:italic'>X</span></i></font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La gamme valide pour les p&eacute;riph&eacute;riques NI 660X est 0 pour les fonctions suivantes&nbsp;: </span></font></p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line </span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Prt </span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Line_Config </span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Line </span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Prt </span></font></kbd></li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in"><kbd><font size=2 face="Courier New"><span
+style='font-size:10.0pt;font-family:"Courier New"'>DIG_Prt_Config</span></font></kbd></li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Vous pouvez d&eacute;finir cette gamme avec le param&egrave;tre <b><span style='font-weight:bold'>Port</span></b>.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Updating the RT Series PXI Controller"></a></font></span><font face="Arial" size="5">Mise-&agrave;-jour du contr&ocirc;leur PXI RT Series pour les utilisateurs de LabVIEW 5.1.2</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous utilisez LabVIEW 5.1.2 avec un contr&ocirc;leur PXI de la s&eacute;rie RT, NI-DAQ d&eacute;tectera le Remote System Explorer si celui-ci est install&eacute; dans votre syst&egrave;me et mettra &agrave; jour automatiquement les fichiers d&rsquo;acquisition de donn&eacute;s. Quand l&rsquo;installation de NI-DAQ est termin&eacute;e, suivez ces instructions pour mettre le contr&ocirc;leur PXI &agrave; jour&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Lancer Remote System Explorer</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionner le syst&egrave;me PXI &agrave; mettre &agrave; jour, cliquer ensuite sur <b><span style='font-weight:bold'>Tools&raquo;Install/Upgrade</span></b> pour ouvrir la bo&icirc;te de dialogue Install/Upgrade Software.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionnez </span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>install.rts</span></font></kbd> dans le r&eacute;pertoire ~Remote System Explorer\<kbd><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>install\pxi</span></font></kbd> comme image dinstallation.</li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>Install.</span></b></span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>V&eacute;rifiez la liste des logiciels &agrave; installer et cliquez sur <b><span style='font-weight:bold'>Proceed</span></b> pour continuer l&rsquo;installation.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Quand l&rsquo;installation est termin&eacute;e, cliquez sur <b><span style='font-weight:bold'>Close</span></b> puis cliquez sur <b><span style='font-weight:bold'>Yes</span></b> quand on vous propose de red&eacute;marrer le syst&egrave;me.</span></font></li>
+</ol>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Interrupt Performance Issues"></a></font></span><font face="Arial" size="5">Probl&egrave;mes de performance li&eacute;s aux transferts par interruptions avec les p&eacute;riph&eacute;riques PCI sous Windows 98</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Le fonctionnement par interruptions peut &ecirc;tre lent sur des syst&egrave;mes remplissant exactement les conditions suivantes :</span></font></p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">L'ordinateur poss&egrave;de des ports USB.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">L'ordinateur est &eacute;quip&eacute; de Windows 98.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Vous utilisez un p&eacute;riph&eacute;rique PCI d'acquisition de donn&eacute;es.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">L'application d'acquisition de donn&eacute;es ex&eacute;cute de nombreuses op&eacute;rations par interruptions, telles que handshaking ou messaging</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">Le niveau de requ&ecirc;te d&rsquo;interruption (IRQL) du p&eacute;riph&eacute;rique PCI correspond &agrave; l'IRQL du contr&ocirc;leur h&ocirc;te USB (voir ci dessous <i><span style='font-style:italic'>D&eacute;termination de l&rsquo;IRQL de votre p&eacute;riph&eacute;rique DAQ PCI et de votre contr&ocirc;leur h&ocirc;te USB/1394</span></i>).</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Une extr&ecirc;me lenteur, des d&eacute;passements de limite de temps ou des blocages peuvent se produire sur des syst&egrave;mes o&ugrave; les conditions suivantes sont toutes r&eacute;unies :</span></font></p>
+
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">L'ordinateur poss&egrave;de un adaptateur pour port 1394</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">L'ordinateur est &eacute;quip&eacute; de Windows 98.</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">Vous utilisez un p&eacute;riph&eacute;rique PCI d'acquisition de donn&eacute;es.</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">L'application d'acquisition de donn&eacute;es ex&eacute;cute de nombreuses op&eacute;rations par interruptions telles que&nbsp;: d&eacute;clenchement logiciel analogique, occurrences asynchrones ou autres exemples de messaging</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in">Le niveau de requ&ecirc;te d&rsquo;interruption (IRQL) du p&eacute;riph&eacute;rique PCI correspond &agrave; l'IRQL du contr&ocirc;leur h&ocirc;te 1394 (voir ci dessous <i><span style='font-style:italic'>D&eacute;termination de l&rsquo;IRQL de votre p&eacute;riph&eacute;rique DAQ PCI  et de votre contr&ocirc;leur h&ocirc;te USB/1394</span></i>).</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>D&eacute;termination de l&rsquo;IRQL de votre p&eacute;riph&eacute;rique DAQ PCI  et de votre contr&ocirc;leur h&ocirc;te USB/1394</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour d&eacute;terminer si les IRQL de votre p&eacute;riph&eacute;rique DAQ PCI et de votre contr&ocirc;leur h&ocirc;te USB/1394 sont les m&ecirc;mes, suivez les instructions suivantes&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites un clic droit sur l'ic&ocirc;ne <b><span      style='font-weight:bold'>Poste de travail</span></b>, g&eacute;n&eacute;ralement situ&eacute;e dans le coin sup&eacute;rieur gauche de l'&eacute;cran.</span></b></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionez <b><span      style='font-weight:bold'>Propri&eacute;tes</span></b> dans le menu pour ouvrir la fen&ecirc;tre Propri&eacute;t&eacute;s syst&egrave;me.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l'onglet <b><span      style='font-weight:bold'>Gestionnaire de p&eacute;riph&eacute;riques</span></b> (ou onglet Mat&eacute;riel, puis bouton Gestionnaire de p&eacute;riph&eacute;riques).</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span      style='font-weight:bold'>Ordinateur</span></b> pour ouvrir la fen&ecirc;tre de propri&eacute;t&eacute;s de l'ordinateur.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Assurez-vous que l'option <b><span      style='font-weight:bold'>Requ&ecirc;te d'interruption (IRQ)</span></b> est s&eacute;lectionn&eacute;e.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites d&eacute;filer les param&egrave;tres jusqu'&agrave; trouver le p&eacute;riph&eacute;rique PCI (par exemple PCI-6071E) et notez le num&eacute;ro inscrit dans la colonne <b><span      style='font-weight:bold'>Param&egrave;tre</span></b> (l&rsquo;IRQ pour le p&eacute;riph&eacute;rique).</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites d&eacute;filer les param&egrave;tres jusqu&rsquo;&agrave; trouver le contr&ocirc;leur h&ocirc;te USB/1394 et notez son IRQ inscrit dans la colonne <b><span style='font-weight:bold'>Param&egrave;tre</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Comparez le num&eacute;ro que vous avez not&eacute; pour votre p&eacute;riph&eacute;rique DAQ PCI avec celui que vous avez not&eacute; pour le contr&ocirc;leur h&ocirc;te USB/1394</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si le num&eacute;ro de param&egrave;tre du p&eacute;riph&eacute;rique PCI d'acquisition de donn&eacute;es correspond &agrave; celui du contr&ocirc;leur h&ocirc;te USB/IEEE 1394, vous pouvez am&eacute;liorer les performances de votre syst&egrave;me lors d&rsquo;op&eacute;rations intensives par interruptions en suivant les instructions ci-dessous.</span></font></p>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>Remarque :</span></font></b></strong>&nbsp;&nbsp; le partage d'un niveau de requ&ecirc;te d'interruption entre le contr&ocirc;leur h&ocirc;te USB/IEEE 1394 et le p&eacute;riph&eacute;rique PCI d'acquisition de donn&eacute;es n'affecte que la vitesse des transferts par interruptions. Cela n&rsquo;affecte pas les transferts par canaux DMA ou autre E/S. D&rsquo;autre part, le partage d&rsquo;un IRQL entre plusieurs cartes PCI DAQ ou d&rsquo;autres p&eacute;riph&eacute;riques PCI tels que des cartes vid&eacute;o ou r&eacute;seau, ne devrait pas avoir d&rsquo;effet sur la vitesse des op&eacute;rations sous interruption.</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>M&eacute;thodes faciles pour am&eacute;liorer la vitesse des op&eacute;rations par interruptions</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous n'utilisez pas de p&eacute;riph&eacute;rique USB/1394 et ne pr&eacute;voyez pas d'en utiliser un dans l&rsquo;imm&eacute;diat, veuillez proc&eacute;der comme suit :</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites un clic droit sur l'ic&ocirc;ne <b><span      style='font-weight:bold'>Poste de travail</span></b>, g&eacute;n&eacute;ralement situ&eacute;e dans le coin sup&eacute;rieur gauche de l'&eacute;cran.</span></b></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionez <b><span      style='font-weight:bold'>Propri&eacute;tes</span></b> dans le menu pour ouvrir la fen&ecirc;tre Propri&eacute;t&eacute;s syst&egrave;me.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l'onglet <b><span      style='font-weight:bold'>Gestionnaire de p&eacute;riph&eacute;riques</span></b> (ou onglet Mat&eacute;riel, puis bouton Gestionnaire de p&eacute;riph&eacute;riques).</span></font></li>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span
+style='font-family: Symbol'><font face="Symbol" size="2">&middot;<span
+style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></span>USB:</p>
+
+<ol start=3 type=1>
+ <ol start=1 type=a>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span       style='font-weight:bold'>Contr&ocirc;leur USB</span></b>.</span></font></li>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span       style='font-weight:bold'>Contr&ocirc;leur h&ocirc;te USB</span></b>.</span></font></li>
+ </ol>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span
+style='font-family: Symbol'><font face="Symbol" size="2">&middot;<span
+style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></span>1394:</p>
+
+<ol start=3 type=1>
+ <ol start=1 type=a>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span       style='font-weight:bold'>Contr&ocirc;leur de bus 1394</span></b> (remarque : ce nom peut varier).</span></font></li>
+  <li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur le p&eacute;riph&eacute;rique 1394</span></font></li>
+ </ol>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l&rsquo;onglet <b><span      style='font-weight:bold'>G&eacute;n&eacute;ral</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cochez l'option <b><span      style='font-weight:bold'>D&eacute;sactiver dans ce profil mat&eacute;riel</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>OK</span></b> pour enregistrer les param&egrave;tres et fermez la fen&ecirc;tre Propri&eacute;t&eacute;s syst&egrave;me.</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Red&eacute;marrez votre syst&egrave;me</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous utilisez ou pr&eacute;voyez d'utiliser un p&eacute;riph&eacute;rique USB/1394, les instructions suivantes <i><span style='font-style:italic'> peuvent</span></i>  fonctionner :</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Arr&ecirc;tez et d&eacute;branchez votre ordinateur</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>D&eacute;placez votre p&eacute;riph&eacute;rique DAQ PCI vers un autre emplacement PCI</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Red&eacute;marrez votre syst&egrave;me. </span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>D&eacute;marrez votre syst&egrave;me et suivez les instructions donn&eacute;es dans la section <i><span style='font-style:italic'>D&eacute;termination de lIRQL de votre p&eacute;riph&eacute;rique DAQ PCI et de votre contr&ocirc;leur h&ocirc;te USB/1394</span></i> pour d&eacute;terminer si les niveaux de requ&ecirc;te d'interruption sont toujours les m&ecirc;mes.</span></font></li>
+</ol>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>M&eacute;thodes avanc&eacute;es pour am&eacute;liorer la vitesse des op&eacute;rations par interruptions</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous n'utilisez pas de p&eacute;riph&eacute;rique USB/1394 et ne pr&eacute;voyez pas d'en utiliser un dans l&rsquo;imm&eacute;diat, veuillez proc&eacute;der comme suit :</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Red&eacute;marrez l'ordinateur et entrez dans le menu du BIOS (suivez les instructions fournies avec votre ordinateur)</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Si votre contr&ocirc;leur BIOS le permet, d&eacute;sactivez le port USB/1394</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Si votre contr&ocirc;leur BIOS vous permet d&rsquo;activer/d&eacute;sactiver les niveaux de requ&ecirc;te d'interruption des p&eacute;riph&eacute;riques PCI, activez-en autant que possible pour accro&icirc;tre les chances de ne pas partager le m&ecirc;me IRQL</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>D&eacute;sactivez tous les p&eacute;riph&eacute;riques inutilis&eacute;s, tels qu&rsquo;une carte son int&eacute;gr&eacute;e, le port LPT2 ou le port COM2, afin de lib&eacute;rer des ressources suppl&eacute;mentaires</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Enregistrez la configuration du BIOS. </span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Red&eacute;marrez l&rsquo;ordinateur.</span></font></li>
+</ol>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>Remarque :&nbsp;&nbsp; </span></font></b></strong>certains p&eacute;riph&eacute;riques ne peuvent pas &ecirc;tre d&eacute;sactiv&eacute;s au niveau du BIOS. Dans ce cas, essayez de d&eacute;sactiver le(s) p&eacute;riph&eacute;rique(s) dans le Gestionnaire de p&eacute;riph&eacute;riques de Windows.</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>M&eacute;thodes de dernier recours pour am&eacute;liorer la vitesse des op&eacute;rations par interruptions</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si les m&eacute;thodes d&eacute;crites ci-dessus n&rsquo;am&eacute;liorent pas les performances, vous pouvez essayer de suivre les instructions suivantes&nbsp;:</span></font></p>
+
+<p class=Note><strong><b><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>Remarque :</span></font></b></strong>  cette m&eacute;thode n'est &agrave; utiliser qu'en dernier recours dans la mesure o&ugrave; elle demande de changer manuellement les ressources de l&rsquo;ordinateur.</p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Red&eacute;marrez l'ordinateur et entrez dans le menu du BIOS (suivez les instructions fournies avec votre ordinateur)</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>D&eacute;sactivez l&rsquo;option Plug and Play</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Enregistrez la configuration du BIOS. </span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Red&eacute;marrez l&rsquo;ordinateur.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites un clic droit sur l'ic&ocirc;ne <b><span      style='font-weight:bold'>Poste de travail</span></b>, g&eacute;n&eacute;ralement situ&eacute;e dans le coin sup&eacute;rieur gauche de l'&eacute;cran.</span></b></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionez <b><span      style='font-weight:bold'>Propri&eacute;tes</span></b> dans le menu pour ouvrir la fen&ecirc;tre Propri&eacute;t&eacute;s syst&egrave;me.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l'onglet <b><span      style='font-weight:bold'>Gestionnaire de p&eacute;riph&eacute;riques</span></b> (ou onglet Mat&eacute;riel, puis bouton Gestionnaire de p&eacute;riph&eacute;riques).</span></font></li>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span style='font-family: Symbol'><font face="Symbol" size="2">&middot;<span style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></span>USB:</p>
+
+<ol start=7 type=1>
+ <ol start=1 type=a>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span       style='font-weight:bold'>Contr&ocirc;leur USB</span></b>.</span></font></li>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span       style='font-weight:bold'>Contr&ocirc;leur h&ocirc;te USB</span></b>.</span></font></li>
+ </ol>
+</ol>
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span
+style='font-family: Symbol'><font face="Symbol" size="2">&middot;<span
+style='font-style: normal; font-variant: normal; font-weight: normal; font-family: Times New Roman'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></span>1394:</p>
+
+<ol start=7 type=1>
+ <ol start=1 type=a>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span       style='font-weight:bold'>Contr&ocirc;leur de bus 1394</span></b> (remarque : ce nom peut varier).</span></font></li>
+  <li class=MsoNormal><font size=3
+      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur le p&eacute;riph&eacute;rique 1394</span></font></li>
+ </ol>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l&rsquo;onglet <b><span      style='font-weight:bold'>Ressources</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>D&eacute;cochez l'option <b><span style='font-weight:bold'>Utiliser</span></b> <b><span      style='font-weight:bold'>les param&egrave;tres automatiques</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span      style='font-weight:bold'>Requ&ecirc;te d'interruption</span></b> et choisissez un niveau diff&eacute;rent de celui du p&eacute;riph&eacute;rique PCI d'acquisition de donn&eacute;es.</span></font></li>
+</ol>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="USB and 1394 Support Requirements"></a></font></span><font face="Arial" size="5">Conditions requises et limitations pour le support des bus USB et 1394</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Support des bus USB et 1394 par les syst&egrave;mes d'exploitation</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Depuis NI-DAQ 6.7, le support logiciel des bus USB et IEEE 1394 n'est fourni que pour les syst&egrave;mes monoprocesseur Windows 2000/XP/Me/98. Si vous travaillez avec une autre version de Windows, vous aurez besoin de mettre &agrave; jour votre syst&egrave;me d&rsquo;exploitation pour utiliser les p&eacute;riph&eacute;riques USB ou 1394.</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Support des bus USB et 1394 par les logiciels National Instruments</span></font></b></h4>
+
+<ul>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">La version 6.5 ou une version ult&eacute;rieure de NI-DAQ est requise pour le fonctionnement des p&eacute;riph&eacute;riques DAQ USB.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">La version 6.6 ou une version ult&eacute;rieure de NI-DAQ est requise pour le fonctionnement des p&eacute;riph&eacute;riques DAQ 1394.</li>
+  <li>
+    <p style="text-indent: 0.0in; margin-left: 0.0in">La version 4.0 ou une version ult&eacute;rieure de LabVIEW est requise pour le fonctionnement des p&eacute;riph&eacute;riques DAQ USB et 1394.</li>
+</ul>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Probl&egrave;mes potentiels</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Il est recommand&eacute; de connecter votre p&eacute;riph&eacute;rique DAQPad USB ou 1394 &agrave; l'ordinateur et de l'allumer avant de lancer votre application DAQ ou MAX. Si jamais vous connectez ou allumez le p&eacute;riph&eacute;rique apr&egrave;s avoir lanc&eacute; l'application DAQ, r&eacute;initialisez le p&eacute;riph&eacute;rique par logciel avant de l'utiliser en ex&eacute;cutant le VI <kbd>R&eacute;initialiser un p&eacute;riph&eacute;rique</kbd> dans LabVIEW ou en appelant </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Init_DA_Brds()</span></font></kbd> dans l'API NI-DAQ.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous utilisez une application DAQ qui ne supporte pas les r&eacute;initialisations manuelles, comme VirtualBench, vous devez connecter et allumer votre DAQPad USB ou 1394 avant d&rsquo;ex&eacute;cuter votre application</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Lors de rares occasions, les p&eacute;riph&eacute;riques USB ou 1394 n&rsquo;appara&icirc;tront pas parmis les p&eacute;riph&eacute;riques list&eacute;s dans Measurement &amp; Automation Explorer (MAX) si aucune fen&ecirc;tre de Windows Explorer (y compris Internet Explorer) n&rsquo;est ouverte. Si ce probl&egrave;me arrive, fermez toutes vos fen&ecirc;tres d&rsquo;Explorer et rafra&icirc;chissez la fen&ecirc;tre Measurement &amp;amp; Automation en appuyant sur la touche F5. Si le probl&egrave;me persiste, red&eacute;marrez le syst&egrave;me.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les DAQPads USB et 1394 ne supportent pas le mode <em> Suspendre</em>  de Windows 2000/XP/Me/98.</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Gestion de la configuration et de l'alimentation</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les p&eacute;riph&eacute;riques USB et 1394 sont plug-and-play et supportent l&rsquo;insertion &agrave; chaud&nbsp;; de plus, le syst&egrave;me d&rsquo;exploitation Windows Me/98 fournit des fonctionnalit&eacute;s pour la gestion de l&rsquo;alimentation. Bien que ces fonctionnalit&eacute;s facilitent g&eacute;n&eacute;ralement la configuration des p&eacute;riph&eacute;riques, veuillez suivre les conseils donn&eacute;s dans cette section pour &eacute;viter des probl&egrave;mes de configuration.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Sous certaines conditions, il se peut que des probl&egrave;mes surgissent lors d'un d&eacute;branchement simultan&eacute; de plusieurs p&eacute;riph&eacute;riques 1394 au cours d'une acquisition de donn&eacute;es. Il est <i><span style='font-style: italic'>tr&egrave;s</span></i> important de connecter ou d&eacute;connecter vos p&eacute;riph&eacute;riques avant de charger tout logiciel d'acquisition de donn&eacute;es.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Apr&egrave;s avoir d&eacute;connect&eacute; ou &eacute;teint un p&eacute;riph&eacute;rique, il est conseill&eacute; d&rsquo;attendre cinq &agrave; dix secondes (ou le temps que le sablier disparaisse) avant de rallumer le p&eacute;riph&eacute;rique.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Sur certains ordinateurs, la gestion d'alimentation peut interf&eacute;rer avec les applications DAQ actives qui utilisent des p&eacute;riph&eacute;riques USB ou 1394. Si vous pr&eacute;voyez de laisser fonctionner votre application DAQ pendant une longue p&eacute;riode, d&eacute;sactivez les fonctionnalit&eacute;s de gestion de l&rsquo;alimentation dans le syst&egrave;me d&rsquo;exploitation et le BIOS, ainsi que votre &eacute;cran de veille.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour d&eacute;sactiver la gestion de l'alimentation sous Windows 98, proc&eacute;dez comme suit&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Ouvrez le Panneau de configuration  (Cliquez sur <b><span style='font-weight:bold'>D&eacute;marrer&raquo;Param&egrave;tres&raquo;Panneau de configuration</span></b>).</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur l&rsquo;ic&ocirc;ne <b><span      style='font-weight:bold'>Gestion de l'Alimentation</span></b> (<b><span      style='font-weight:bold'>options d'alimentation</span></b> sous Windows XP) puis cliquez sur l&rsquo;onglet <b><span style='font-weight:      bold'>Modes de gestion de l'alimentation</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Dans le menu Modes de gestion de l'alimentation, choisissez <b><span style='font-weight:bold'>Toujours allum&eacute;.</span></b></span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>D&eacute;finissez les Param&egrave;tres pour le mode de gestion de l'alimentation Toujours allum&eacute; comme ci-dessous&nbsp;:</span></font></li>
+ <ol start=1 type=a>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Mise en veille&nbsp;: <b><span       style='font-weight:bold'>Jamais </span></b>(Sous Windows XP, choisissez l&rsquo;onglet <b><span       style='font-weight:bold'>Hibernation</span></b> et s&eacute;lectionnez <b><span       style='font-weight:bold'>D&eacute;sactiver l'hibernation</span></b>.)</span></font></li>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Mise en veille du moniteur&nbsp;: Tout choix est acceptable</span></font></li>
+  <li class=MsoNormal><font size=3       face="Times New Roman"><span style='font-size:12.0pt'>Arr&ecirc;t des disques durs&nbsp;: <b><span style='font-weight:bold'>Jamais</span></b></span></font></li>
+ </ol>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>OK</span></b> pour enregistrer les param&egrave;tres et fermer la gestion de l&rsquo;alimentation.</span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Fermez le Panneau de configuration</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour d&eacute;terminer si votre syst&egrave;me poss&egrave;de une gestion de l&rsquo;alimentation int&eacute;gr&eacute;e au BIOS, ainsi que les instructions pour d&eacute;sactiver les fonctionnalit&eacute;s de gestion de l&rsquo;alimentation du BIOS, veuillez vous r&eacute;f&eacute;rer &agrave; la documentation de votre syst&egrave;me.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour d&eacute;sactiver votre &eacute;cran de veille, proc&eacute;dez comme suit&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites un clic droit sur le bureau de Windows et s&eacute;lectionnez <b><span style='font-weight:bold'>Propri&eacute;t&eacute;s</span></b> dans le menu local pour ouvrir la fen&ecirc;tre de Propri&eacute;t&eacute;s d&rsquo;affichage.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l&rsquo;onglet <b><span      style='font-weight:bold'>Ecran de veille</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Dans le menu de l&rsquo;Ecran de veille, s&eacute;lectionnez <b><span style='font-weight:bold'>Aucun.</span></b></span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>OK</span></b> pour enregistrer vos param&egrave;tres et sortez de la fen&ecirc;tre Propri&eacute;t&eacute;s d&rsquo;affichage.</span></font></li>
+</ol>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Performances</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les performances des bus USB et 1394 d&eacute;pendent largement de facteurs propres au syst&egrave;me tels que la vitesse du processeur, l'architecture de la m&eacute;moire et les caract&eacute;ristiques du chipset du syst&egrave;me. Les op&eacute;rations sur les bus USB et 1394 sont consommatrices de ressources logicielles, et le fait d'ex&eacute;cuter d'autres applications en parall&egrave;le peut affecter les performances des op&eacute;rations d'acquisition de donn&eacute;es. Les op&eacute;rations &agrave; haute vitesse sur les bus USB et 1394 peuvent &eacute;galement affecter les performances d'autres applications.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Tous les p&eacute;riph&eacute;riques USB et 1394 connect&eacute;s &agrave; votre ordinateur partagent la m&ecirc;me bande passante. En cons&eacute;quence, l'utilisation simultan&eacute;e de plusieurs p&eacute;riph&eacute;riques USB et 1394 peut affecter les performances des applications DAQ. En outre, puisque les contr&ocirc;leurs h&ocirc;tes USB et 1394 du PC r&eacute;sident sur le bus PCI, l'utilisation d'autres p&eacute;riph&eacute;riques PCI consommateurs de bande passante peut diminuer les performances.</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Du fait que les donn&eacute;es sont transf&eacute;r&eacute;es par paquets sur les bus USB et 1394, les transferts de petites quantit&eacute;s de donn&eacute;es sont moins d&eacute;terministes qu'avec des p&eacute;riph&eacute;riques DAQ enfich&eacute;s dans le PC. Par exemple, les temps d'ex&eacute;cution d'op&eacute;rations contr&ocirc;l&eacute;es par interruptions et messaging sont susceptibles de varier davantage avec des p&eacute;riph&eacute;riques USB et 1394.</span></font></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="SCXI Calibrate Note"></a></font></span><font face="Arial" size="5">Remarque sur SCXI_Calibrate</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Effectuer un balayage avant un &eacute;talonnage interne avec </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SCXI_Calibrate</span></font></kbd> peut entra&icirc;ner une erreur <kbd><b><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New";font-weight:bold'>-10636</span></font></b></kbd> (vous ne pouvez pas initier une op&eacute;ration continue (avec double buffer) avec un appel synchrone de fonction). Si vous programmez en C, appelez la fonction <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DAQ_DB_Config</span></font></kbd>, avec le num&eacute;ro du p&eacute;riph&eacute;rique DAQ que vous &eacute;talonnez et avec <b><span style='font-weight:bold'>Dbmode</span></b> = 0. Si vous d&eacute;veloppez sous LabVIEW, ex&eacute;cutez le VI <kbd>R&eacute;-initialiser un p&eacute;riph&eacute;rique</kbd> sur votre p&eacute;riph&eacute;rique DAQ. Vous pouvez aussi quitter votre environnement de d&eacute;veloppement et relancer votre application.</p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Remote SCXI Devices"></a></font></span><font face="Arial" size="5">P&eacute;riph&eacute;riques SCXI d&eacute;port&eacute;s</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous projetez d'utiliser un module SCXI-1104 ou SCXI-1125 en mode d&eacute;port&eacute; (remote), vous devez mettre &agrave; jour le firmware sur votre ch&acirc;ssis SCXI-2000 ou votre module SCXI-2400. Si vous utilisez du mat&eacute;riel SCXI en mode d&eacute;port&eacute; sans module SCXI-1104 ou SCXI-1125, aucune mise &agrave; jour n'est n&eacute;cessaire.-1125</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Suivez les instructions suivantes pour mettre &agrave; jour le firmware&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Assurez-vous que votre SCXI en mode d&eacute;port&eacute; (remote) fonctionne convenablement et est bien allum&eacute;.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur l'ic&ocirc;ne <b><span      style='font-weight:bold'>Measurement &amp; Automation Explorer</span></b> pour ouvrir MAX.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>P&eacute;riph&eacute;riques et interfaces</span></b> pour voir la liste des p&eacute;riph&eacute;riques.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionnez <b><span      style='font-weight:bold'>Propri&eacute;t&eacute;s</span></b>. Si vous &ecirc;tes en possession d'un ch&acirc;ssis SCXI-2000, faites un clic droit sur son r&eacute;pertoire et s&eacute;lectionnez <b><span style='font-weight:      bold'>Propri&eacute;t&eacute;s</span></b>. Si vous &ecirc;tes en possession d'un module SCXI-2400, double-cliquez sur le r&eacute;pertoire du ch&acirc;ssis qui le contient, faites alors un clic droit sur le SCXI-2400 et s&eacute;lectionnez <b><span style='font-weight:bold'>Propri&eacute;t&eacute;s</span></b></span></font>.</li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>Reprogrammer</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Entrez le chemin du fichier image mis &agrave; jour du SCXI en mode d&eacute;port&eacute; et cliquez sur <b><span style='font-weight:      bold'>OK</span></b>.</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Le nouveau firmware sera alors t&eacute;l&eacute;charg&eacute; dans votre ch&acirc;ssis ou votre module SCXI en mode d&eacute;port&eacute;. Ne d&eacute;branchez pas le c&acirc;ble et n'interrompez pas l&rsquo;op&eacute;ration en cours.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Remote Device Access (RDA)"></a></font></span><font face="Arial" size="5">Acc&egrave;s aux p&eacute;riph&eacute;riques d&eacute;port&eacute;s (RDA)</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si vous souhaitez utiliser la version 6.9 de NI-DAQ dans une application de type RDA, assurez-vous que cette version de NI-DAQ est install&eacute;e &agrave; la fois sur le client (machine locale) et sur le serveur RDA (machine distante). Cette exigence provient des nouvelles fonctionnalit&eacute;s RDA en mati&egrave;re de s&eacute;curit&eacute; qui ont &eacute;t&eacute; ajout&eacute;es &agrave; cette nouvelle version.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les fonctionnalit&eacute;s de s&eacute;curit&eacute; vous permettent de sp&eacute;cifier un mot de passe pour chaque p&eacute;riph&eacute;rique configur&eacute; sur le serveur, ceci dans le but de restreindre l&rsquo;acc&egrave;s aux clients qui connaissent le mot de passe correct. Pour d&eacute;finir le mot de passe d&rsquo;un p&eacute;riph&eacute;rique, suivez ces instructions&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Sur l'ordinateur serveur, ouvrez MAX (double-cliquez sur l&rsquo;ic&ocirc;ne <b><span style='font-weight:bold'>Measurement &amp; Automation</span></b> situ&eacute;e sur votre bureau).</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span      style='font-weight:bold'>P&eacute;riph&eacute;riques et interfaces</span></b> pour afficher la liste des p&eacute;riph&eacute;riques.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites un clic droit sur le p&eacute;riph&eacute;rique pour lequel vous souhaitez restreindre l&rsquo;acc&egrave;s et s&eacute;lectionnez <b><span      style='font-weight:bold'>Propri&eacute;t&eacute;s</span></b> dans le menu pour ouvrir la fen&ecirc;tre concernant la configuration des p&eacute;riph&eacute;riques.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur l&rsquo;onglet <b><span      style='font-weight:bold'>Acc&egrave;s en mode d&eacute;port&eacute;</span></b>.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Cliquez sur <b><span      style='font-weight:bold'>D&eacute;finir le mot de passe</span></b> pour ouvrir la bo&icirc;te de dialogue concernant la d&eacute;finition du mot de passe et entrez ce dernier.</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Apr&egrave;s avoir d&eacute;fini un mot de passe pour le p&eacute;riph&eacute;rique, les clients RDA doivent sp&eacute;cifier le mot de passe correct pour utiliser le p&eacute;riph&eacute;rique en mode d&eacute;port&eacute;. Par d&eacute;faut, le mot de passe est vide, indiquant ainsi que le p&eacute;riph&eacute;rique n&rsquo;est pas prot&eacute;g&eacute; par un mot de passe. Si un client est d&eacute;j&agrave; en train dutiliser un p&eacute;riph&eacute;rique RDA pendant que le mot de passe est chang&eacute;, le client re&ccedil;oit alors une erreur </span></font><kbd><b><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"; font-weight:bold'>-10340</span></font></b></kbd> jusqu&agrave; que le mot de passe correct soit d&eacute;fini. Pour d&eacute;finir le mot de passe correct, suivez ces instructions&nbsp;:</p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Sur l'ordinateur client, ouvrez MAX (double-cliquez sur l&rsquo;ic&ocirc;ne <b><span style='font-weight:bold'>Measurement &amp; Automation</span></b> situ&eacute;e sur votre bureau).</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span      style='font-weight:bold'>P&eacute;riph&eacute;riques et interfaces</span></b> pour afficher la liste des p&eacute;riph&eacute;riques.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Faites un clic droit sur le p&eacute;riph&eacute;rique pour lequel vous souhaitez restreindre l&rsquo;acc&egrave;s et s&eacute;lectionnez <b><span      style='font-weight:bold'>Propri&eacute;t&eacute;s</span></b> dans le menu local pour ouvrir la fen&ecirc;tre de configuration des p&eacute;riph&eacute;riques. </span></font></li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Entrez le mot de passe correct pour le p&eacute;riph&eacute;rique lorsqu&rsquo;on vous le demande..</span></font></li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>En plus des mots de passe d&eacute;finis sur le serveur pour chaque p&eacute;riph&eacute;rique, un mot de passe de base peut &eacute;galement &ecirc;tre d&eacute;fini pour &eacute;viter que des utilisateurs non autoris&eacute;es ne puissent configurer le serveur RDA &agrave; distance. Pour d&eacute;finir ce mot de passe sur le serveur, ouvrez MAX sur le serveur et s&eacute;lectionnez <b><span style='font-weight:bold'>Outils&raquo;Configuration NI-DAQ&raquo;D&eacute;finir le mot de passe de la configuration d&eacute;port&eacute;e</span></b>. Une fois que ce mot de passe est d&eacute;fini, les clients qui souhaitent configurer le serveur en mode d&eacute;port&eacute; par le biais de MAX (en cliquant sur <b><span style='font-weight:bold'>Outils&raquo;Configuration NI-DAQ&raquo;Configuration DAQ d&eacute;port&eacute;e</span></b>) doivent d&rsquo;abord entrer le mot de passe correct. Les clients qui connaissent le mot de passe de base correct ont la possibilit&eacute; de changer le mot de passe de base du serveur, ainsi que chacun des mots de passe correspondants aux diff&eacute;rents p&eacute;riph&eacute;riques, par le biais de la Configuration DAQ en mode d&eacute;port&eacute;.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Depuis NI-DAQ 6.7, vous pouvez d&eacute;finir une limite de temps pour le mode RDA (time out). Ceci est utile quand la connexion r&eacute;seau est perdue alors que la machine cliente RDA attend une r&eacute;ponse de la machine serveur RDA. Sans le time out, l&rsquo;ordinateur de votre client RDA attendrait ind&eacute;finiment, donnant l&rsquo;impression que votre programme LabVIEW est bloqu&eacute;. Gr&acirc;ce &agrave; la fonctionnalit&eacute; time out, votre programme LabVIEW affichera </span></font><kbd><b><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"; font-weight:bold'>-10340 noConnectError</span></font></b></kbd>.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La valeur par d&eacute;faut de cette limite de temps est 240000 ms (4 minutes). Pour changer cette valeur, vous devez ajouter une valeur &agrave; une cl&eacute; existant dans la base de registres. Pour cela, veuillez suivez les &eacute;tapes suivantes&nbsp;:</span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Ex&eacute;cutez </span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>regedit.exe</span></font></kbd> ou <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;      font-family:"Courier New"'>regedt32.exe</span></font></kbd>.</li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Ouvrez <kbd><b><span      style='font-weight:bold'>HKEY_LOCAL_MACHINE&raquo;SOFTWARE&raquo;National Instruments&raquo;NI-DAQ&raquo;CurrentVersion&raquo;Configuration Manager</span></b></kbd></span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>.</span></font></kbd></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>S&eacute;lectionnez <kbd><b><span      style='font-weight:bold'>New&raquo;DWORD Value</span></b></kbd>dans le menu &Eacute;diter</span></font>.</li>
+ <li class=MsoNormal><font size=3
+     face="Times New Roman"><span style='font-size:12.0pt'>Nommez la nouvelle valeur ReceiveTimeoutValue.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Double-cliquez sur <b><span      style='font-weight:bold'>ReceiveTimeoutValue</span></b> pour faire appara&icirc;tre une bo&icirc;te de dialogue dans laquelle vous pourrez entrer la nouvelle valeur. Entrez la valeur de time out souhait&eacute;e en millisecondes. Assurez-vous que la Base est bien en mode D&eacute;cimal. Une valeur nulle de time out indique un temps d'attente infini, ce qui correspond au comportement des versions de NI-DAQ ant&eacute;rieures &agrave; 6.7.</span></font></li>
+ <li class=MsoNormal><font size=3      face="Times New Roman"><span style='font-size:12.0pt'>Ex&eacute;cutez </span></font><kbd><font      size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>regedit.exe</span></font></kbd> ou <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;      font-family:"Courier New"'>regedt32.exe</span></font></kbd>.</li>
+</ol>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Gardez &agrave; l'esprit que les appels NI-DAQ pour lire ou &eacute;crire des donn&eacute;es peuvent prendre un temps assez long &agrave; rendre la main, variant selon les fr&eacute;quences d'acquisition ou de rafra&icirc;chissement et les quantit&eacute;s de donn&eacute;es. Appeler le VI <kbd>AI-Lire un buffer</kbd> et lire 100 &eacute;chantillons &agrave; une vitesse de 10 &eacute;ch/s prend 10 s. Si la valeur de <b><span style='font-weight:bold'>ReceiveTimeoutValue</span></b> est inf&eacute;rieure &agrave; 10000 ms, vous recevrez l'erreur </span></font><kbd><b><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New";font-weight:bold'>-10340</span></font></b></kbd> bien que votre connexion r&eacute;seau fonctionne sans probl&egrave;me.</p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="Modifying the DAQ Configuration Files in MAX"></a></font></span><font face="Arial" size="5">Modification des fichiers de configuration DAQ sous MAX</font></b></h3>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Les versions 2.0 &agrave; 2.2 de  MAX vous permettent de modifier vos fichiers de configuration DAQ via l&rsquo;option <b><span style='font-weight: bold'>Outils&raquo;Configuration NI-DAQ</span></b>. L&rsquo;option <b><span style='font-weight:bold'>D&eacute;finir la configuration active</span></b> vous permet de d&eacute;finir n&rsquo;importe quel fichier de configuration DAQ comme fichier actif. L&rsquo;option <b><span style='font-weight:bold'>Enregistrer la configuration sous</span></b> vous permet d&rsquo;enregistrer la configuration en cours sous un nouveau fichier. L&rsquo;option <b><span style='font-weight:bold'>Cr&eacute;er une nouvelle configuration</span></b> cr&eacute;e un nouveau fichier de configuration dont vous choisissez le nom.</span></font></p>
+
+<p><a href="#return to top">Retour vers le haut </a></p>
+
+<h3><b><span
+style='font-size:14.0pt'><font size=4 face=Arial><a name="NI-DAQ Documentation Changes"></a></font></span><font face="Arial" size="5">Modifications apport&eacute;es &agrave; la documentation NI-DAQ</font></b></h3>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>DAQ Hardware Overview Guide</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La gamme d&rsquo;entr&eacute;e analogique valide pour les p&eacute;riph&eacute;riques PCI-6110E et PCI-6111E est &plusmn; 42 V. </span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Aide en ligne des VIs d&rsquo;acquisition de donn&eacute;es</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>L'aide en ligne du VI <kbd>AI-Configurer</kbd> sp&eacute;cifie que vous pouvez allouer plusieurs buffers avec les p&eacute;riph&eacute;riques PCI-5911 et VXI-5912. Ceci est incorrect. Vous devez utiliser NI-SCOPE pour programmer votre PCI-5911.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>L'aide en ligne du VI <kbd>AI-Contr&ocirc;ler</kbd> d&eacute;finit le nombre d'&eacute;chantillons de post-d&eacute;clenchement comme le nombre d'&eacute;chantillons allou&eacute;s dans le buffer moins le nombre minimum d'&eacute;chantillons de pr&eacute;-d&eacute;clenchement. Ceci est incorrect. Le nombre d&rsquo;&eacute;chantillons de post-d&eacute;clenchement est &eacute;gal au nombre total d&rsquo;&eacute;chantillons &agrave; acqu&eacute;rir moins le nombre minimum d&rsquo;&eacute;chantillons de pr&eacute;-d&eacute;clenchement.</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Lors de l'utilisation des VIs <kbd>AO-Ecrire</kbd>, <kbd>AO-G&eacute;n&eacute;rer des signaux</kbd>, <kbd>AO-G&eacute;n&eacute;rer en continu</kbd> et </kbd><kbd>A0-Buffer</kbd> avec un p&eacute;riph&eacute;rique 61<i><span style='font-style:italic'>XX</span></i>  ou 671<i><span style='font-style:italic'>X</span></i>, le nombre d'&eacute;chantillons contenus dans les param&egrave;tres Donn&eacute;es mises &agrave; l'&eacute;chelle ou Donn&eacute;es waveform doit &ecirc;tre pair; sinon, une erreur de type d&eacute;compte n&eacute;gatif sera retourn&eacute;e et aucune donn&eacute;e ne sera g&eacute;n&eacute;r&eacute;e. Ainsi, 3 voies avec 101 points renverra une erreur mais 3 voies avec 102 points ou 2 voies avec 101 points fonctionnera sans probl&egrave;me.</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size: 12.0pt'>L'aide pour le VI Router un Signal liste l'horloge de r&eacute;f&eacute;rence PLL comme choix 21 du param&egrave;tre <b><span style='font-weight:bold'>source du signal</span></b>. Ceci est incorrect. L'horloge de la carte repr&eacute;sente le choix 21.</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>&nbsp;</span></font></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size: 12.0pt'>L'aide ne documente pas un param&egrave;tre d&eacute;fini par les VI AI-Param&egrave;tre. Ce param&egrave;tre, <b><span style='font-weight:bold'>FIFO Transfer Count</span></b>, sp&eacute;cifie combien de points transf&eacute;rer &agrave; partir du buffer &agrave; chaque interruption.</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>R&eacute;f&eacute;rence des fonctions NI-DAQ</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AI_Get_Overloaded_Channels</span></font></kbd> supporte tous les p&eacute;riph&eacute;riques DSA sauf le NI 4454 pour PCI.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour la fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Configure</span></font></kbd><kbd></kbd>, la description du param&egrave;tre <b><span style='font-weight:bold'>chan</span></b> devrait inclure les informations suivantes&nbsp;:</p>
+
+<ul>
+  <li>
+    <p style="text-indent: 0; margin-left: 0.0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt">0 &agrave; 15 pour le p&eacute;riph&eacute;rique PCI-6073</li>
+  <li>
+    <p style="text-indent: 0; margin-left: 0.0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt"><font size=2 face=Symbol><span style='font-size:10.0pt;font-family:Symbol'><font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'> </span></font></span></font>0 &agrave; 31 pour le p&eacute;riph&eacute;rique PCI/PXI-6704</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour la fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Read_Buffer</span></font></kbd>, le prototype correct est <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Read_Buffer</span></font></kbd> (<b><span style='font-weight:bold'>deviceNumber</span></b>, <b><span style='font-weight:bold'>gpctrNum</span></b>, <b><span style='font-weight:bold'>readMode</span></b>, <b><span style='font-weight:bold'>readOffset</span></b>, <b><span style='font-weight:bold'>numPtsToRead</span></b>, <b><span style='font-weight: bold'>timeOut</span></b>, <b><span style='font-weight:bold'>numPtsRead</span></b>, <b><span style='font-weight:bold'>buffer</span></b>). Les commentaires sur les param&egrave;tres devraient inclure les param&egrave;tres suivants&nbsp;:</p>
+
+<ul>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><font size=2 face=Symbol><span style='font-size:10.0pt;font-family:Symbol'><font size=1 face="Times New Roman"><span style='font:7.0pt "Times New Roman"'> </span></font></span></font><b><span style='font-weight:bold'>numPtsToRead</span></b> est le nombre de points &agrave; r&eacute;cup&eacute;rer &agrave; partir du buffer utilis&eacute;. Ce param&egrave;tre est pass&eacute; par r&eacute;f&eacute;rence.</li>
+  <li>
+    <p class="MsoNormal" style="text-indent: 0.0in; margin-left: 0.0in"><b><span style='font-weight:bold'>numPtsRead</span></b> contient la valeur du nombre r&eacute;el d&rsquo;entr&eacute;es lues lorsque la fonction rend la main.</li>
+</ul>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour la fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SCAN_Start</span></font></kbd>, les valeurs valides pour le param&egrave;tre <b><span style='font-weight:bold'>sampTimebase</span></b> incluent -3 et 2 pour les p&eacute;riph&eacute;riques de la S&eacute;rie E.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour la fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>SCXI_Track_Hold_Setup</span></font></kbd>, la remarque indiquant que cette fonction ne fonctionne pas avec les cartes de la S&eacute;rie E est incorrecte. Si vous disposez d&rsquo;un module &eacute;chantillonneur-bloqueur (track-and-hold) (comme le SCXI-1530, SCXI-1531, SCXI-1140 ou SCXI-1520) connect&eacute; &agrave; un p&eacute;riph&eacute;rique de la S&eacute;rie E, vous pouvez utiliser cette fonction pour d&eacute;finir une op&eacute;ration de balayage de voies en mode multiplex&eacute;.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Dans la fonction </span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Block_PG_Config</span></font></kbd>, la gamme valide pour le param&egrave;tre <b><span style='font-weight:bold'>reqInterval</span></b> est 1 &agrave; 65.535.</p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>La liste des fonctions support&eacute;es par les p&eacute;riph&eacute;riques AT-AO-6/10, DAQ-AO-2DC et NI 671<i><span style='font-style:italic'>X</span></i> est la suivante&nbsp;:</span></font></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>AT-AO-6/10:</span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>AO_Calibrate</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Configure</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_Update</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_VScale</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_VWrite</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Write</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Config_DAQ_Event_Message</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_In_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Out_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Prt_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Get_NI_DAQ_Version</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Init_DA_Brds</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>RTSI_Clear</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>RTSI_Clock</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>RTSI_Conn</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>RTSI_DisConn</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Timeout_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Chan_Control</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Check</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_ClockRate</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_DB_HalfReady</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Transfer</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_from_Disk</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Group_Control</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Group_Setup</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Load</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Op</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Rate</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Scale</span></font></kbd></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>DAQ-AO-2DC:</span></font><kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>AO_Change_Parameter</span></font></kbd>, <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Configure</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_VWrite</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_In_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Out_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Prt_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Get_DAQ_Device_Info</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Get_NI_DAQ_Version</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Init_DA_Brds</span></font></kbd></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>NI 671<i><span style='font-style:italic'>X</span></i> : </span></font><kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Change_Parameter</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_Configure</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_Update</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_VScale</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>AO_VWrite</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>AO_Write</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Calibrate_E_Series</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Config_DAQ_Event_Message</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_In_Line</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_In_Prt</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Line_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Out_Line</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>DIG_Out_Prt</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>DIG_Prt_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Get_DAQ_Device_Info</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Get_NI_DAQ_Version</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Change_Parameter</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>GPCTR_Config_Buffer</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Control</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>GPCTR_Set_Application</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>GPCTR_Watch</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Init_DA_Brds</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Select_Signal</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>Set_DAQ_Device_Info</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>Timeout_Config</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Check</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_ClockRate</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Config</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_DB_HalfReady</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_DB_Transfer</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_from_Disk</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Group_Control</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Group_Setup</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Load</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Op</span></font></kbd>, <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt;font-family:
+"Courier New"'>WFM_Rate</span></font></kbd>, <kbd><font size=2
+face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>WFM_Scale</span></font></kbd></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI-DAQ Function Reference Manual</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>National Instruments n&rsquo;imprime plus de manuel de r&eacute;f&eacute;rence des fonctions de NI-DAQ. Toutes les fonctions de NI-DAQ sont d&eacute;sormais d&eacute;crites dans le fichier d'aide en ligne <i><span style='font-style:italic'>NI-DAQ Function Reference Help</span></i>. Pour consulter cette aide en ligne, cliquez sur <b><span style='font-weight:bold'>D&eacute;marrer&raquo;Programmes&raquo;National Instruments&raquo;NI-DAQ&raquo;NI-DAQ Help</span></b>.</span></font></p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>NI-DAQ User Manual</span></font></b></h4>
+
+<p>L'information <kbd><font size=2 face="Courier New"><span style='font-size:10.0pt; font-family:"Courier New"'>SCXI_Strain_Null</span></font></kbd> manque. Cette fonction annule l&rsquo;offset dans la jauge de contrainte sp&eacute;cifi&eacute;e dans un module SCXI-1520  en ajustant les potentiom&egrave;tres internes.</p>
+
+<h4><b><font size=3 face=Arial><span
+style='font-size:12.0pt'>Passage de valeurs 16 bits non sign&eacute;es et d&rsquo;entiers 32 bits sous Visual Basic</span></font></b></h4>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Param&egrave;tre 16 bits non sign&eacute;s&nbsp;: Le type INTEGER sous Visual Basic &eacute;tant une valeur sign&eacute;e 16 bits, toute valeur sup&eacute;rieure &agrave; 32767 est consid&eacute;r&eacute;e comme n&eacute;gative. Une solution &agrave; ce probl&egrave;me est d&eacute;crite ci-apr&egrave;s&nbsp;:</span></font></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si la fonction est cens&eacute;e renvoyer un entier 16 bits non sign&eacute; et que vous lisez une valeur n&eacute;gative en retour, ajoutez-y 65.536. </span></font></li>
+</ol>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>Par exemple&nbsp;:</span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt As Long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim retCnt</span></font></kbd> <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>As Integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>&lsquo;(retCnt est la valeur renvoy&eacute;e par la fonction appel&eacute;e)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>&lsquo;Vous pouvez appeler une fonction DAQ renvoyant une valeur 32 bits non sign&eacute;e et la stocker dans retCnt.</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if retCnt &lt; 0 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = CInt(retCnt) + 65536</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = retCnt</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <li class=MsoNormal><font
+     size=3 face="Times New Roman"><span style='font-size:12.0pt'>Pour passer une valeur 16 bits non sign&eacute;e &agrave; une fonction dont le param&egrave;tre est de type 16 bits non sign&eacute;, vous devez au pr&eacute;alable calculer la valeur &agrave; passer &agrave; la fonction.</span></font></li>
+</ol>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>Par exemple&nbsp;:</span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt As Long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim ToPassVal</span></font></kbd> <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>As Integer</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>&lsquo;Vous calculez la valeur &agrave; passer &agrave; la fonction et vous la stockez dans myUnsignedCnt.</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if myUnsignedCnt &gt; 32767 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CInt(myUnsignedCnt - 65536)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CInt(myUnsignedCnt)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<p><font size=3 face="Times New Roman"><span style='font-size:12.0pt'>Param&egrave;tre 32 bits non sign&eacute;s&nbsp;: Le type LONG sous Visual Basic &eacute;tant une valeur sign&eacute;e 32 bits, toute valeur sup&eacute;rieure &agrave; 2147483647 est consid&eacute;r&eacute;e comme n&eacute;gative. Une solution &agrave; ce probl&egrave;me est d&eacute;crite ci-apr&egrave;s&nbsp;:</span></font></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal><font      size=3 face="Times New Roman"><span style='font-size:12.0pt'>Si la fonction est cens&eacute;e renvoyer un entier 32 bits non sign&eacute; et que vous lisez une valeur n&eacute;gative en retour, ajoutez-y 4.294.967.296. </span></font></li>
+</ol>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size: 12.0pt'>Par exemple&nbsp;: </span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt As Double</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim retCnt</span></font></kbd> <kbd><font
+size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>As Long</span></font></kbd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>&lsquo;(retCnt est la valeur renvoy&eacute;e par la fonction appel&eacute;e)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>&lsquo;Vous pouvez appeler une fonction DAQ renvoyant une valeur 32 bits non sign&eacute;e et la stocker dans retCnt.</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if retCnt &lt; 0 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = CInt(retCnt) +4294967296</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>myUnsignedCnt = retCnt</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;'><font size=3 face="Times New Roman"><span
+style='font-size:12.0pt'>2.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></font></span></font>Pour passer une valeur 32 bits non sign&eacute;e &agrave; une fonction dont le param&egrave;tre est de type 32 bits non sign&eacute;, vous devez au pr&eacute;alable calculer la valeur &agrave; passer &agrave; la fonction.</p>
+
+<p class=Indent1><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>Par exemple&nbsp;:</span></font></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim myUnsignedCnt As Double</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>Dim ToPassVal As Long</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>&lsquo;Vous calculez la valeur &agrave; passer &agrave; la fonction et vous la stockez dans myUnsignedCnt.</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>if myUnsignedCnt &gt; 2147483647 then</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CLng(myUnsignedCnt - 4294967296)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>else</span></font></kbd></p>
+
+<p class=Indent2><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>ToPassVal = CLng(myUnsignedCnt)</span></font></kbd></p>
+
+<p class=Indent1><kbd><font size=2 face="Courier New"><span style='font-size:
+10.0pt;font-family:"Courier New"'>end if</span></font></kbd></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'>&nbsp;</span></font></p>
+
+<h3><b><font size=3 face=Arial><span style='font-size:12.0pt;'>Norme obsol&egrave;te</span></font></b></h3>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size: 12.0pt'>DIN 43760 est une norme obsol&egrave;te de courbe de temp&eacute;rature pour les RTDs. La norme en vigueur est <br> DIN EN 60751.</span></font></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><a href="#return to top">Retour vers le haut </a></p>
+
+</div>
+
+</body>
+
+</html>

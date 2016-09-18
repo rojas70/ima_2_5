@@ -1,0 +1,63 @@
+Juan Rojas wrote:
+
+> Hey Roberto,
+> I tried the same installation in a different computer and I got everything to 
+> work fine. 
+
+Ok, that doesn't surprise me too much. That ActiveX cannot create object 
+error means that either 1) the object is not properly registered or 2) 
+the object that is registered is not the DLL the code was expecting 
+(maybe an older version or another program, for example).
+
+> 
+> The files registered, the DAD was working, the creating of agents and 
+> components was successful.
+
+Great!
+
+> 
+> I do not know the real reason, maybe the errors came about since in the 2nd 
+> computer, some of the ActiveX stuff and what not have already been configured, 
+> since it has IMA 1... I am not sure though. Also the computer in which I found 
+> the erros only had .NET and not Visual Studio...
+
+Hmm, that could be a problem. IMA 2.5 is heavily dependent on VS6. I 
+would make sure that VS6 is successfully installed before putting on IMA2.5.
+
+You may want to install IMA1 on the machine where you have IMA 2.5 
+running to check if that's the problem. If the two work fine together, 
+then it's probably an issue with VS6 / VS.NET DLL conflicting.
+
+> 
+> Now I am working on creating the executable for the ManagerBook. It's gave me 
+> some errors, but I think it was b/c the some component controls had not yet 
+> been added. I added some that seemed part of IMA 2 and reduced the number of 
+> errors. But I still get this one:
+> 
+> Line 86: Class IMA2_HelperX.InsertComponentView of control icv was not a loaded 
+> control class.
+
+There is an ActiveX Control project called IMA2_HelperX (maybe in a 
+HelperX directory)... you have to add that to the ManagerBook's list of 
+AtciveX controls and then it should be able to compile again. You may 
+experience some problems though... whenever VB tries to load a project 
+and it can't find a dependency, it tends to replace those controls with 
+pictureboxes to finish opening the project. Then, if you add the 
+dependency/ActiveX Control to the project (typically after recompiling 
+or by pointing to the .vbp/DLL/OCX) you've lost the original controls 
+and the inital property settings for those controls! It's a pain that 
+really infuriated me when I was working with VB. The way to get around 
+it is to either 1) register the Helper_X control, then reload the 
+original ManagerBook project or 2) recompile the Helper_X control while 
+it's pointing to the original HelperX DLL or OCX file... so that it 
+keeps all of it's GUIDs for the objects and interfaces. That will 
+re-register it. However, if you recompile it without pointing it to the 
+original DLL/OCX file, then you'll get the pictureboxes as described 
+before since the GUIDS wont match when ManagerBook opens HelperX in VB.
+> 
+> Right now I am trying to find the class control for it...
+> 
+
+Good progress so far though!
+
+> Thanks

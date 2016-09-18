@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_CopyRepsLib.CopyVS.1 = s 'CopyVS Class'
+	{
+		CLSID = s '{2B5BD3BD-6332-47DF-A73E-A80A486E5567}'
+	}
+	IMA2_CopyRepsLib.CopyVS = s 'CopyVS Class'
+	{
+		CLSID = s '{2B5BD3BD-6332-47DF-A73E-A80A486E5567}'
+		CurVer = s 'IMA2_CopyRepsLib.CopyVS.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2B5BD3BD-6332-47DF-A73E-A80A486E5567} = s 'CopyVS Class'
+		{
+			ProgID = s 'IMA2_CopyRepsLib.CopyVS.1'
+			VersionIndependentProgID = s 'IMA2_CopyRepsLib.CopyVS'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{3B6C7D50-0501-42AD-A29E-A4843C3A2C4D}'
+		}
+	}
+}

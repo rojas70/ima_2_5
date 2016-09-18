@@ -1,0 +1,7 @@
+These files were copied from: \\cis\irl\Components\BasicReps.
+
+They were originally used in IMA 2.0 and were copied here to be used as reference.
+
+One can also look at the IMA 1.0 Managers under \\cis\crl\ima\src\managers
+
+Juan Rojas, June 2005

@@ -1,0 +1,74 @@
+// PressureAndForctTorqueCharacterization.idl : IDL source for PressureAndForctTorqueCharacterization.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PressureAndForctTorqueCharacterization.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(94F541B1-0CC5-4F4B-8B07-4397ED7F3DC5),
+		dual,
+		helpstring("IPressureForceCharacterization Interface"),
+		pointer_default(unique)
+	]
+	interface IPressureForceCharacterization : IDispatch
+	{
+		[propget, id(1), helpstring("property OutputMinIndex")] HRESULT OutputMinIndex([out, retval] short *pVal);
+		[propput, id(1), helpstring("property OutputMinIndex")] HRESULT OutputMinIndex([in] short newVal);
+		[propget, id(2), helpstring("property OutputMaxIndex")] HRESULT OutputMaxIndex([out, retval] short *pVal);
+		[propput, id(2), helpstring("property OutputMaxIndex")] HRESULT OutputMaxIndex([in] short newVal);
+		[propget, id(3), helpstring("property OutputMin")] HRESULT OutputMin([out, retval] double *pVal);
+		[propput, id(3), helpstring("property OutputMin")] HRESULT OutputMin([in] double newVal);
+		[propget, id(5), helpstring("property OutputMax")] HRESULT OutputMax([out, retval] double *pVal);
+		[propput, id(5), helpstring("property OutputMax")] HRESULT OutputMax([in] double newVal);
+		[propget, id(6), helpstring("property HomingSteps")] HRESULT HomingSteps([out, retval] float *pVal);
+		[propput, id(6), helpstring("property HomingSteps")] HRESULT HomingSteps([in] float newVal);
+		[propget, id(7), helpstring("property LeftArm")] HRESULT LeftArm([out, retval] short *pVal);
+		[propput, id(7), helpstring("property LeftArm")] HRESULT LeftArm([in] short newVal);
+		[propget, id(8), helpstring("property PressureForRubbertuatorPair1")] HRESULT PressureForRubbertuatorPair1([out, retval] double *pVal);
+		[propput, id(8), helpstring("property PressureForRubbertuatorPair1")] HRESULT PressureForRubbertuatorPair1([in] double newVal);
+		[propget, id(9), helpstring("property PressureForRubbertuatorPair2")] HRESULT PressureForRubbertuatorPair2([out, retval] double *pVal);
+		[propput, id(9), helpstring("property PressureForRubbertuatorPair2")] HRESULT PressureForRubbertuatorPair2([in] double newVal);
+		[propget, id(10), helpstring("property PressureForRubbertuatorPair3")] HRESULT PressureForRubbertuatorPair3([out, retval] double *pVal);
+		[propput, id(10), helpstring("property PressureForRubbertuatorPair3")] HRESULT PressureForRubbertuatorPair3([in] double newVal);
+		[propget, id(11), helpstring("property PressureForRubbertuatorPair4")] HRESULT PressureForRubbertuatorPair4([out, retval] double *pVal);
+		[propput, id(11), helpstring("property PressureForRubbertuatorPair4")] HRESULT PressureForRubbertuatorPair4([in] double newVal);
+		[propget, id(12), helpstring("property PressureForRubbertuatorPair5")] HRESULT PressureForRubbertuatorPair5([out, retval] double *pVal);
+		[propput, id(12), helpstring("property PressureForRubbertuatorPair5")] HRESULT PressureForRubbertuatorPair5([in] double newVal);
+		[propget, id(13), helpstring("property PressureForRubbertuatorPair6")] HRESULT PressureForRubbertuatorPair6([out, retval] double *pVal);
+		[propput, id(13), helpstring("property PressureForRubbertuatorPair6")] HRESULT PressureForRubbertuatorPair6([in] double newVal);
+		[propget, id(14), helpstring("property FileName")] HRESULT FileName([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property FileName")] HRESULT FileName([in] BSTR newVal);
+		[id(15), helpstring("method Initialize")] HRESULT Initialize();
+		[id(16), helpstring("method StartCharacerizationProcess")] HRESULT StartCharacerizationProcess();
+		[id(17), helpstring("method VerticalPush1")] HRESULT VerticalPush1();
+		[id(18), helpstring("method WriteDataToFile")] HRESULT WriteDataToFile();
+		[id(19), helpstring("method ChangePressure")] HRESULT ChangePressure(short whatjoint, double basepressure, double pressurechange, short numberofsteps);
+		[id(20), helpstring("method GoToHomePosition")] HRESULT GoToHomePosition();
+
+	};
+
+[
+	uuid(B2E54CF7-A7D6-434F-BD1F-2BC0DF030FB7),
+	version(1.0),
+	helpstring("(IMA2 Components) - Pressure and Force Torque Lib")
+]
+library PRESSUREANDFORCTTORQUECHARACTERIZATIONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb"); 
+
+	[
+		uuid(4717FCEF-8FD4-40EB-997F-9B905D66D5E9),
+		helpstring("PressureForceCharacterization Class")
+	]
+	coclass PressureForceCharacterization
+	{
+		[default] interface IPressureForceCharacterization;
+		interface IComponent; 
+
+	};
+};

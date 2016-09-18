@@ -1,0 +1,840 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0080)http://msdn.microsoft.com/library/en-us/dndotnet/html/callcomcomp.asp?frame=true -->
+<!--TOOLBAR_EXEMPT--><HTML xmlns:tool = 
+"http://www.microsoft.com/tooltip"><HEAD><TITLE>Calling COM Components from .NET Clients (.NET Development (General) Technical Articles)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Learn the details of calling COM servers from .NET clients." 
+name=Description>
+<META content="" name=Robots>
+<META content="" name=Keywords>
+<META content=en-us name=MS.LOCALE><LINK href="callcomcomp_files/ie4.css" 
+type=text/css rel=stylesheet><LINK href="callcomcomp_files/ie5.css" 
+type=text/css rel=stylesheet>
+<STYLE>BODY {
+	MARGIN: 0px; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<SCRIPT language=javascript src="callcomcomp_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="callcomcomp_files/Broker.js"></SCRIPT>
+<LINK href="callcomcomp_files/default.css" type=text/css rel=stylesheet><LINK 
+href="callcomcomp_files/ie.css" type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.1; SV1";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+
+<SCRIPT>
+	if( self == top )
+{
+	location = "/library/en-us/dndotnet/html/callcomcomp.asp";
+}
+
+</SCRIPT>
+<xml id=xmlPageContext><eyebrow findmenu="false">
+	<item label="MSDN Home" url="/default.asp"/>
+	<item label="MSDN Library" url="/library/default.asp"/>
+	<item label=".NET Development" url="/library/en-us/dnanchor/html/netdevanchor.asp" id="msdnlib462" xmlsrc="/library/en-us/toc/msdnlib/msdnlib462_.xml"/><item label="Articles and Overviews" id="msdnlib468" xmlsrc="/library/en-us/toc/msdnlib/msdnlib468_.xml"/><item label="Upgrading to Microsoft .NET" url="/library/en-us/dndotnet/html/upgradingtodotnet.asp" id="dndotnet224" xmlsrc="/library/en-us/toc/dndotnet/dndotnet224_.xml"/><item label="Calling COM Components from .NET Clients" url="/library/en-us/dndotnet/html/callcomcomp.asp" id="dndotnet228"/></eyebrow></xml>
+<SCRIPT>
+var sContentID = "_759385"; 
+ </SCRIPT>
+<!--VENUS_START-->
+<META content="Calling COM Components from .NET Clients" name=MSHTOCTitle>
+<META content="Calling COM Components from .NET Clients" name=MSHRLTitle>
+<META content=callcomcomp name=MSHKeywordA>
+<META content="COM components, calling from .NET components" name=MSHKeywordK>
+<META content="COM components, interoperability with .NET components" 
+name=MSHKeywordK>
+<META content="COM interop" name=MSHKeywordK>
+<META content="components [.NET Framework], interoperability" name=MSHKeywordK>
+<META content="interoperability, components" name=MSHKeywordK>
+<META content="Calling COM Components from .NET Clients" name=MSHKeywordF>
+<META content=callcomcomp name=MSHKeywordA>
+<META content=DevLang:VB name=MSHAttr>
+<META content=DevLangVers:kbLangVB name=MSHAttr>
+<META content=DocSet:kbmsdn name=MSHAttr>
+<META content=Locale:kbEnglish name=MSHAttr>
+<META content=Product:VS name=MSHAttr>
+<META content=ProductVers:kbvsnet name=MSHAttr>
+<META content=TargetCPU:kbx86 name=MSHAttr>
+<META content=TargetOS:Windows name=MSHAttr>
+<META content=TargetOSVers:kbWinOS name=MSHAttr>
+<META content=Technology:kbCLR name=MSHAttr>
+<META content=TechnologyVers:kbCLR name=MSHAttr>
+<META content=Technology:COMt name=MSHAttr>
+<META content=TechnologyVers:kbCOMt name=MSHAttr>
+<META content=Technology:kbNetFramewk name=MSHAttr>
+<META content=TechnologyVers:kbNetFramewk name=MSHAttr>
+<META content=Technology:WebServices name=MSHAttr>
+<META content=TechnologyVers:kbWebServices name=MSHAttr>
+<META content=TopicType:kbArticle name=MSHAttr><!---VENUS_END---><LINK 
+href="callcomcomp_files/css.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript>
+var doImage=doImage;var TType=TType;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&TYPE=' + tt + '&p=library_en-us_dndotnet_html&URI=%2flibrary%2ftoolbar%2f3.0%2fasp.aspx%3fmode%3dhead%26c%3d%2fnonlibraryshell.config%26h%3dmsdn%252Emicrosoft%252Ecom%26u%3d%252Flibrary%252Fen%252Dus%252Fdndotnet%252Fhtml%252Fcallcomcomp%252Easp%26r%3dhttp%253A%252F%252Fmsdn%252Emicrosoft%252Ecom%252Flibrary%252Fshared%252Fdeeptree%252Fasp%252Frightframe%252Easp%253Fdtcfg%253D%252Flibrary%252Fdeeptreeconfig%252Exml%2526url%253D%252Flibrary%252Fen%252Dus%252Fdndotnet%252Fhtml%252Fcallcomcomp%252Easp%253Fframe%253Dtrue%2526hidetoc%253Dfalse&GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61&r=http%3a%2f%2fmsdn.microsoft.com%2flibrary%2fshared%2fdeeptree%2fasp%2frightframe.asp%3fdtcfg%3d%2flibrary%2fdeeptreeconfig.xml%26url%3d%2flibrary%2fen-us%2fdndotnet%2fhtml%2fcallcomcomp.asp%3fframe%3dtrue%26hidetoc%3dfalse" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>');}}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2668" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0">
+<TABLE height=24 cellSpacing=0 cellPadding=4 width="100%" bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=eyebrow vAlign=center align=left width="100%">&nbsp;&nbsp; <A 
+      class=small href="http://msdn.microsoft.com/default.asp" target=_top>MSDN 
+      Home</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp" target=_top>MSDN 
+      Library</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/netdevanchor.asp" 
+      target=_top>.NET Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndotnet/html/upgradingtodotnet.asp" 
+      target=_top>Upgrading to Microsoft .NET</A><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/"></A> 
+  </TD></TR></TBODY></TABLE>
+<TABLE class=clsContainer style="TABLE-LAYOUT: fixed" cellSpacing=0 
+cellPadding=15 width="100%" border=0 float="left">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=clsPartContainer id=topTable 
+      style="FLOAT: right; MARGIN-LEFT: 8px; MARGIN-RIGHT: 6px" cellSpacing=0 
+      cellPadding=0 width=145 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- Page Options web part Start -->
+            <TABLE class=clsPart id=BF309568-1CD4-4c9c-A46E-BB1CA97E0C97 
+            cellSpacing=0 cellPadding=0 width=145 border=0>
+              <TBODY>
+              <TR>
+                <TD class=clsPartHead vAlign=center align=left width=15 
+                height=19><IMG class=clsPartHead height=19 
+                  src="callcomcomp_files/gripblue.gif" width=15 align=absMiddle> 
+                </TD>
+                <TD class=clsPartHead vAlign=center align=middle width=115><B 
+                  class=clsPartHead>Page Options</B> </TD>
+                <TD class=clsPartRight vAlign=center align=right width=25 
+                height=19><IMG class=clsMinimize height=19 
+                  src="callcomcomp_files/downlevel.gif" width=25 
+                  align=absMiddle> </TD></TR>
+              <TR>
+                <TD colSpan=3>
+                  <TABLE id=Table1 cellSpacing=0 cellPadding=0 width="100%" 
+                  bgColor=#ffffff border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top width=1 bgColor=#6699cc>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD>
+                      <TD vAlign=top width=145 bgColor=#f1f1f1><IFRAME 
+                        id=frmRatingsOptions src="callcomcomp_files/ratings.htm" 
+                        frameBorder=0 width="100%" scrolling=no 
+                        height=130></IFRAME></TD>
+                      <TD vAlign=top width=1 bgColor=#6699cc>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD></TR>
+                    <TR>
+                      <TD vAlign=top bgColor=#6699cc colSpan=3 height=1>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Page Options web part end -->
+            <DIV class=storeUserData id=oLayout></DIV></TD></TR></TBODY></TABLE><!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END--><!-- Begin Content --><!--NONSCROLLING BANNER START-->
+      <DIV id=nsbanner>
+      <DIV id=TitleRow>
+      <H1 class=dtH1><A name=callcomcomp></A>Calling COM Components from .NET 
+      Clients</H1>
+      <H3 class=dtH1>Upgrading to Microsoft .NET</H3></DIV></DIV><!--NONSCROLLING BANNER END-->
+      <DIV id=nstext valign="bottom">&nbsp; 
+      <P>Mike Gunderloy<BR>Lark Group, Inc.</P>
+      <P>November 2001</P>
+      <P><B class=le>Summary:</B> In this document, you'll learn the details of 
+      calling COM servers from .NET clients. (14 printed pages)</P>
+      <H4 class=dtH1>Objectives</H4>
+      <UL type=disc>
+        <LI>Understand the concept of Runtime-Callable Wrappers 
+        <LI>Use TLBIMP to create an Assembly from a COM component 
+        <LI>Reference a COM component directly from Microsoft® Visual Basic® 
+        .NET code </LI></UL>
+      <H4 class=dtH1>Assumptions</H4>
+      <P>The following should be true for you to get the most out of this 
+      document: 
+      <UL type=disc>
+        <LI>You are familiar with Visual Basic programming 
+        <LI>You are familiar with COM concepts. In particular, you should 
+        understand the benefits and architecture of componentized software 
+        <LI>You have access to Visual Basic .NET 
+        <LI>You understand the overall Microsoft .NET platform architecture 
+      </LI></UL>
+      <H4 class=dtH1>Contents</H4>
+      <P><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callcomcomp.asp?frame=true#callcomcomp_topic1" 
+      target=_self>The Joy of Interoperability</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callcomcomp.asp?frame=true#callcomcomp_topic2" 
+      target=_self>Practice Calling COM from .NET</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callcomcomp.asp?frame=true#callcomcomp_topic3" 
+      target=_self>Using the COM Component Directly</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callcomcomp.asp?frame=true#callcomcomp_topic4" 
+      target=_self>Summary</A></P>
+      <H2 class=dtH1><A name=callcomcomp_topic1></A>The Joy of 
+      Interoperability</H2>
+      <P>Sometimes a revolution in programming forces you to abandon all that's 
+      come before. To take an extreme example, suppose you have been writing 
+      Visual Basic applications for years now. If you're like many developers, 
+      you will have built up a substantial inventory of code in that time. And 
+      if you've been following the recommendations from various language gurus, 
+      that code is <I>componentized</I>. That is, by using COM (Component Object 
+      Model)—formerly Microsoft ActiveX®—servers, you've broken your application 
+      into chunks of callable functionality. Of course, you're also likely to 
+      have a substantial investment in components, such as ActiveX controls, 
+      from other developers and other companies.</P>
+      <P>But what if you decide on the radical move of switching development to 
+      another operating system entirely? At that point, your entire investment 
+      in COM becomes worthless. You can't use any of your existing code, and you 
+      have to learn how to do everything on the new platform. Undoubtedly this 
+      would be a severe blow to your productivity.</P>
+      <P>Fortunately, switching from COM to Microsoft .NET involves no such 
+      radical loss of productivity. There are two key concepts that make it much 
+      easier to move from COM development to .NET development without any loss 
+      of code base or productivity: 
+      <UL type=disc>
+        <LI>.NET components can call COM components. 
+        <LI>COM components can call .NET components. </LI></UL>
+      <P>This two-way interoperability is the key to moving from COM to .NET. As 
+      you learn the intricacies of .NET, you can continue to use COM components. 
+      There are a number of situations where this interoperability is useful: 
+      <UL type=disc>
+        <LI>You won't know everything about .NET instantly. It takes time to 
+        learn the .NET programming concepts and implementation, so you will 
+        probably need to continue critical development in COM. 
+        <LI>Although Microsoft Visual Basic 6 code can be ported to .NET, the 
+        conversion isn't perfect. You may have components that can't be moved to 
+        .NET because of implementation or language quirks. 
+        <LI>You can't write all the code for a large application immediately in 
+        a new system such as .NET. It makes much more sense to write components 
+        individually and test them one at a time, while still interoperating 
+        with your existing code. 
+        <LI>You may be using third-party COM components for which you do not 
+        have source code. </LI></UL>
+      <P>In this document, you'll learn the details of calling COM servers from 
+      .NET clients. In a companion article, <A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp">Calling 
+      a .NET Component from a COM Component</A>, you'll learn about calling in 
+      the other direction, from COM clients to .NET servers.</P>
+      <H3 class=dtH1>Unmanaged Code and Runtime-Callable Wrappers</H3>
+      <P>Code that operates within the Microsoft .NET Common Language Runtime 
+      (CLR) is called <I>managed code</I>. This code has access to all the 
+      services that the CLR brings to the table, such as cross-language 
+      integration, security and versioning support, and garbage collection. Code 
+      that does not operate within the CLR is called <I>unmanaged code</I>. All 
+      of your legacy COM components are, by definition, unmanaged code. Because 
+      COM was designed before the CLR existed, and COM code does not operate 
+      within the framework provided by the CLR, it can't use any of the CLR 
+      services.</P>
+      <P>The problem with mixing managed and unmanaged code in a single 
+      application is that the unmanaged code isn't recognized in the CLR 
+      environment. Managed code components not only depend on the CLR, they 
+      expect other components with which they interact to depend on the CLR. 
+</P>
+      <P>The way out of this dilemma is to use a <I>proxy</I>. In general terms, 
+      a proxy is a piece of software that accepts commands from a component, 
+      modifies them, and forwards them to another component. The particular type 
+      of proxy used in calling unmanaged code from managed code is known as a 
+      Runtime-Callable Wrapper, or RCW. Figure 1 shows schematically how RCWs 
+      straddle the boundary between managed and unmanaged code. This figure 
+      includes a .NET program named NetUI.exe, two COM components named 
+      BackEnd.dll and Service.dll, and the necessary technology that connects 
+      them.</P>
+      <P class=fig><IMG alt="" src="callcomcomp_files/callcomcomp_01.gif" 
+      border=0></P>
+      <P class=label><B>Figure 1. Calling unmanaged code with RCWs</B></P>
+      <H3 class=dtH1>Converting Metadata with TLBIMP</H3>
+      <P>Of course, .NET is not the first to use metadata to describe public 
+      interfaces. In fact, COM type libraries also contain metadata describing 
+      the public interface to COM components. The job of an RCW is to convert 
+      this COM metadata to .NET metadata.</P>
+      <P>One tool for performing this conversion is called tlbimp (type library 
+      importer), and it is provided as part of the .NET Framework Software 
+      Developer Kit (SDK). Tlbimp reads the metadata from a COM type library and 
+      creates a matching CLR assembly for calling the COM component. </P>
+      <BLOCKQUOTE class=dtBlock><B class=le>Note</B>&nbsp;&nbsp;&nbsp;If you 
+        build an ActiveX DLL or ActiveX EXE with Visual Basic, the type library 
+        is embedded within the DLL or EXE file.</BLOCKQUOTE>
+      <P>Tlbmp is a command-line tool with a number of options for such things 
+      as signing the resulting assembly with a cryptographic key or resolving 
+      external references in the type library. (Type <B>tlbimp /?</B> at a 
+      command prompt to see all the options.) The most important option is 
+      <B>/out</B>, which lets you specify a name for the resulting .NET 
+      assembly. For example, to convert a Visual Basic ActiveX DLL named 
+      support.dll to a matching .NET assembly with the name NETsupport.dll, you 
+      could use this command line:</P><PRE class=code><CODE class=ce>tlbimp support.dll /out:NETsupport.dll</CODE></PRE>
+      <H3 class=dtH1>Using COM Components Directly</H3>
+      <P>As a Visual Basic .NET developer, you also have the option of using COM 
+      components directly. At least, that's what it looks like, although you're 
+      programmatically still using a RCW to get to objects in unmanaged code. If 
+      you're working within a Visual Basic .NET project, you can follow these 
+      steps to add a reference to a COM component: 
+      <OL type=1>
+        <LI>Click <B>Project</B>, and then click <B>Add Reference</B>. 
+        <LI>In the <B>Add Reference</B> dialog box, click the <B>COM</B> tab. 
+        <LI>Select the type library you wish to use from the list and click 
+        <B>Select</B>, or use the <B>Browse</B> button to locate a component 
+        that's not listed. The selected components will be added to the lower 
+        listview in the dialog box. 
+        <LI>Click <B>OK</B> to create RCWs for the selected type libraries in 
+        your Visual Basic .NET project. </LI></OL>
+      <P>When you do this, you'll find that Visual Basic .NET actually creates a 
+      DLL in your project's /Bin folder, with a name derived from the original 
+      COM component name. For example, if you reference BackEnd.dll version 2.0 
+      in this manner, Visual Basic .NET will create the RCW in the file 
+      Interop.BackEnd_2_0.dll.</P>
+      <P>The major drawback to this shortcut method of using a COM component 
+      directly is that there's no opportunity to sign the resulting code. As a 
+      result, you cannot place the code in the Global Assembly Cache (GAC), 
+      which in turn makes it impossible to share the component among multiple 
+      .NET applications.</P>
+      <H3 class=dtH1>Choosing Between TLBIMP and Direct Reference</H3>
+      <P>Although either method of using a COM component allows .NET code to 
+      call your COM component, there are some reasons to choose one over the 
+      other: 
+      <UL type=disc>
+        <LI>For a COM component that will only be used in a single Visual Basic 
+        .NET project, and which you wrote yourself, use direct reference rather 
+        than doing any extra work. This method is only suitable for a truly 
+        private component that does not need to be shared. 
+        <LI>If a COM component is shared among multiple projects, use tlbimp so 
+        that you can sign the resulting assembly and place it in the Global 
+        Assembly Cache. Shared code <I>must</I> be signed. This method also 
+        allows you to create the RCW with a specific name in a specific 
+        location. 
+        <LI>If you need to control advanced details of the created Assembly, 
+        such as its Namespace or version number, you must use tlbimp. The direct 
+        reference method gives you no control over these details. 
+        <LI>If you did not write the COM component, <I>neither one of these 
+        methods is acceptable</I>. That's because you are not allowed to sign 
+        code written by another developer. What you need to do in that case is 
+        obtain a Primary Interop Assembly (PIA) from the original developer of 
+        the component. MSDN includes links to help you find PIAs for common 
+        components such as ActiveX controls. </LI></UL>
+      <H2 class=dtH1><A name=callcomcomp_topic2></A>Practice Calling COM from 
+      .NET</H2>
+      <P>In the following example, you will use properties, methods, and events 
+      in a COM component from .NET code. You will use tlbimp to convert the COM 
+      component's interface to an assembly, and then see how you can treat it 
+      like any other .NET component from within managed code. After you've done 
+      this, you'll also see how to take a shortcut by using the COM component 
+      directly from a Visual Basic .NET project without using tlbimp.</P>
+      <H3 class=dtH1>Install the COM Component</H3>
+      <P>The COM component you'll be using in this exercise is named 
+      PhysServer.dll. This is an ActiveX DLL that contains a single class named 
+      Temperature. This class stores an internal variable representing a 
+      temperature and handles conversions between Celsius and Fahrenheit. Table 
+      1 shows the members of the Temperature interface.</P>
+      <P class=label><B>Table 1. Interface to Temperature class in 
+      PhysServer.dll</B></P>
+      <TABLE class=data>
+        <TBODY>
+        <TR vAlign=top>
+          <TH class=data align=left width="22%">Member</TH>
+          <TH class=data align=left width="19%">Type</TH>
+          <TH class=data align=left width="59%">Explanation</TH></TR>
+        <TR vAlign=top>
+          <TD class=data width="22%">Celsius</TD>
+          <TD class=data width="19%">Property</TD>
+          <TD class=data width="59%">Current temperature in degrees 
+        Celsius</TD></TR>
+        <TR vAlign=top>
+          <TD class=data width="22%">Fahrenheit</TD>
+          <TD class=data width="19%">Property</TD>
+          <TD class=data width="59%">Current temperature in degrees 
+          Fahrenheit</TD></TR>
+        <TR vAlign=top>
+          <TD class=data width="22%">GetCelsius</TD>
+          <TD class=data width="19%">Method</TD>
+          <TD class=data width="59%">Get the current temperature in degrees 
+            Celsius</TD></TR>
+        <TR vAlign=top>
+          <TD class=data width="22%">GetFahrenheit</TD>
+          <TD class=data width="19%">Method</TD>
+          <TD class=data width="59%">Get the current temperature in degrees 
+            Fahrenheit</TD></TR>
+        <TR vAlign=top>
+          <TD class=data width="22%">BelowFreezing</TD>
+          <TD class=data width="19%">Event</TD>
+          <TD class=data width="59%">Fires when a temperature below freezing 
+            is set</TD></TR>
+        <TR vAlign=top>
+          <TD class=data width="22%">AboveBoiling</TD>
+          <TD class=data width="19%">Event</TD>
+          <TD class=data width="59%">Fires when a temperature above boiling is 
+            set</TD></TR></TBODY></TABLE>
+      <P>To create this COM component on a computer with Visual Basic 6.0 
+      installed: 
+      <OL type=1>
+        <LI>Launch Visual Basic 6.0 and create a new ActiveX DLL project. 
+        <LI>Click on the Class1 module in the Project Explorer window, and use 
+        the Properties window to change the name of the class to Temperature. 
+        <LI>Click on the Project1 project in the Project Explorer window, and 
+        use the Properties window to change the name of the project to 
+        PhysServer. 
+        <LI>Add this code to the Temperature class: <PRE class=code> Option Explicit
+
+Private mdblCelsius As Double
+Private mdblFahrenheit As Double
+
+Public Event BelowFreezing()
+Public Event AboveBoiling()
+
+Public Property Get Celsius() As Double
+    Celsius = mdblCelsius
+End Property
+
+Public Property Let Celsius(NewTemperature As Double)
+    mdblCelsius = NewTemperature
+    mdblFahrenheit = ((NewTemperature * 9) / 5) + 32
+    If mdblCelsius &lt; 0 Then
+        RaiseEvent BelowFreezing
+    End If
+    If mdblCelsius &gt; 100 Then
+        RaiseEvent AboveBoiling
+    End If
+End Property
+
+Public Property Get Fahrenheit() As Double
+    Fahrenheit = mdblFahrenheit
+End Property
+
+Public Property Let Fahrenheit(NewTemperature As Double)
+    mdblFahrenheit = NewTemperature
+    mdblCelsius = ((NewTemperature - 32) * 5) / 9
+    If mdblFahrenheit &lt; 32 Then
+        RaiseEvent BelowFreezing
+    End If
+    If mdblFahrenheit &gt; 212 Then
+        RaiseEvent AboveBoiling
+    End If
+End Property
+
+Public Function GetCelsius() As Double
+    GetCelsius = mdblCelsius
+End Function
+
+Public Function GetFahrenheit() As Double
+    GetFahrenheit = mdblFahrenheit
+End Function
+
+Private Sub Class_Initialize()
+    mdblCelsius = 0
+    mdblFahrenheit = 32
+End Sub</PRE>
+        <LI>Click <B>Project</B>, and from the <B>Visual Basic</B> menu, click 
+        <B>PhysServer Properties</B>. In the <B>Project Properties</B> dialog 
+        box, change the Project Description to Physical Constants Server. Click 
+        <B>OK</B>. 
+        <LI>Save the project. 
+        <LI>Click <B>File</B>, and to create the COM component, click Make 
+        PhysServer.dll. </LI></OL>
+      <P>To install this COM component on your Visual Studio .NET computer: 
+      <OL type=1>
+        <LI>Create a new folder named Legacy on your hard drive. 
+        <LI>Copy PhysServer.dll to the Legacy folder. 
+        <LI>Open a command prompt window and type: <PRE class=code><CODE class=ce>regsvr32 c:\Legacy\PhysServer.dll</CODE></PRE>
+        <P>You should see the message shown in Figure 2. 
+        <P class=fig1><IMG alt="" src="callcomcomp_files/callcomcomp_02.gif" 
+        border=0> 
+        <P class=label><B>Figure 2. Successful installation of legacy COM 
+        component message</B> </P></LI></OL>
+      <H3 class=dtH1>Use TLBIMP to Create an Assembly</H3>
+      <P>Next, use the tlbimp utility to create an assembly that provides an RCW 
+      for the PhysServer component. From the Control Panel, launch the System 
+      applet. 
+      <OL type=1>
+        <LI>To open a Visual Studio .NET command prompt window, click 
+        <B>Start</B>, click <B>Programs</B>, click <B>Microsoft Visual Studio 
+        .NET 7.0</B>, click <B>Visual Studio .NET Tools</B>, and then click 
+        <B>Visual Studio .NET Command Prompt</B>. 
+        <LI>Change to the \Legacy directory. 
+        <LI>At the command prompt, type: <PRE class=code><CODE class=ce>tlbimp PhysServer.dll /out:NETPhysServer.dll</CODE></PRE></LI></OL>
+      <P>In this particular case we've chosen to create the RCW without signing 
+      it. If this component were shared between multiple clients, we would need 
+      to sign it when we invoked tlbimp. The details of this step are omitted 
+      here for brevity. You can learn more about code-signing and the Global 
+      Assembly Cache in <A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/callnetfrcom.asp">Calling 
+      a .NET Component from a COM Component</A>.</P>
+      <P>Tlbimp will do the work of conversion and then print a message 
+      confirming that the type library has been imported as the new name.</P>
+      <BLOCKQUOTE class=dtBlock><B class=le>Note</B>&nbsp;&nbsp;&nbsp;The 
+        Visual Studio .NET Command Prompt adds the Framework SDK's /Bin folder 
+        to the path so that SDK tools, such as tlbimp, can be invoked without 
+        specifying their path.</BLOCKQUOTE>
+      <H3 class=dtH1>Create the Test Project</H3>
+      <P>Now you can test the ability of a Visual Basic .NET application to use 
+      an object from a legacy COM component. 
+      <OL type=1>
+        <LI>Open Visual Studio .NET and, from the <B>Start</B> page, choose 
+        <B>New Project</B>. 
+        <LI>Select <B>Visual Basic Project</B> from the tree view on the left 
+        side of the screen. 
+        <LI>Select <B>Windows Application</B> as the project template. 
+        <LI>Set the name of the application to <B>PhysServerTest</B> and click 
+        <B>OK</B> to create the project. 
+        <LI>Highlight the form called Form1.vb in the Solution Explorer window 
+        and rename it to <B>frmTemperature.vb</B>. 
+        <LI>Create the form shown in Figure 3 by adding the appropriate controls 
+        and setting the properties of those controls, as outlined in Table 2. 
+        <P class=label><B>Table 2. Controls for frmTemperature.vb</B> 
+        <TABLE class=data>
+          <TBODY>
+          <TR vAlign=top>
+            <TH class=data align=left width="31%">Control Type</TH>
+            <TH class=data align=left width="27%">Property</TH>
+            <TH class=data align=left width="42%">Value</TH></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>Label</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">lblFahrenheit</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">Fahrenheit</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>TextBox</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">txtFahrenheit</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">(blank)</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>Button</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">cmdConvertToC</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">Convert to C</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>Label</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">lblCelsius</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">Celsius</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>TextBox</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">txtCelsius</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">(blank)</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>Button</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">cmdConvertToF</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">Convert to F</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>Label</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">lblAboveBoiling</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">Above Boiling!</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Font Size</TD>
+            <TD class=data width="42%">12</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Font Bold</TD>
+            <TD class=data width="42%">True</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Visible</TD>
+            <TD class=data width="42%">False</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%"><B>Label</B></TD>
+            <TD class=data width="27%">Name</TD>
+            <TD class=data width="42%">lblBelowFreezing</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Text</TD>
+            <TD class=data width="42%">Below Freezing!</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Font Size</TD>
+            <TD class=data width="42%">12</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Font Bold</TD>
+            <TD class=data width="42%">True</TD></TR>
+          <TR vAlign=top>
+            <TD class=data width="31%">&nbsp;</TD>
+            <TD class=data width="27%">Visible</TD>
+            <TD class=data width="42%">False</TD></TR></TBODY></TABLE>
+        <P class=fig1><IMG alt="" src="callcomcomp_files/callcomcomp_03.gif" 
+        border=0> 
+        <P class=label><B>Figure 3. The test form design</B> </P>
+        <LI>To use the RCW for the PhysServer COM component, click 
+        <B>Project</B>, and then click <B>Add Reference</B>. Make sure that the 
+        <B>.NET</B> tab is selected, and click <B>Browse</B>. 
+        <LI>Browse to the Legacy folder and select the NETPhysServer.dll 
+        component. Click <B>Open</B>. This will add the component to the 
+        Selected Components list, as shown in Figure 4. 
+        <LI>Click <B>OK</B>. The References node in the Solution Explorer will 
+        expand to show the NetPhysServer reference (along with the default 
+        references that the Visual Basic project contains). 
+        <P class=fig1><IMG alt="" src="callcomcomp_files/callcomcomp_04.gif" 
+        border=0> 
+        <P class=label><B>Figure 4. Adding a reference to the RCW component</B> 
+        </P></LI></OL>
+      <H3 class=dtH1>Add Code to Use the COM Component</H3>
+      <P>Now you're ready to write code that uses the methods, properties, and 
+      events of the Temperature class. Click <B>View</B>, click <B>Code</B>, and 
+      enter this code after the Windows Form Designer-generated code:</P><PRE class=code>    Private WithEvents moTemp As NETPhysServer.Temperature
+
+    Private Sub cmdConvertToC_Click(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles cmdConvertToC.Click
+        lblBelowFreezing.Visible = False
+        lblAboveBoiling.Visible = False
+        With moTemp
+            .Fahrenheit = txtFahrenheit.Text
+            txtCelsius.Text = .GetCelsius
+        End With
+    End Sub
+
+    Private Sub cmdConvertToF_Click(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles cmdConvertToF.Click
+        lblBelowFreezing.Visible = False
+        lblAboveBoiling.Visible = False
+        With moTemp
+            .Celsius = txtCelsius.Text
+            txtFahrenheit.Text = .GetFahrenheit
+        End With
+    End Sub
+
+    Private Sub frmTemperature_Load(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles MyBase.Load
+        moTemp = New NETPhysServer.Temperature()
+    End Sub
+
+    Private Sub moTemp_AboveBoiling() Handles moTemp.AboveBoiling
+        lblAboveBoiling.Visible = True
+    End Sub
+
+    Private Sub moTemp_BelowFreezing() Handles moTemp.BelowFreezing
+        lblBelowFreezing.Visible = True
+    End Sub</PRE>
+      <P>Note that, as far as this code is concerned, the 
+      NETPhysServer.Temperature class is like any other .NET class. You declare 
+      an instance of the class and use its methods and properties just as if it 
+      were a native class rather than a Runtime-Callable Wrapper around a COM 
+      component.</P>
+      <H4 class=dtH1>Try It Out</H4>
+      <P>To see the Temperature class in action, follow these steps: 
+      <OL type=1>
+        <LI>Press <B>F5</B> to start the project. 
+        <LI>Enter <B>41</B> in the <B>Fahrenheit</B> text box and click 
+        <B>Convert to C</B>. The <B>Celsius</B> box should fill in with the 
+        value <B>5</B>. 
+        <LI>Enter <B>123</B> in the <B>Celsius</B> box and click <B>Convert to 
+        F</B>. The <B>Fahrenheit</B> box should fill in with the value 253.4 and 
+        the <B>Above Boiling!</B> label should become visible. 
+        <LI>Close the form to stop the project. </LI></OL>
+      <H2 class=dtH1><A name=callcomcomp_topic3></A>Using the COM Component 
+      Directly</H2>
+      <P>Now that you've seen how to use tlbimp, try the alternative process of 
+      using the COM component directly. 
+      <OL type=1>
+        <LI>Open a second instance of Visual Studio .NET and from the 
+        <B>Start</B> page, choose <B>New Project</B>. 
+        <LI>Select <B>Visual Basic Project</B> from the tree view on the left 
+        side of the screen. 
+        <LI>Select <B>Windows Application</B> as the project template. 
+        <LI>Set the name of the application to <B>PhysServerTest2</B> and click 
+        <B>OK</B> to create the project. 
+        <LI>Highlight the form called <B>Form1.vb</B> in the Solution Explorer 
+        window and rename it to <B>frmTemperature.vb</B>. 
+        <LI>Switch to the original instance of Visual Studio .NET and open 
+        <B>frmTemperature</B> in design view. Click <B>Ctrl-A</B>, <B>Ctrl-C</B> 
+        to select all of the controls on the form and copy them. 
+        <LI>Switch back to the second instance of Visual Studio .NET, select 
+        <B>frmTemperature</B> in design view, and click <B>Ctrl-V</B> to paste 
+        all of the controls onto the new form. </LI></OL>
+      <P>To use the COM component directly, click <B>Project</B>, click <B>Add 
+      Reference</B> and select the <B>COM</B> tab in the <B>Add Reference</B> 
+      dialog box. Scroll down the list of COM components until you find 
+      <B>Physical Constants Server</B>, click <B>Select</B>, and then click 
+      <B>OK</B>. You'll receive the warning shown in Figure 5.</P>
+      <P class=fig><IMG alt="" src="callcomcomp_files/callcomcomp_05.gif" 
+      border=0></P>
+      <P class=label><B>Figure 5. Warning that appears when inserting a COM 
+      component reference</B></P>
+      <P>At this point, the proper response depends on who built the COM 
+      component. If it came from a vendor or another developer, you should click 
+      <B>No</B> and then obtain a Primary Interop Assembly from that vendor or 
+      developer. In this case, the component is private to your own development, 
+      so click <B>Yes</B> to tell Visual Studio .NET to generate an RCW for this 
+      component. You'll see PhysServer appear in the list of References in the 
+      Solution Explorer.</P>
+      <BLOCKQUOTE class=dtBlock><B class=le>Note</B>&nbsp;&nbsp;&nbsp;This is 
+        the original PhysServer.dll, not the RCW that you generated earlier by 
+        using tlbimp.</BLOCKQUOTE>
+      <H3 class=dtH1>Add Code to Use the COM Component</H3>
+      <P>Now you're ready to write code that uses the methods, properties, and 
+      events of the Temperature class. Click <B>View</B>, click <B>Code</B>, and 
+      enter this code after the Windows Form Designer-generated code:</P><PRE class=code>    Private WithEvents moTemp As PhysServer.Temperature
+
+    Private Sub cmdConvertToC_Click(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles cmdConvertToC.Click
+        lblBelowFreezing.Visible = False
+        lblAboveBoiling.Visible = False
+        With moTemp
+            .Fahrenheit = txtFahrenheit.Text
+            txtCelsius.Text = .GetCelsius
+        End With
+    End Sub
+
+    Private Sub cmdConvertToF_Click(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles cmdConvertToF.Click
+        lblBelowFreezing.Visible = False
+        lblAboveBoiling.Visible = False
+        With moTemp
+            .Celsius = txtCelsius.Text
+            txtFahrenheit.Text = .GetFahrenheit
+        End With
+    End Sub
+
+    Private Sub frmTemperature_Load(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles MyBase.Load
+        moTemp = New PhysServer.Temperature()
+    End Sub
+
+    Private Sub moTemp_AboveBoiling() Handles moTemp.AboveBoiling
+        lblAboveBoiling.Visible = True
+    End Sub
+
+    Private Sub moTemp_BelowFreezing() Handles moTemp.BelowFreezing
+        lblBelowFreezing.Visible = True
+    End Sub</PRE>
+      <BLOCKQUOTE class=dtBlock><B class=le>Note</B>&nbsp;&nbsp;&nbsp;With the 
+        exception of the library name, this is exactly the same code that you 
+        used in the first version of the PhysServerTest project.</BLOCKQUOTE>
+      <H4 class=dtH1>Try It Out</H4>
+      <P>To see the Temperature class in action, follow these steps: 
+      <OL type=1>
+        <LI>Press <B>F5</B> to start the project. 
+        <LI>Enter <B>77</B> in the <B>Fahrenheit</B> text box and click 
+        <B>Convert to C</B>. The <B>Celsius</B> box should fill in with the 
+        value <B>25</B>. 
+        <LI>Enter <B>-17</B> in the <B>Celsius</B> box and click <B>Convert to 
+        F</B>. The <B>Fahrenheit</B> box should fill in with the value 
+        <B>1.4</B> and the <B>Below Freezing!</B> label should become visible. 
+        <LI>Close the form to stop the project. </LI></OL>
+      <H2 class=dtH1><A name=callcomcomp_topic4></A>Summary</H2>
+      <P>Although calling a COM component from managed code is simple, you 
+      should not consider this a permanent solution for most applications. Over 
+      the long run, you'll want to migrate heavily used components to native 
+      .NET code. This will provide you with the full range of .NET capabilities, 
+      as well as make your code faster by eliminating the RCW layer.</P>
+      <P>When you're starting to move your development from Visual Basic to 
+      Visual Basic .NET, though, the ability to call COM components from .NET 
+      code is essential. As you've seen, it's also easy to implement. Treat this 
+      technique as an important part of your migration strategy.</P>
+      <H3 class=dtH1>About the Author</H3>
+      <P><A href="mailto:MikeG1@larkfarm.com">Mike Gunderloy</A> writes about 
+      software and raises chickens in eastern Washington State. He is co-author 
+      of <I>Access 2002 Developer's Handbook</I> and author of <I>SQL Server 
+      Developer's Guide to OLAP with Analysis Services</I>, both from Sybex. 
+      He's been writing code for Microsoft products since the prehistoric 
+      pre-Windows era, and has no intention of stopping any time soon. </P>
+      <H4 class=dtH1>About Informant Communications Group</H4>
+      <P>Informant Communications Group, Inc. (www.informant.com) is a 
+      diversified media company focused on the information technology sector. 
+      Specializing in software development publications, conferences, catalog 
+      publishing and Web sites, ICG was founded in 1990. With offices in the 
+      United States and the United Kingdom, ICG has served as a respected media 
+      and marketing content integrator, satisfying the burgeoning appetite of IT 
+      professionals for quality technical information.</P>
+      <P>Copyright © 2001 Informant Communications Group and Microsoft 
+      Corporation</P>
+      <P>Technical editing: PDSA, Inc., or KNG Consulting</P><!--closes the topic content div--><!--FOOTER_END--><!-- End Content --></DIV></TD></TR></TBODY></TABLE>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 600px" noWrap></TD></TR>
+  <TR>
+    <TD><IFRAME id=frmRatings 
+      src="O:\Documentation\Help Files\Calling COM Components from _NET Clients_files\rightframe_files\callcomcomp_files\ratings(1).htm" 
+      frameBorder=0 width="100%" scrolling=no 
+height=250></IFRAME></TD></TR></TBODY></TABLE><BR 
+style="OVERFLOW: hidden; LINE-HEIGHT: 1px" clear=all>
+<TABLE id=msviFooter cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=bottom>
+    <TD id=msviFooter2 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')">
+      <DIV id=msviLocalFooter><NOBR><A 
+      href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/isapi/gomscom.asp?target=/legal/" 
+      target=_parent>Legal</A> |</NOBR><WBR><NOBR><A 
+      href="http://go.microsoft.com/?linkid=2028439" target=_parent>Contact 
+      Us</A> |</NOBR><WBR><NOBR><A href="http://msdn.microsoft.com/flash/" 
+      target=_parent>MSDN Flash Newsletter</A></NOBR></DIV>
+      <DIV id=msviGlobalFooter><SPAN dir=ltr>© 2005 Microsoft Corporation. All 
+      rights reserved.&nbsp;</SPAN><NOBR><A 
+      href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+      Statement</A></NOBR></DIV></TD>
+    <TD width=105 bgColor=#669aff><IMG title="" height=29 alt=Microsoft 
+      src="callcomcomp_files/text.jpg" width=105 border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>var msviFooter2;if (document.getElementById){msviFooter2 = document.getElementById("msviFooter2");msviFooter2.style.filter = "";}</SCRIPT>
+
+<TABLE height=58 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV style="WIDTH: 200px"></DIV></TD>
+    <TD 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')" 
+    width="100%"></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>footerjs(document);</SCRIPT>
+</BODY></HTML>

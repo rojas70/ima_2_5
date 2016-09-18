@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_MotomanLib.MotionCommands.1 = s 'MotionCommands Class'
+	{
+		CLSID = s '{C0691A35-400A-4FD5-B215-D507164D6535}'
+	}
+	IMA2_MotomanLib.MotionCommands = s 'MotionCommands Class'
+	{
+		CLSID = s '{C0691A35-400A-4FD5-B215-D507164D6535}'
+		CurVer = s 'IMA2_MotomanLib.MotionCommands.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C0691A35-400A-4FD5-B215-D507164D6535} = s 'MotionCommands Class'
+		{
+			ProgID = s 'IMA2_MotomanLib.MotionCommands.1'
+			VersionIndependentProgID = s 'IMA2_MotomanLib.MotionCommands'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{C0691A35-400A-4FD5-B215-D507164D6535}'
+			
+		}
+	}
+}

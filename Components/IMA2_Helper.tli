@@ -1,0 +1,966 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (47201bd6).
+//
+// c:\ima2\components\ima2_testlib\debug\IMA2_Helper.tli
+//
+// Wrapper implementations for Win32 type library C:\IMA2\System\Framework\IMA2_Helper.dll
+// compiler-generated file created 11/26/04 at 23:52:36 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface _Functions wrapper method implementations
+//
+
+inline _bstr_t _Functions::OldErrorInfo ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_OldErrorInfo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::SystemPath ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_SystemPath(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline ILocatorPtr _Functions::GetLocator ( ) {
+    struct ILocator * _result;
+    HRESULT _hr = raw_GetLocator(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return ILocatorPtr(_result, false);
+}
+
+inline IBindingsPtr _Functions::GetBindingsObject ( ) {
+    struct IBindings * _result;
+    HRESULT _hr = raw_GetBindingsObject(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IBindingsPtr(_result, false);
+}
+
+inline _bstr_t _Functions::BindingsPID ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_BindingsPID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::LocatorPID ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_LocatorPID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::ForbiddenChars ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_ForbiddenChars(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline IComponentPtr _Functions::CreateIMA2Component ( BSTR * FullPath, BSTR * PID, BSTR * Machine, VARIANT_BOOL * Register, struct ILocator * * pAL ) {
+    struct IComponent * _result;
+    HRESULT _hr = raw_CreateIMA2Component(FullPath, PID, Machine, Register, pAL, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IComponentPtr(_result, false);
+}
+
+inline VARIANT_BOOL _Functions::ValidComponentName ( BSTR * N ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_ValidComponentName(N, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _Functions::PingComponent ( struct IComponent * * Cmp ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_PingComponent(Cmp, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Functions::ParentFromPath ( BSTR * Path ) {
+    BSTR _result;
+    HRESULT _hr = raw_ParentFromPath(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::NameFromPath ( BSTR * Path ) {
+    BSTR _result;
+    HRESULT _hr = raw_NameFromPath(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::LocatorFromPath ( BSTR * Path ) {
+    BSTR _result;
+    HRESULT _hr = raw_LocatorFromPath(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::MachineFromPath ( BSTR * Path ) {
+    BSTR _result;
+    HRESULT _hr = raw_MachineFromPath(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::PathOfLevel ( BSTR * Path, long * Level ) {
+    BSTR _result;
+    HRESULT _hr = raw_PathOfLevel(Path, Level, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline short _Functions::PathLevel ( BSTR * Path ) {
+    short _result;
+    HRESULT _hr = raw_PathLevel(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _Functions::CharsInString ( BSTR * S, BSTR * Chars ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_CharsInString(S, Chars, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _Functions::StrCount ( BSTR * source, BSTR * Match ) {
+    long _result;
+    HRESULT _hr = raw_StrCount(source, Match, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _Functions::IsDescendant ( BSTR * sChild, BSTR * sParent ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_IsDescendant(sChild, sParent, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Functions::LocalMachine ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_LocalMachine(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline SAFEARRAY * _Functions::NetworkMachines ( ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = raw_NetworkMachines(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _Functions::CurrentProcessID ( ) {
+    long _result;
+    HRESULT _hr = raw_CurrentProcessID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _Functions::CurrentThreadID ( ) {
+    long _result;
+    HRESULT _hr = raw_CurrentThreadID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Functions::CurrentUserName ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_CurrentUserName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::CurrentUserProfile ( ) {
+    BSTR _result;
+    HRESULT _hr = raw_CurrentUserProfile(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _Functions::SafeKill ( BSTR * FN ) {
+    HRESULT _hr = raw_SafeKill(FN);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL _Functions::FileExists ( BSTR * FN ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_FileExists(FN, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _Functions::FileLocked ( BSTR * FN ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_FileLocked(FN, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _Functions::PB2VT ( struct _PropertyBag * * PB ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_PB2VT(PB, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _PropertyBagPtr _Functions::VT2PB ( VARIANT * VT ) {
+}
+
+inline HRESULT _Functions::SavePB ( BSTR * FN, struct _PropertyBag * * PB ) {
+    HRESULT _hr = raw_SavePB(FN, PB);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _PropertyBagPtr _Functions::LoadPB ( BSTR * FN ) {
+}
+
+inline SAFEARRAY * _Functions::LoadByteArray ( BSTR * Path ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = raw_LoadByteArray(Path, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT _Functions::SaveByteArray ( BSTR * Path, SAFEARRAY * * Data ) {
+    HRESULT _hr = raw_SaveByteArray(Path, Data);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline long _Functions::ArraySize ( VARIANT * Data ) {
+    long _result;
+    HRESULT _hr = raw_ArraySize(Data, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _Functions::ArrayEmpty ( VARIANT * Data ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_ArrayEmpty(Data, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _Functions::SentenceCase ( BSTR * Val ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_SentenceCase(Val, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _bstr_t _Functions::FindMatchingString ( BSTR * String1, SAFEARRAY * * Strings ) {
+    BSTR _result;
+    HRESULT _hr = raw_FindMatchingString(String1, Strings, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline SAFEARRAY * _Functions::Variant2Strings ( VARIANT * V ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = raw_Variant2Strings(V, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _Functions::GetDistributingInfo ( struct IComponent * * Cmp, BSTR * Path, BSTR * PID ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_GetDistributingInfo(Cmp, Path, PID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline HRESULT _Functions::QuickSortStrings ( SAFEARRAY * * sArray, VARIANT_BOOL * Ascending ) {
+    HRESULT _hr = raw_QuickSortStrings(sArray, Ascending);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _Functions::RemoveBlankStrings ( SAFEARRAY * * S ) {
+    HRESULT _hr = raw_RemoveBlankStrings(S);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL _Functions::NN ( IDispatch * * Obj ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_NN(Obj, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _Functions::RegisterTLB ( BSTR * sLib ) {
+    long _result;
+    HRESULT _hr = raw_RegisterTLB(sLib, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _Functions::UnregisterTLB ( BSTR * sLib ) {
+    long _result;
+    HRESULT _hr = raw_UnregisterTLB(sLib, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _Functions::PID2CLSID ( _bstr_t sProgId ) {
+    BSTR _result;
+    HRESULT _hr = raw_PID2CLSID(sProgId, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _Functions::CLSIDToProgID ( _bstr_t CLSID ) {
+    BSTR _result;
+    HRESULT _hr = raw_CLSIDToProgID(CLSID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface _IndexedArray wrapper method implementations
+//
+
+inline void _IndexedArray::PutCaseSensitive ( VARIANT_BOOL * _arg1 ) {
+    HRESULT _hr = put_CaseSensitive(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _IndexedArray::GetCaseSensitive ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_CaseSensitive(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _IndexedArray::GetLowerBound ( ) {
+    long _result;
+    HRESULT _hr = get_LowerBound(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _IndexedArray::GetUpperBound ( ) {
+    long _result;
+    HRESULT _hr = get_UpperBound(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _IndexedArray::GetData ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Data(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t _IndexedArray::GetKeys ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Keys(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t _IndexedArray::GetItem ( VARIANT * IndexKey ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Item(IndexKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _IndexedArray::PutItem ( VARIANT * IndexKey, VARIANT * _arg2 ) {
+    HRESULT _hr = put_Item(IndexKey, _arg2);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _IndexedArray::IndexFromKey ( VARIANT * IndexKey ) {
+    long _result;
+    HRESULT _hr = raw_IndexFromKey(IndexKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _IndexedArray::KeyFromIndex ( long * Index ) {
+    BSTR _result;
+    HRESULT _hr = raw_KeyFromIndex(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline VARIANT_BOOL _IndexedArray::InArray ( VARIANT * IndexKey ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_InArray(IndexKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _IndexedArray::KeyMatch ( BSTR * Key ) {
+    BSTR _result;
+    HRESULT _hr = raw_KeyMatch(Key, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long _IndexedArray::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT _IndexedArray::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _IndexedArray::Add ( VARIANT * Element, BSTR * Key ) {
+    HRESULT _hr = raw_Add(Element, Key);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _IndexedArray::Remove ( VARIANT * IndexKey ) {
+    HRESULT _hr = raw_Remove(IndexKey);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _IndexedArray::Resize ( long * NewSize ) {
+    HRESULT _hr = raw_Resize(NewSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface _CmpDesc wrapper method implementations
+//
+
+inline _bstr_t _CmpDesc::GetPath ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Path(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _CmpDesc::PutPath ( _bstr_t Path ) {
+    HRESULT _hr = put_Path(Path);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _CmpDesc::GetPID ( ) {
+    BSTR _result;
+    HRESULT _hr = get_PID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _CmpDesc::PutPID ( _bstr_t PID ) {
+    HRESULT _hr = put_PID(PID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _CmpDesc::GetMachine ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Machine(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _CmpDesc::PutMachine ( _bstr_t Machine ) {
+    HRESULT _hr = put_Machine(Machine);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _CmpDesc::GetDataSize ( ) {
+    long _result;
+    HRESULT _hr = get_DataSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _CmpDesc::PutDataSize ( long DataSize ) {
+    HRESULT _hr = put_DataSize(DataSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t _CmpDesc::GetData ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Data(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _CmpDesc::PutData ( VARIANT * Data ) {
+    HRESULT _hr = put_Data(Data);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline void _CmpDesc::PutRefData ( VARIANT * Data ) {
+    HRESULT _hr = putref_Data(Data);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _CmpDesc::GetIsContainer ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_IsContainer(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _CmpDesc::PutIsContainer ( VARIANT_BOOL IsContainer ) {
+    HRESULT _hr = put_IsContainer(IsContainer);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline IDispatchPtr _CmpDesc::GetMgrInfo ( ) {
+    IDispatch * _result;
+    HRESULT _hr = get_MgrInfo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline void _CmpDesc::PutRefMgrInfo ( IDispatch * MgrInfo ) {
+    HRESULT _hr = putref_MgrInfo(MgrInfo);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum CmpDesc_Data_Mask _CmpDesc::GetDataMask ( ) {
+    enum CmpDesc_Data_Mask _result;
+    HRESULT _hr = get_DataMask(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _CmpDesc::PutDataMask ( enum CmpDesc_Data_Mask DataMask ) {
+    HRESULT _hr = put_DataMask(DataMask);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline SAFEARRAY * _CmpDesc::GetBindingInfo ( ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = get_BindingInfo(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _CmpDesc::PutBindingInfo ( SAFEARRAY * * _arg1 ) {
+    HRESULT _hr = put_BindingInfo(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _CmpDesc::Read ( struct IComponent * * Cmp ) {
+    HRESULT _hr = raw_Read(Cmp);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface _NetList wrapper method implementations
+//
+
+inline VARIANT_BOOL _NetList::GetWantRegisters ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_WantRegisters(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _NetList::PutWantRegisters ( VARIANT_BOOL WantRegisters ) {
+    HRESULT _hr = put_WantRegisters(WantRegisters);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _NetList::GetWantSubscribes ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_WantSubscribes(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _NetList::PutWantSubscribes ( VARIANT_BOOL WantSubscribes ) {
+    HRESULT _hr = put_WantSubscribes(WantSubscribes);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _NetList::GetWantConnects ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_WantConnects(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _NetList::PutWantConnects ( VARIANT_BOOL WantConnects ) {
+    HRESULT _hr = put_WantConnects(WantConnects);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _NetList::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline SAFEARRAY * _NetList::GetItems ( ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = get_Items(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface _ComponentFile wrapper method implementations
+//
+
+inline _bstr_t _ComponentFile::GetUserName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_UserName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ComponentFile::PutUserName ( _bstr_t UserName ) {
+    HRESULT _hr = put_UserName(UserName);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _ComponentFile::GetFileDate ( ) {
+    BSTR _result;
+    HRESULT _hr = get_FileDate(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ComponentFile::PutFileDate ( _bstr_t FileDate ) {
+    HRESULT _hr = put_FileDate(FileDate);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _ComponentFile::GetFileTime ( ) {
+    BSTR _result;
+    HRESULT _hr = get_FileTime(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ComponentFile::PutFileTime ( _bstr_t FileTime ) {
+    HRESULT _hr = put_FileTime(FileTime);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _ComponentFile::GetFilePath ( ) {
+    BSTR _result;
+    HRESULT _hr = get_FilePath(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ComponentFile::PutFilePath ( _bstr_t FilePath ) {
+    HRESULT _hr = put_FilePath(FilePath);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _ComponentFile::GetParentPath ( ) {
+    BSTR _result;
+    HRESULT _hr = get_ParentPath(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ComponentFile::PutParentPath ( _bstr_t ParentPath ) {
+    HRESULT _hr = put_ParentPath(ParentPath);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _ComponentFile::Save ( ) {
+    HRESULT _hr = raw_Save();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _ComponentFile::Load ( ) {
+    HRESULT _hr = raw_Load();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline SAFEARRAY * _ComponentFile::GetPaths ( ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = get_Paths(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _ComponentFile::PutPaths ( SAFEARRAY * * _arg1 ) {
+    HRESULT _hr = put_Paths(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline SAFEARRAY * _ComponentFile::GetDescriptions ( ) {
+    SAFEARRAY * _result;
+    HRESULT _hr = get_Descriptions(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface _IconManager wrapper method implementations
+//
+
+inline IDispatchPtr _IconManager::GetImageList ( ) {
+    IDispatch * _result;
+    HRESULT _hr = get_ImageList(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline void _IconManager::PutRefImageList ( IDispatch * ImageList ) {
+    HRESULT _hr = putref_ImageList(ImageList);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _IconManager::GetDirectory ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Directory(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _IconManager::PutDirectory ( BSTR * _arg1 ) {
+    HRESULT _hr = put_Directory(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short _IconManager::IconIndex ( BSTR * PID ) {
+    short _result;
+    HRESULT _hr = raw_IconIndex(PID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _IconManager::IconExists ( BSTR * PID ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_IconExists(PID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _IconManager::InList ( BSTR * PID ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_InList(PID, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// interface _ClsInfo wrapper method implementations
+//
+
+inline _bstr_t _ClsInfo::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ClsInfo::PutName ( _bstr_t Name ) {
+    HRESULT _hr = put_Name(Name);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _ClsInfo::GetPID ( ) {
+    BSTR _result;
+    HRESULT _hr = get_PID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ClsInfo::PutPID ( _bstr_t PID ) {
+    HRESULT _hr = put_PID(PID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _ClsInfo::GetInterfaces ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Interfaces(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _ClsInfo::PutInterfaces ( _bstr_t Interfaces ) {
+    HRESULT _hr = put_Interfaces(Interfaces);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface _Libraries wrapper method implementations
+//
+
+inline short _Libraries::GetCount ( ) {
+    short _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _LibInfoPtr _Libraries::GetItem ( VARIANT * IndexKey ) {
+    struct _LibInfo * _result;
+    HRESULT _hr = get_Item(IndexKey, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _LibInfoPtr(_result, false);
+}
+
+inline IUnknownPtr _Libraries::NewEnum ( ) {
+    struct IUnknown * _result;
+    HRESULT _hr = raw_NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline void _Libraries::PutPath ( BSTR * _arg1 ) {
+    HRESULT _hr = put_Path(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _Libraries::GetPath ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Path(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface _LibInfo wrapper method implementations
+//
+
+inline _bstr_t _LibInfo::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _LibInfo::PutName ( _bstr_t Name ) {
+    HRESULT _hr = put_Name(Name);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _LibInfo::GetPath ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Path(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _LibInfo::PutPath ( _bstr_t Path ) {
+    HRESULT _hr = put_Path(Path);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _LibInfo::GetDescription ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _LibInfo::PutDescription ( _bstr_t Description ) {
+    HRESULT _hr = put_Description(Description);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _LibInfo::GetGUID ( ) {
+    BSTR _result;
+    HRESULT _hr = get_GUID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _LibInfo::PutGUID ( _bstr_t GUID ) {
+    HRESULT _hr = put_GUID(GUID);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _LibInfo::GetVersion ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Version(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _LibInfo::PutVersion ( _bstr_t Version ) {
+    HRESULT _hr = put_Version(Version);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _CollectionPtr _LibInfo::GetClasses ( ) {
+    struct _Collection * _result;
+    HRESULT _hr = get_Classes(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _CollectionPtr(_result, false);
+}
+
+inline void _LibInfo::PutRefClasses ( struct _Collection * Classes ) {
+    HRESULT _hr = putref_Classes(Classes);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// dispinterface __NetList wrapper method implementations
+//
+
+inline HRESULT __NetList::OnRefresh ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT __NetList::OnRegister ( _bstr_t Path ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)Path);
+}
+
+inline HRESULT __NetList::OnUnregister ( _bstr_t Path ) {
+    return _com_dispatch_method(this, 0x3, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)Path);
+}
+
+inline HRESULT __NetList::OnSubscribe ( _bstr_t Key ) {
+    return _com_dispatch_method(this, 0x4, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)Key);
+}
+
+inline HRESULT __NetList::OnUnsubscribe ( _bstr_t Key ) {
+    return _com_dispatch_method(this, 0x5, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)Key);
+}
+
+inline HRESULT __NetList::OnConnect ( _bstr_t Machine ) {
+    return _com_dispatch_method(this, 0x6, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)Machine);
+}
+
+inline HRESULT __NetList::OnDisconnect ( _bstr_t Machine ) {
+    return _com_dispatch_method(this, 0x7, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)Machine);
+}
+
+inline HRESULT __NetList::OnOtherEvent ( enum IMA2_LocatorAction Action, SAFEARRAY * * Args ) {
+    return _com_dispatch_method(this, 0x8, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x6008", Action, Args);
+}

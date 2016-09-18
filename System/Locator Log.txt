@@ -1,0 +1,4 @@
+(8/4/2009, 10:27:47 AM)	 [2] outstanding Locator references (+1).
+(8/4/2009, 10:27:48 AM)	 [COVENANTEYES] Locator v3.5.105 started.
+(8/4/2009, 10:27:49 AM)	 [1] outstanding Locator references (-1).
+(8/4/2009, 10:27:49 AM)	 [0] outstanding Locator references (-1).

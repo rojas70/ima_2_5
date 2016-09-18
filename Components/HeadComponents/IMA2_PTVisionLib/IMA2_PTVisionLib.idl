@@ -1,0 +1,127 @@
+// IMA2_PTVisionLib.idl : IDL source for IMA2_PTVisionLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_PTVisionLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(FF9FC7F2-C451-48CE-AE8D-E37FA9583DBD),
+		dual,
+		helpstring("IPTSmoothPursuit Interface"),
+		pointer_default(unique)
+	]
+	interface IPTSmoothPursuit : IDispatch
+	{
+		[propget, id(1), helpstring("property LowPassFilterConstant")] HRESULT LowPassFilterConstant([out, retval] double *pVal);
+		[propput, id(1), helpstring("property LowPassFilterConstant")] HRESULT LowPassFilterConstant([in] double newVal);
+		[propget, id(2), helpstring("property SchemaWeights")] HRESULT SchemaWeights([out, retval] double *pVal);
+		[propput, id(2), helpstring("property SchemaWeights")] HRESULT SchemaWeights([in] double newVal);
+		[id(3), helpstring("method GetUpdate")] HRESULT GetUpdate(SAFEARRAY(double) Value, short Method);
+	};
+	[
+		object,
+		uuid(6604D381-1DFD-40C0-86ED-5BA4BD4EC093),
+		dual,
+		helpstring("IVisualInputRepresentation Interface"),
+		pointer_default(unique)
+	]
+	interface IVisualInputRepresentation : IDispatch
+	{
+		[id(1), helpstring("method GetTargetLocation")] HRESULT GetTargetLocation(long CameraID, double* Location, long Length);
+		[id(2), helpstring("method GetImage")] HRESULT GetImage(long ImageID, long* ImagePointer);
+		[id(3), helpstring("method SetTargetLocation")] HRESULT SetTargetLocation(long CameraID, double* Location, double Length);
+		[id(4), helpstring("method GetEyeMovementStatus")] HRESULT GetEyeMovementStatus(double* Status, double Length);
+		[id(5), helpstring("method SetEyeMovementStatus")] HRESULT SetEyeMovementStatus(double* Status, double Length);
+		[id(6), helpstring("method ObtainTargetLoc")] HRESULT ObtainTargetLoc();
+
+	};
+	[
+		object,
+		uuid(FB6BC121-8C4B-4E52-AEDA-3F80A1C944C4),
+		dual,
+		helpstring("ISaccade Interface"),
+		pointer_default(unique)
+	]
+	interface ISaccade : IDispatch
+	{
+		[id(1), helpstring("method aaSaccade")] HRESULT aaSaccade();
+		[id(2), helpstring("method GetUpdate")] HRESULT GetUpdate(long CameraID, double* Value);
+		[id(3), helpstring("method SaccadeFunction")] HRESULT SaccadeFunction(double *ImagePosition, double *MotorOutput);
+	};
+	[
+		object,
+		uuid(C7E050FD-F710-4005-B5E8-B14D1EF6C83A),
+		dual,
+		helpstring("IEyeMotionCenter Interface"),
+		pointer_default(unique)
+	]
+	interface IEyeMotionCenter : IDispatch
+	{
+		[propget, id(1), helpstring("property DeadZoneIndex")] HRESULT DeadZoneIndex([out, retval] long *pVal);
+		[propput, id(1), helpstring("property DeadZoneIndex")] HRESULT DeadZoneIndex([in] long newVal);
+		[propget, id(2), helpstring("property PTTargetThresholdIndex")] HRESULT PTTargetThresholdIndex([out, retval] long *pVal);
+		[propput, id(2), helpstring("property PTTargetThresholdIndex")] HRESULT PTTargetThresholdIndex([in] long newVal);
+		[propget, id(5), helpstring("property DeadZone")] HRESULT DeadZone([out, retval] double *pVal);
+		[propput, id(5), helpstring("property DeadZone")] HRESULT DeadZone([in] double newVal);
+		[propget, id(6), helpstring("property PTTargetThreshold")] HRESULT PTTargetThreshold([out, retval] double *pVal);
+		[propput, id(6), helpstring("property PTTargetThreshold")] HRESULT PTTargetThreshold([in] double newVal);
+		[propget, id(14), helpstring("property CameraSpeedFactor")] HRESULT CameraSpeedFactor([out, retval] double *pVal);
+		[propput, id(14), helpstring("property CameraSpeedFactor")] HRESULT CameraSpeedFactor([in] double newVal);
+		[id(7), helpstring("method HeadSample")] HRESULT HeadSample();
+		[id(11), helpstring("method DoProportionalTracking")] HRESULT DoProportionalTracking();
+		[id(12), helpstring("method WriteMotorPositions")] HRESULT WriteMotorPositions();
+		[id(13), helpstring("method Initialize")] HRESULT Initialize();
+
+	};
+
+[
+	uuid(D835AB70-870C-4B1A-8E1F-93F149F6D4FA),
+	version(1.0),
+	helpstring("(IMA2 Components) - PTVisionLib")
+]
+library IMA2_PTVISIONLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb");
+
+	[
+		uuid(781AAC54-EE77-4BDA-BAF2-B3CF413EEFB8),
+		helpstring("PTSmoothPursuit Class")
+	]
+	coclass PTSmoothPursuit
+	{
+		[default] interface IPTSmoothPursuit;
+		interface IComponent; 
+	};
+	[
+		uuid(C5044BD7-77C6-4B82-982D-89C63B15AF93),
+		helpstring("VisualInputRepresentation Class")
+	]
+	coclass VisualInputRepresentation
+	{
+		[default] interface IVisualInputRepresentation;
+		interface IComponent; 
+	};
+	[
+		uuid(4C169BF4-37A3-422A-BFC6-909E319949F2),
+		helpstring("Saccade Class")
+	]
+	coclass Saccade
+	{
+		[default] interface ISaccade;
+		interface IComponent; 
+	};	
+	[
+		uuid(ED3A5186-5F85-4EF1-BD31-20CA54C54632),
+		helpstring("EyeMotionCenter Class")
+	]
+	coclass EyeMotionCenter
+	{
+		[default] interface IEyeMotionCenter;
+		interface IComponent;
+	};
+};

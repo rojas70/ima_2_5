@@ -1,0 +1,76 @@
+// IMA2_NNet_n_PController.idl : IDL source for IMA2_NNet_n_PController.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_NNet_n_PController.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CNewValveController: IDL source for IMA2_CNewValveController.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(B53073D1-1C5C-4916-8A27-92A5B7402F17),
+		dual,
+		helpstring("(IMA2 Components) - INewValveController Lib"),
+		pointer_default(unique)
+	]
+	interface INewValveController : IDispatch
+	{
+		[id(1), helpstring("method DoHomingRoutine")] HRESULT DoHomingRoutine();
+		[id(2), helpstring("method Close")] HRESULT Close();
+		[propget, id(4), helpstring("property WhatArm")] HRESULT WhatArm([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property WhatArm")] HRESULT WhatArm([in] BSTR newVal);
+		[id(6), helpstring("method Move")] HRESULT Move();
+		[propget, id(10), helpstring("property ErrorMessage")] HRESULT ErrorMessage([out, retval] BSTR *pVal);
+		[propput, id(10), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] BSTR newVal);
+		[propget, id(12), helpstring("property ValveOutputsIndex")] HRESULT ValveOutputsIndex([out, retval] short *pVal);
+		[propput, id(12), helpstring("property ValveOutputsIndex")] HRESULT ValveOutputsIndex([in] short newVal);
+		[propget, id(13), helpstring("property ValveOutputs")] HRESULT ValveOutputs([out, retval] double *pVal);
+		[propput, id(13), helpstring("property ValveOutputs")] HRESULT ValveOutputs([in] double newVal);		
+		[propget, id(15), helpstring("property JointAngles")] HRESULT JointAngles([out, retval] double *pVal);
+		[propput, id(15), helpstring("property JointAngles")] HRESULT JointAngles([in] double newVal);
+		[propget, id(16), helpstring("property JointAnglesIndex")] HRESULT JointAnglesIndex([out, retval] short *pVal);
+		[propput, id(16), helpstring("property JointAnglesIndex")] HRESULT JointAnglesIndex([in] short newVal);
+		[propget, id(19), helpstring("property gain_PGainValue")] HRESULT gain_PGainValue([out, retval] double *pVal);
+		[propput, id(19), helpstring("property gain_PGainValue")] HRESULT gain_PGainValue([in] double newVal);
+		[propget, id(21), helpstring("property gain_PGainValueIndex")] HRESULT gain_PGainValueIndex([out, retval] short *pVal);
+		[propput, id(21), helpstring("property gain_PGainValueIndex")] HRESULT gain_PGainValueIndex([in] short newVal);
+		[propget, id(22), helpstring("property NumOfSteps")] HRESULT NumOfSteps([out, retval] short *pVal);
+		[propput, id(22), helpstring("property NumOfSteps")] HRESULT NumOfSteps([in] short newVal);
+		[propget, id(23), helpstring("property rate_InflationRate")] HRESULT rate_InflationRate([out, retval] short *pVal);
+		[propput, id(23), helpstring("property rate_InflationRate")] HRESULT rate_InflationRate([in] short newVal);
+		[propget, id(24), helpstring("property rate_DeflationRate")] HRESULT rate_DeflationRate([out, retval] short *pVal);
+		[propput, id(24), helpstring("property rate_DeflationRate")] HRESULT rate_DeflationRate([in] short newVal);
+		[id(25), helpstring("method gripper_OpenGripper")] HRESULT gripper_OpenGripper();
+		[id(26), helpstring("method gripper_CloseGripper")] HRESULT gripper_CloseGripper();
+
+	};
+
+
+[
+	uuid(72A62003-8AA6-4EA1-95C4-C3E5656F887D),
+	version(1.0),
+	helpstring("(IMA2 Components) - New Valve Controller")
+]
+
+
+library IMA2_NNET_N_PCONTROLLERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(71645483-B459-4EEA-A355-B3F3D8A5748D),
+		helpstring("(IMA2 Components) - New Valve Controller Class LIB")
+	]
+	coclass NewValveController
+	{
+		[default] interface INewValveController;
+		interface IComponent; 
+	};
+};

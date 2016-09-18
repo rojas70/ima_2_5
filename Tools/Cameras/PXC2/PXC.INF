@@ -1,0 +1,59 @@
+;--------------------------------------------------------------------
+;	PXC.INF
+;	Win2000 installer for PXC and PXC-A
+;--------------------------------------------------------------------
+
+;-----------------
+; REQUIRED SECTIONS
+;-----------------
+
+[Version]
+Signature=$CHICAGO$
+Class=Unknown
+Provider=%MFGNAME%
+
+[Manufacturer]
+%MFGNAME%=ImagenationDeviceList
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDisksFiles]
+pxc.sys=1
+
+[SourceDisksNames]
+1=%INSTDISK%,,,
+
+[ImagenationDeviceList]
+%DESCRIPTION200A%=PxcInstall,PCI\VEN_109E&DEV_0350
+%DESCRIPTION200A%=PxcInstall,PCI\VEN_109E&DEV_036E
+%DESCRIPTION200A%=PxcInstall,PCI\VEN_109E&DEV_036E&SUBSYS_200A1295
+
+;-----------------
+; WIN 2000 SECTIONS
+;-----------------
+
+[PxcInstall.NT]
+CopyFiles=ImagenationCopyFiles
+
+[ImagenationCopyFiles]
+pxc.sys,,,0x2
+
+[PxcInstall.NT.Services]
+AddService=PXC,2,ImagenationService
+
+[ImagenationService]
+ServiceType=1
+StartType=2
+ErrorControl=1
+ServiceBinary=%10%\system32\drivers\pxc.sys
+
+;---------------------
+; STRING SECTION
+;---------------------
+
+[Strings]
+MFGNAME="Imagenation Corp"
+INSTDISK="PXC Family Software Windows NT/2000"
+DESCRIPTION200="Imagenation PXC200 Grabber"
+DESCRIPTION200A="Imagenation PXC200A Grabber"

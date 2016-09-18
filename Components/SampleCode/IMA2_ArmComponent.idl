@@ -1,0 +1,43 @@
+// IMA2_ArmComponent.idl : IDL source for IMA2_ArmComponent.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_ArmComponent.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(DBEC1F89-7AE2-449A-888D-3492211B08ED),
+		dual,
+		helpstring("(IMA2 Components) - Arm Control"),
+		pointer_default(unique)
+	]
+	interface IArmMech : IDispatch
+	{
+		[id(1), helpstring("method RunArm")] HRESULT RunArm();
+		[id(2), helpstring("method DoNothing")] HRESULT DoNothing(SAFEARRAY* hello);
+		[id(3), helpstring("method DoNothing2")] HRESULT DoNothing2(SAFEARRAY(double) hello, int sit);
+	};
+
+[
+	uuid(A51B77F0-CFA0-4903-8F95-6162864E255D),
+	version(1.0),
+	helpstring("IMA2_ArmComponent 1.0 Type Library")
+]
+library IMA2_ARMCOMPONENTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\System\Framework\ima2.tlb");
+
+	[
+		uuid(182973A0-8D57-4A47-9540-40BD20238685),
+		helpstring("ArmMech Class")
+	]
+	coclass ArmMech
+	{
+		[default] interface IArmMech;
+		interface IComponent;
+	};
+};

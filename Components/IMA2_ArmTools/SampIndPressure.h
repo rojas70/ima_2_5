@@ -1,0 +1,272 @@
+// SampIndPressure.h : Declaration of the CSampIndPressure
+
+#ifndef __SAMPINDPRESSURE_H_
+#define __SAMPINDPRESSURE_H_
+
+#include "resource.h"								// main symbols
+#include "O:\Base Classes\ComponentImpl.h"
+#include "O:\Components\msvbvm60.tlh"				// property bag dll
+#include "O:\Include\IMA2_BasicComponentsLib.h"		// Vector Signal#include <assert.h>
+#define	NUM_AXES		6
+#define	HISTORY_LENGTH	6
+/////////////////////////////////////////////////////////////////////////////
+// CSampIndPressure
+class ATL_NO_VTABLE CSampIndPressure : 
+	public CComObjectRootEx<CComSingleThreadModel>,
+	public CComCoClass<CSampIndPressure, &CLSID_SampIndPressure>,
+	public IDispatchImpl<ISampIndPressure, &IID_ISampIndPressure, &LIBID_IMA2_ARMTOOLSLib>,
+	public CComponentImpl 
+{
+public:
+	CSampIndPressure()
+	{
+		int index1,index2;
+		m_ArmDeviceHandle	= INVALID_HANDLE_VALUE;
+		m_ArmDeviceFilename = SysAllocString(L"\\\\.\\SAInterface1");	// This should be the interface card for both right and left arm.
+		m_ServoLoopWaitTime = 16;										// Used to be 100 in code but 16 in AgentBuilder
+		m_LeftArm			= 0;
+		m_NumAxes			= NUM_AXES;
+		m_lNumAxes			= NUM_AXES;									//  Added on 05Jan2000, Steve Northrup
+		m_SampleTime		= 0;
+		m_TimeIn			= 0;
+		m_TimeIn_1			= 0.0;
+		m_lDigOutData		= 0;
+		m_lDigInData		= 0;
+
+	
+		// Indeces added for IMA 2.5
+		m_sHomeAnglesIndex		= 0;
+		m_sInvertPressureIndex	= 0;
+		m_sEncoderMinIndex		= 0;
+		m_sEncoderMaxIndex		= 0;
+		m_sPressureMaxIndex		= 0;
+		m_sBiasedPressureIndex	= 0;
+		m_sEncoderOffsetIndex	= 0;
+		m_sEncoderGainIndex		= 0;
+
+		// Zero the History Tables values
+		for (index1 = 0; index1 < HISTORY_LENGTH;index1++)
+			for (index2 = 0; index2 < NUM_AXES; index2++)
+			{
+				m_JointAngles[index1][index2]		= 0.0;
+				m_JointVelocities[index1][index2]	= 0.0;
+				m_JointAccelerations[index1][index2]= 0.0;
+			}
+
+		// Set the standard for parameters:
+		for (index2 = 0; index2 < NUM_AXES; index2++)
+		{
+			// The commented out values reflect what was in IMA 1.0 code
+			// New values used come from current knowledge of the system
+			// and are automaticaly loaded here
+			m_PressureOutputs[0][index2]	= 0.0;
+			m_PressureOutputs[1][index2]	= 0.0;
+			m_PressureMax[index2]			= 4000;	//2047;
+			m_EncoderMax[index2]			= 0.0;
+			m_EncoderMin[index2]			= 0.0;
+		}
+
+		// Home Angles (Logical Angles)
+		m_pdHomeAngles[0]	=  0.0;
+		m_pdHomeAngles[1]	=  1.57;
+		m_pdHomeAngles[2]	= -3.142;
+		m_pdHomeAngles[3]	=  0.0;
+		m_pdHomeAngles[4]	= -1.57;
+		m_pdHomeAngles[5]	=  0;
+
+		// Home XYZRPY Position
+		m_pdXYZRPYPos[0]	=  410.0;
+		m_pdXYZRPYPos[1]	= -415.0;
+		m_pdXYZRPYPos[2]	= -605.0;
+		m_pdXYZRPYPos[3]	=    0.0;
+		m_pdXYZRPYPos[4]	=    0.0;
+		m_pdXYZRPYPos[5]	=    0.0;
+		
+		// Invert Pressures as saved in Agent Builder in IMA 1.0 for the RightArm Agent
+		m_bInvertPressure[0]= 0;
+		m_bInvertPressure[1]= 1;
+		m_bInvertPressure[2]= 1;
+		m_bInvertPressure[3]= 0;
+		m_bInvertPressure[4]= 1;
+		m_bInvertPressure[5]= 0;
+	
+		// Encoder Gain - values have not changed from IMA 1.0
+		m_EncoderGain[0]	= -5092.0;
+		m_EncoderGain[1]	=  5092.0;
+		m_EncoderGain[2]	=  4244.0;
+		m_EncoderGain[3]	= -4244.0;
+		m_EncoderGain[4]	=   636.6;
+		m_EncoderGain[5]	=  -636.6;
+
+		// Encoder offset - valudes changed from before. They were: {-580.0, -7398.0, 13332.0, -9832.0, 199.0, -599.0};
+		m_EncoderOffset[0]	=  -406.0;
+		m_EncoderOffset[1]	= -7113.0;
+		m_EncoderOffset[2]	= 12654.0;
+		m_EncoderOffset[3]	= -9403.0;
+		m_EncoderOffset[4]	=   220.0;
+		m_EncoderOffset[5]	=  -671.0;
+
+		m_BiasedPressure[0] = 1000;							// {1000, 2047, 2047, 2047, 2047, 2047};
+		m_BiasedPressure[1] = 2000;
+		m_BiasedPressure[2] = 2000;							// Consider changing these to 1000 given that larger air muscles were installed on Nov. 2006
+		m_BiasedPressure[3] = 2000; 
+		m_BiasedPressure[4] = 2000; 
+		m_BiasedPressure[5] = 2000; 
+
+		// IComponent values
+		m_pIUnkInput		= NULL;
+		m_pIUnkOutput		= NULL;
+		m_pIUnkDIO			= NULL;
+		m_pIUnkBiasedPressureState= NULL;
+	}
+
+DECLARE_REGISTRY_RESOURCEID(IDR_SAMPINDPRESSURE)
+
+DECLARE_PROTECT_FINAL_CONSTRUCT()
+
+BEGIN_COM_MAP(CSampIndPressure)
+	COM_INTERFACE_ENTRY(ISampIndPressure)
+	COM_INTERFACE_ENTRY(IDispatch)
+	COM_INTERFACE_ENTRY(IComponent)
+END_COM_MAP()
+
+// ISampIndPressure
+public:
+
+	short  m_bInvertPressure[NUM_AXES];
+	ULONG m_lDigOutData;
+	ULONG m_lDigInData;
+	ULONG m_SampleTime;
+	ULONG m_TimeIn;
+	double m_TimeIn_1;
+
+	long  GetDigitalInput(ULONG *plData);
+	long  SetDigitalOutput(ULONG lData);
+
+// Device access variables:
+	BSTR		m_ArmDeviceFilename;							// Filename and handle for the arm device
+	HANDLE		m_ArmDeviceHandle;
+	short		m_ServoLoopWaitTime;							// Period of servo loop. (millisec)
+
+// Conversion of raw input values into real angles:
+	double m_EncoderOffset[NUM_AXES];							// These parameters convert raw<->radians
+	double m_EncoderGain[NUM_AXES];
+
+	double	m_RawEncoders[NUM_AXES];							// Following values are derived from these:
+	double	m_EncoderMax[NUM_AXES];								// Maximum and minimum encoder values for joint range
+	double	m_EncoderMin[NUM_AXES];
+
+// State of the Z-Phase masking
+	long	m_ZMaskFlags;
+
+//	Current variables are located at 0 index in these buffers
+	double	m_JointAngles[HISTORY_LENGTH][NUM_AXES+2];			// These are the joint angles of the arm
+	double	m_JointVelocities[HISTORY_LENGTH][NUM_AXES];		// These are the joint velocities.
+	double	m_JointAccelerations[HISTORY_LENGTH][NUM_AXES];		// Computed from finite differences.
+	double	m_LogicalAngles[NUM_AXES];						
+
+// Current output variables:
+	double	m_BiasedPressure[NUM_AXES];							// These parameters control biasing and pressure output
+	double	m_PressureMax[NUM_AXES];							// Limit the control action to useful range
+	double	m_PressureOutputs[2][NUM_AXES];						// These are values sent to valves
+
+// Aux I/O variables:
+	short	m_LeftArm;
+	int		m_NumAxes;
+
+// Reads in from hardware
+	int	SampleFunction(int Flags);
+
+	
+// Indeces added for IMA 2.5
+	short m_sHomeAnglesIndex;
+	short m_sInvertPressureIndex;
+	short m_sEncoderMinIndex;
+	short m_sEncoderMaxIndex;
+	short m_sPressureMaxIndex;
+	short m_sBiasedPressureIndex;
+	short m_sEncoderOffsetIndex;
+	short m_sEncoderGainIndex;
+
+// These are component link interfaces that connect input and output vectors for this
+//	object. IMA2.5 Component Bindings
+	IComponent *m_pIUnkInput;					// Pressures
+	IComponent *m_pIUnkOutput;					// Physical Angles
+	IComponent *m_pIUnkDesiredPhysicalAngles;	// Des Phys Angles
+	IComponent *m_pIUnkDesiredLogicalAngles;	// Des Log Angles
+	IComponent *m_pIUnkActualLogicalAngles;		// Log Angles
+	IComponent *m_pIUnkDIO;						// Digital Input/Output
+	IComponent *m_pIUnkBiasedPressureState;		// Pressure Bias
+	IComponent *m_pIUnkDesiredXYZPos;			// DesiredXYZPos
+
+public:
+	STDMETHOD(get_LeftArm)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_LeftArm)(/*[in]*/ short newVal);
+	STDMETHOD(get_InvertPressureIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_InvertPressureIndex)(/*[in]*/ short newVal);
+	STDMETHOD(WriteHomePositions)();
+	STDMETHOD(Disable_ZMasking)();
+	STDMETHOD(Enable_ZMasking)();
+	STDMETHOD(HW_IO_12)();
+	STDMETHOD(HW_IO_6)();
+	STDMETHOD(get_EncoderGainIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_EncoderGainIndex)(/*[in]*/ short newVal);
+	STDMETHOD(get_EncoderOffsetIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_EncoderOffsetIndex)(/*[in]*/ short newVal);
+	STDMETHOD(get_BiasedPressureIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_BiasedPressureIndex)(/*[in]*/ short newVal);
+	STDMETHOD(get_PressureMaxIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_PressureMaxIndex)(/*[in]*/ short newVal);
+	STDMETHOD(get_EncoderMaxIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_EncoderMaxIndex)(/*[in]*/ short newVal);
+	STDMETHOD(get_EncoderMinIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_EncoderMinIndex)(/*[in]*/ short newVal);
+	STDMETHOD(Reset)();
+	STDMETHOD(get_InvertPressure)(/*[out, retval]*/ BOOL *pVal);
+	STDMETHOD(put_InvertPressure)(/*[in]*/ BOOL newVal);
+	STDMETHOD(get_HomeAngles)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_HomeAngles)(/*[in]*/ double newVal);
+	STDMETHOD(get_NumAxes)(/*[out, retval]*/ long *pVal);
+	STDMETHOD(put_NumAxes)(/*[in]*/ long newVal);
+	STDMETHOD(get_ZMask)(/*[out, retval]*/ long *pVal);
+	STDMETHOD(put_ZMask)(/*[in]*/ long newVal);
+	STDMETHOD(get_EncoderMin)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_EncoderMin)(/*[in]*/ double newVal);
+	STDMETHOD(get_EncoderMax)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_EncoderMax)(/*[in]*/ double newVal);
+	STDMETHOD(get_PressureMax)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_PressureMax)(/*[in]*/ double newVal);
+	STDMETHOD(get_BiasedPressure)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_BiasedPressure)(/*[in]*/ double newVal);
+	STDMETHOD(get_EncoderOffset)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_EncoderOffset)(/*[in]*/ double newVal);
+	STDMETHOD(get_EncoderGain)(/*[out, retval]*/ double *pVal);
+	STDMETHOD(put_EncoderGain)(/*[in]*/ double newVal);
+	STDMETHOD(get_SamplingPeriod)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_SamplingPeriod)(/*[in]*/ short newVal);
+	STDMETHOD(get_DeviceFilename)(/*[out, retval]*/ BSTR *pVal);
+	STDMETHOD(put_DeviceFilename)(/*[in]*/ BSTR newVal);
+	STDMETHOD(get_HomeAnglesIndex)(/*[out, retval]*/ short *pVal);
+	STDMETHOD(put_HomeAnglesIndex)(/*[in]*/ short newVal);
+	STDMETHOD(Initialize)();
+
+private:
+	long m_lNumAxes;	
+	
+	double m_pdHomeAngles[NUM_AXES];
+	double m_pdXYZRPYPos[NUM_AXES];
+
+	void ComputePhysicalAngles(double * in, double * out);
+	void ComputeLogicalAngles(double *in, double *out);
+
+	// Internal constuctor/destructor
+	STDMETHOD(OnConstruct)(void);
+	STDMETHOD(OnDestruct)(void);
+
+	// Override of IMA base components
+	virtual STDMETHODIMP Load(VARIANT pData);
+	virtual STDMETHODIMP Save(VARIANT *pData);		// STDMETHODIMP returns an HRESULT (look at a IMA 1.0 component
+
+};
+
+#endif //__SAMPINDPRESSURE_H_

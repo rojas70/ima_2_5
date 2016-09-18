@@ -1,0 +1,44 @@
+IComponent Interface problems in VB
+Date: 4/9/04
+
+I have been having some compile erros in VB for different projects and I think they are related to the IComponent Interface. I know that IComponent is defined in IMA2.tlb. This library is included in the Project references option in VB, and it is selected.
+
+The ManagerBook problem that I am facing right now is the following:
+
+(1)
+VB can't find the PID property for:
+-------------------
+CPID = Cmp.PID
+-------------------
+Where Cmp is defined As IComponent.
+
+In looking at the Object Browswer, the following objects have a PID Property in them:
+IMA2_Helper.ClsInfo
+IMA2_Helper.CmpDesc
+IMA2_HelperX.PIDBar
+IMA2.IMA2_Distributing Info
+
+(2)
+For the SampleComponents project, for the Mech (Engine.cls), there is a compile error for the following line:
+----------------------------------
+Implements IComponent
+----------------------------------
+
+It states: Object module needs to implement 'Distributing' for interface 'IComponent'.
+
+
+I looked at this problem in MSDN and it states:
+
+http://support.microsoft.com/default.aspx?scid=kb;en-us;170158
+"An interface is a collection of unimplemented procedure prototypes. This error occurs when you specified an interface in an Implements statement, but you failed to add code for all the procedures in the interface. 
+
+You must write code for all procedures specified in the interface. An empty procedure containing only a comment is sufficient. "
+
+
+It seems like under the definition for IComponent, there is no place where the Distributing Method is defined. What I was thinking is looking at the code present in the IMA2 VB Template and use the definition of the Distributing Method:
+
+-----------------------------------------------------------------------------
+Private Property Get IComponent_Distributing() As IMA2.IMA2_DistributingInfo
+    IComponent_Distributing = m_DistributingInfo
+End Property
+------------------------------------------------------------------------------

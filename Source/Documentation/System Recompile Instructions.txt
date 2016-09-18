@@ -1,0 +1,19 @@
+1) Unregister everything on the machine (use unregister.bat)
+2) Delete all files from D:\ima2, except for the D:\IMA2\VBAC directory (this must be present!)
+3) Copy the BaseIMA2.tlb file back to the D:\ima2\system directory
+4) Re-register with register.bat
+
+5) Compile Project in following order, updating references each time:
+   a) Helper (DLL)	- This contains basic objects and functions used by all of IMA2
+   b) Helper (OCX)	- This contains basic controls used by IMA2
+   c) Locator		- This is the Agent Locator for IMA2
+   d) Dialogs		- This contains GUI objects for IMA2 and AB2000
+** e) Ab2k		- This is the DLL that provides and AB2000 GUI for debugging
+** f) Ab2000		- This EXE hosts Ab2k.dll to provide a standalone GUI
+** BasicAgent
+
+IMA2.TLB
+Bindings.DLL
+Helper.DLL
+Locator
+Agent

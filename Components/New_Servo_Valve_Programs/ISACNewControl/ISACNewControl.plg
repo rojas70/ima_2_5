@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ISACNewControl - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP5F8.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/ISACNewControl.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\IMA2\Components\New_Servo_Valve_Programs\ISACNewControl\main.cpp"
+"C:\IMA2\Components\New_Servo_Valve_Programs\ISACNewControl\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP5F8.tmp" 
+<h3>Output Window</h3>
+Compiling...
+main.cpp
+StdAfx.cpp
+Creating temporary file "C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP5F9.tmp" with contents
+[
+WINMOTENC.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/ISACNewControl.pdb" /debug /machine:I386 /out:"Debug/ISACNewControl.exe" /pdbtype:sept 
+.\Debug\main.obj
+.\Debug\StdAfx.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\suarezjl\LOCALS~1\Temp\RSP5F9.tmp"
+<h3>Output Window</h3>
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/ISACNewControl.bsc"  .\Debug\main.sbr .\Debug\StdAfx.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+ISACNewControl.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

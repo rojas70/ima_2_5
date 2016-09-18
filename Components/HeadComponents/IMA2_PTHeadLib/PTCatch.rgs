@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_PTHeadLib.PTCatch.1 = s 'PTCatch Class'
+	{
+		CLSID = s '{84638812-DA4D-445F-8D46-04B2961F7A1F}'
+	}
+	IMA2_PTHeadLib.PTCatch = s 'PTCatch Class'
+	{
+		CLSID = s '{84638812-DA4D-445F-8D46-04B2961F7A1F}'
+		CurVer = s 'IMA2_PTHeadLib.PTCatch.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {84638812-DA4D-445F-8D46-04B2961F7A1F} = s 'PTCatch Class'
+		{
+			ProgID = s 'IMA2_PTHeadLib.PTCatch.1'
+			VersionIndependentProgID = s 'IMA2_PTHeadLib.PTCatch'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{6B31DC86-3B53-40C3-99CB-40B1B49E86B9}'
+		}
+	}
+}

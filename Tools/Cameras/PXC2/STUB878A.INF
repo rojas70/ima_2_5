@@ -1,0 +1,82 @@
+; INF file for Stub878a.sys
+; Portions Copyright (c) 2000, Imagenation Corporation.
+
+[Version]
+Signature="$Windows NT$"
+Class=Stub878a
+ClassGUID={C2324863-D09C-11D4-B513-00A0C969B007}
+Provider=%Stub878a.Provider%
+      
+[Manufacturer]
+%Stub878a.Manufacturer%=Stub878a
+      
+[ClassInstall32]
+AddReg=Stub878a.AddClassReg
+
+[Stub878a]
+%Stub878a.DeviceDesc%=Stub878a.INSTALL, PCI\VEN_109E&DEV_0878&SUBSYS_200A1295
+
+; TODO:  Add an optional Tag File to ensure that the end user
+;        has specified the correct path to the diskette, CD-ROM,
+;        or network drive.  See the INF File Reference in the
+;        DDK documentation for more information on SourceDisksNames
+;        sections.
+[SourceDisksNames]
+1=%Stub878a.DriverDiskName%,"",1
+
+[SourceDisksFiles]
+Stub878a.sys=1
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+      
+[DestinationDirs]
+Stub878a.CopyFiles = 10,system32\drivers ; WINDOWS\SYSTEM32\DRIVERS
+      
+[Stub878a.INSTALL]
+CopyFiles=Stub878a.CopyFiles
+AddReg=Stub878a.AddRegLoader
+      
+[Stub878a.AddClassReg]
+HKR,,,,%Stub878a.ClassName%
+
+[Stub878a.AddRegLoader]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,Stub878a.sys
+
+[Stub878a.INSTALL.NT]
+CopyFiles=Stub878a.CopyFiles
+
+[Stub878a.INSTALL.NT.Services]
+AddService = Stub878a,0x00000002,Stub878a_Service_Inst
+
+[Stub878a_Service_Inst]
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_AUTO_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %12%\Stub878a.sys
+DisplayName     = %Stub878a.DeviceDesc%
+
+      
+[Stub878a.CopyFiles]
+Stub878a.sys
+
+
+;---------------------------------------------------------------;
+      
+[Strings]
+; TODO:  Replace the following string with the name of the driver
+;        provider.
+Stub878a.Provider="Imagenation Corporation"
+; TODO:  Replace the following string with the name of the driver
+;        or hardware manufacturer.  
+Stub878a.Manufacturer="Imagenation Corporation"
+; TODO:  Replace the following with an appropriate description
+;        of this actual device.
+Stub878a.DeviceDesc="Stub878a Device"
+; TODO:  Replace the following with an appropriate class name
+;        for this class of device.  
+Stub878a.ClassName="Stub878a Device"
+; TODO:  If not installing from a diskette, change the following string
+;        to indicate the source location.
+Stub878a.DriverDiskName="Stub878a Installation Diskette" 

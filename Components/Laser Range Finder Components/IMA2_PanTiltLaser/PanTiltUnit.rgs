@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_PanTiltLaser.PanTiltUnit.1 = s 'PanTiltUnit Class'
+	{
+		CLSID = s '{B87BF833-C75F-494C-B44A-67ABD75840E2}'
+	}
+	IMA2_PanTiltLaser.PanTiltUnit = s 'PanTiltUnit Class'
+	{
+		CLSID = s '{B87BF833-C75F-494C-B44A-67ABD75840E2}'
+		CurVer = s 'IMA2_PanTiltLaser.PanTiltUnit.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B87BF833-C75F-494C-B44A-67ABD75840E2} = s 'PanTiltUnit Class'
+		{
+			ProgID = s 'IMA2_PanTiltLaser.PanTiltUnit.1'
+			VersionIndependentProgID = s 'IMA2_PanTiltLaser.PanTiltUnit'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EF31C770-95E5-4A6F-9F31-887EA6376304}'
+		}
+	}
+}

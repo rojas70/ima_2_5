@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: examples - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP18.tmp" with contents
+[
+/nologo /ML /GX /O2 /I "../include" /I "../mysql/include" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/examples.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\cpp\mysqlpp\examples\simple1.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSP18.tmp" 
+Creating temporary file "C:\TEMP\RSP19.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/examples.pdb" /machine:I386 /out:"Release/examples.exe" 
+.\Release\simple1.obj
+"..\lib\mysql++.lib"
+]
+Creating command line "link.exe @C:\TEMP\RSP19.tmp"
+<h3>Output Window</h3>
+Compiling...
+simple1.cpp
+../include\type_info1.hh(39) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\type_info1.hh(159) : warning C4800: 'unsigned int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\type_info1.hh(172) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\type_info1.hh(176) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\type_info1.hh(180) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\type_info1.hh(184) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\sql_query1.hh(37) : warning C4800: 'class SQLQuery *' : forcing value to bool 'true' or 'false' (performance warning)
+../include\sql_query1.hh(135) : warning C4355: 'this' : used in base member initializer list
+../include\compare1.hh(48) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+../include\result1.hh(33) : warning C4355: 'this' : used in base member initializer list
+../include\result1.hh(42) : warning C4800: 'char' : forcing value to bool 'true' or 'false' (performance warning)
+Linking...
+
+
+
+<h3>Results</h3>
+examples.exe - 0 error(s), 11 warning(s)
+</pre>
+</body>
+</html>

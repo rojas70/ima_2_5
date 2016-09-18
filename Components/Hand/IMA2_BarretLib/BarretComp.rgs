@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_BarretLib.BarretComp.1 = s 'BarretComp Class'
+	{
+		CLSID = s '{EA74A33A-60F9-4CBE-828D-C13A9B700A33}'
+	}
+	IMA2_BarretLib.BarretComp = s 'BarretComp Class'
+	{
+		CLSID = s '{EA74A33A-60F9-4CBE-828D-C13A9B700A33}'
+		CurVer = s 'IMA2_BarretLib.BarretComp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {EA74A33A-60F9-4CBE-828D-C13A9B700A33} = s 'BarretComp Class'
+		{
+			ProgID = s 'IMA2_BarretLib.BarretComp.1'
+			VersionIndependentProgID = s 'IMA2_BarretLib.BarretComp'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1DAE7BC7-0BE4-4375-B50B-10FC230D513B}'
+		}
+	}
+}

@@ -1,0 +1,41 @@
+// ExampleComp.idl : IDL source for ExampleComp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ExampleComp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(F976D99B-D347-4DCD-A4F9-A266BA8AF739),
+		dual,
+		helpstring("IExample Interface"),
+		pointer_default(unique)
+	]
+	interface IExample : IDispatch
+	{
+		[id(1), helpstring("method ConnectingToComponent")] HRESULT ConnectingToComponent();
+	};
+
+[
+	uuid(A9C789C6-6486-433A-B0DE-D8EE3C86B50B),
+	version(1.0),
+	helpstring("Example IMA2 component")
+]
+library EXAMPLECOMPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb");
+
+	[
+		uuid(BCB67108-F739-4B9C-BD9C-BAC1703A077D),
+		helpstring("Example Class")
+	]
+	coclass Example
+	{
+		[default] interface IExample;
+		interface IComponent;
+	};
+};

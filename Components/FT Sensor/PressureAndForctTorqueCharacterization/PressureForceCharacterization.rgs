@@ -1,0 +1,26 @@
+HKCR
+{
+	PressureAndForctTorqueCharacterization.PressureForceCharacterization.1 = s 'PressureForceCharacterization Class'
+	{
+		CLSID = s '{4717FCEF-8FD4-40EB-997F-9B905D66D5E9}'
+	}
+	PressureAndForctTorqueCharacterization.PressureForceCharacterization = s 'PressureForceCharacterization Class'
+	{
+		CLSID = s '{4717FCEF-8FD4-40EB-997F-9B905D66D5E9}'
+		CurVer = s 'PressureAndForctTorqueCharacterization.PressureForceCharacterization.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4717FCEF-8FD4-40EB-997F-9B905D66D5E9} = s 'PressureForceCharacterization Class'
+		{
+			ProgID = s 'PressureAndForctTorqueCharacterization.PressureForceCharacterization.1'
+			VersionIndependentProgID = s 'PressureAndForctTorqueCharacterization.PressureForceCharacterization'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{B2E54CF7-A7D6-434F-BD1F-2BC0DF030FB7}'
+		}
+	}
+}

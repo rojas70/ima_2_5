@@ -1,0 +1,29 @@
+HKCR
+{
+	Matlab_test.MEngine.1 = s 'MEngine Class'
+	{
+		CLSID = s '{C8FD3D73-DB1C-40F4-AB53-257E9B109DE7}'
+	}
+	Matlab_test.MEngine = s 'MEngine Class'
+	{
+		CLSID = s '{C8FD3D73-DB1C-40F4-AB53-257E9B109DE7}'
+		CurVer = s 'Matlab_test.MEngine.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C8FD3D73-DB1C-40F4-AB53-257E9B109DE7} = s 'MEngine Class'
+		{
+			ProgID = s 'Matlab_test.MEngine.1'
+			VersionIndependentProgID = s 'Matlab_test.MEngine'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{C8FD3D73-DB1C-40F4-AB53-257E9B109DE7}'
+			
+		}
+	}
+}

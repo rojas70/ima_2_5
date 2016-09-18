@@ -1,0 +1,465 @@
+(5/30/2002, 5:37:37 PM)	 [2] outstanding Locator references (+1).
+(5/30/2002, 5:37:37 PM)	 [KANGAROO] Locator v3.5.67 started.
+(5/30/2002, 5:37:37 PM)	 [3] outstanding Locator references (+1).
+(5/30/2002, 5:37:38 PM)	 [\\kangaroo] located.
+(5/30/2002, 5:37:38 PM)	 [\\kangaroo] located.
+(5/30/2002, 5:37:38 PM)	 [\\kangaroo] located.
+(5/30/2002, 5:37:39 PM)	 [\\kangaroo] located.
+(5/30/2002, 5:37:39 PM)	 [\\kangaroo] located.
+(5/30/2002, 5:37:42 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 5:37:42 PM)	 [\\kangaroo\woo] NOT located.
+(5/30/2002, 5:37:42 PM)	 [\\kangaroo] located.
+(5/30/2002, 5:37:42 PM)	 [\\Kangaroo\woo] registered.
+(5/30/2002, 5:37:43 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 5:37:43 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 5:58:22 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 5:58:23 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 5:58:23 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 5:58:28 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 5:58:28 PM)	 [\\kangaroo\woo\sm] NOT located.
+(5/30/2002, 5:58:28 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 5:58:28 PM)	 [\\Kangaroo\woo\sm] registered.
+(5/30/2002, 5:58:31 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 5:58:31 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:22:08 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:22:08 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:22:08 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:22:08 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:22:08 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:25:10 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:25:10 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:50:09 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:50:09 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:50:09 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:50:09 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 6:50:10 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:50:10 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:50:23 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 6:50:23 PM)	 [6] outstanding Locator references (+1).
+(5/30/2002, 6:50:39 PM)	 [5] outstanding Locator references (-1).
+(5/30/2002, 6:50:39 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 6:50:39 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 7:35:25 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 7:35:25 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 7:35:27 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:35:27 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:35:47 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:35:47 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:36:45 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:36:46 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:40:41 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:40:42 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:41:10 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:41:10 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:44:25 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 7:44:25 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 7:46:30 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 7:46:31 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 7:46:32 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:46:32 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:50:36 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:50:36 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:50:42 PM)	 [\\kangaroo] located.
+(5/30/2002, 7:50:42 PM)	 [\\kangaroo] located.
+(5/30/2002, 7:50:46 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:50:46 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:50:46 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:50:46 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:51:23 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 7:51:23 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 7:51:28 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 7:51:28 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 7:55:30 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 7:55:30 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 7:55:33 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:55:33 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:55:34 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:55:34 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:55:46 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 7:55:46 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 7:56:00 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 7:56:00 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 7:56:02 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:56:02 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:56:47 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:56:48 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:56:53 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:56:53 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:56:58 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:56:58 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:57:00 PM)	 [\\kangaroo] located.
+(5/30/2002, 7:57:00 PM)	 [\\kangaroo] located.
+(5/30/2002, 7:57:04 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:57:04 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:57:05 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:57:05 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 7:59:54 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 7:59:54 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:00:10 PM)	 [\\kangaroo] located.
+(5/30/2002, 8:00:10 PM)	 [\\kangaroo] located.
+(5/30/2002, 8:00:18 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:00:18 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:00:19 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:00:19 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:01:11 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:01:11 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 8:02:19 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 8:02:20 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 8:02:22 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:02:22 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:02:36 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:02:36 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:02:42 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:02:42 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:02:46 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:02:46 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:02:49 PM)	 [\\kangaroo] located.
+(5/30/2002, 8:02:49 PM)	 [\\kangaroo] located.
+(5/30/2002, 8:03:58 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:03:58 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:03:58 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:03:58 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:04:15 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:04:15 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 8:05:05 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 8:05:05 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 8:05:07 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:05:08 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:07:39 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:07:39 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:08:27 PM)	 [\\kangaroo] located.
+(5/30/2002, 8:08:27 PM)	 [\\kangaroo] located.
+(5/30/2002, 8:08:28 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:08:28 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:08:30 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:08:30 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:08:36 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:08:36 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 8:09:12 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 8:09:12 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 8:09:14 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:09:14 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:09:28 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:09:28 PM)	 [\\kangaroo\woo] located.
+(5/30/2002, 8:09:58 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:09:59 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:11:10 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:11:10 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 8:11:20 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 8:11:20 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 8:11:23 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:11:23 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:11:34 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:11:34 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 8:12:26 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 8:12:26 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 8:12:27 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:12:27 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:12:40 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:12:40 PM)	 [3] outstanding Locator references (-1).
+(5/30/2002, 8:13:07 PM)	 [4] outstanding Locator references (+1).
+(5/30/2002, 8:13:07 PM)	 [5] outstanding Locator references (+1).
+(5/30/2002, 8:13:09 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:13:09 PM)	 [\\kangaroo\woo\sm] located.
+(5/30/2002, 8:13:23 PM)	 [4] outstanding Locator references (-1).
+(5/30/2002, 8:13:23 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 3:46:40 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 3:46:40 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 3:46:41 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 3:46:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 3:46:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 3:46:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 3:46:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:31 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:04:32 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:04:32 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:32 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:32 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:32 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:32 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:46 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:47 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:04:47 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:05:18 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:05:18 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:05:19 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:05:19 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:05:19 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:05:20 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:05:23 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:05:23 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:11:46 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:11:46 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:11:48 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:11:48 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:12:45 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:12:45 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:33:25 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:33:25 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:33:28 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:33:28 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:34:44 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:34:44 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:34:44 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:34:46 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:34:46 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:37:05 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:37:05 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:41:12 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:41:12 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:41:13 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:41:13 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:42:13 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:42:13 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:42:37 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:42:37 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:42:38 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:42:38 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:42:43 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:42:44 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:42:58 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:42:58 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:45:08 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:45:08 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:45:09 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:45:09 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:45:30 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:45:30 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:45:37 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:45:38 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:47:27 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:47:27 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:47:28 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:47:29 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:47:36 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:47:36 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:47:52 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:47:52 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:47:54 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:47:55 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:48:41 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 4:48:41 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 4:50:47 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 4:50:47 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 4:50:51 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:50:51 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:51:00 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:51:10 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:51:11 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:51:11 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:51:12 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:51:12 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:51:19 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:53:18 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:53:18 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:53:19 PM)	 [\\kangaroo] located.
+(6/1/2002, 4:53:19 PM)	 [\\kangaroo] located.
+(6/1/2002, 4:53:20 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:53:20 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:53:21 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:53:21 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:54:11 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:54:11 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:54:11 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:54:25 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:54:32 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 4:54:32 PM)	 [7] outstanding Locator references (+1).
+(6/1/2002, 4:54:32 PM)	 [8] outstanding Locator references (+1).
+(6/1/2002, 4:54:32 PM)	 [9] outstanding Locator references (+1).
+(6/1/2002, 4:55:54 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:55:54 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 4:55:54 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:54 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:54 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:55 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:55 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:56 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:56 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:58 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:58 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:55:58 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:56:00 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:56:00 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 4:56:00 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 5:00:33 PM)	 [8] outstanding Locator references (-1).
+(6/1/2002, 5:00:33 PM)	 [7] outstanding Locator references (-1).
+(6/1/2002, 5:00:33 PM)	 [6] outstanding Locator references (-1).
+(6/1/2002, 5:00:33 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 5:01:07 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:01:07 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:01:07 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:01:07 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:01:07 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:41 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 5:08:41 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 5:08:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:42 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:49 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 5:08:49 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:49 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 5:08:49 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 5:08:51 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:52 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:52 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:59 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 5:08:59 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:08:59 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 5:08:59 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 5:10:55 PM)	 [\\kangaroo] located.
+(6/1/2002, 5:10:56 PM)	 [\\kangaroo] located.
+(6/1/2002, 5:10:56 PM)	 [\\kangaroo] located.
+(6/1/2002, 5:10:56 PM)	 [\\kangaroo] located.
+(6/1/2002, 5:10:56 PM)	 [\\kangaroo] located.
+(6/1/2002, 5:26:41 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:26:41 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:26:41 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:26:41 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:26:41 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:26:45 PM)	 [\\kangaroo\woo\woo] NOT located.
+(6/1/2002, 5:26:45 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 5:26:45 PM)	 [\\Kangaroo\woo\woo] registered.
+(6/1/2002, 5:26:45 PM)	 [\\kangaroo\woo\woo\sm] NOT located.
+(6/1/2002, 5:26:45 PM)	 [\\kangaroo\woo\woo] located.
+(6/1/2002, 5:26:45 PM)	 [\\Kangaroo\woo\woo\sm] registered.
+(6/1/2002, 5:26:50 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 5:36:49 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 5:36:49 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 5:36:49 PM)	 [7] outstanding Locator references (+1).
+(6/1/2002, 5:36:49 PM)	 [8] outstanding Locator references (+1).
+(6/1/2002, 5:37:21 PM)	 [9] outstanding Locator references (+1).
+(6/1/2002, 5:37:21 PM)	 [10] outstanding Locator references (+1).
+(6/1/2002, 5:37:21 PM)	 [11] outstanding Locator references (+1).
+(6/1/2002, 5:37:21 PM)	 [12] outstanding Locator references (+1).
+(6/1/2002, 5:39:10 PM)	 [13] outstanding Locator references (+1).
+(6/1/2002, 5:39:10 PM)	 [14] outstanding Locator references (+1).
+(6/1/2002, 5:39:10 PM)	 [15] outstanding Locator references (+1).
+(6/1/2002, 5:39:10 PM)	 [16] outstanding Locator references (+1).
+(6/1/2002, 5:39:37 PM)	 [17] outstanding Locator references (+1).
+(6/1/2002, 5:39:37 PM)	 [18] outstanding Locator references (+1).
+(6/1/2002, 5:39:37 PM)	 [19] outstanding Locator references (+1).
+(6/1/2002, 5:39:37 PM)	 [20] outstanding Locator references (+1).
+(6/1/2002, 5:39:49 PM)	 [21] outstanding Locator references (+1).
+(6/1/2002, 5:39:49 PM)	 [22] outstanding Locator references (+1).
+(6/1/2002, 5:39:49 PM)	 [23] outstanding Locator references (+1).
+(6/1/2002, 5:39:49 PM)	 [24] outstanding Locator references (+1).
+(6/1/2002, 5:40:41 PM)	 [23] outstanding Locator references (-1).
+(6/1/2002, 5:40:41 PM)	 [22] outstanding Locator references (-1).
+(6/1/2002, 5:40:41 PM)	 [21] outstanding Locator references (-1).
+(6/1/2002, 5:40:41 PM)	 [20] outstanding Locator references (-1).
+(6/1/2002, 5:41:00 PM)	 [21] outstanding Locator references (+1).
+(6/1/2002, 5:41:00 PM)	 [22] outstanding Locator references (+1).
+(6/1/2002, 5:41:00 PM)	 [23] outstanding Locator references (+1).
+(6/1/2002, 5:41:00 PM)	 [24] outstanding Locator references (+1).
+(6/1/2002, 5:41:16 PM)	 [23] outstanding Locator references (-1).
+(6/1/2002, 5:41:16 PM)	 [22] outstanding Locator references (-1).
+(6/1/2002, 5:41:16 PM)	 [21] outstanding Locator references (-1).
+(6/1/2002, 5:41:16 PM)	 [20] outstanding Locator references (-1).
+(6/1/2002, 5:41:31 PM)	 [21] outstanding Locator references (+1).
+(6/1/2002, 5:41:31 PM)	 [22] outstanding Locator references (+1).
+(6/1/2002, 5:41:31 PM)	 [23] outstanding Locator references (+1).
+(6/1/2002, 5:41:31 PM)	 [24] outstanding Locator references (+1).
+(6/1/2002, 5:42:49 PM)	 [23] outstanding Locator references (-1).
+(6/1/2002, 5:42:49 PM)	 [22] outstanding Locator references (-1).
+(6/1/2002, 5:42:49 PM)	 [21] outstanding Locator references (-1).
+(6/1/2002, 5:42:49 PM)	 [20] outstanding Locator references (-1).
+(6/1/2002, 5:43:22 PM)	 [19] outstanding Locator references (-1).
+(6/1/2002, 5:44:50 PM)	 [20] outstanding Locator references (+1).
+(6/1/2002, 5:44:50 PM)	 [21] outstanding Locator references (+1).
+(6/1/2002, 5:44:50 PM)	 [22] outstanding Locator references (+1).
+(6/1/2002, 5:44:50 PM)	 [23] outstanding Locator references (+1).
+(6/1/2002, 5:45:09 PM)	 [22] outstanding Locator references (-1).
+(6/1/2002, 5:45:09 PM)	 [21] outstanding Locator references (-1).
+(6/1/2002, 5:45:09 PM)	 [20] outstanding Locator references (-1).
+(6/1/2002, 5:45:09 PM)	 [19] outstanding Locator references (-1).
+(6/1/2002, 5:45:38 PM)	 [18] outstanding Locator references (-1).
+(6/1/2002, 5:45:38 PM)	 [17] outstanding Locator references (-1).
+(6/1/2002, 5:45:38 PM)	 [16] outstanding Locator references (-1).
+(6/1/2002, 5:45:40 PM)	 [17] outstanding Locator references (+1).
+(6/1/2002, 5:45:40 PM)	 [18] outstanding Locator references (+1).
+(6/1/2002, 5:45:40 PM)	 [19] outstanding Locator references (+1).
+(6/1/2002, 5:45:40 PM)	 [20] outstanding Locator references (+1).
+(6/1/2002, 5:47:32 PM)	 [19] outstanding Locator references (-1).
+(6/1/2002, 5:47:55 PM)	 [20] outstanding Locator references (+1).
+(6/1/2002, 5:47:55 PM)	 [21] outstanding Locator references (+1).
+(6/1/2002, 5:47:55 PM)	 [22] outstanding Locator references (+1).
+(6/1/2002, 5:47:55 PM)	 [23] outstanding Locator references (+1).
+(6/1/2002, 5:48:50 PM)	 [22] outstanding Locator references (-1).
+(6/1/2002, 5:48:50 PM)	 [21] outstanding Locator references (-1).
+(6/1/2002, 5:48:50 PM)	 [20] outstanding Locator references (-1).
+(6/1/2002, 5:49:22 PM)	 [19] outstanding Locator references (-1).
+(6/1/2002, 5:49:22 PM)	 [18] outstanding Locator references (-1).
+(6/1/2002, 5:49:22 PM)	 [17] outstanding Locator references (-1).
+(6/1/2002, 5:49:22 PM)	 [16] outstanding Locator references (-1).
+(6/1/2002, 5:49:22 PM)	 [15] outstanding Locator references (-1).
+(6/1/2002, 5:53:02 PM)	 [14] outstanding Locator references (-1).
+(6/1/2002, 5:53:02 PM)	 [13] outstanding Locator references (-1).
+(6/1/2002, 5:53:02 PM)	 [12] outstanding Locator references (-1).
+(6/1/2002, 5:53:56 PM)	 [11] outstanding Locator references (-1).
+(6/1/2002, 5:53:56 PM)	 [10] outstanding Locator references (-1).
+(6/1/2002, 5:53:56 PM)	 [9] outstanding Locator references (-1).
+(6/1/2002, 5:54:42 PM)	 [8] outstanding Locator references (-1).
+(6/1/2002, 5:54:42 PM)	 [7] outstanding Locator references (-1).
+(6/1/2002, 5:54:42 PM)	 [6] outstanding Locator references (-1).
+(6/1/2002, 5:54:42 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 5:57:11 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:05:24 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:05:24 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 6:05:25 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:05:25 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:05:34 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:08:53 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:08:53 PM)	 [7] outstanding Locator references (+1).
+(6/1/2002, 6:09:46 PM)	 [6] outstanding Locator references (-1).
+(6/1/2002, 6:09:46 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 6:09:46 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:10:01 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:10:01 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:10:02 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:10:02 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:10:02 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:10:03 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:10:03 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:10:03 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:10:09 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:10:09 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 6:10:11 PM)	 [\\kangaroo\woo\woo] located.
+(6/1/2002, 6:10:11 PM)	 [\\kangaroo\woo\woo] located.
+(6/1/2002, 6:10:12 PM)	 [\\kangaroo\woo\woo\sm] located.
+(6/1/2002, 6:10:13 PM)	 [\\kangaroo\woo\woo\sm] located.
+(6/1/2002, 6:10:13 PM)	 [\\Kangaroo\woo\woo\sm] unregistered.
+(6/1/2002, 6:10:13 PM)	 [\\kangaroo\woo\woo] located.
+(6/1/2002, 6:10:13 PM)	 [\\kangaroo\woo\woo] located.
+(6/1/2002, 6:10:13 PM)	 [\\Kangaroo\woo\woo] unregistered.
+(6/1/2002, 6:10:13 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 6:10:14 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 6:10:14 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:10:15 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 6:10:15 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:10:16 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 6:10:16 PM)	 [\\kangaroo] located.
+(6/1/2002, 6:10:17 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 6:10:17 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:10:17 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 6:10:18 PM)	 [\\kangaroo] located.
+(6/1/2002, 6:10:19 PM)	 [\\kangaroo] located.
+(6/1/2002, 6:10:19 PM)	 [\\kangaroo\woo] located.
+(6/1/2002, 6:10:19 PM)	 [\\kangaroo\woo\sm] located.
+(6/1/2002, 6:10:23 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 6:10:23 PM)	 [7] outstanding Locator references (+1).
+(6/1/2002, 6:10:23 PM)	 [8] outstanding Locator references (+1).
+(6/1/2002, 6:10:23 PM)	 [9] outstanding Locator references (+1).
+(6/1/2002, 6:10:27 PM)	 [8] outstanding Locator references (-1).
+(6/1/2002, 6:10:27 PM)	 [7] outstanding Locator references (-1).
+(6/1/2002, 6:10:27 PM)	 [6] outstanding Locator references (-1).
+(6/1/2002, 6:10:27 PM)	 [5] outstanding Locator references (-1).
+(6/1/2002, 6:10:32 PM)	 [4] outstanding Locator references (-1).
+(6/1/2002, 6:10:32 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 6:30:19 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 6:30:19 PM)	 [3] outstanding Locator references (-1).
+(6/1/2002, 6:34:19 PM)	 [4] outstanding Locator references (+1).
+(6/1/2002, 6:34:19 PM)	 [5] outstanding Locator references (+1).
+(6/1/2002, 6:34:19 PM)	 [6] outstanding Locator references (+1).
+(6/1/2002, 6:34:19 PM)	 [7] outstanding Locator references (+1).

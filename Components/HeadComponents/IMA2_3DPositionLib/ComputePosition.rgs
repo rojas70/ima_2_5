@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_3DPositionLib.ComputePosition.1 = s 'ComputePosition Class'
+	{
+		CLSID = s '{152A576E-B530-4321-9D15-CCE50BA2566F}'
+	}
+	IMA2_3DPositionLib.ComputePosition = s 'ComputePosition Class'
+	{
+		CLSID = s '{152A576E-B530-4321-9D15-CCE50BA2566F}'
+		CurVer = s 'IMA2_3DPositionLib.ComputePosition.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {152A576E-B530-4321-9D15-CCE50BA2566F} = s 'ComputePosition Class'
+		{
+			ProgID = s 'IMA2_3DPositionLib.ComputePosition.1'
+			VersionIndependentProgID = s 'IMA2_3DPositionLib.ComputePosition'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{152A576E-B530-4321-9D15-CCE50BA2566F}'
+			
+		}
+	}
+}

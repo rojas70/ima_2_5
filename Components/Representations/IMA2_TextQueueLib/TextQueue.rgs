@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_TextQueueLib.TextQueue.1 = s 'TextQueue Class'
+	{
+		CLSID = s '{65D465D7-FE9B-4972-B460-8BDEF913F790}'
+	}
+	IMA2_TextQueueLib.TextQueue = s 'TextQueue Class'
+	{
+		CLSID = s '{65D465D7-FE9B-4972-B460-8BDEF913F790}'
+		CurVer = s 'IMA2_TextQueueLib.TextQueue.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {65D465D7-FE9B-4972-B460-8BDEF913F790} = s 'TextQueue Class'
+		{
+			ProgID = s 'IMA2_TextQueueLib.TextQueue.1'
+			VersionIndependentProgID = s 'IMA2_TextQueueLib.TextQueue'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{14E7DF59-7A6D-4DBE-9842-37E5B9D03D58}'
+		}
+	}
+}

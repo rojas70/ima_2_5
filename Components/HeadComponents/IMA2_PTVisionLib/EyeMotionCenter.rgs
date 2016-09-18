@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_PTVisionLib.EyeMotionCenter.1 = s 'EyeMotionCenter Class'
+	{
+		CLSID = s '{ED3A5186-5F85-4EF1-BD31-20CA54C54632}'
+	}
+	IMA2_PTVisionLib.EyeMotionCenter = s 'EyeMotionCenter Class'
+	{
+		CLSID = s '{ED3A5186-5F85-4EF1-BD31-20CA54C54632}'
+		CurVer = s 'IMA2_PTVisionLib.EyeMotionCenter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {ED3A5186-5F85-4EF1-BD31-20CA54C54632} = s 'EyeMotionCenter Class'
+		{
+			ProgID = s 'IMA2_PTVisionLib.EyeMotionCenter.1'
+			VersionIndependentProgID = s 'IMA2_PTVisionLib.EyeMotionCenter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{D835AB70-870C-4B1A-8E1F-93F149F6D4FA}'
+		}
+	}
+}

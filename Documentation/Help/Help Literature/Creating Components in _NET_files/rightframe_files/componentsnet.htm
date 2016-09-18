@@ -1,0 +1,1177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0082)http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true -->
+<!--TOOLBAR_EXEMPT--><HTML xmlns:tool = 
+"http://www.microsoft.com/tooltip"><HEAD><TITLE>Creating Components in .NET (.NET Development (General) Technical Articles)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="Learn about the components that you will build in Microsoft .NET, which are based on object-oriented programming principles and go beyond the simple classes used in other applications. (25 printed pages)" 
+name=Description>
+<META content="" name=Robots>
+<META content="" name=Keywords>
+<META content=en-us name=MS.LOCALE><LINK href="componentsnet_files/ie4.css" 
+type=text/css rel=stylesheet><LINK href="componentsnet_files/ie5.css" 
+type=text/css rel=stylesheet>
+<STYLE>BODY {
+	MARGIN: 0px; FONT-FAMILY: verdana,arial,helvetica
+}
+</STYLE>
+
+<SCRIPT language=javascript src="componentsnet_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="componentsnet_files/Broker.js"></SCRIPT>
+<LINK href="componentsnet_files/default.css" type=text/css rel=stylesheet><LINK 
+href="componentsnet_files/ie.css" type=text/css rel=stylesheet>
+<SCRIPT language=JavaScript><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+
+		this.bot = false;
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.1; SV1";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT>
+
+<SCRIPT>
+	if( self == top )
+{
+	location = "/library/en-us/dndotnet/html/componentsnet.asp";
+}
+
+</SCRIPT>
+<xml id=xmlPageContext><eyebrow findmenu="false">
+	<item label="MSDN Home" url="/default.asp"/>
+	<item label="MSDN Library" url="/library/default.asp"/>
+	<item label=".NET Development" url="/library/en-us/dnanchor/html/netdevanchor.asp" id="msdnlib462" xmlsrc="/library/en-us/toc/msdnlib/msdnlib462_.xml"/><item label="Articles and Overviews" id="msdnlib468" xmlsrc="/library/en-us/toc/msdnlib/msdnlib468_.xml"/><item label="Upgrading to Microsoft .NET" url="/library/en-us/dndotnet/html/upgradingtodotnet.asp" id="dndotnet224" xmlsrc="/library/en-us/toc/dndotnet/dndotnet224_.xml"/><item label="Creating Components in .NET" url="/library/en-us/dndotnet/html/componentsnet.asp" id="dndotnet233"/></eyebrow></xml>
+<SCRIPT>
+var sContentID = "_802551"; 
+ </SCRIPT>
+<!--VENUS_START-->
+<META content="Creating Components in .NET" name=MSHTOCTitle>
+<META content="Creating Components in .NET" name=MSHRLTitle>
+<META content=componentsnet name=MSHKeywordA>
+<META content=".NET development, upgrading to .NET" name=MSHKeywordK>
+<META content=".NET Framework, creating components" name=MSHKeywordK>
+<META content="components [.NET Framework], creating" name=MSHKeywordK>
+<META content=componentsnet name=MSHKeywordA>
+<META content=DevLang:VB name=MSHAttr>
+<META content=DevLangVers:kbLangVB name=MSHAttr>
+<META content=DocSet:kbmsdn name=MSHAttr>
+<META content=Locale:kbEnglish name=MSHAttr>
+<META content=Product:VS name=MSHAttr>
+<META content=ProductVers:kbvsnet name=MSHAttr>
+<META content=TargetCPU:kbx86 name=MSHAttr>
+<META content=TargetOS:Windows name=MSHAttr>
+<META content=TargetOSVers:kbWinOS name=MSHAttr>
+<META content=Technology:kbNetFramewk name=MSHAttr>
+<META content=TechnologyVers:kbNetFramewk name=MSHAttr>
+<META content=TopicType:kbArticle name=MSHAttr><!---VENUS_END---><LINK 
+href="componentsnet_files/css.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript>
+var doImage=doImage;var TType=TType;
+function mhHover(tbl,idx,cls){var t,d;if(document.getElementById)t=document.getElementById(tbl);else t=document.all(tbl);if(t==null)return;if(t.getElementsByTagName)d=t.getElementsByTagName("TD");else d=t.all.tags("TD");if(d==null)return;if(d.length<=idx)return;d[idx].className=cls;}
+function footerjs(doc){if(doImage==null){var tt=TType==null?"PV":TType;doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.asp?source=msdn&TYPE=' + tt + '&p=library_en-us_dndotnet_html&URI=%2flibrary%2ftoolbar%2f3.0%2fasp.aspx%3fmode%3dhead%26c%3d%2fnonlibraryshell.config%26h%3dmsdn%252Emicrosoft%252Ecom%26u%3d%252Flibrary%252Fen%252Dus%252Fdndotnet%252Fhtml%252Fcomponentsnet%252Easp%26r%3dhttp%253A%252F%252Fmsdn%252Emicrosoft%252Ecom%252Flibrary%252Fshared%252Fdeeptree%252Fasp%252Frightframe%252Easp%253Fdtcfg%253D%252Flibrary%252Fdeeptreeconfig%252Exml%2526url%253D%252Flibrary%252Fen%252Dus%252Fdndotnet%252Fhtml%252Fcomponentsnet%252Easp%253Fframe%253Dtrue%2526hidetoc%253Dfalse&GUID=1F4FC18C-F71E-47FB-8FC9-612F8EE59C61&r=http%3a%2f%2fmsdn.microsoft.com%2flibrary%2fshared%2fdeeptree%2fasp%2frightframe.asp%3fdtcfg%3d%2flibrary%2fdeeptreeconfig.xml%26url%3d%2flibrary%2fen-us%2fdndotnet%2fhtml%2fcomponentsnet.asp%3fframe%3dtrue%26hidetoc%3dfalse" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>');}}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2668" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0">
+<TABLE height=24 cellSpacing=0 cellPadding=4 width="100%" bgColor=#ffffff 
+border=0>
+  <TBODY>
+  <TR>
+    <TD class=eyebrow vAlign=center align=left width="100%">&nbsp;&nbsp; <A 
+      class=small href="http://msdn.microsoft.com/default.asp" target=_top>MSDN 
+      Home</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp" target=_top>MSDN 
+      Library</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/netdevanchor.asp" 
+      target=_top>.NET Development</A>&nbsp;&gt;&nbsp; <A class=small 
+      href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndotnet/html/upgradingtodotnet.asp" 
+      target=_top>Upgrading to Microsoft .NET</A><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/"></A> 
+  </TD></TR></TBODY></TABLE>
+<TABLE class=clsContainer style="TABLE-LAYOUT: fixed" cellSpacing=0 
+cellPadding=15 width="100%" border=0 float="left">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=clsPartContainer id=topTable 
+      style="FLOAT: right; MARGIN-LEFT: 8px; MARGIN-RIGHT: 6px" cellSpacing=0 
+      cellPadding=0 width=145 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!-- Page Options web part Start -->
+            <TABLE class=clsPart id=BF309568-1CD4-4c9c-A46E-BB1CA97E0C97 
+            cellSpacing=0 cellPadding=0 width=145 border=0>
+              <TBODY>
+              <TR>
+                <TD class=clsPartHead vAlign=center align=left width=15 
+                height=19><IMG class=clsPartHead height=19 
+                  src="componentsnet_files/gripblue.gif" width=15 
+                  align=absMiddle> </TD>
+                <TD class=clsPartHead vAlign=center align=middle width=115><B 
+                  class=clsPartHead>Page Options</B> </TD>
+                <TD class=clsPartRight vAlign=center align=right width=25 
+                height=19><IMG class=clsMinimize height=19 
+                  src="componentsnet_files/downlevel.gif" width=25 
+                  align=absMiddle> </TD></TR>
+              <TR>
+                <TD colSpan=3>
+                  <TABLE id=Table1 cellSpacing=0 cellPadding=0 width="100%" 
+                  bgColor=#ffffff border=0>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top width=1 bgColor=#6699cc>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD>
+                      <TD vAlign=top width=145 bgColor=#f1f1f1><IFRAME 
+                        id=frmRatingsOptions 
+                        src="componentsnet_files/ratings.htm" frameBorder=0 
+                        width="100%" scrolling=no height=130></IFRAME></TD>
+                      <TD vAlign=top width=1 bgColor=#6699cc>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD></TR>
+                    <TR>
+                      <TD vAlign=top bgColor=#6699cc colSpan=3 height=1>
+                        <DIV 
+                        style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 1px; PADDING-TOP: 0px"></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- Page Options web part end -->
+            <DIV class=storeUserData id=oLayout></DIV></TD></TR></TBODY></TABLE><!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END--><!-- Begin Content --><!--NONSCROLLING BANNER START-->
+      <DIV id=nsbanner>
+      <DIV id=TitleRow>
+      <H1 class=dtH1><A name=componentsnet></A>Creating Components in .NET</H1>
+      <H3 class=dtH1>Upgrading to Microsoft .NET </H3></DIV></DIV><!--NONSCROLLING BANNER END-->
+      <DIV id=nstext valign="bottom">&nbsp; 
+      <P>Michael Groh<BR>PC Productivity Solutions</P>
+      <P>February 2002</P>
+      <P><B class=le>Summary:</B> Discusses the components you build in 
+      Microsoft .NET, which are based on object-oriented programming principles 
+      and go beyond the simple classes used in other applications. (25 printed 
+      pages)</P>
+      <H4 class=dtH1>Objectives</H4>
+      <UL type=disc>
+        <LI>Understand the Microsoft® .NET component architecture 
+        <LI>Learn how to build .NET components 
+        <LI>Create both an in-process component and an out-of-process component 
+        in Microsoft Visual Basic® .NET 
+        <LI>Understand how .NET objects expose an interface </LI></UL>
+      <H4 class=dtH1>Assumptions</H4>
+      <UL type=disc>
+        <LI>You have written applications is some version of Visual Basic 
+        <LI>You understand basic object-oriented programming (OOP) concepts 
+        <LI>You know how to build classes in .NET 
+        <LI>You are familiar with the concept of a DLL 
+        <LI>You are familiar with the concept of a Web service </LI></UL>
+      <H4 class=dtH1>Contents</H4>
+      <P><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic1" 
+      target=_self>Understanding .NET Components</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic2" 
+      target=_self>.NET Classes and Components</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic3" 
+      target=_self>Implementing Error Handling</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic4" 
+      target=_self>Using Multiple Visual Basic Projects in the Visual Studio 
+      .NET Environment</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic5" 
+      target=_self>Adding a Constructor to the Component</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic6" 
+      target=_self>Updating the Assembly Information</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic7" 
+      target=_self>Specifying a Namespace</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic8" 
+      target=_self>Using COM Components with Visual Basic .NET</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic9" 
+      target=_self>What's Different From Visual Basic 6.0?</A><BR><A 
+      href="http://msdn.microsoft.com/library/en-us/dndotnet/html/componentsnet.asp?frame=true#componentsnet_topic10" 
+      target=_self>Summary</A></P>
+      <H2 class=dtH1><A name=componentsnet_topic1></A>Understanding .NET 
+      Components</H2>
+      <P>Microsoft .NET applications are built from components. All .NET objects 
+      expose important attributes, such as properties, methods, and events. 
+      These attributes form the foundation of object-oriented programming.</P>
+      <P>As the architect of Visual Basic .NET objects, you are also responsible 
+      for implementing the interface (that is, the properties, methods, and 
+      events) necessary for other programmers to use your application's 
+      services. Much of your development time will be spent designing objects 
+      and writing the code defining the objects and components exposed and used 
+      by your applications.</P>
+      <P>Typically, simple .NET object-oriented programming involves creating a 
+      class, adding the properties, methods, and events required by the class, 
+      and including the class in various applications. Component-based 
+      development takes this basic concept to a higher level. Although the 
+      components you build in .NET are based on object-oriented programming 
+      principles, they go beyond the simple classes you might use in multiple 
+      applications. </P>
+      <H3 class=dtH1>So What Is a .NET Component?</H3>
+      <P>A component is a special type of executable built from a .NET project. 
+      After compilation the component is typically referenced by applications 
+      needing the services provided by the component. In many .NET Web 
+      environments, components run on the Web server and provide data and other 
+      services (such as security, communications, and graphics) to the Web 
+      Services operating on the server. In a Windows Form application a .NET 
+      component performs the same role as on a Web server, but on a reduced 
+      scale. </P>
+      <P>.NET components provide a programmable interface that is accessed by 
+      consumer applications (often called <I>client applications</I>). The 
+      component interface consists of a number of properties, methods, and 
+      events that are exposed by the classes contained within the component. In 
+      other words, a component is a compiled set of classes that support the 
+      services provided by the component. The classes expose their services 
+      through the properties, methods, and events that comprise the component's 
+      interface.</P>
+      <P>Simple .NET object-oriented programming involves not much more than 
+      creating a class, adding the properties, methods, and events required by 
+      the class, and including the class in different applications. A .NET 
+      component, however, is a pre-compiled class module with a .DLL 
+      (dynamically-linked library) extension. At run time, a .NET component is 
+      invoked and loaded into memory to be used by some consumer application. 
+      These .NET components are most often built and tested as independent .NET 
+      projects and are not necessarily part of another project. After 
+      compilation into a .NET DLL, these components can be added to many .NET 
+      applications as plug-in service providers. </P>
+      <P>Each .NET DLL component may contain multiple classes. This means that 
+      each DLL may expose a single class or a variety of classes. For instance, 
+      if you build a .NET DLL that supports remote data access, the DLL might 
+      need to expose separate classes for the database and for the variety of 
+      DataSets also produced by the DLL. Or, you may have a single DLL that 
+      supports error handling in your applications. In this case, the DLL 
+      exposes a single ErrorHandler class that performs all of the error 
+      handling required by consumer applications. </P>
+      <BLOCKQUOTE class=dtBlock><B>Note&nbsp;&nbsp;&nbsp;</B>For more 
+        information about defining what a component is, because the term is 
+        sometimes used loosely to mean different things, refer to the other 
+        articles in the <A 
+        href="http://msdn.microsoft.com/library/en-us/dndotnet/html/upgradingtodotnet.asp">Upgrading 
+        to .NET</A> series on MSDN.</BLOCKQUOTE>
+      <H3 class=dtH1>What Does It Mean for a Component to Run in a Process?</H3>
+      <P>All Microsoft Windows® applications run in the computer's memory, and 
+      use the computer's resources such as disk space, networking services, and 
+      graphics capabilities. Windows is a multi-tasking operating system, which 
+      simply means that multiple applications simultaneously share the 
+      computer's memory and other resources. </P>
+      <P>Windows manages each application, and the memory required to run that 
+      application, as a <I>process</I>. The memory occupied by a Windows 
+      application and its data is referred to as the application's <I>process 
+      space</I>. Among the important jobs performed by Windows are making sure 
+      that the process spaces occupied by applications do no overlap, and 
+      providing memory to each process as needed. </P>
+      <P>Under certain circumstances, Windows may allow process space to be 
+      shared among a number of applications. This is particularly true in the 
+      case of data or services (such as networking services) that must be shared 
+      between applications. Other times the memory occupied by an application is 
+      owned solely by the EXE running in that process space.</P>
+      <P>Many applications such as Microsoft Word and Microsoft Excel support 
+      dozens or hundreds of different features. Rather than distribute these 
+      application as very large single files, Microsoft has broken the basic 
+      functions supported by Word and Excel into multiple executables. The main 
+      program ends with an .EXE extension, while most of the other executable 
+      portions are files ending in .DLL. </P>
+      <P>When Word or Excel needs the functionality (perhaps a spell checker, or 
+      recalculation engine) contained within a DLL, Windows loads the DLL into 
+      the process space occupied by the main application. Windows then manages 
+      the main program and the executable code contained within the DLL as a 
+      single process. A DLL is called an <I>in-process</I> resource because it 
+      executes within the process space occupied by another application.</P>
+      <P>There are other situations where resources are not loaded in-process. 
+      For instance, when Word needs to print a document, Word issues a request 
+      to Windows to load a particular printer driver. That same printer driver 
+      may be needed by other applications, so Windows loads the driver as an 
+      <I>out-of-process</I> service so that more than one application can access 
+      the driver. This also means that Windows does not have to load multiple 
+      copies of the driver into memory.</P>
+      <H3 class=dtH1>In-Process Components</H3>
+      <P>In .NET, components built as DLLs run within the process space of the 
+      host application and share memory and processor time with their host 
+      applications. At run time, the component (which is part of the host 
+      application's assembly and is referenced by its manifest) is loaded from 
+      disk and added to the host application's process space. Because no remote 
+      procedure calls are generated to mediate communication between the 
+      component and its host, setting and reading property values, invoking 
+      methods, and responding to events raised by the component occurs very 
+      quickly. </P>
+      <H3 class=dtH1>Out-of-Process Components</H3>
+      <P>An alternate architecture involves server applications that run as 
+      independent processes outside of the client application process space. 
+      These server applications usually (but not always) have an EXE file name 
+      extension. When Windows loads an out-of-process component, a separate 
+      process space is created for the component, and Windows manages the 
+      out-of-process component's resource requirements independently of the 
+      client application. Windows mediates the dialog between the server 
+      application (that is, the component) and the client (the consumer) by 
+      passing messages between them. </P>
+      <H3 class=dtH1>Differences Between Running Components In-Process vs. 
+      Out-of-Process in Visual Basic 6.0 Compared to Visual Basic .NET</H3>
+      <P>There are several significant differences between in-process and 
+      out-of-process application architecture: 
+      <UL type=disc>
+        <LI>In-process applications tend to run faster because remote procedure 
+        calls are not necessary. The client application has direct access to the 
+        component without Windows mediating the dialog. 
+        <LI>Out-of-process applications may, in some cases, prove to be more 
+        stable than applications built from in-process components. If an 
+        out-of-process component crashes, it does not take the consumer 
+        application with it. More often than not, if an in-process component 
+        stops running, its consumer also crashes. 
+        <LI>Out-of-process components are more easily shared among a number of 
+        consumer applications. When compiled as sharable resources, Windows 
+        loads a single copy of an out-of-process component and makes it 
+        available to as many consumers as request it. Serious performance 
+        degradation can occur, however, if the component is simultaneously 
+        requested by a large number of consumers. </LI></UL>
+      <H2 class=dtH1><A name=componentsnet_topic2></A>.NET Classes and 
+      Components</H2>
+      <P>Although the example you're about to build is not particularly 
+      sophisticated, it effectively demonstrates most of the principles of class 
+      and component development in .NET. First, you will build a simple .NET 
+      class. Once you have built the class, you will use the same code to build 
+      a component and include the component in a small .NET application. </P>
+      <P>A typical requirement of distributed database systems is to synchronize 
+      and reconcile updates performed at remote locations. In a .NET-hosted 
+      database application, the same record may be updated at multiple sites and 
+      submitted to the server for storage. Or, similar records may be created at 
+      multiple sites and sent to the server for processing. In such cases, it 
+      may be important to know exactly when each record was updated or created 
+      so that newer records may be treated differently than older records. </P>
+      <P>In most such cases, the application assigns a timestamp to database 
+      records as the data is modified or added. The server can compare the 
+      timestamp on one record with the timestamp on another record and process 
+      the records accordingly. However, when the data has been updated in 
+      different time zones, it is important to use an appropriate base time for 
+      the timestamps. This is often done by using the server computer's time as 
+      the timestamp rather than the local time for the data entry.</P>
+      <P>This is an ideal use of a .NET component. The .NET server can expose 
+      its time as a Web Service component that can be read and used by any 
+      consumer application. Providing the server time component as a Web Service 
+      helps reconcile data changes occurring at geographically distant 
+      locations. </P>
+      <P>One major difference between Visual Basic 6.0 classes and .NET classes 
+      is that each Visual Basic 6.0 class module (file) contains one and only 
+      one class. This means that a project exposing a lot of different classes 
+      contains a lot of different class modules (files).</P>
+      <P>In .NET, a class can be created just about anywhere in your code. This 
+      means that a file in a .NET application can contain one or many classes. 
+      Each class in a .NET code module is defined by a Public Class..End Class 
+      code block within the module. </P>
+      <P>This architecture makes it easy to segment the classes developed within 
+      a .NET project into logical groups. As an example, in the data access 
+      component described earlier, you might choose to put all of the basic data 
+      access classes (such as identifying and logging into the database) into 
+      one module and all of the DataSet creation and manipulation into a second 
+      module. In this scenario, because each module supports multiple classes, 
+      project management is easier than having a large number of modules, each 
+      containing a single class.</P>
+      <P>The timestamp example, however, is a bit different. All that's needed 
+      in this case is for the .NET server to expose its internal date and time 
+      as properties of a component. It's unlikely you'd split the code for such 
+      a simple component across multiple class modules.</P>
+      <H3 class=dtH1>Creating a Class</H3>
+      <P>Follow these steps to build a simple class module that returns the host 
+      computer's date and time: 
+      <OL type=1>
+        <LI>Start Visual Studio .NET and open a new Windows Application project. 
+
+        <LI>Ignoring the default Windows Form in the project, on the 
+        <B>Project</B> menu, click <B>Add Class</B> to add a new file to the 
+        project. 
+        <LI>Change the name of the generated Public Class from Class1 to 
+        ServerTime. 
+        <LI>Enter the following code to define the ServerTime class. <PRE class=code>Public Class ServerTime
+  Private mdtTime As DateTime
+
+  ReadOnly Property TimeStamp() As String
+    Get
+      mdtTime = Now()
+
+      Return CStr(mdtTime)
+    End Get
+  End Property
+End Class</PRE></LI></OL>
+      <P>The private variable named mdtTime is not entirely necessary in this 
+      class; you could simply return the current date and time without first 
+      assigning it to the mdtTime variable. But, because programming projects so 
+      often grow beyond their initial specification, there may be a need in the 
+      future to have a module-level variable shared by multiple properties 
+      and/or methods within the ServerTime class.</P>
+      <P>Next, use the Windows Form that was automatically created in the new 
+      project to test the functioning of the ServerTime class. Follow these 
+      steps to create an object from the ServerTime class and use it in the 
+      Windows Form: 
+      <OL type=1>
+        <LI>Rename the form from Form1 to frmConsumer to emphasize its role as 
+        the consumer of the class module. 
+        <LI>Add a TextBox to the Windows Form and name it txtServerTime. 
+        <LI>Delete the string in the <B>Text</B> property so that it is blank. 
+        <LI>Add a button to the Windows Form and name it btnGetServerTime. 
+        <LI>Set the Text property of this button to <B>Get Server Time</B>. 
+        <LI>Double-click the button to add the following code behind the Windows 
+        Form (continuation characters have been added to the event procedure's 
+        declaration for clarity): <PRE class=code>Private Sub btnGetServerTime_Click( _
+ ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) _
+ Handles btnGetServerTime.Click
+  Dim st As ServerTime
+
+  st = New ServerTime()
+
+  txtServerTime.Text = st.TimeStamp
+End Sub</PRE></LI></OL>
+      <P>Because the ServerTime class is included in this project's assembly, 
+      there is no need to reference it from the consumer form's code module. 
+      .NET is able to locate the ServerTime class and instantiate the st object 
+      variable from the information in the class.</P>
+      <P>When this code has been added to the button's Click event procedure, 
+      the current date and time are written into txtServerTime each time the 
+      button is clicked.</P>
+      <H4 class=dtH1>Try It Out</H4>
+      <P>Test out this application to see if you typed everything in correctly. 
+      <OL type=1>
+        <LI>Press <B>F5</B> to run this application. 
+        <LI>Click <B>Get Server Time</B> and, in the text box, you should see a 
+        <B>Date</B> and <B>Time</B>. </LI></OL>
+      <H3 class=dtH1>Creating the Component</H3>
+      <P>In the previous section, you created a simple class module that returns 
+      the current date and time, and tested the class module in a .NET Windows 
+      Form. Follow these steps to build a .NET DLL component from the code you 
+      used in the previous class module example: 
+      <OL type=1>
+        <LI>Start Visual Studio .NET and open a new Class Library project. In 
+        the <B>New Project</B> dialog box, name the project ServerTime. 
+        <LI>Change the name of the class from Class1 to ServerTime. 
+        <LI>Either copy the code out of the ServerTime class module you created 
+        in the previous example into the new ServerTime class module, or enter 
+        the following code into the new ServerTime class module: <PRE class=code>Public Class ServerTime
+  Private mdtTime As DateTime
+
+  ReadOnly Property TimeStamp() As String
+    Get
+      mdtTime = Now()
+
+      Return CStr(mdtTime)
+    End Get
+  End Property
+End Class</PRE></LI></OL>
+      <P>You will now compile this ServerTimer class as a DLL by clicking 
+      <B>Build</B> on the <B>Debug</B> menu or by using the <B>Ctrl+Shift+B</B> 
+      keystroke combination.</P>
+      <P>The DLL that results from the build command is placed into the \bin 
+      directory immediately below your .NET project directory. By default, the 
+      DLL has the same name as your component project. For instance, if you 
+      named the project TimeStamp in the New Project dialog, the DLL produced by 
+      your project will be named TimeStamp.DLL. This name is also the default 
+      Namespace name for the classes contained within the project. </P>
+      <P>If you followed the steps in this document, your project is named 
+      ServerTime. You also named the only class within the project ServerTime. 
+      Therefore, your DLL name will be ServerTime.DLL and consumer applications 
+      of this DLL will reference ServerTime.ServerTime to create an object of 
+      this class.</P>
+      <H3 class=dtH1>Create a DLL Consumer Application</H3>
+      <P>Once the DLL project has been compiled, its services are available to 
+      any Windows Form or WebForm .NET application. In this section, you will 
+      build a simple Windows Form consumer application that uses the ServerTime 
+      class to retrieve the computer's date and time.</P>
+      <P>Follow these steps to create the consumer application: 
+      <OL type=1>
+        <LI>Start Visual Studio .NET, select Windows Application as the new 
+        project type, and name the project DLLConsumer1. 
+        <LI>Set the Name property of the default Windows Form to frmConsumer. 
+        <LI>Add a button control to the default Windows Form and name it 
+        btnGetServerTime. 
+        <LI>Add a TextBox to the form and name it txtServerTime. </LI></OL>
+      <P>You need to set a reference to the ServerTime DLL so that this form 
+      will be able to consume the components services. Do this by following the 
+      steps below. 
+      <OL type=1>
+        <LI>To open the <B>Add Reference</B> dialog box as shown in Figure 1, on 
+        the <B>Project</B> menu, click <B>Add Reference</B>. 
+        <P class=fig1><IMG alt="" src="componentsnet_files/componentsnet01.gif" 
+        border=0> 
+        <P class=label><B>Figure 1. The .NET tab in the Add Reference dialog box 
+        </B></P>
+        <LI>Click the <B>Projects</B> tab and then click <B>Browse</B> to locate 
+        the component DLL built in the preceding section (see Figure 2). 
+        <P class=fig1><IMG alt="" src="componentsnet_files/componentsnet02.gif" 
+        border=0> 
+        <P class=label><B>Figure 2. Selecting a DLL reference</B> </P>
+        <LI>Select the ServerTime.DLL file, click <B>Open</B>, and then click 
+        <B>OK</B>. </LI></OL>
+      <P>The Solution Explorer, as shown in Figure 3, now shows the ServerTime 
+      component added as a reference in your application. What this means is 
+      that all of the classes, along with their properties, methods, and events, 
+      are now available to your consumer application.</P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet03.gif" 
+      border=0></P>
+      <P class=label><B>Figure 3. Solution Explorer showing all current 
+      references</B></P>
+      <P>Add the following code to btnGetServerTime's Click event:</P><PRE class=code>Private Sub btnGetServerTime_Click( _
+ ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) _
+ Handles btnGetServerTime.Click
+  Dim st As ServerTime
+
+  st = New ServerTime()
+
+  txtServerTime.Text = st.TimeStamp
+End Sub</PRE>
+      <P>Notice that this code is identical to the code used earlier to test the 
+      operation of the ServerTime class module. In actual practice, a WebForm or 
+      Windows Form might use the ServerTime.TimeStamp property to update a 
+      timestamp field in a new or updated record in a DataSet object. Assuming 
+      that the ServerTime DLL was actually running on a server computer (whether 
+      LAN- or Web-based) the time returned by the TimeStamp property reflects 
+      the actual time on the server. This means that the local computer could be 
+      in a different time zone or have its time set incorrectly, yet use the 
+      same time base as other computers using the server.</P>
+      <P>An alternate way to write the previous code example is:</P><PRE class=code>Private Sub btnGetServerTime_Click( _
+ ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) _
+ Handles btnGetServerTime.Click
+  Dim st As New ServerTime
+
+  txtServerTime.Text = st.TimeStamp
+End Sub</PRE>
+      <P>In this case, the st object variable is declared and instantiated as a 
+      single step. Some developers routinely declare and instantiate at the same 
+      time to reduce the amount of typing they must do; others prefer to declare 
+      an object and instantiate it only when the object is actually needed by 
+      the application. </P>
+      <P>In most cases, it makes no difference whether you instantiate earlier 
+      or later. In some situations, it makes more sense to instantiate the 
+      object only when it is actually required by the application. For instance, 
+      consider the ServerTime component described in this paper. As the 
+      developer of an application, you may choose to instantiate only after the 
+      user adds or updates information in the database, when you'll need the 
+      correct server time. One of the objectives of distributed applications is 
+      to minimize the number of trips to the server. There's no need to bother 
+      the server by instantiating the ServerTime object until it is actually 
+      needed by the consumer application. </P>
+      <H2 class=dtH1><A name=componentsnet_topic3></A>Implementing Error 
+      Handling</H2>
+      <P>Distributed applications must be very reliable. You cannot allow errors 
+      and problems to bring down server-based applications such as a .NET Web 
+      Service. Because .NET DLLs run within the same process space as their host 
+      applications, an unhandled exception in a .NET DLL can crash the entire 
+      Web Service, disrupting all users working with that Web Service. To make 
+      matters worse, server-side crashes can disrupt the database engine's 
+      activities, leaving records locked or in indeterminate states.</P>
+      <P>For all these reasons, you must add adequate error handling to all of 
+      your .NET components.</P>
+      <P>The following code shows effective error handling added to the 
+      TimeStamp property in the ServerTime class. Notice the use of the Try, 
+      Catch, and End Try statements:</P><PRE class=code>ReadOnly Property TimeStamp() As String
+  Get
+    Try
+      mdtTime = Now()
+      Return CStr(mdtTime)
+    Catch e As Exception
+      'Return the exception to the
+      'consumer for processing:
+      Throw e
+    End Try
+  End Get
+End Property</PRE>
+      <P>The Try..End Try statements wrap all of the property's logic and 
+      provide the error trap required to catch any errors raised by the 
+      property's code. Each property within the class must have its own Try..End 
+      Try block, and should throw an exception back to the consumer application 
+      if something goes wrong. It is then up to the consumer application to 
+      handle the error.</P>
+      <P>A more sophisticated approach to error handling within the SystemTime 
+      component is shown in the following code:</P><PRE class=code>ReadOnly Property TimeStamp() As String
+  Get
+    Try
+      mTime = Now()
+      Return CStr(mTime)
+    Catch e As Exception
+      'Return the exception to the
+      'consumer for processing:
+      Throw e
+    End Try
+  End Get
+End Property</PRE>
+      <P>In this case, the Catch block returns the Exception object (e) to the 
+      consumer application. The Exception object contains information about the 
+      exception that has occurred and may be useful to the consumer 
+      application.</P>
+      <P>Visual Basic .NET error handling is much different than the error 
+      handling in Visual Basic 6.0. The Visual Basic .NET Try..End Try block is 
+      described as "structured error handling" and is a vast improvement over 
+      the Visual Basic 6.0 On Error statement. </P>
+      <P>In Visual Basic 6.0, when an error occurred, processing was 
+      unconditionally redirected to another part of a procedure. This sometimes 
+      made it difficult to exactly determine the path taken by an application 
+      when an exception occurred. The general approach to Visual Basic 6.0 
+      exception handling was not rigorously enforced by the VBA compiler, so 
+      each programmer was pretty much free to adopt their own approach to 
+      handling errors. This resulted in a bewildering variety of error handling 
+      styles in Visual Basic 6.0 projects.</P>
+      <P>In Visual Basic .NET, the exception thrown by the component is captured 
+      by the Try..End Try block in the consumer application, as shown in the 
+      following code:</P><PRE class=code>Private Sub btnGetServerTime_Click( _
+ ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) _
+ Handles btnGetServerTime.Click
+  Dim st As New ServerTime
+  Try
+    txtServerTime.Text = st.TimeStamp
+  Catch e As Exception
+    MessageBox.Show(e.Message)
+  End Try
+End Sub</PRE>
+      <P>This is another way that .NET is different from Visual Basic 6.0. The 
+      components in a .NET application are tightly bound into the logic of the 
+      consumer application, and often you do not have to wait until run time 
+      before seeing problems that arise from the integration of consumer 
+      applications with their components.</P>
+      <P>Although Visual Basic.NET supports the obsolete On Error statement for 
+      backwards compatibility, you should adopt the Try..End Try structured 
+      error handling in your Visual Basic .NET projects. You'll soon find that 
+      adding Try..End Try blocks to your Visual Basic .NET code results in a 
+      much smoother error handling process than the old On Error GoTo statement. 
+      </P>
+      <H2 class=dtH1><A name=componentsnet_topic4></A>Using Multiple Visual 
+      Basic Projects in the Visual Studio .NET Environment</H2>
+      <P>Earlier, you built a consumer application to test the ServerTime class 
+      with both the consumer form and the class located in the same project. 
+      Later, you created a separate consumer application to test the compiled 
+      version of the class that was located in the ServerTime.DLL component. 
+      These various projects can lead to clutter and inefficiency as you develop 
+      .NET components based on the Visual Basic .NET language. In Visual Basic 
+      6.0 you had to jump around among the various consumer and component 
+      projects to see how the code worked together.</P>
+      <P>A more efficient approach is to include a consumer project as part of a 
+      Visual Studio .NET solution. This consolidated project can invoke and run 
+      the component while allowing you to change and recompile the component 
+      project as necessary. Visual Studio .NET supports the concept of a 
+      <I>solution</I> that simultaneously includes two of more projects within 
+      the Visual Studio environment. Each project within the Visual Studio 
+      solution can be edited and compiled separately from the other projects in 
+      the same solution.</P>
+      <BLOCKQUOTE class=dtBlock><B>Note&nbsp;&nbsp;&nbsp;</B>Although not 
+        covered in this document, a .NET solution may include projects written 
+        in different Visual Studio .NET languages such as C# or C++. This makes 
+        it easy to incorporate projects written by a developer with language 
+        skills other than Visual Basic.</BLOCKQUOTE>
+      <H3 class=dtH1>Creating the Consumer Project as Part of Your Solution</H3>
+      <P>Perform these steps to add the consumer project to the component 
+      project's solution: 
+      <OL type=1>
+        <LI>Close the component consumer application if it is still open and 
+        open the DLL component project (which should be named ServerTime). 
+        <LI>To open the <B>Add Existing Project</B> dialog box, on the 
+        <B>File</B> menu, click <B>Add Project</B>, and then click <B>Existing 
+        Project</B> to open the dialog box. 
+        <LI>Use the <B>Add Existing Project</B> dialog box to locate the 
+        consumer project file (which has a .vbproj extension), and then click 
+        <B>Open</B> to add it to the component solution. </LI></OL>
+      <P>After the consumer project has been added, the Solution Explorer 
+      displays both projects as shown in Figure 4. Notice that the ServerTime 
+      project appears in bold and the ClassConsumer project appears as normal 
+      text.</P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet04.gif" 
+      border=0></P>
+      <P class=label><B>Figure 4. Solution Explorer shows all projects contained 
+      in the solution and the start-up project name appears in bold</B></P>
+      <P>The bold text indicates that the ServerTime project is the solution's 
+      start-up project. In fact, if you press <B>F5</B> at this point, you'll 
+      get an error message indicating "A Project with an Output Type of Class 
+      Library cannot be started directly." This simply means that compiled class 
+      libraries (<I>i</I>DLLs) cannot run as independent applications.</P>
+      <P>In the Solution Explorer window, right-click the DLLConsumer1 project 
+      and select <B>Set as Startup Project</B> from the context menu to set it 
+      as the startup project.</P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet05.gif" 
+      border=0></P>
+      <P class=label><B>Figure 5. DLLConsumer1 is the start-up project</B></P>
+      <P>This time when <B>F5</B> is pressed, Visual Studio .NET starts up the 
+      consumer application, which, in turn, references ServerTime.DLL. Keep in 
+      mind that the most recently compiled DLL is loaded by .NET. If you make 
+      changes to the component's code, you must recompile the component before 
+      the consumer application will see the changes. </P>
+      <P>When multiple projects are loaded into Visual Studio .NET, the 
+      <B>Build</B> menu shows separate <B>Build</B> commands for whichever 
+      project is currently selected in the Solution Explorer window, as well as 
+      a <B>Build Solution</B> command that compiles all projects in a single 
+      step (see Figure 6). </P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet06.gif" 
+      border=0></P>
+      <P class=label><B>Figure 6. The Build menu lists all of the projects to 
+      build when multiple projects are present in Solution Explorer</B></P>
+      <P>If the DLLConsumer1 project had been selected in the Solution Explorer 
+      window, <B>Build DLLConsumer1</B> would appear instead of the <B>Build 
+      ServerTime</B> menu.</P>
+      <H2 class=dtH1><A name=componentsnet_topic5></A>Adding a Constructor to 
+      the Component</H2>
+      <P>An exciting ability in Visual Studio.NET components is that you can 
+      pass arguments to an object as it is instantiated. This becomes important 
+      when you want to initialize the object to specific values as it is 
+      created.</P>
+      <P>Consider the timestamp component again. One particular consumer of the 
+      component may need to retrieve data from server A while another consumer 
+      needs data from server B. Using Visual Basic 6.0, the only way to change 
+      the server name was to wait until the object had been declared and 
+      instantiated, and then set the server name as a property of the object. 
+      </P>
+      <P>It may be more efficient, in some cases, to set the server name at the 
+      moment the object is created in memory rather than waiting until 
+      instantiation. For instance, the server may not be available. It is more 
+      logical for the instantiation step to fail (which means the object's value 
+      is Nothing) than to instantiate the object, then set the value of the 
+      server name, and have to read a property to see if the server is 
+      available.</P>
+      <P>Visual Studio .NET allows you to pass arguments to the object 
+      constructor by adding a New() method to the component's class module. The 
+      New() method you create becomes the constructor for objects created from 
+      the class.</P>
+      <P>Here is our class module with a New() constructor method added. Notice 
+      the parameter passed in as an argument to New(): </P><PRE class=code>Public Class ServerTime
+  
+  Public Enum tsFormat
+    fLong = 0
+    fShort = 1
+    fMedium = 2
+  End Enum
+  
+  Private mdtTime As DateTime
+  Private mstrFormat As String
+  
+  Public Sub New( _
+      Optional ByVal TimeStampFormat _
+          As tsFormat = tsFormat.fShort)
+
+    Select Case TimeStampFormat
+      Case tsFormat.fShort
+        mstrFormat = "Short Date"
+      Case tsFormat.fMedium
+        mstrFormat = "Medium Date"
+      Case tsFormat.fLong
+        mstrFormat = "Long Date"
+      Case Else
+        mstrFormat = "Short Date"
+    End Select
+
+  End Sub
+
+  ReadOnly Property TimeStamp() As String
+    Get
+      Try
+        mTime = Now()
+        Return Format(mTime, mstrFormat)
+      Catch e As Exception
+        'Return the exception to the
+        'consumer for processing:
+        Throw e
+      End Try
+    End Get
+  End Property
+End Class</PRE>
+      <P>In this case, the code uses an enumerator to specify the acceptable 
+      values for the tsFormat argument. Very often, the properties you write 
+      will require very specific values. Rather than having another developer 
+      guess at these values, it's nice to take advantage of Microsoft 
+      IntelliSense® to display the acceptable values in a drop-down list as the 
+      developer references the property in code. </P>
+      <P>Use the Enum structure to specify the values that are acceptable for 
+      the property and assign the enumeration a descriptive name, such as 
+      tsFormat. These values appear in the .NET code editor (Figure 7) as an 
+      IntelliSense drop-down list: </P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet07.gif" 
+      border=0></P>
+      <P class=label><B>Figure 7. IntelliSense in action</B></P>
+      <P>Notice that the enumeration does not use obvious values, such as Short 
+      and Long. These are reserved words and cannot be used as members of an 
+      enumeration. Instead, use something like fLong (standing for format long) 
+      that will still be meaningful to other developers.</P>
+      <P>The TimeStampFormat parameter passed into the New() constructor is used 
+      to set the module-level mstrFormat string variable. The TimeStampFormat 
+      argument is optional, and a default value is provided in the event that a 
+      consumer application does not specify a format parameter. The code in the 
+      TimeStamp property has been modified from the previous example. The 
+      revision uses the mstrFormat variable to set the format of the timestamp 
+      string returned as the property's value. </P>
+      <P>The consumer application's code has also been modified. The st object 
+      variable's declaration can now include a specification for the format to 
+      be used, as the TimeStamp property is returned:</P><PRE class=code>Dim st As New ServerTime.ServerTime( _
+    ServerTime.ServerTime.tsFormat.fShort)</PRE>
+      <P>Although there are many ways to accomplish this simple task, using a 
+      New() constructor, with or without parameters, is a convenient and 
+      efficient technique. The additional benefit of using an enumeration to 
+      provide the developer using the component should not be overlooked.</P>
+      <H2 class=dtH1><A name=componentsnet_topic6></A>Updating the Assembly 
+      Information</H2>
+      <P>Certain information is placed into the component by the compiler during 
+      the build step that is very useful at run time. For instance, there may be 
+      several versions of the ServerTime component installed on a single 
+      computer. A consumer application may need to know exactly which version it 
+      has loaded before it tries to use the component's properties and 
+      methods.</P>
+      <P>Each .NET project assembly is accompanied by an AssemblyInfo module. 
+      This module consists of declarations that can be changed at design time 
+      and are bound into the component during the compilation step. Figure 8 
+      shows the AssemblyInfo module for the ServerTime component with certain of 
+      the assembly attributes (AssemblyTitle, AssemblyDescription, and 
+      AssemblyCompany) filled in. </P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet08.gif" 
+      border=0></P>
+      <P class=label><B>Figure 8. Specifying assembly attributes</B></P>
+      <P>In Solution Explorer, open the assembly code window. Double-click the 
+      module named AssemblyInfo.vb and enter the values you want in each of the 
+      assembly's attributes. </P>
+      <P>Notice the AssemblyVersion attribute near the bottom of the 
+      AssemblyInfo.vb module. By default this value is set to <B>"1.0.*"</B>. 
+      The asterisk indicates that you want Visual Basic .NET to automatically 
+      increment the version number (<I>e.g.,</I> from "1.0.7" to "1.0.8") each 
+      time the DLL is compiled. You can elect to hard-code a complete version 
+      number by simply entering its value into this attribute.</P>
+      <P>After the DLL is compiled from the component's source code, this 
+      information can be read in Windows Explorer by right-clicking the DLL and 
+      clicking the <B>Version</B> tab to view the assembly attributes (see 
+      Figure 9).</P>
+      <P class=fig><IMG alt="" src="componentsnet_files/componentsnet09.gif" 
+      border=0></P>
+      <P class=label><B>Figure 9. Viewing assembly attributes in Windows 
+      Explorer</B></P>
+      <H2 class=dtH1><A name=componentsnet_topic7></A>Specifying a 
+Namespace</H2>
+      <P>Another new and valuable feature in .NET applications is the ability to 
+      specify Namespaces within a component project. You'll recall that a single 
+      DLL may expose multiple classes. It's good to know that Visual Studio .NET 
+      provides a handy way for you to group these classes as Namespaces within 
+      the DLL. This can greatly simplify the task of referencing the various 
+      classes within the DLL.</P>
+      <P>Specify a Namespace by marking a region of code with the Namespace and 
+      End Namespace statements. For instance, the code for the ServerTime class 
+      and its properties might be wrapped within a Namespace called 
+      SystemInfo:</P><PRE class=code>Namespace ServerInfo
+  Public Class ServerTime
+    Private mdtTime As DateTime
+    
+    ReadOnly Property TimeStamp() As String
+      Get
+        Try
+          mdtTime = Now()
+          Return Format(mdtTime, "Long Date")
+        Catch e As Exception
+
+          'Return the exception to the
+          'consumer for processing:
+          Throw e
+        End Try
+      End Get
+    End Property
+  End Class
+End Namespace</PRE>
+      <P>A statement referencing the TimeStamp property of the ServerTime class 
+      then becomes:</P><PRE class=code>ServerInfo.ServerTime.TimeStamp</PRE>
+      <P>The ServerInfo Namespace may include other classes such as 
+      ServerDiskNames, ServerDatabases, and so on. </P>
+      <P>The same Namespace declaration statement (Namespace ServerInfo) may 
+      appear in multiple class modules within a project. Visual Studio .NET 
+      collates those class modules and binds them together as a single DLL at 
+      compilation time.</P>
+      <P>Namespaces provide the Visual Studio .NET developer with incredible 
+      flexibility when designing applications. As an example, you could have 
+      same-named classes inside of different Namespaces. You may have a clean-up 
+      class in each one of your Namespaces, where each clean-up class does the 
+      clean-up tasks (closing database files, releasing object variables, 
+      releasing record locks, etc.) for that Namespace. You could even have the 
+      same properties for each clean-up class, even though each class has 
+      different clean-up procedures.</P>
+      <H2 class=dtH1><A name=componentsnet_topic8></A>Using COM Components with 
+      Visual Basic .NET</H2>
+      <P>Up to this point you've been learning about a particular type of 
+      software component. A .NET component always compiles to a dynamically 
+      linked library (DLL), which is invoked and loaded into memory at run 
+      time.</P>
+      <P>What has not been explained is that DLLs are always loaded into the 
+      same process space occupied by the host application (that is, the 
+      consumer). This means that Windows manages the consumer application and 
+      component as a single process. The component shares memory and other 
+      computer resources with the consumer.</P>
+      <H3 class=dtH1>In-Process vs. Out-Of-Process Components</H3>
+      <P>The .NET in-process component architecture results in very fast and 
+      reliable communication between the consumer and component. Because they 
+      share the same process space, Windows does not have to pass messages 
+      between the consumer and component. The consumer is able to read and write 
+      the consumer's properties very quickly.</P>
+      <P>However, not all service providers run as in-process components. 
+      Thousands of legacy applications conforming to the Component Object Model 
+      (COM) architecture have been built over the years. These service providers 
+      use an entirely different mechanism (built on Microsoft's ActiveX 
+      specification) to communicate with their client applications. A COM-based 
+      ActiveX server publishes its interface as a type library, which is roughly 
+      equivalent to a .NET application's manifest. The type library contains the 
+      definitions of classes exposed by the COM server, including the 
+      properties, methods, and events supported by each exposed class.</P>
+      <H3 class=dtH1>Integrating COM Components with .NET</H3>
+      <P>Integrating a Microsoft ActiveX® component with a .NET application is 
+      very similar to incorporating a .NET component into the same application. 
+      First, the COM component's type library is added to the .NET application's 
+      references. Next, objects are created and instantiated from the classes 
+      exposed by the COM component. Visual Basic .NET code then manipulates the 
+      COM object's properties, methods, and events.</P>
+      <P>COM components run in their own process thread, outside of the .NET 
+      application's process space. This means that Windows independently manages 
+      the COM component's resource requirements, and passes messages between the 
+      component and its consumer. Although the COM out-of-process integration 
+      architecture is bound to be a somewhat slower than .NET's in-process 
+      design, most users will never notice the difference.</P>
+      <P>Follow these steps to create a .NET Windows application that 
+      incorporates Microsoft Word as a COM-based ActiveX component (Microsoft 
+      Word must be installed on your computer in order for this example to 
+      work): 
+      <OL type=1>
+        <LI>Open Visual Studio .NET. On the <B>File</B> menu, click <B>New</B>, 
+        and then click <B>Project</B>. 
+        <LI>In the <B>New Project</B> dialog box, under <B>Project Types</B>, 
+        select <B>Visual Basic Projects</B>. Under <B>Templates</B>, select 
+        <B>Windows application</B>. Name the new Windows application project 
+        COMComponentIntegration and click <B>OK</B>. 
+        <LI>In Solution Explorer, right-click <B>References</B>, and on the 
+        context menu, click <B>Add Reference</B>. 
+        <LI>In the <B>Add Reference</B> dialog box, click the <B>COM</B> tab and 
+        locate <B>Microsoft Word</B> in the list of components. (The exact 
+        version of Word is relatively unimportant for this demonstration.) 
+        <LI>Highlight <B>Microsoft Word</B>, click <B>Select </B>to add it to 
+        the<B> Selected Components</B> list, and click <B>OK.</B> 
+        <LI>.NET responds by asking you whether you would like a wrapper 
+        (described below) generated for the Word object library. Click 
+        <B>Yes</B> to indicate that you want .NET to build the wrapper for you. 
+        </LI></OL>
+      <H3 class=dtH1>Understanding Interop Assemblies</H3>
+      <P>Because a COM type library and a .NET assembly are very different 
+      internally, .NET applications cannot directly use the information provided 
+      by a COM component's library. .NET uses either a wrapper around the COM 
+      type library or a primary interop assembly built from the information in 
+      the type library to provide an interface between a .NET application and a 
+      COM component.</P>
+      <P>A primary interop assembly is a DLL prepared by the COM component's 
+      vendor and is intended to be used when the component is integrated with a 
+      .NET application. In the absence of an interop assembly, .NET will prepare 
+      a DLL that includes references to each of the classes exposed by the 
+      component's type library. The DLL is created by importing the class 
+      interfaces that .NET finds in the COM component's type library.</P>
+      <P>The COM type library wrapper is added to the Visual Basic .NET project 
+      as a new reference. In Solution Explorer, right-click the wrapper DLL and 
+      select <B>Properties</B> from the context menu to see a number of 
+      interesting property values. Among these properties is the path to the 
+      wrapper DLL. You'll see that .NET has placed the DLL in the same obj 
+      directory containing the other component libraries included in the 
+      consumer application's assembly.</P>
+      <P>You may see other wrapper DLLs in the obj folder in addition to the 
+      component's wrapper DLL. These other DLLs provide interfaces to secondary 
+      type libraries used by the COM component. In the case of Microsoft Word, 
+      you'll see both a Microsoft Office and a VBIDE interop DLL in addition to 
+      the DLL created for Word.</P>
+      <H3 class=dtH1>Programming COM Objects From Visual Basic .NET</H3>
+      <P>The code required to integrate with COM components is very similar to 
+      working with .NET-built components. The following procedure (which is the 
+      Click event handler behind a button name btnCreateWordDocument) creates an 
+      object from the Application class exposed by the Word type library. It 
+      then creates a new document from the default Word document template 
+      (Normal.dot), adds a line of text to the document, then saves the 
+      document.</P><PRE class=code>Private Sub btnCreateWordDocument_Click( _
+    ByVal sender As System.Object, _
+    ByVal e As System.EventArgs) _
+      Handles btnCreateWordDocument.Click
+  Dim objWord As Word.Application
+  Dim strPath As String
+  objWord = New Word.Application()
+  With objWord
+    .Visible = True
+    .Documents.Add( _
+      Template:="Normal.dot", _
+      NewTemplate:=False)
+    .Selection.TypeText( _
+      Text:="this is a test")
+    .ActiveDocument.SaveAs( _
+       FileName:="Test.doc")
+    .Documents.Close( _
+      SaveChanges:=Word.WdSaveOptions.wdDoNotSaveChanges)
+    .Quit()
+  End With
+  objWord = Nothing
+End Sub</PRE>
+      <P>Notice the value supplied as the SaveChanges argument to the Close 
+      method near the bottom of this code example. The value refers to an 
+      intrinsic constant (wdDoNotSaveChanges) that has been stored in the Word 
+      interop DLL. The Word interop DLL contains a large number of properties, 
+      methods, events, and constant values that are accessible to your .NET 
+      projects.</P>
+      <H3 class=dtH1>Managing COM Objects from .NET Applications</H3>
+      <P>One major difference between a .NET in-process component and a 
+      COM-based ActiveX component is that the COM object's lifetime must be 
+      explicitly controlled by the Visual Basic .NET code. Notice the statement 
+      setting objWord to Nothing near the end of the listing above. When working 
+      with a .NET-created component, the component is disposed of by the .NET 
+      garbage collector. Because the .NET component consists of managed code, 
+      .NET takes responsibility to discard the memory occupied by the object 
+      when the last reference to the object goes out of scope. </P>
+      <P>This is not true of COM objects. Once a COM object has been 
+      instantiated, Windows normally leaves the object in memory until it is 
+      explicitly dismissed by setting its references (objWord, in the case of 
+      the listing above) to Nothing. When working with a large COM component 
+      such as Word, failure to explicitly dispose of the object at the 
+      conclusion of the application can result in enormous memory leaks. </P>
+      <P>For the most part, the DLL wrapper handles other differences between 
+      COM objects and .NET components. For instance, one of these differences 
+      occurs when Windows moves a component (.NET or COM) in memory. This often 
+      happens as Windows tries to optimize the memory used by applications. A 
+      .NET application has no trouble keeping track of the location of its own 
+      components because the component and its data are being managed by the 
+      common language runtime. However, because a COM object contains unmanaged 
+      code, there is no way for the .NET application to keep track of the COM 
+      object's reference if the object is moved.</P>
+      <P>The COM object's runtime wrapper prepared by .NET takes care of keeping 
+      memory references updated whenever the COM object is moved. From the 
+      consumer application's perspective, the address has not changed, even 
+      though the wrapper automatically translates the static memory reference to 
+      the updated location.</P>
+      <H3 class=dtH1>Distributing .NET Applications Containing COM Objects</H3>
+      <P>For the most part, distributing a .NET application that contains COM 
+      objects is the same as distributing a pure .NET application. The only 
+      difference is that you must be sure to include the interop DLL created by 
+      .NET so that the common language runtime installed on the end-user's 
+      computer understands the interface to the COM component.</P>
+      <P>Also, the COM object must be properly installed and registered on the 
+      user's computer. It is difficult to provide generalized rules for COM 
+      installation success. Most COM servers (for instance, Microsoft Word) have 
+      their own installation programs that create the appropriate folder tree 
+      and registry keys. Generally speaking, if the COM server operates properly 
+      on the user's computer, it should work within the context of a .NET 
+      application. </P>
+      <H2 class=dtH1><A name=componentsnet_topic9></A>What's Different From 
+      Visual Basic 6.0?</H2>
+      <P>There are many differences between building components with Visual 
+      Basic 6.0 and Visual Basic .NET. In most cases, these changes enhance the 
+      development experience by making it easier to build complex applications, 
+      test and deploy components, and share components between applications. 
+      <UL type=disc>
+        <LI>.NET projects provide many features that make organizing the 
+        project's files easier. Instead of one class per module (a .CLS 
+        file),Visual Basic .NET code modules may contain multiple classes while 
+        in Visual Basic 6.0 each class occupied a separate .CLS file. The .NET 
+        approach allows you to logically group classes within a single code 
+        module to make it easier to recognize when classes are related (such as 
+        data access, financial, disk and file management, etc.) 
+        <LI>.NET components are not registered on the user's computer; Visual 
+        Basic ActiveX components must be installed and registered on each user's 
+        computer. Each .NET component carries all of the interface information 
+        necessary for consumer applications to use the component. A component's 
+        interface (classes, properties, methods, and events) are documented in 
+        the .NET Object Browser, and through IntelliSense. 
+        <LI>.NET error handling is far superior to Visual Basic 6.0's "On Error 
+        GoTo" model. It's easy to recognize a .NET error-handling construct, and 
+        .NET components can pass back the entire Exception object if necessary. 
+        <LI>Class constructors accept parameters. This allows you to specify 
+        start-up information at the moment an object is instantiated, rather 
+        than waiting for instantiation to be complete, and then setting initial 
+        property values. 
+        <LI>.NET classes can be logically organized within Namespaces. A 
+        Namespace can include classes with the same names as classes in another 
+        Namespace. A single DLL may include multiple Namespaces. Visual Basic 
+        6.0 does not support Namespaces. </LI></UL>
+      <H2 class=dtH1><A name=componentsnet_topic10></A>Summary</H2>
+      <P>This document describes the process of designing and implementing 
+      simple .NET components as DLLs. Each .NET DLL may contain multiple 
+      classes, each exposing a number of properties, methods, and events. You 
+      learned how to develop a class module that performed a simple yet useful 
+      task, how to establish a component project based on that class module, and 
+      then how to incorporate that component into a .NET Windows Forms 
+      project.</P>
+      <P>There are some significant differences between the way you create 
+      classes and components in Visual Studio.NET versus how the same tasks are 
+      performed in Visual Basic 6.0. Exposing properties is a completely 
+      different operation than in Visual Basic 6.0. The error handling in Visual 
+      Studio .NET is highly structured, yet flexible. Visual Studio components 
+      do not need to be registered on the user's computer, yet the consumer 
+      assembly must have a reference to the component DLL in order to 
+      function.</P>
+      <H3 class=dtH1>About the Author</H3>
+      <P><A href="mailto:mikegroh@earthlink.net">Michael Groh</A> is president 
+      of PC Productivity Solutions in Ocala, Florida, and is a consultant, 
+      writer, and trainer specializing in Visual Basic and .NET topics. He is 
+      also the technical editor of <I>Access/Visual Basic/SQL Advisor</I> and 
+      has contributed to twenty different computer books and has written more 
+      than 150 magazine articles. He frequently speaks at database conferences 
+      around the United States. Previously Mike was the product director for 
+      Windows, database, and operating system books for New Riders Publishing. 
+      </P>
+      <H4 class=dtH1>About Informant Communications Group</H4>
+      <P>Informant Communications Group, Inc. (www.informant.com) is a 
+      diversified media company focused on the information technology sector. 
+      Specializing in software development publications, conferences, catalog 
+      publishing and Web sites, ICG was founded in 1990. With offices in the 
+      United States and the United Kingdom, ICG has served as a respected media 
+      and marketing content integrator, satisfying the burgeoning appetite of IT 
+      professionals for quality technical information. </P>
+      <P>Copyright© 2002 Informant Communications Group and Microsoft 
+      Corporation</P>
+      <P>Technical editing: PDSA, Inc. or KNG Consulting</P><!--closes the topic content div--><!--FOOTER_END--><!-- End Content --></DIV></TD></TR></TBODY></TABLE>
+<TABLE style="WIDTH: 100%" cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 600px" noWrap></TD></TR>
+  <TR>
+    <TD><IFRAME id=frmRatings 
+      src="O:\Documentation\Help Files\Creating Components in _NET_files\rightframe_files\componentsnet_files\ratings(1).htm" 
+      frameBorder=0 width="100%" scrolling=no 
+height=250></IFRAME></TD></TR></TBODY></TABLE><BR 
+style="OVERFLOW: hidden; LINE-HEIGHT: 1px" clear=all>
+<TABLE id=msviFooter cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=bottom>
+    <TD id=msviFooter2 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')">
+      <DIV id=msviLocalFooter><NOBR><A 
+      href="http://go.microsoft.com/?linkid=317027">Manage Your Profile</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/isapi/gomscom.asp?target=/legal/" 
+      target=_parent>Legal</A> |</NOBR><WBR><NOBR><A 
+      href="http://go.microsoft.com/?linkid=2028439" target=_parent>Contact 
+      Us</A> |</NOBR><WBR><NOBR><A href="http://msdn.microsoft.com/flash/" 
+      target=_parent>MSDN Flash Newsletter</A></NOBR></DIV>
+      <DIV id=msviGlobalFooter><SPAN dir=ltr>© 2005 Microsoft Corporation. All 
+      rights reserved.&nbsp;</SPAN><NOBR><A 
+      href="http://www.microsoft.com/info/cpyright.mspx">Terms of Use</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://msdn.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</A> 
+      |</NOBR><WBR><NOBR><A 
+      href="http://www.microsoft.com/info/privacy.mspx">Privacy 
+      Statement</A></NOBR></DIV></TD>
+    <TD width=105 bgColor=#669aff><IMG title="" height=29 alt=Microsoft 
+      src="componentsnet_files/text.jpg" width=105 border=0></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>var msviFooter2;if (document.getElementById){msviFooter2 = document.getElementById("msviFooter2");msviFooter2.style.filter = "";}</SCRIPT>
+
+<TABLE height=58 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV style="WIDTH: 200px"></DIV></TD>
+    <TD 
+    style="FILTER: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#669AFF', gradientType='1')" 
+    width="100%"></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript>footerjs(document);</SCRIPT>
+</BODY></HTML>

@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_TrajectoryLib.TrajectoryGen.1 = s 'TrajectoryGen Class'
+	{
+		CLSID = s '{A8F3D778-0ABA-44A3-89E2-075F8EEA048B}'
+	}
+	IMA2_TrajectoryLib.TrajectoryGen = s 'TrajectoryGen Class'
+	{
+		CLSID = s '{A8F3D778-0ABA-44A3-89E2-075F8EEA048B}'
+		CurVer = s 'IMA2_TrajectoryLib.TrajectoryGen.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A8F3D778-0ABA-44A3-89E2-075F8EEA048B} = s 'TrajectoryGen Class'
+		{
+			ProgID = s 'IMA2_TrajectoryLib.TrajectoryGen.1'
+			VersionIndependentProgID = s 'IMA2_TrajectoryLib.TrajectoryGen'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{28F40331-1E2F-4F50-8AD2-7FEC3EADF71C}'
+		}
+	}
+}

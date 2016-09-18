@@ -1,0 +1,46 @@
+// IMA2_3DPositionLib.idl : IDL source for IMA2_3DPositionLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_3DPositionLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CComputePosition: IDL source for IMA2_CComputePosition.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(CF19C9A8-1DB2-45A2-9A5E-15CC7874DCE0),
+		dual,
+		helpstring("(IMA2 Components) - IComputePosition Lib"),
+		pointer_default(unique)
+	]
+	interface IComputePosition : IDispatch
+	{
+		[id(1), helpstring("method FindCartesianCoordinates")] HRESULT FindCartesianCoordinates();
+	};
+
+[
+	uuid(2C811921-6395-4376-864A-EF048FBC1CA6),
+	version(1.0),
+	helpstring("(IMA2 Components) - 3DPosition Class Lib")
+]
+library IMA2_3DPOSITIONLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(152A576E-B530-4321-9D15-CCE50BA2566F),
+		helpstring("(IMA2 Components) - ComputePosition Class LIB")
+	]
+	coclass ComputePosition
+	{
+		[default] interface IComputePosition;
+		interface IComponent; 
+	};
+};

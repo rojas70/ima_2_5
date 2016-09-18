@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ArmTools.PID_NonLinController.1 = s 'PID_NonLinController Class'
+	{
+		CLSID = s '{60F271DF-84CD-4945-8C66-6731D71E96D8}'
+	}
+	IMA2_ArmTools.PID_NonLinController = s 'PID_NonLinController Class'
+	{
+		CLSID = s '{60F271DF-84CD-4945-8C66-6731D71E96D8}'
+		CurVer = s 'IMA2_ArmTools.PID_NonLinController.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {60F271DF-84CD-4945-8C66-6731D71E96D8} = s 'PID_NonLinController Class'
+		{
+			ProgID = s 'IMA2_ArmTools.PID_NonLinController.1'
+			VersionIndependentProgID = s 'IMA2_ArmTools.PID_NonLinController'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5D2D9F10-844D-4BAF-8EED-B352AD107AB2}'
+		}
+	}
+}

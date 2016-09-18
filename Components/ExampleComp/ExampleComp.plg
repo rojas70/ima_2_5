@@ -1,0 +1,25 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ExampleComp - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\halljf\LOCALS~1\Temp\RSP361.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"O:\Include\IMA2_BasicComponentsLib_i.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\halljf\LOCALS~1\Temp\RSP361.tmp" 
+<h3>Output Window</h3>
+Compiling...
+IMA2_BasicComponentsLib_i.c
+
+
+
+<h3>Results</h3>
+IMA2_BasicComponentsLib_i.obj - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

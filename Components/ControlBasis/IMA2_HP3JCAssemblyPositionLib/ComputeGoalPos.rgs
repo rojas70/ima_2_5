@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_HP3JCAssemblyPositionLib.ComputeGoalPos.1 = s 'ComputeGoalPos Class'
+	{
+		CLSID = s '{121915AA-25E2-4592-8550-5E3511F0FBAB}'
+	}
+	IMA2_HP3JCAssemblyPositionLib.ComputeGoalPos = s 'ComputeGoalPos Class'
+	{
+		CLSID = s '{121915AA-25E2-4592-8550-5E3511F0FBAB}'
+		CurVer = s 'IMA2_HP3JCAssemblyPositionLib.ComputeGoalPos.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {121915AA-25E2-4592-8550-5E3511F0FBAB} = s 'ComputeGoalPos Class'
+		{
+			ProgID = s 'IMA2_HP3JCAssemblyPositionLib.ComputeGoalPos.1'
+			VersionIndependentProgID = s 'IMA2_HP3JCAssemblyPositionLib.ComputeGoalPos'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{121915AA-25E2-4592-8550-5E3511F0FBAB}'
+			
+		}
+	}
+}

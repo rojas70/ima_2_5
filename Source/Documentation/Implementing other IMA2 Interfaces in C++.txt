@@ -1,0 +1,22 @@
+***************************************************************************************
+Title: 	How to implement other IMA2 interfaces from C++
+Author:	Roberto Olivares 
+Date:	2/28/02
+***************************************************************************************
+
+To implement an interface from C++:
+
+1) Create an ATL COM Project.
+2) Add an ATL "Simple COM Object" using the ATL Object wizard.
+3) Right click on the class name and choose Implement Interface...
+4) Push the "Add TypeLib" button and check "(IMA2 Base) - Base Interfaces", then push OK.
+5) Check the interface you want to implement and push "OK".
+6) A skeleton implementation will be added to your class .H file, you must carefully fill in each definition
+   since the default code makes each function return a COM E_NOT_IMPLEMENTED error. 
+
+   You may notice that some of the parameter names are mangled (ie "ICOmponent * * MIDL_02005"). You should
+   fill in your own parameter names instead of these (check the TLB in OLEVIEW or VB object browser for name
+   suggestions) to deambiguate your code.
+
+   
+

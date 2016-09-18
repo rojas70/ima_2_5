@@ -1,0 +1,23 @@
+HKCR
+{
+	IMA2_ImageRepLib.FeatureCollection.1 = s 'FeatureCollection Class'
+	{
+		CLSID = s '{58DA8357-F25B-4058-AA3B-F7EC1B433F8E}'
+	}
+	IMA2_ImageRepLib.FeatureCollection = s 'FeatureCollection Class'
+	{
+		CLSID = s '{58DA8357-F25B-4058-AA3B-F7EC1B433F8E}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {58DA8357-F25B-4058-AA3B-F7EC1B433F8E} = s 'FeatureCollection Class'
+		{
+			ProgID = s 'IMA2_ImageRepLib.FeatureCollection.1'
+			VersionIndependentProgID = s 'IMA2_ImageRepLib.FeatureCollection'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

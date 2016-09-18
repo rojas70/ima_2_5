@@ -1,0 +1,342 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (098f13f9).
+//
+// o:\components\cameracomponents\ima2_framegrabberlib\debug\IMA2_ImageRepLib.tlh
+//
+// C++ source equivalent of Win32 type library O:\Include\IMA2_ImageRepLib.tlb
+// compiler-generated file created 02/02/06 at 12:25:55 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace IMA2_IMAGEREPLIBLib {
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ NetImgRep;
+struct __declspec(uuid("907053f1-3ec2-4402-a5d8-264382c34ffe"))
+/* dual interface */ INetImgRep;
+struct __declspec(uuid("7fda7758-cbf3-48d0-aff1-a298daf54b9b"))
+/* dual interface */ IImageRep;
+struct __declspec(uuid("79de6720-6d92-11d1-bc62-0020aff12fb6"))
+/* interface */ IFeatureInfo;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(INetImgRep, __uuidof(INetImgRep));
+_COM_SMARTPTR_TYPEDEF(IImageRep, __uuidof(IImageRep));
+_COM_SMARTPTR_TYPEDEF(IFeatureInfo, __uuidof(IFeatureInfo));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("c37b8632-9581-4fb1-b0e1-4b95f472a7d3"))
+NetImgRep;
+    // [ default ] interface INetImgRep
+    // interface IImageRep
+    // interface IFeatureInfo
+    // interface IComponent
+
+struct __declspec(uuid("907053f1-3ec2-4402-a5d8-264382c34ffe"))
+INetImgRep : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetProxyDelay,put=PutProxyDelay))
+    double ProxyDelay;
+    __declspec(property(get=GetImgWidth,put=PutImgWidth))
+    long ImgWidth;
+    __declspec(property(get=GetImgHeight,put=PutImgHeight))
+    long ImgHeight;
+    __declspec(property(get=GetImgDepth,put=PutImgDepth))
+    long ImgDepth;
+    __declspec(property(get=GetPoint,put=PutPoint))
+    double Point;
+    __declspec(property(get=GetPointIndex,put=PutPointIndex))
+    long PointIndex;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double GetProxyDelay ( );
+    void PutProxyDelay (
+        double pVal );
+    long GetImgWidth ( );
+    void PutImgWidth (
+        long pVal );
+    long GetImgHeight ( );
+    void PutImgHeight (
+        long pVal );
+    long GetImgDepth ( );
+    void PutImgDepth (
+        long pVal );
+    double GetPoint ( );
+    void PutPoint (
+        double pVal );
+    long GetPointIndex ( );
+    void PutPointIndex (
+        long pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_ProxyDelay (
+        double * pVal ) = 0;
+    virtual HRESULT __stdcall put_ProxyDelay (
+        double pVal ) = 0;
+    virtual HRESULT __stdcall get_ImgWidth (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_ImgWidth (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_ImgHeight (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_ImgHeight (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_ImgDepth (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_ImgDepth (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_Point (
+        double * pVal ) = 0;
+    virtual HRESULT __stdcall put_Point (
+        double pVal ) = 0;
+    virtual HRESULT __stdcall get_PointIndex (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_PointIndex (
+        long pVal ) = 0;
+};
+
+struct __declspec(uuid("7fda7758-cbf3-48d0-aff1-a298daf54b9b"))
+IImageRep : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetWidth,put=PutWidth))
+    long Width;
+    __declspec(property(get=GetHeight,put=PutHeight))
+    long Height;
+    __declspec(property(get=GetDepth,put=PutDepth))
+    long Depth;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetWidth ( );
+    void PutWidth (
+        long pVal );
+    long GetHeight ( );
+    void PutHeight (
+        long pVal );
+    long Data (
+        long lIndex );
+    HRESULT Update (
+        unsigned char * pVal );
+    long GetDepth ( );
+    void PutDepth (
+        long pVal );
+    double GetTime (
+        long m_lTimeFlag );
+    void PutTime (
+        long m_lTimeFlag,
+        double pVal );
+    _variant_t UpdateManager ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Width (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_Width (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_Height (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_Height (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall raw_Data (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall raw_Update (
+        unsigned char * pVal ) = 0;
+    virtual HRESULT __stdcall get_Depth (
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_Depth (
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_Time (
+        long m_lTimeFlag,
+        double * pVal ) = 0;
+    virtual HRESULT __stdcall put_Time (
+        long m_lTimeFlag,
+        double pVal ) = 0;
+    virtual HRESULT __stdcall raw_UpdateManager (
+        VARIANT * Data ) = 0;
+};
+
+struct __declspec(uuid("79de6720-6d92-11d1-bc62-0020aff12fb6"))
+IFeatureInfo : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetFeatureWidth (
+        long lIndex );
+    void PutFeatureWidth (
+        long lIndex,
+        long pVal );
+    long GetFeatureHeight (
+        long lIndex );
+    void PutFeatureHeight (
+        long lIndex,
+        long pVal );
+    long GetFeatureArea (
+        long lIndex );
+    void PutFeatureArea (
+        long lIndex,
+        long pVal );
+    long GetFeatureLabel (
+        long lIndex );
+    void PutFeatureLabel (
+        long lIndex,
+        long pVal );
+    long GetFeatureIndex (
+        long lFeatureLabel );
+    void PutFeatureIndex (
+        long lFeatureLabel,
+        long pVal );
+    long GetFeatureOrientation (
+        long lIndex );
+    void PutFeatureOrientation (
+        long lIndex,
+        long pVal );
+    _bstr_t GetFeatureName (
+        long lIndex );
+    void PutFeatureName (
+        long lIndex,
+        _bstr_t pVal );
+    long GetFeatureLength (
+        long lIndex );
+    void PutFeatureLength (
+        long lIndex,
+        long pVal );
+    HRESULT get_FeatureCentroid (
+        long lIndex,
+        long * pX,
+        long * pY );
+    HRESULT put_FeatureCentroid (
+        long lIndex,
+        long newX,
+        long newY );
+    HRESULT get_FeatureLocation (
+        long lIndex,
+        long * pLeft,
+        long * pTop );
+    HRESULT put_FeatureLocation (
+        long lIndex,
+        long newLeft,
+        long newTop );
+    HRESULT AddFeature (
+        long lFeatureLabel,
+        long * plFeatureIndex );
+    HRESULT ClearFeatures ( );
+    HRESULT NumFeatures (
+        long * pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_FeatureWidth (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureWidth (
+        long lIndex,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureHeight (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureHeight (
+        long lIndex,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureArea (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureArea (
+        long lIndex,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureLabel (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureLabel (
+        long lIndex,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureIndex (
+        long lFeatureLabel,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureIndex (
+        long lFeatureLabel,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureOrientation (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureOrientation (
+        long lIndex,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureName (
+        long lIndex,
+        BSTR * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureName (
+        long lIndex,
+        BSTR pVal ) = 0;
+    virtual HRESULT __stdcall get_FeatureLength (
+        long lIndex,
+        long * pVal ) = 0;
+    virtual HRESULT __stdcall put_FeatureLength (
+        long lIndex,
+        long pVal ) = 0;
+    virtual HRESULT __stdcall raw_get_FeatureCentroid (
+        long lIndex,
+        long * pX,
+        long * pY ) = 0;
+    virtual HRESULT __stdcall raw_put_FeatureCentroid (
+        long lIndex,
+        long newX,
+        long newY ) = 0;
+    virtual HRESULT __stdcall raw_get_FeatureLocation (
+        long lIndex,
+        long * pLeft,
+        long * pTop ) = 0;
+    virtual HRESULT __stdcall raw_put_FeatureLocation (
+        long lIndex,
+        long newLeft,
+        long newTop ) = 0;
+    virtual HRESULT __stdcall raw_AddFeature (
+        long lFeatureLabel,
+        long * plFeatureIndex ) = 0;
+    virtual HRESULT __stdcall raw_ClearFeatures ( ) = 0;
+    virtual HRESULT __stdcall raw_NumFeatures (
+        long * pVal ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "o:\components\cameracomponents\ima2_framegrabberlib\debug\IMA2_ImageRepLib.tli"
+
+} // namespace IMA2_IMAGEREPLIBLib
+
+#pragma pack(pop)

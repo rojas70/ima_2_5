@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ArmComponent.ArmMech.1 = s 'ArmMech Class'
+	{
+		CLSID = s '{182973A0-8D57-4A47-9540-40BD20238685}'
+	}
+	IMA2_ArmComponent.ArmMech = s 'ArmMech Class'
+	{
+		CLSID = s '{182973A0-8D57-4A47-9540-40BD20238685}'
+		CurVer = s 'IMA2_ArmComponent.ArmMech.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {182973A0-8D57-4A47-9540-40BD20238685} = s 'ArmMech Class'
+		{
+			ProgID = s 'IMA2_ArmComponent.ArmMech.1'
+			VersionIndependentProgID = s 'IMA2_ArmComponent.ArmMech'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A51B77F0-CFA0-4903-8F95-6162864E255D}'
+		}
+	}
+}

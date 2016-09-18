@@ -1,0 +1,55 @@
+// IMA2_TextQueueLib.idl : IDL source for IMA2_TextQueueLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_TextQueueLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(1D5132BF-D5C2-4916-9E56-603D987D486C),
+		dual,
+		helpstring("ITextQueue Interface"),
+		pointer_default(unique)
+	]
+	interface ITextQueue : IDispatch
+	{
+		[id(1), helpstring("method GetText")] HRESULT GetText([in] long index, [out] BSTR *text);
+		[id(2), helpstring("method SetText")] HRESULT SetText([in] long index, [in] BSTR text);
+		[id(3), helpstring("method GetCurrentText")] HRESULT GetCurrentText([out] BSTR *text);
+		[id(4), helpstring("method SetCurrentText")] HRESULT SetCurrentText([in] BSTR text);
+		[id(5), helpstring("method UpdateManager")] HRESULT UpdateManager([in]BSTR Interface,[out,retval] VARIANT *Data);
+		[propget, id(6), helpstring("property StringIndex")] HRESULT StringIndex([out, retval] long *pVal);
+		[propput, id(6), helpstring("property StringIndex")] HRESULT StringIndex([in] long newVal);
+		[propget, id(7), helpstring("property CurrentText")] HRESULT CurrentText([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property CurrentText")] HRESULT CurrentText([in] BSTR newVal);
+		[propget, id(8), helpstring("property QueueLength")] HRESULT QueueLength([out, retval] long *pVal);
+		[propput, id(8), helpstring("property QueueLength")] HRESULT QueueLength([in] long newVal);
+		[propget, id(9), helpstring("property ThrowEvent")] HRESULT ThrowEvent([out, retval] long *pVal);
+		[propput, id(9), helpstring("property ThrowEvent")] HRESULT ThrowEvent([in] long newVal);
+		[propget, id(10), helpstring("property SaveData")] HRESULT SaveData([out, retval] long *pVal);
+		[propput, id(10), helpstring("property SaveData")] HRESULT SaveData([in] long newVal);
+	};
+
+[
+	uuid(14E7DF59-7A6D-4DBE-9842-37E5B9D03D58),
+	version(1.0),
+	helpstring("(IMA2 Components) - TextQueue")
+]
+library IMA2_TEXTQUEUELIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib ("O:\include\ima2.tlb"); 
+
+	[
+		uuid(65D465D7-FE9B-4972-B460-8BDEF913F790),
+		helpstring("TextQueue Class")
+	]
+	coclass TextQueue
+	{
+		[default] interface ITextQueue;
+		interface IComponent; 
+	};
+};

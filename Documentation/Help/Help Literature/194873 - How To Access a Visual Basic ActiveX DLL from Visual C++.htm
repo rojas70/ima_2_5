@@ -1,0 +1,548 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://support.microsoft.com/default.aspx?kbid=194873 -->
+<HTML><HEAD><TITLE>194873 - How To Access a Visual Basic ActiveX DLL from Visual C++</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8"><!-- (c) 2001, 2002 Microsoft Corporation. All Rights Reserved --><!-- TK2MSFTWBSUP07 ASM: GSS, Version=3.7.5.0, Culture=neutral, PublicKeyToken=null FW: 1.1.4322.573 --><!-- REGC: ISO-8859-1 DEFRC: utf-8 RESG: 8/17/2004 11:44:55 AM RESX: 1/1/0001 12:00:00 AM -->
+<META 
+content="kbcode kbhowto KB194873  kbAudDeveloper kbVC32bitSearch kbVC500 kbVC500Search kbVC600 kbVCsearch " 
+name=Keywords>
+<META 
+content="This article shows three ways to access a Visual Basic ActiveX DLL from a Visual C++ 6.0 executable." 
+name=Description>
+<META content=EN name=MS.LOCALE>
+<SCRIPT language=Javascript 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/common.js"></SCRIPT>
+<LINK 
+href="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/default.css" 
+type=text/css rel=stylesheet></LINK>
+<SCRIPT 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/searchui.js"></SCRIPT>
+<LINK 
+href="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/SearchUI.css" 
+type=text/css rel=stylesheet></LINK>
+<SCRIPT language=Javascript 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/uplevel.js"></SCRIPT>
+<LINK 
+href="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/webparts.css" 
+type=text/css rel=stylesheet></LINK><LINK 
+href="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/KBArticleV2.css" 
+type=text/css rel=stylesheet></LINK><!-- Qualified for Survey -->
+<SCRIPT language=javascript 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/surveytrigger.js"></SCRIPT>
+
+<SCRIPT language=JavaScript>
+
+					var Exp = 60;
+					var Delay = 5000;
+					var Freq = 5;
+					var CookieDef = 'ST_GN_EN-US';
+					var SurveyStyle = 'popup';
+					var DisplayIntroPage = 1;
+					var EmailStyle = 0;
+					var EmailSurveyID = '';
+					var ReferringURL = '';
+				    
+</SCRIPT>
+
+<META content="MSHTML 6.00.2800.1458" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0 onload=thisLoad(); 
+onunload=thisUnload(); marginwidth="0" marginheight="0">
+<DIV id=TopPanel name="TopPanel">
+<SCRIPT language=JavaScript 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/global.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+<!--
+	var ToolBar_Supported = ToolBar_Supported;
+	if(ToolBar_Supported != null && ToolBar_Supported == true){
+		Frame_Supported = false;
+		setToolbarBGColor("#0A6CCE");
+		setICPBanner("/library/images/support/bnr_microsoft.gif","/isapi/gomscom.asp?target=/","Microsoft.com Home Page");
+		setMSBanner("EN-US/region_graphic.gif","/common/international.aspx","International Support");
+ 		HTMLStr = HTMLStr.replace(/\/library\/toolbar\/images\/curve.gif/g, "/library/images/toolbar/images/curveLTR.gif");
+		drawToolbar();
+	}
+//-->
+</SCRIPT>
+</DIV>
+<TABLE id=CenterPanel height="100%" cellSpacing=0 cellPadding=0 width="100%" 
+border=0 name="CenterPanel">
+  <TBODY>
+  <TR>
+    <TD class=tpl_top_banner vAlign=top>
+      <TABLE class=bbar_outer height=18 cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=bbar_cell onmouseover="this.className='bbar_cell_hot';" 
+          onclick="top.location.href='http://support.microsoft.com/'" 
+          onmouseout="this.className='bbar_cell';" noWrap><A 
+            title="Return to Support Home Page" onclick=event.cancelBubble=true; 
+            href="http://support.microsoft.com/" 
+            target=_top>&nbsp;&nbsp;Home&nbsp;&nbsp;</A></TD>
+          <TD class=bannerborder width=1><IMG height=1 
+            src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+            width=1></TD>
+          <TD class=bbar_cell onmouseover="this.className='bbar_cell_hot';" 
+          onclick="top.location.href='http://support.microsoft.com/default.aspx?pr=kbhowto'" 
+          onmouseout="this.className='bbar_cell';" noWrap><A 
+            title="Search the Knowledge Base" onclick=event.cancelBubble=true; 
+            href="http://support.microsoft.com/default.aspx?pr=kbhowto" 
+            target=_top>&nbsp;&nbsp;Search&nbsp;&nbsp;</A></TD>
+          <TD class=bannerborder width=1><IMG height=1 
+            src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+            width=1></TD>
+          <TD class=bbar_cell onmouseover="this.className='bbar_cell_hot';" 
+          onclick="top.location.href='http://support.microsoft.com/default.aspx?pr=faqs'" 
+          onmouseout="this.className='bbar_cell';" noWrap><A 
+            title="Frequently Asked Questions and Product Support Centers" 
+            onclick=event.cancelBubble=true; 
+            href="http://support.microsoft.com/default.aspx?pr=faqs" 
+            target=_top>&nbsp;&nbsp;FAQs&nbsp;&nbsp;</A></TD>
+          <TD class=bannerborder width=1><IMG height=1 
+            src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+            width=1></TD>
+          <TD class=bbar_cell onmouseover="this.className='bbar_cell_hot';" 
+          onclick="top.location.href='http://support.microsoft.com/default.aspx?pr=downloadover&amp;style=home'" 
+          onmouseout="this.className='bbar_cell';" noWrap><A 
+            title="Software Downloads, Updates, and Service Packs" 
+            onclick=event.cancelBubble=true; 
+            href="http://support.microsoft.com/default.aspx?pr=downloadover&amp;style=home" 
+            target=_top>&nbsp;&nbsp;Downloads&nbsp;&nbsp;</A></TD>
+          <TD class=bannerborder width=1><IMG height=1 
+            src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+            width=1></TD>
+          <TD class=bbar_cell onmouseover="this.className='bbar_cell_hot';" 
+          onclick="top.location.href='http://support.microsoft.com/newsgroups/default.aspx'" 
+          onmouseout="this.className='bbar_cell';" noWrap><A 
+            title="Community Newsgroups" onclick=event.cancelBubble=true; 
+            href="http://support.microsoft.com/newsgroups/default.aspx" 
+            target=_top>&nbsp;&nbsp;Newsgroups&nbsp;&nbsp;</A></TD>
+          <TD class=bannerborder width=1><IMG height=1 
+            src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+            width=1></TD>
+          <TD class=bbar_cell onmouseover="this.className='bbar_cell_hot';" 
+          onclick="top.location.href='http://support.microsoft.com/default.aspx?pr=csshome'" 
+          onmouseout="this.className='bbar_cell';" noWrap><A 
+            title="Customer Service" onclick=event.cancelBubble=true; 
+            href="http://support.microsoft.com/default.aspx?pr=csshome" 
+            target=_top>&nbsp;&nbsp;Customer Service&nbsp;&nbsp;</A></TD>
+          <TD class=bannerborder width=1><IMG height=1 
+            src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+            width=1></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height="100%">
+      <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <TABLE class=tpl_content_bar cellSpacing=0 cellPadding=0 
+            width="100%">
+              <TBODY>
+              <TR>
+                <TD class=tpl_content_title vAlign=top align=left>Microsoft 
+                  Knowledge Base Article - 194873 </TD>
+                <TD class=subBannerGif vAlign=top align=right><IMG 
+                  title="194873 - How To  Access a Visual Basic ActiveX DLL from Visual C++" 
+                  src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/Content_subban.gif" 
+                  border=0> </TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD vAlign=top width="100%">
+            <DIV class=tpl_content><XMLREADER>
+            <DIV class=LTRContent id=LTRContent dir=ltr>
+            <DIV class=KBPUBV2 name="KBPUBV2"><!-- - - - - - - - - - - PAGE TEXT BEGINS HERE : KBPUBV2 - - - - - - - - - - -->
+            <DIV class=kbContainer>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=top width="100%">
+                  <TABLE class=kbRightNav>
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=top><!--GETHELP_VERT--><!--SEARCHUI-->
+                        <DIV class=ListNugget id=KBFeedback style="WIDTH: 165px" 
+                        name="KBFeedback">
+                        <TABLE id=KBFeedbackHeader cellSpacing=0 cellPadding=0 
+                        width="100%" name="KBFeedbackHeader">
+                          <TBODY>
+                          <TR>
+                            <TD class=ListNuggetHeader>Comments?</TD></TR>
+                          <TR>
+                            <TD width="100%">
+                              <DIV class=ListNuggetBody id=KBFeedbackBody 
+                              name="KBFeedbackBody">
+                              <TABLE class=KBFeedbackTable cellSpacing=0 
+                              cellPadding=2 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=center width=6><IMG height=5 hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/blue_bullet.gif" 
+                                width=5 border=0 VALIGN="MIDDLE"></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                href="javascript:ShowSurveyWindow('/common/survey.aspx?scid=sw;EN;1075&amp;showpage=1', 'GN', 'EN-US' ,'http://support.microsoft.com/default.aspx', 'KB', 'EN-US', '194873', '', '', '', '', '', '')">Provide 
+                                us with feedback on this 
+                                article</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV>
+                        <DIV class=ListNugget id=SupportCenters 
+                        style="WIDTH: 165px" name="SupportCenters">
+                        <TABLE id=SupportCentersHeader cellSpacing=0 
+                        cellPadding=0 width="100%" 
+                          name="SupportCentersHeader"><TBODY>
+                          <TR>
+                            <TD class=ListNuggetHeader>Support Centers</TD></TR>
+                          <TR>
+                            <TD width="100%">
+                              <DIV class=ListNuggetBody id=SupportCentersBody 
+                              name="SupportCentersBody">
+                              <TABLE cellSpacing=0 cellPadding=2 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=center width=6><IMG height=5 hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/blue_bullet.gif" 
+                                width=5 border=0 VALIGN="MIDDLE"></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                href="http://support.microsoft.com/default.aspx?scid=fh;EN-US;vcc">Visual 
+                                C++</A> 
+                          </TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV>
+                        <DIV class=ListNugget id=GeneralInfo 
+                        style="WIDTH: 165px" name="GeneralInfo">
+                        <TABLE id=GeneralInfoHeader cellSpacing=0 cellPadding=0 
+                        width="100%" name="GeneralInfoHeader">
+                          <TBODY>
+                          <TR>
+                            <TD class=ListNuggetHeader>Other Support 
+                          Options</TD></TR>
+                          <TR>
+                            <TD width="100%">
+                              <DIV class=ListNuggetBody id=GeneralInfoBody 
+                              name="GeneralInfoBody">
+                              <TABLE cellSpacing=0 cellPadding=2 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=top width=6><IMG height=5 hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/blue_bullet.gif" 
+                                width=5 vspace=4 border=0 VALIGN="MIDDLE"></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                href="http://support.microsoft.com/default.aspx?scid=fh;EN-US;cntactms&amp;style=home">Contact 
+                                Microsoft</A>
+                                <P>Phone Numbers, Support Options and Pricing, 
+                                Online Help, and more.</P></TD></TR>
+                                <TR>
+                                <TD vAlign=top width=6><IMG height=5 hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/blue_bullet.gif" 
+                                width=5 vspace=4 border=0 VALIGN="MIDDLE"></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                href="http://support.microsoft.com/default.aspx?scid=fh;EN-US;csshome&amp;style=home">Customer 
+                                Service</A>
+                                <P>For non-technical assistance with product 
+                                purchases, subscriptions, online services, 
+                                events, training courses, corporate sales, 
+                                piracy issues, and more.</P></TD></TR>
+                                <TR>
+                                <TD vAlign=top width=6><IMG height=5 hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/blue_bullet.gif" 
+                                width=5 vspace=4 border=0 VALIGN="MIDDLE"></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                href="http://support.microsoft.com/newsgroups">Newsgroups</A>
+                                <P>Pose a question to other users. Discussion 
+                                groups and Forums about specific Microsoft 
+                                products, technologies, and 
+                                services.</P></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV>
+                        <DIV class=ListNugget id=PageOptions 
+                        style="WIDTH: 165px" name="PageOptions">
+                        <TABLE id=PageOptionsHeader cellSpacing=0 cellPadding=0 
+                        width="100%" name="PageOptionsHeader">
+                          <TBODY>
+                          <TR>
+                            <TD class=ListNuggetHeader>Page Options</TD></TR>
+                          <TR>
+                            <TD width="100%">
+                              <DIV class=ListNuggetBody id=PageOptionsBody 
+                              name="PageOptionsBody">
+                              <TABLE cellSpacing=0 cellPadding=2 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=top width=6><A 
+                                href="mailto:?body=http://support.microsoft.com/default.aspx?kbid=194873"><IMG 
+                                title="Send the contents of this page to a Friend" 
+                                hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/emailicon.gif" 
+                                border=0></A></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                onclick="LogPage('kb;en-us;194873','SEND')" 
+                                href="mailto:?body=http://support.microsoft.com/default.aspx?kbid=194873">Send</A></TD></TR>
+                                <TR>
+                                <TD vAlign=top width=6><A 
+                                href="javascript:PrintContents();"><IMG 
+                                title="Print the contents of this page" hspace=0 
+                                src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/printicon.gif" 
+                                border=0></A></TD>
+                                <TD class=ListNuggetItem vAlign=top><A 
+                                class=ListNuggetItemLink 
+                                onclick="LogPage('kb;en-us;194873','PRINT')" 
+                                href="javascript:PrintContents();">Print</A></TD></TR></TBODY></TABLE><IFRAME 
+                              id=logframe style="DISPLAY: none" border=0 
+                              src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/blank.htm" 
+                              width=0 
+                        height=0></IFRAME></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE><!-- - - - - - - - - - - KB CONTENT BEGINS BELOW HERE - - - - - - - - - - -->
+                  <H1 class=title>How To Access a Visual Basic ActiveX DLL from 
+                  Visual C++</H1><A 
+                  href="http://support.microsoft.com/default.aspx?kbid=194873#appliesto">View 
+                  products that this article applies to.</A>
+                  <DIV class=notice>This article was previously published under 
+                  Q194873 </DIV>
+                  <DIV class=summary>
+                  <H2>SUMMARY</H2>This article shows three ways to access a 
+                  Visual Basic ActiveX DLL from a Visual C++ 6.0 executable. 
+                  </DIV>
+                  <DIV class=moreinformation>
+                  <H2>MORE INFORMATION</H2>This article represents an 
+                  introduction to creating Visual C++ clients for Visual Basic 
+                  ActiveX components. If you are already proficient with Visual 
+                  C++, you may wish to refer to the reference section for a list 
+                  of more advanced topics. <BR><BR>
+                  <H3>Steps to Create the Visual Basic Server</H3><BR><BR>
+                  <OL class=dec>
+                    <LI>Create a Visual Basic ActiveX DLL project. Class1 is 
+                    created by default. 
+                    <LI>Add the following code to Class1: <PRE>      Public Function MyVBFunction(x As Integer) As Integer
+         MsgBox x
+      End Function
+						</PRE>
+                    <LI>Compile the DLL as c:\Project1.dll and exit Visual 
+                    Basic. </LI></OL>Method 1 - CreateDispatch: <BR><BR>
+                  <OL class=dec>
+                    <LI>Start Visual C++ and select New on the File menu. Choose 
+                    MFC AppWizard (Exe) and a project name, and Click OK. When 
+                    the MFC AppWizard dialog box appears, click Finish. Click OK 
+                    on the next dialog box. 
+                    <LI>Select ClassWizard on the View menu, pick Ctst1App in 
+                    the Class Name box, and double-click InitInstance in the 
+                    Messages box. Click Edit Code to bring up the code for BOOL 
+                    CTst1App::InitInstance(), find the line 
+                    AfxEnableControlContainer();, and add the following line 
+                    before it: <PRE>      AfxOleInit();</PRE>
+                    <LI>Select ClassWizard from the View menu and click the 
+                    Automation tab. Click AddClass and select "from a 
+                    TypeLibrary". Specify Project1.dll, the Visual Basic DLL 
+                    which was created in step 3. When the Confirm Classes dialog 
+                    box appears, click OK. Click OK again to close the MFC 
+                    ClassWizard dialog box. 
+                    <LI>Open your &lt;App Name&gt;.cpp file and add the line 
+                    #include "Project1.h". You need to include Project1.h 
+                    wherever you have code that accesses project1.dll. 
+                    <LI>Open the ClassWizard again. On the Message Maps tab, 
+                    select CAboutDlg in the Class Name box and IDOK in the 
+                    Object IDs box, and then double-click BN_CLICKED. Click OK 
+                    in response to the dialog box and OK again to close the 
+                    ClassWizard. 
+                    <LI>Open &lt;App Name&gt;.cpp, scroll to the bottom to 
+                    theCAboutDlg::OnOK(), and replace it with the following 
+                    code: <PRE>      void CAboutDlg::OnOK()
+      {
+
+      short st = 2;
+      short st1;
+      _Class1 p;
+      p.CreateDispatch("Project1.Class1");
+      st1 = p.MyVBFunction(&amp;amp;st);
+      CDialog::OnOK();
+      }
+						</PRE>
+                    <LI>Compile your .exe file (F7). 
+                    <LI>Run the .exe file and select About on the Help menu. 
+                    Click OK on the About box and the message box that was 
+                    specified in project1.dll appears. Click the Close button to 
+                    dismiss the dialog box. </LI></OL>Method 2 - #IMPORT: <BR><BR>
+                  <OL class=dec>
+                    <LI>Start Visual C++ 6.0 and create a Win32 Console 
+                    Application. Select "An Empty Project" and click Finish. 
+                    <LI>Point to Add to Project on the Project menu and click 
+                    New to add a new C++ source file to the project. Paste the 
+                    following code in the new source file and save it: <PRE>      #include &lt;stdio.h&gt;
+
+      // This is the path for your DLL.
+      // Make sure that you specify the exact path.
+
+      #import "c:\project1.dll"  no_namespace
+
+      void main()
+      {
+       BSTR bstrDesc;
+
+      try
+      {
+      CoInitialize(NULL);
+      short st = 2;
+       short st1;
+      // Declare the Interface Pointer for your Visual Basic object. Here,
+      // _Class1Ptr is the Smart pointer wrapper class representing the
+      // default interface of the Visual Basic object.
+
+      _Class1Ptr ptr;
+      // Create an instance of your Visual Basic object, here
+      // __uuidof(Class1) gets the CLSID of your Visual Basic object.
+
+       ptr.CreateInstance(__uuidof(Class1));
+       st1 = ptr-&gt;MyVBFunction(&amp;st);
+      }
+      catch(_com_error &amp;e)
+      {
+       bstrDesc = e.Description();
+
+      }
+      CoUninitialize();
+      }
+						</PRE>
+                    <LI>Compile and run your project. The message box from 
+                    Project1.DLL should appear. </LI></OL>The #import method can 
+                  be used in a Win32 Application, a Console Application, or in 
+                  MFC as well. <BR><BR>Method 3 - Pure COM Interface <BR><BR>
+                  <OL class=dec>
+                    <LI>Start Visual C++ and select New from the File menu. 
+                    Choose MFC AppWizard (Exe), name the project tst1, and click 
+                    OK. When the MFC Appwizard dialog box appears, select Dialog 
+                    Based and click Finish. Click OK when the next dialog box 
+                    appears. 
+                    <LI>The Resource Editor is started by default. Delete all 
+                    the controls on the dialog box and add a Command button on 
+                    it, retaining the default caption "Button1". 
+                    <LI>Double-click Button1 to display the Add Member Function 
+                    dialog box. Click OK to accept the name OnButton1. 
+                    <LI>Click OLE/COM Object Viewer on the Tools menu. Select 
+                    View Typelib from the File menu and choose the Project1.dll 
+                    you created earlier. Click Open to display the ITypeLib 
+                    Viewer, which contains the .idl file for your DLL. 
+                    <LI>Copy the contents of your .idl file (contents of the 
+                    right pane) to the Clipboard. Hold the SHIFT key down while 
+                    paging or scrolling from the first character to the end of 
+                    the text in the pane. Press Ctrl+C to copy the marked text 
+                    to the Clipboard. 
+                    <LI>Click New on Visual C++ File menu. Select Text File on 
+                    the New dialog box, name the file test1.idl, and click OK. 
+                    <LI>A blank text file appears. Paste the data from the 
+                    Clipboard into it and save the file. 
+                    <LI>Select Settings from the Project menu, expand the tst1 
+                    and Source Files nodes of the tree view, and select 
+                    test1.idl. Click the MIDL tab, enter test1.h in the "Output 
+                    header file name" box, and click OK. 
+                    <LI>Open tst1Dlg.cpp and add the following files to the 
+                    includes section: <PRE>      #include &lt;initguid.h&gt;
+      #include "test1.h"
+						</PRE>
+                    <LI>Click the ClassWizard on the View menu, select Ctst1App 
+                    in the Class Name box, and double-click InitInstance in the 
+                    Messages box. Click Edit Code to bring up the code for: <PRE>      BOOL CTst1App::InitInstance()
+						</PRE>Find the line: <PRE>      AfxEnableControlContainer();
+						</PRE>Add the following line before it: <PRE>      AfxOleInit();
+						</PRE>
+                    <LI>Open the ClassWizard again. On the Message Maps tab 
+                    select CTst1Dlg in the Class Name box and IDC_BUTTON1 in the 
+                    Object IDs box. Double-click BN_CLICKED in the Messages box, 
+                    and click Edit Code to bring up the code for void 
+                    CTst1Dlg::OnButton1(). Replace the OnButton1() function with 
+                    the following code: <PRE>      void CTst1Dlg::OnButton1()
+      {
+         // TODO: Add your control notification handler code here.
+
+         _Class1 *pClass = NULL;
+         IUnknown *pUnk = NULL;
+
+      //   HRESULT hr = CoCreateInstance(CLSID_Class1,NULL,
+      //   CLSCTX_INPROC_SERVER,IID__Class1,(void **)&amp;pClass);
+      //   You can directly get the Interface ID as in the previous line or
+      //   you can do a QueryInterface on IUnknown to get the IID
+      //   as in the following three lines:
+
+      HRESULT hr = CoCreateInstance(CLSID_Class1,NULL,CLSCTX_INPROC_SERVER,
+      IID_IUnknown,(void **)&amp;pUnk);
+      hr = pUnk-&gt;QueryInterface(IID__Class1,(void **)&amp;pClass);
+      pUnk-&gt;Release();
+
+      // Once you have the IID, you can make use of the interface pointer
+      // to access our Visual Basic DLL.
+
+      short st = 2;
+      short st1;
+      hr = pClass-&gt;MyVBFunction(&amp;st,&amp;st1);
+      pClass-&gt;Release();
+
+      }
+						</PRE>
+                    <LI>Compile your .exe file (F7) and run your application 
+                    (F5). Click Button1 in the dialog box. The message box from 
+                    the Visual Basic DLL appears.</LI></OL></DIV>
+                  <DIV class=references>
+                  <H2>REFERENCES</H2>For additional information, please see the 
+                  following articles in the Microsoft Knowledge Base: 
+                  <P class=indent><A class=KBlink 
+                  href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;178749">178749</A> 
+                  How To Create an Automation Project Using MFC and a Type 
+                  Library <BR><BR><A class=KBlink 
+                  href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;188817">188817</A> 
+                  How To VC++ MFC Client for the ComCallingJava Sample 
+</P></DIV>
+                  <DIV class=appliesto id=appliesto name="appliesto">
+                  <H3>The information in this article applies to:</H3>
+                  <UL>
+                    <LI>Microsoft Visual C++, 32-bit Enterprise Edition 5.0
+                    <LI>Microsoft Visual C++, 32-bit Enterprise Edition 6.0
+                    <LI>Microsoft Visual C++, 32-bit Professional Edition 5.0
+                    <LI>Microsoft Visual C++, 32-bit Professional Edition 6.0
+                    <LI>Microsoft Visual C++, 32-bit Learning Edition 
+                  6.0</LI></UL></DIV>
+                  <TABLE class=docinfo cellSpacing=1 cellPadding=3 
+                    align=center><TBODY>
+                    <TR>
+                      <TD class=label vAlign=top noWrap align=right 
+                        width="5%">Last Reviewed:</TD>
+                      <TD class=data vAlign=top align=left>7/15/2004 (4.2) 
+                    </TD></TR>
+                    <TR class=composite>
+                      <TD class=label vAlign=top noWrap align=right 
+                        width="5%">Keywords:</TD>
+                      <TD class=data vAlign=top align=left>kbcode kbhowto 
+                        KB194873 kbAudDeveloper</TD></TR></TBODY></TABLE><BR>
+                  <DIV class=disclaimer></DIV><!-- - - - - - - - - - - - PAGE TEXT ENDS ABOVE HERE - - - - - - - - - - - --></TD></TR>
+              <TR>
+                <TD 
+            align=middle><!--GETHELP_HORI--></TD></TR></TBODY></TABLE></DIV></DIV></DIV></XMLREADER></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<DIV class=tpl_footer id=BottomPanel name="BottomPanel">
+<TABLE class=tpl_footer_row1>
+  <TBODY>
+  <TR>
+    <TD class=fbtn_cell>&nbsp;<A 
+      href="http://support.microsoft.com/default.aspx?pr=cntactms&amp;style=home" 
+      target=_top>Contact Us</A>&nbsp;</TD></TR></TBODY></TABLE><BR>
+<DIV class=tpl_footer_row2>© 2004 Microsoft Corporation. All rights 
+reserved.&nbsp;&nbsp;<A class=ftr_copyright_text 
+href="http://support.microsoft.com/default.aspx?scid=%2fsupport%2fmisc%2fcpyright.asp" 
+target=http://support.microsoft.com/default.aspx?scid=%2fsupport%2fmisc%2fcpyright.asp>Terms 
+of use</A>&nbsp;&nbsp;<A class=ftr_copyright_text 
+href="http://www.microsoft.com/security/default.asp" 
+target=http://www.microsoft.com/security/default.asp>Security &amp; 
+Privacy</A>&nbsp;&nbsp;<A class=ftr_copyright_text 
+href="http://www.microsoft.com/enable/" 
+target=http://www.microsoft.com/enable/>Accessibility</A>&nbsp;&nbsp;</DIV></DIV><IMG 
+style="DISPLAY: none" 
+src="194873 - How To Access a Visual Basic ActiveX DLL from Visual C++_files/1ptrans.gif" 
+name=metrixgif>
+<SCRIPT language=JavaScript>
+   function thisLoad(){
+setcookieval("SITE","GN");
+gsfxUpLevel();
+
+   g_reSupportedHostnames = new RegExp(".msn.com$|.passport.com$|.xbox.com$|.microsoft.com$|.microsoft.cz$|.msbpn.com$|.microsoft.co.*", "i");
+  ForeignLink_Hookup(true);LogHit('http://c.microsoft.com/trans_pixel.asp?TYPE=SSPV&SOURCE=SUPPORT&URI=/GN/EN-US/kb_en-us_194873&GUID=1F4FC18C-F71E-47fb-8FC9-612F8EE59C61&R=');
+   }
+
+function thisUnload(){
+fireTrigger('/common/survey.aspx?scid=sw;en;1200&XSL=','GN','EN-US','%252fdefault.aspx%253fkbid%253d194873','kb','EN-US','194873','','','','','','','');;   }
+</SCRIPT>
+ </BODY></HTML>

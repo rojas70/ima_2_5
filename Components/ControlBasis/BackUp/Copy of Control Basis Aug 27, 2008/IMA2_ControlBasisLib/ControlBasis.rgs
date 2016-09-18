@@ -1,0 +1,29 @@
+HKCR
+{
+	IMA2_ControlBasisLib.ControlBasis.1 = s 'ControlBasis Class'
+	{
+		CLSID = s '{2A43D57C-00F6-4054-9B0C-E831A9517CB7}'
+	}
+	IMA2_ControlBasisLib.ControlBasis = s 'ControlBasis Class'
+	{
+		CLSID = s '{2A43D57C-00F6-4054-9B0C-E831A9517CB7}'
+		CurVer = s 'IMA2_ControlBasisLib.ControlBasis.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2A43D57C-00F6-4054-9B0C-E831A9517CB7} = s 'ControlBasis Class'
+		{
+			ProgID = s 'IMA2_ControlBasisLib.ControlBasis.1'
+			VersionIndependentProgID = s 'IMA2_ControlBasisLib.ControlBasis'
+			ForceRemove 'Programmable'
+			
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		
+			'TypeLib' = s '{2A43D57C-00F6-4054-9B0C-E831A9517CB7}'
+			
+		}
+	}
+}

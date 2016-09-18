@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_ColorSegmenterLib.ColorSegmenter.1 = s 'ColorSegmenter Class'
+	{
+		CLSID = s '{5B77B15E-47A3-4BDF-9763-61A93DDC7749}'
+	}
+	IMA2_ColorSegmenterLib.ColorSegmenter = s 'ColorSegmenter Class'
+	{
+		CLSID = s '{5B77B15E-47A3-4BDF-9763-61A93DDC7749}'
+		CurVer = s 'IMA2_ColorSegmenterLib.ColorSegmenter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5B77B15E-47A3-4BDF-9763-61A93DDC7749} = s 'ColorSegmenter Class'
+		{
+			ProgID = s 'IMA2_ColorSegmenterLib.ColorSegmenter.1'
+			VersionIndependentProgID = s 'IMA2_ColorSegmenterLib.ColorSegmenter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{DE6046B8-5C92-48D1-AD92-DDB496CB2321}'
+		}
+	}
+}

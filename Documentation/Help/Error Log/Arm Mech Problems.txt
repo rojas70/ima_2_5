@@ -1,0 +1,9 @@
+The CArmMech seems to be full of code for IMA 1.0. When I tried to compile with this code, it would give me many errors. But if I commented out all the methods here, it compiles fine. 
+
+I placed the .dll file in C:\ima2\Components. I used DAD, and said Create New Component. It shows a list of the libraries contained in the folder mentioned before. It showed an icon for the arm mech, but when I clicked on the icon, it then showed no classes in it. 
+
+This seems to be an IMA 1.0. mixed with IMA 2.0. project.
+Even, if I look at the idl file it does not show IMA 2.5. characteristics.
+
+Please check it and let me know.
+Thanks

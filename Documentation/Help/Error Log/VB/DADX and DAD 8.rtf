@@ -1,0 +1,211 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fswiss\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\fswiss\fprq2\fcharset0 Tahoma;}{\f3\froman\fprq2\fcharset0 Times New Roman;}}
+{\colortbl ;\red0\green0\blue0;\red0\green0\blue128;}
+\viewkind4\uc1\pard\fi-1800\li1800\tx1800\cf1\b\f0\fs20 From:\b0\tab CAMPBELL, CHRISTINA (JSC-ER4) (NASA) [christina.campbell-1@nasa.gov]\par
+\b Sent:\b0\tab Wednesday, June 08, 2005 3:22 PM\par
+\b To:\b0\tab Juan Rojas\par
+\b Subject:\b0\tab RE: more\par
+\pard\cf2\f1 That text belongs in just this control.\par
+I believe that I made no other changes to controls when I was doing the latest series of updates.\par
+So, what you do is find a good set of backups (the one's from March are probably right.)\par
+Open the project in VB and close down all windows.\par
+Open agentreeview.ctl (in DADX) from both the current one and the backup in notepad.\par
+Find any lvw or tvw controls, and check to make sure they aren't picture boxes.\par
+If they are, copy the text from the backup copy and put in the control\par
+Delete the reference to mscomctl.ocx at the start of the newer file.\par
+save, and close.\par
+Open DADX.vbp in notepad and delete the reference to mscomctl.ocx.\par
+Now, open DADX, ignore any warnings (and don't view any of the controls). go to project->component and add mscomctl.ocx.\par
+Save, and Build, ignoring the compatibility dialogs.\par
+\par
+If this works,\par
+Open DAD.vbp, ignoring any errors, and close all the windows.\par
+Go To source\\Framework\\Dad\\Forms and repeat the steps above, looking for lvw, tvw, atv, and alv controls that may have been turned into pictureboxes.\par
+I believe that only the following controls will have this issue: frmMain, frmInsert, frmBindings, and maybe frmParams.\par
+Delete references to mscomctl.ocx and DADX.ocx.\par
+Do the same in DAD.vbp (in notepad).\par
+Open DAD.vbp in VB, ignoring errors, and re-reference mscomctl and DADX.\par
+Now try Building.\par
+\par
+If at any point, while in VB, it asks if you want to save the .frm or .ctl files, be wary. Because the changes you made in notepad (making the controls not be picture boxes), might be undone.\par
+\par
+I just got your last e-mail and I hope so. But I thought I'd send this anyway.\par
+If it wouldn't have undone the changes I made, I would have just had you replace the files. But I did good work on several minor annoyances, and I don't want that to be lost.\par
+\par
+--Christina\par
+\par
+\pard\li720\cf0\f2 -----Original Message-----\line\b From:\b0  Juan Rojas [mailto:juan.rojas@vanderbilt.edu] \line\b Sent:\b0  Wednesday, June 08, 2005 3:09 PM\line\b To:\b0  CAMPBELL, CHRISTINA (JSC-ER4) (NASA)\line\b Subject:\b0  RE: more\f3\fs24\par
+\par
+\f1\fs20 Should I use that replacement text in all the forms or just this one?\par
+\par
+\par
+\par
+-----------------------------------------------------------------\par
+Juan Rojas\par
+Cognitive Robotics Lab at Vanderbilt University\par
+http://people.vanderbilt.edu/~juan.rojas\par
+http://eecs.vanderbilt.edu/CIS/\par
+Juan.Rojas@Vanderbilt.Edu & 615-322-0266\par
+ \par
+\fs24\par
+\pard\li1080  \lang1024\f2\fs16 -----Original Message-----\par
+\pard\fi-1440\li2520\tx1440\b From: \tab\b0 CAMPBELL, CHRISTINA (JSC-ER4) (NASA) [mailto:christina.campbell-1@nasa.gov] \par
+\b Sent:\tab\b0 Wednesday, June 08, 2005 3:04 PM\par
+\b To:\tab\b0 Juan Rojas\par
+\b Subject:\tab\b0 RE: more\par
+\par
+\pard\li1080\cf2\lang1033\f1\fs20 Nope.\par
+\par
+The one you sent me has turned lvw into a picturebox:\par
+   Begin VB.PictureBox lvw \par
+      Appearance      =   0  'Flat\par
+      BackColor       =   &H80000005&\par
+      ForeColor       =   &H80000008&\par
+      Height          =   2535\par
+      Left            =   0\par
+      ScaleHeight     =   2505\par
+      ScaleWidth      =   3225\par
+      TabIndex        =   0\par
+      Top             =   0\par
+      Width           =   3255\par
+   End\par
+\par
+The correct text is:\par
+   Begin MSComctlLib.ListView lvw \par
+      Height          =   2535\par
+      Left            =   0\par
+      TabIndex        =   0\par
+      Top             =   0\par
+      Width           =   3255\par
+      _ExtentX        =   5741\par
+      _ExtentY        =   4471\par
+      View            =   3\par
+      LabelEdit       =   1\par
+      MultiSelect     =   -1  'True\par
+      LabelWrap       =   -1  'True\par
+      HideSelection   =   -1  'True\par
+      _Version        =   393217\par
+      SmallIcons      =   "iml"\par
+      ForeColor       =   -2147483640\par
+      BackColor       =   -2147483643\par
+      Appearance      =   0\par
+      NumItems        =   4\par
+      BeginProperty ColumnHeader(1) \{BDD1F052-858B-11D1-B16A-00C0F0283628\} \par
+         Text            =   "Item Name"\par
+         Object.Width           =   3969\par
+      EndProperty\par
+      BeginProperty ColumnHeader(2) \{BDD1F052-858B-11D1-B16A-00C0F0283628\} \par
+         SubItemIndex    =   1\par
+         Text            =   "Type"\par
+         Object.Width           =   7937\par
+      EndProperty\par
+      BeginProperty ColumnHeader(3) \{BDD1F052-858B-11D1-B16A-00C0F0283628\} \par
+         SubItemIndex    =   2\par
+         Text            =   "Value"\par
+         Object.Width           =   2646\par
+      EndProperty\par
+      BeginProperty ColumnHeader(4) \{BDD1F052-858B-11D1-B16A-00C0F0283628\} \par
+         SubItemIndex    =   3\par
+         Text            =   "SortType"\par
+         Object.Width           =   0\par
+      EndProperty\par
+   End\par
+\par
+Note: this might not be the exact text in your back-up file. I think the "SortType" column header is something that I've added. But it is necessary, so use this text as the replacement.\par
+\par
+--Christina\par
+\par
+\pard\li1800\cf0\f2 -----Original Message-----\line\b From:\b0  Juan Rojas [mailto:juan.rojas@vanderbilt.edu] \line\b Sent:\b0  Wednesday, June 08, 2005 3:00 PM\line\b To:\b0  CAMPBELL, CHRISTINA (JSC-ER4) (NASA)\line\b Subject:\b0  RE: more\f3\fs24\par
+\par
+\f1\fs20 IS the file you see?\par
+\par
+\f3\fs24  << File: AgentListview.txt >> \f1\fs20\par
+\par
+-----------------------------------------------------------------\par
+Juan Rojas\par
+Cognitive Robotics Lab at Vanderbilt University\par
+http://people.vanderbilt.edu/~juan.rojas\par
+http://eecs.vanderbilt.edu/CIS/\par
+Juan.Rojas@Vanderbilt.Edu & 615-322-0266\par
+ \par
+\fs24\par
+\pard\li2160  \lang1024\f2\fs16 -----Original Message-----\par
+\pard\fi-1440\li3600\tx1440\b From: \tab\b0 CAMPBELL, CHRISTINA (JSC-ER4) (NASA) [mailto:christina.campbell-1@nasa.gov] \par
+\b Sent:\tab\b0 Wednesday, June 08, 2005 2:56 PM\par
+\b To:\tab\b0 Juan Rojas\par
+\b Subject:\tab\b0 RE: more\par
+\par
+\pard\li2160\cf2\lang1033\f1\fs20 Open up the file Source\\Framework\\DADX\\Controls\\AgentListview.ctl in notepad.\par
+\par
+You need to open it up in notepad to be able to get at the information on the form that VB buries.\par
+Since you weren't opening this before, double check its similarity to a back-up file (also opened in notepad). (check for picture boxes, etc.) Just to be sure.\par
+\par
+--Christina\par
+\par
+\pard\li2880\cf0\f2 -----Original Message-----\line\b From:\b0  Juan Rojas [mailto:juan.rojas@vanderbilt.edu] \line\b Sent:\b0  Wednesday, June 08, 2005 2:52 PM\line\b To:\b0  CAMPBELL, CHRISTINA (JSC-ER4) (NASA)\line\b Subject:\b0  RE: more\f3\fs24\par
+\par
+\f1\fs20 How do you get to that...\par
+I go to Project->Components and that is how I change it... \par
+\par
+\par
+\par
+-----------------------------------------------------------------\par
+Juan Rojas\par
+Cognitive Robotics Lab at Vanderbilt University\par
+http://people.vanderbilt.edu/~juan.rojas\par
+http://eecs.vanderbilt.edu/CIS/\par
+Juan.Rojas@Vanderbilt.Edu & 615-322-0266\par
+ \par
+\fs24\par
+\pard\li3240  \lang1024\f2\fs16 -----Original Message-----\par
+\pard\fi-1440\li4680\tx1440\b From: \tab\b0 CAMPBELL, CHRISTINA (JSC-ER4) (NASA) [mailto:christina.campbell-1@nasa.gov] \par
+\b Sent:\tab\b0 Wednesday, June 08, 2005 2:51 PM\par
+\b To:\tab\b0 Juan Rojas\par
+\b Subject:\tab\b0 RE: more\par
+\par
+\pard\li3240\cf2\lang1033\f1\fs20 No, each control that uses mscomctl references it specifically. At least, I see it in my version of the .ctl files.\par
+\par
+--Christina\par
+\par
+\par
+\pard\li3960\cf0\f2 -----Original Message-----\line\b From:\b0  Juan Rojas [mailto:juan.rojas@vanderbilt.edu] \line\b Sent:\b0  Wednesday, June 08, 2005 2:46 PM\line\b To:\b0  CAMPBELL, CHRISTINA (JSC-ER4) (NASA)\line\b Subject:\b0  RE: more\f3\fs24\par
+\par
+\f1\fs20 Even if I break the compatibility it gives me that compile error problem...\par
+\par
+With MSComCtl, once you disable it from the project, it disables it for all the forms. I don't think each form has it's own ctl... am i right?\par
+\par
+\par
+\par
+-----------------------------------------------------------------\par
+Juan Rojas\par
+Cognitive Robotics Lab at Vanderbilt University\par
+http://people.vanderbilt.edu/~juan.rojas\par
+http://eecs.vanderbilt.edu/CIS/\par
+Juan.Rojas@Vanderbilt.Edu & 615-322-0266\par
+ \par
+\fs24\par
+\pard\li4320  \lang1024\f2\fs16 -----Original Message-----\par
+\pard\fi-1440\li5760\tx1440\b From: \tab\b0 CAMPBELL, CHRISTINA (JSC-ER4) (NASA) [mailto:christina.campbell-1@nasa.gov] \par
+\b Sent:\tab\b0 Wednesday, June 08, 2005 2:44 PM\par
+\b To:\tab\b0 Juan Rojas\par
+\b Subject:\tab\b0 RE: more\par
+\par
+\pard\li4320\cf2\lang1033\f1\fs20 The compatibility issue has been there since late March, I believe, when we last changed Helper. It hasn't caused any other problems that I can see. Just break compatibility and move on. Are you still getting the mscomctlLib problem? I can't think of where it would be except here and (maybe) in agenttreeveiw.ctl. (Just like the forms in main, it needs to separated from mscomctl and reconnected)\par
+--Christina\par
+\par
+\cf0\f2 -----Original Message-----\line\b From:\b0  Juan Rojas [mailto:juan.rojas@vanderbilt.edu] \line\b Sent:\b0  Wednesday, June 08, 2005 2:33 PM\line\b To:\b0  CAMPBELL, CHRISTINA (JSC-ER4) (NASA)\line\b Subject:\b0  more\f3\fs24\par
+\par
+\f1\fs20 if i try to compile dad x i get the following:\par
+\par
+\par
+\par
+-----------------------------------------------------------------\par
+Juan Rojas\par
+Cognitive Robotics Lab at Vanderbilt University\par
+http://people.vanderbilt.edu/~juan.rojas\par
+http://eecs.vanderbilt.edu/CIS/\par
+Juan.Rojas@Vanderbilt.Edu & 615-322-0266\par
+ \par
+\f3\fs24  << File: 1.jpg >>  << File: 2.jpg >> \f1\fs20\par
+\pard\fi-1800\li1800\tx1800\cf1\f0\par
+}
+ 

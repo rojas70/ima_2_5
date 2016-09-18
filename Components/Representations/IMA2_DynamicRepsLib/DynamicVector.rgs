@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_DynamicRepsLib.DynamicVector.1 = s 'DynamicVector Class'
+	{
+		CLSID = s '{FEAB28F2-03C5-4618-83A8-D516E25135D5}'
+	}
+	IMA2_DynamicRepsLib.DynamicVector = s 'DynamicVector Class'
+	{
+		CLSID = s '{FEAB28F2-03C5-4618-83A8-D516E25135D5}'
+		CurVer = s 'IMA2_DynamicRepsLib.DynamicVector.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FEAB28F2-03C5-4618-83A8-D516E25135D5} = s 'DynamicVector Class'
+		{
+			ProgID = s 'IMA2_DynamicRepsLib.DynamicVector.1'
+			VersionIndependentProgID = s 'IMA2_DynamicRepsLib.DynamicVector'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F145B219-03DE-4FD5-916C-3CF1324C9944}'
+		}
+	}
+}

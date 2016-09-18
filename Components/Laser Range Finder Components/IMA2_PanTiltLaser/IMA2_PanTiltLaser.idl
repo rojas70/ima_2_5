@@ -1,0 +1,44 @@
+// IMA2_PanTiltLaser.idl : IDL source for IMA2_PanTiltLaser.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_PanTiltLaser.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(A4AB809D-38CB-439D-AE91-93CB6C1AEC46),
+		dual,
+		helpstring("IPanTiltUnit Interface"),
+		pointer_default(unique)
+	]
+	interface IPanTiltUnit : IDispatch
+	{
+		[id(1), helpstring("method InitLaser")] HRESULT InitLaser();
+		[id(2), helpstring("method HomeLaser")] HRESULT HomeLaser();
+		[id(3), helpstring("method ResetLaser")] HRESULT ResetLaser();
+		[id(4), helpstring("method Scan")] HRESULT Scan();
+	};
+
+[
+	uuid(EF31C770-95E5-4A6F-9F31-887EA6376304),
+	version(1.0),
+	helpstring("(IMA2 Components) PanTiltLaser Control") // Modified by Joe
+]
+library IMA2_PANTILTLASERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb"); // Added by Joe
+
+	[
+		uuid(B87BF833-C75F-494C-B44A-67ABD75840E2),
+		helpstring("PanTiltUnit Class")
+	]
+	coclass PanTiltUnit
+	{
+		[default] interface IPanTiltUnit;
+		interface IComponent;  // Added by Joe
+	};
+};

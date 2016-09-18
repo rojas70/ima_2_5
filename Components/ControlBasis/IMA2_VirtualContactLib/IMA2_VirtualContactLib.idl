@@ -1,0 +1,47 @@
+// IMA2_VirtualContactLib.idl : IDL source for IMA2_VirtualContactLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_VirtualContactLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// IMA2_CISAC_Assembly: IDL source for IMA2_CISAC_Assembly.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA25Template.tlb) and marshalling code.
+
+	[
+		object,
+		uuid(33CCC6E1-9887-4140-8A2D-ADA138AA9DF0),
+		dual,
+		helpstring("(IMA2 Components) - ISAC VirtualContactLIB"),
+		pointer_default(unique)
+	]
+	interface IISAC_Assembly : IDispatch
+	{
+		[id(1), helpstring("method AverageValues")] HRESULT AverageValues();
+		[id(2), helpstring("method Close")] HRESULT Close();
+	};
+
+[
+	uuid(7733B835-ADFA-44CC-AF23-3D93A2ADAE01),
+	version(1.0),
+	helpstring("(IMA2 Components) - ISAC VirtualContactLIB")
+]
+library IMA2_VIRTUALCONTACTLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	importlib("O:\include\ima2.tlb");
+	[
+		uuid(74FEEC9C-4F27-44B7-B837-964E34201573),
+		helpstring("(IMA2 Components) - ISAC VirtualContactLIB")
+	]
+	coclass ISAC_Assembly
+	{
+		[default] interface IISAC_Assembly;
+		interface IComponent; 
+	};
+};

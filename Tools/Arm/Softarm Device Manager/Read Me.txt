@@ -1,0 +1,43 @@
+/**** DEVICE DRIVER FOR ARMS ***/
+
+The three files found in this folder are to be used only when there is a need to install/reinstall
+the device driver for the right arm or left arm in a new machine. 
+
+
+/*** INSTALLING THE DRIVER ***/
+
+To install the driver, simply double click on:
+
+Left Arm:	HungerForceSoftarm.reg
+Right Arm:	PopeyeSoftarm.reg
+
+Then finally double click on:
+
+Sofarm.sys
+
+For both arms. 
+
+This should install the driver on your computer. Note that you will probably have to do this if, for some reason, you are reinstalling the arm card on a new machine or a formatted machine. 
+
+/*** CHECKING ***/
+
+To check to make sure that the driver was successfully installed in your machine do the following:
+
+Go to MyComputer,
+Right Click on it, and select Properties,
+Click on the Hardware Tab, and select Device Manager,
+Go to the View Menu, and select Show Hidden Devices,
+Go to the View Menu again, and select the Devices by Connection option
+At this point you should be able to scroll down the list and see a SoftArm icon listed there.
+
+If for any reason the files here get corrupted or lost! you can find a copy at:
+\\cis\common\Users\palis\Softarm
+
+
+/*** INSTALLING THE HARDWARE CARD***/
+
+This is simple. Both in Brutus and HungerForce you will be able to locate special ISA slots in which you can place these cards. 
+The cables that go into these cards, are all tied together by color and label on the floor and so should be easy to recongnize.
+
+A simple logic is all you need to put this together.
+

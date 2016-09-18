@@ -1,0 +1,26 @@
+HKCR
+{
+	IMA2_PTVisionLib.VisualInputRepresentation.1 = s 'VisualInputRepresentation Class'
+	{
+		CLSID = s '{C5044BD7-77C6-4B82-982D-89C63B15AF93}'
+	}
+	IMA2_PTVisionLib.VisualInputRepresentation = s 'VisualInputRepresentation Class'
+	{
+		CLSID = s '{C5044BD7-77C6-4B82-982D-89C63B15AF93}'
+		CurVer = s 'IMA2_PTVisionLib.VisualInputRepresentation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C5044BD7-77C6-4B82-982D-89C63B15AF93} = s 'VisualInputRepresentation Class'
+		{
+			ProgID = s 'IMA2_PTVisionLib.VisualInputRepresentation.1'
+			VersionIndependentProgID = s 'IMA2_PTVisionLib.VisualInputRepresentation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{D835AB70-870C-4B1A-8E1F-93F149F6D4FA}'
+		}
+	}
+}

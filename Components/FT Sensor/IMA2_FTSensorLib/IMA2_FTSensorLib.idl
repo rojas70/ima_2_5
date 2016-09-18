@@ -1,0 +1,58 @@
+// IMA2_FTSensorLib.idl : IDL source for IMA2_FTSensorLib.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IMA2_FTSensorLib.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(AE08C1B6-9B59-4131-8C78-714B036BEC38),
+		dual,
+		helpstring("(IMA2 Components) - ATISensor Lib"),
+		pointer_default(unique)
+	]
+	interface IFTSensorCom : IDispatch
+	{
+		//[id(6), helpstring("method SampleFTDataPeaks")] HRESULT SampleFTDataPeaks();
+		[id(7), helpstring("method SampleFTData")] HRESULT SampleFTData();
+		[propget, id(8), helpstring("property CurrentFrame")] HRESULT CurrentFrame([out, retval] double *pVal);
+		[propput, id(8), helpstring("property CurrentFrame")] HRESULT CurrentFrame([in] double newVal);
+		[propget, id(9), helpstring("property CurrentFrameIndex")] HRESULT CurrentFrameIndex([out, retval] short *pVal);
+		[propput, id(9), helpstring("property CurrentFrameIndex")] HRESULT CurrentFrameIndex([in] short newVal);
+		[propget, id(10), helpstring("property AverageLength")] HRESULT AverageLength([out, retval] long *pVal);
+		[propput, id(10), helpstring("property AverageLength")] HRESULT AverageLength([in] long newVal);
+		[propget, id(13), helpstring("property DeviceFilename")] HRESULT DeviceFilename([out, retval] BSTR *pVal);
+		[propput, id(13), helpstring("property DeviceFilename")] HRESULT DeviceFilename([in] BSTR newVal);
+		[propget, id(14), helpstring("property FTWristSide")] HRESULT FTWristSide([out, retval] BSTR *pVal);
+		[propput, id(14), helpstring("property FTWristSide")] HRESULT FTWristSide([in] BSTR newVal);
+		[id(15), helpstring("method Initialize")] HRESULT Initialize();
+		[propget, id(18), helpstring("property ErrorMessage")] HRESULT ErrorMessage([out, retval] BSTR *pVal);
+		[propput, id(18), helpstring("property ErrorMessage")] HRESULT ErrorMessage([in] BSTR newVal);
+		[id(19), helpstring("method BiasSensor")] HRESULT BiasSensor();
+		[id(20), helpstring("method EnablePeaks")] HRESULT EnablePeaks();
+		[id(21), helpstring("method Close")] HRESULT Close();
+	};
+
+[
+	uuid(6A8400B2-A349-4AFA-9D26-218120F3D4BD),
+	version(1.0),
+	helpstring("(IMA2 Components) - ATI Sensor LIB")
+]
+library IMA2_FTSENSORLIBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	importlib("O:\include\ima2.tlb"); 
+
+	[
+		uuid(B76D0DD9-D211-43FB-AF30-0B1A6DF32CB3),
+		helpstring("FTSensorCom Class")
+	]
+	coclass FTSensorCom
+	{
+		[default] interface IFTSensorCom;
+		interface IComponent; 
+	};
+};

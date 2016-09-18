@@ -1,0 +1,26 @@
+HKCR
+{
+	Trial.trialobj.1 = s 'trialobj Class'
+	{
+		CLSID = s '{E2EC1480-F13E-4F16-8338-15495F3AE6BF}'
+	}
+	Trial.trialobj = s 'trialobj Class'
+	{
+		CLSID = s '{E2EC1480-F13E-4F16-8338-15495F3AE6BF}'
+		CurVer = s 'Trial.trialobj.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E2EC1480-F13E-4F16-8338-15495F3AE6BF} = s 'trialobj Class'
+		{
+			ProgID = s 'Trial.trialobj.1'
+			VersionIndependentProgID = s 'Trial.trialobj'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F50D985F-0B86-43E1-84BA-EEC428EC88D4}'
+		}
+	}
+}

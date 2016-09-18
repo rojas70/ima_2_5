@@ -1,0 +1,81 @@
+hi
+fdef
+go
+so
+gic
+gic
+gic
+gic
+gic
+gic
+gic
+12fset dp 10000
+3fset dp 6000
+gm
+12fset dp 11000
+3fset dp 5000
+gm
+12fset dp 12000
+3fset dp 4000
+gm
+12fset dp 13000
+3fset dp 3000
+gm
+12fset dp 14000
+3fset dp 2000
+gm
+12fset dp 13000
+3fset dp 3000
+gm
+12fset dp 12000
+3fset dp 4000
+gm
+12fset dp 11000
+3fset dp 5000
+gm
+12fset dp 10000
+3fset dp 6000
+gm
+12fset dp 9000
+3fset dp 7000
+gm
+12fset dp 8000
+3fset dp 8000
+gm
+12fset dp 7000
+3fset dp 9000
+gm
+12fset dp 6000
+3fset dp 10000
+gm
+12fset dp 5000
+3fset dp 11000
+gm
+12fset dp 4000
+3fset dp 12000
+gm
+12fset dp 3000
+3fset dp 13000
+gm
+12fset dp 2000
+3fset dp 14000
+gm
+12fset dp 2000
+3fset dp 14000
+gm
+12ic
+12ic
+12ic
+12ic
+12ic
+12ic
+12ic
+12ic
+gm 8000
+sc
+gio
+gio
+gio
+gio
+gio
+gio

@@ -1,0 +1,929 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0048)http://www.codeproject.com/atl/atl_pp_wizard.asp -->
+<HTML><HEAD><TITLE>The Code Project - ATL Object Wizard Property Page - ATL</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META content="Free source code and tutorials for Windows developers." 
+name=Description>
+<META content="Free source code, ATL, Visual C++, MFC, Windows, ATL, Wizard" 
+name=keywords>
+<META 
+content="Article content copyright Shaun Wilde, 2000, everthing else Copyright © CodeProject, 1999-2005, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK href="/favicon.ico" type=image/ico 
+rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="Creating a Custom ATL Objects (IMA2 Template)_files/global.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=javascript 
+src="Creating a Custom ATL Objects (IMA2 Template)_files/oncopy.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2800.1476" name=GENERATOR></HEAD>
+<BODY oncopy="return copyCode();" text=black vLink=purple aLink=red link=blue 
+bgColor=white leftMargin=3 topMargin=3>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG height=72 
+            alt="The Code Project" 
+            src="Creating a Custom ATL Objects (IMA2 Template)_files/logo225x72.gif" 
+            width=225 border=0></A></TD>
+          <TD align=right><SPAN id=AdBanner4><A 
+            href="http://www.codeproject.com/script/admentor/ads.asp"><IMG 
+            height=60 alt="View our advertisers" 
+            src="Creating a Custom ATL Objects (IMA2 Template)_files/sponsors.gif" 
+            width=20 border=1></A>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=859&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDundasChart41Banner%2Egif&C=False&id=859\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+            <A href="http://www.codeproject.com/info/mediakit"><IMG height=60 
+            alt="Advertise on the CodeProject" 
+            src="Creating a Custom ATL Objects (IMA2 Template)_files/advertise.gif" 
+            width=20 border=1></A></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellPadding=3 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+                  href="http://www.codeproject.com/?cat=2">MFC / C++</A> 
+                  &gt;&gt; <A href="http://www.codeproject.com/atl/">ATL</A> 
+                  &gt;&gt; <A 
+                  href="http://www.codeproject.com/atl/#General">General</A></FONT><BR><BR><B><FONT 
+                  style="FONT-SIZE: 16pt" size=4>ATL Object Wizard Property 
+                  Page</FONT></B><BR><B>By <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=212">Shaun 
+                  Wilde</A> </B><BR><BR><FONT style="FONT-SIZE: 9pt">A wizard 
+                  that allows you to create an ATL Object Wizard Property 
+                  Page&nbsp;</FONT> </TD>
+                <TD vAlign=top align=right>
+                  <TABLE cellSpacing=0 cellPadding=1 width=200 border=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>C++ (VC6)<BR>Windows (Win95, Win98, 
+                        WinME, NT4)<BR>ATL, STL, Win32, VS<BR>Dev</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText noWrap>Posted 18 Jan 2000</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>Updated 4 May 2000</TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/hlp.gif" 
+                        width=16></TD>
+                      <TD class=SmallText noWrap><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=212">Articles 
+                        by this author</A></TD></TR>
+                    <TR vAlign=top>
+                      <TD></TD>
+                      <TD class=SmallText noWrap><B>26,739</B> 
+                    views</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE id=tblSiteToolbar cellSpacing=0 cellPadding=1 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <FORM name=Search action=/info/search.asp method=post>
+                <TD vAlign=top align=left width="100%">
+                  <TABLE cellSpacing=0 cellPadding=1 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD class=smallText><B><FONT 
+                        color=white>Search:</FONT></B></TD>
+                      <TD class=navbar noWrap><INPUT class=smallText 
+                        maxLength=255 size=18 name=target></TD>
+                      <TD vAlign=top><SELECT class=smallText name=st> 
+                          <OPTION value=kw selected>Articles</OPTION> <OPTION 
+                          value=au>Authors</OPTION></SELECT></TD>
+                      <TD><INPUT class=formButton type=submit value=Go></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD>
+                  <DIV id=MenuPos 
+                  style="WIDTH: 380px; POSITION: relative; HEIGHT: 20px">
+                  <TABLE height=20 cellSpacing=0 cellPadding=2 width=375>
+                    <TBODY>
+                    <TR>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                        Boards</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/store/">StoreFront</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+            <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+            <SCRIPT 
+            src="Creating a Custom ATL Objects (IMA2 Template)_files/cpmenu_var.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT 
+            src="Creating a Custom ATL Objects (IMA2 Template)_files/menu10_com.js" 
+            type=text/javascript></SCRIPT>
+          </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD vAlign=top bgColor=#fbedbb rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <SCRIPT language=javascript>
+function ErrorHandle() {}
+window.onerror = ErrorHandle;
+
+function OnNLSubmit(option)
+{
+	if (option=="up")
+		document.subForm.action = "/script/profile/modify.asp?ct=%2Fatl%2Fatl%5Fpp%5Fwizard%2Easp";
+	else if (option=="in")
+		document.subForm.action = "/script/profile/process_logon.asp?ct=%2Fatl%2Fatl%5Fpp%5Fwizard%2Easp";
+	document.subForm.submit();
+	return true;
+}
+</SCRIPT>
+
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3 cellPadding=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>Toolbox</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/sitebuild_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=%2Fatl%2Fatl%5Fpp%5Fwizard%2Easp">Broken 
+                  Article?</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>VS.NET 2003 for 
+                  $899</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>MSDN Univ. from 
+                  $2499</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/print.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/atl/atl_pp_wizard.asp?print=true" 
+                  target=_print>Print version</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/mail.gif" 
+                  width=16></TD>
+                <TD class=SmallText><A 
+                  href="http://www.codeproject.com/script/recommend/form.asp?guid=%2Fatl%2Fatl%5Fpp%5Fwizard%2Easp">Send 
+                  to a friend</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD class=InfoBarHeader colSpan=2><BR>Sign in / Sign 
+              up</TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=smallText>
+            <FORM id=subForm name=subForm 
+            action=/script/profile/process_logon.asp method=post>
+            <TABLE cellSpacing=0 cellPadding=0 width=125 bgColor=#ffcc99 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD colSpan=2><IMG height=3 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif"></TD></TR>
+              <TR>
+                <TD class=smallText>&nbsp;Email</TD>
+                <TD class=smallText><INPUT class=smallText id=Email 
+                  style="WIDTH: 60px" name=Email> </TD></TR>
+              <TR>
+                <TD class=smallText>&nbsp;Password</TD>
+                <TD><INPUT class=smallText id=Password style="WIDTH: 60px" 
+                  type=password name=Password></TD></TR>
+              <TR>
+                <TD class=smallText vAlign=center colSpan=2><INPUT 
+                  type=checkbox CHECKED name=cookie>Remember me</TD></TR>
+              <TR>
+                <TD colSpan=2><IMG height=3 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif"></TD></TR>
+              <TR>
+                <TD align=middle><A 
+                  href="http://www.codeproject.com/script/profile/modify.asp"><IMG 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/signup.gif" 
+                  border=0></A></TD>
+                <TD align=middle><INPUT type=image 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/signin.gif" 
+                  border=0></TD></TR>
+              <TR>
+                <TD colSpan=2><IMG height=3 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif"></TD></TR></FORM></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=smallText><A class=smallText 
+            href="http://www.codeproject.com/script/profile/forgot.asp" 
+            name=HLLink>Lost your Password?</A></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=748&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FIronSpeedbanner120x600noversion%2Egif&C=False&id=748\" alt=\"\" border=0 width=120 height=600></a>");</SCRIPT>
+            <BR></CENTER><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=5 rowSpan=2><IMG height=1 
+      src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif" 
+      width=5> </TD>
+    <TD align=right width="100%" bgColor=white>
+      <TABLE width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText vAlign=top noWrap></TD>
+          <TD noWrap align=right><A name=__top></A>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=smallText align=right>9 members have rated this 
+                  article. Result:</TD>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=2>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=5 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/red.gif" 
+                        width=7 border=0><IMG height=5 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/white.gif" 
+                        width=13 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=smallText align=right colSpan=2><A 
+                  title="Calculated as rating x Log10(# votes)" 
+                  href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                  4.14</A>. Rating: <B>4.33</B> out of 
+        5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%">
+      <DIV id=contentdiv><!-- Article Starts -->
+      <LI class=download><A 
+      href="http://www.codeproject.com/atl/ATL_pp_wizard/ATL_pp_wizard_src.zip">Download 
+      the source code - 38 Kb</A> 
+      <LI class=download><A 
+      href="http://www.codeproject.com/atl/ATL_pp_wizard/ATL_pp_wizard_dll.zip">Download 
+      the templates and precompiled DLL - 35 Kb</A> <!-- Article Starts -->
+      <P>This custom wizard allows you to create an ATL Object Wizard Property 
+      Page that can get called during your custom object creation.</P>
+      <H2>Installation</H2>
+      <P>To install the ATL Object Wizard Property Page component you need to 
+      download <A 
+      href="http://www.codeproject.com/atl/ATL_pp_wizard/ATL_pp_wizard-dll.zip">ATL_pp_wizard_dll.zip</A> 
+      and extract the files to '???\Program Files\Microsoft Visual 
+      Studio\Common\MSDev98\Template\ATL'. You then need to register 
+      atlsymwz.dll using regsvr32.exe. The ATL Object Wizard Property Page 
+      component should then be available from ATL Object Wizard.</P>
+      <H2>Usage</H2>
+      <P>To create you very own ATL Object Wizard property page follow these 
+      simple steps:</P>
+      <OL>
+        <LI>Start the ATL Object Wizard using the 'New ATL Object' option 
+        avalable from the menus.
+        <P></P>
+        <LI>Select the ATL Object Wizard component from the Wizards category. 
+        <P><IMG height=257 
+        src="Creating a Custom ATL Objects (IMA2 Template)_files/ATL_pp_wizard1.gif" 
+        width=413> 
+        <P>[NOTE: As a final test of the wizard I recreated the wizard using the 
+        original wizard as a starting point]</P>
+        <LI>Fill in the Names and Strings pages as you would a normal Property 
+        Page object. 
+        <P>This wizard is similar to the Property Page wizard found under the 
+        Controls category however the Attributes page has been removed and the 
+        following page has been added.</P>
+        <P><IMG height=279 
+        src="Creating a Custom ATL Objects (IMA2 Template)_files/ATL_pp_wizard2.gif" 
+        width=433></P>
+        <LI>Fill in the 'Object Wizard Settings' page. 
+        <P>The Category field indicates what category you wish your component to 
+        come under and the Title field is for the name you wish to give your 
+        object. Two other field are supplied and these are the Control File and 
+        the Icon File, these fields indicate what .ctl file you wish to call 
+        when your object is selected and the icon file is for what Icon to 
+        display in the ATL Object Wizard. There are options to create stubs for 
+        these files if they do not already exist. [NOTE: several of the wizards 
+        use control.ctl as the control file but supply different icons]</P>
+        <LI>Add your own controls to the page and create your own symbols using 
+        the ISymbolMap interface. However before you start creating your own 
+        custom control templates I suggest you also read the references and 
+        investigate the currently available wizards that are available in 
+        '???\Program Files\Microsoft Visual Studio\Common\MSDev98\Template\ATL'.
+        <P></P></LI></OL>
+      <H2>Auto Generated Code</H2>
+      <P>I have supplied two methods EnableOK() and DisableOK() which are used 
+      to enable and disable the OK button at the bottom of the property sheet. 
+      If you need to disable the OK button and only enable it when the user has 
+      filled in some fields, like I did with this wizard, then I suggest you put 
+      in a call to DisableOK() in the Apply method when m_hWnd is NULL (see the 
+      source code to atlsymwiz.dll.)</P>
+      <H2>References</H2>
+      <UL>
+        <LI>Template.txt found in '???\Program Files\Microsoft Visual 
+        Studio\Common\MSDev98\Template\ATL' - This is actually a HTML file and 
+        is easier if renamed or copied to template.htm
+        <P></P>
+        <LI>Q179385 - HOWTO: Add Custom ATL Objects to the ATL Object Wizard
+        <P></P>
+        <LI>Customizing the ATL Object Wizard A Real-World Example - Glenn Carr 
+        - should be available at <A href="http://www.vcdj.com/">Visual C++ 
+        Developers Journal</A>
+        <P></P>
+        <LI>Q223439 - HOWTO: Using Class Wrappers to Access Windows Common 
+        Controls in ATL
+        <P></P></LI></UL>
+      <H2>Unicode</H2>
+      <P>Even though I have tested the code in unicode format I decided it was 
+      needless as I wanted the wizards to run under VC6 regardless of whether 
+      they were running under NT or Win9x.</P>
+      <H2>STL</H2>
+      <P>Because I have used the STL to give me extra functionality such as maps 
+      and lists etc. this code does produce known warnings when compiled under 
+      'Warning Level 4'.</P>
+      <H2>History</H2>
+      <P>1 May 2000: Updated source so that registration code is inserted by the 
+      wizard as suggested by Erik Thompson <!-- Article Ends --></P></LI></DIV>
+      <H2>About Shaun Wilde</H2>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText noWrap><IMG 
+            src="Creating a Custom ATL Objects (IMA2 Template)_files/{D4DB0919-E04D-4B12-841C-A176358ABAA8}.jpg"><BR></TD>
+          <TD class=smallText width="100%"><B>All articles are supplied as-is, 
+            as a howto on a particular task that worked for me in the past. None 
+            of the articles are supposed to be out-of-the-box freeware controls 
+            and nor should they be treated as such. Caveat emptor.</B> 
+            <BR><BR>Been involved in programming from the early '80s. First on 
+            my Spectrum, then an Amstrad. Did lots of Fortran while at 
+            University before becoming involved in Forth, Prolog, Pascal, Occam, 
+            C and eventually C++. Eventually started programming on the Windows 
+            platform using Borland’s OWL framework, during my postgraduate 
+            years. When I started work in '94, I learnt MFC followed by COM and 
+            ATL and never looked back. Now working exclusively in .NET, working 
+            on WinForms, ASP.NET and the Compact Framework using C# and VB.NET. 
+            Using every bit of the .NET framework I can such as WebServices and 
+            writing my own controls for my .NET Portal, and for the Compact 
+            Framework. Still lots I don't know, but the end of the universe 
+            hasn't happened yet - I wonder if I'll have time?<BR><BR>I was a 
+            permanent employee for a number of companies until Dec 2000 before 
+            going independent after the DotCom I ws involved with went 
+            DotBomb.<BR><BR>Now supplying consulting services to various 
+            institutions in London and the SE and I don't get much time to 
+            program for myself or to work on my website (<A 
+            href="http://www.many-monkeys.com/">http://www.many-monkeys.com/</A>).<BR><BR>Spend 
+            most of my spare time with the wife+kids or working on my Marine 
+            Fish tank. Who needs a screen saver to stare at when you can have 
+            the real thing!<BR><BR>
+            <P class=smallText>Click <A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=212">here</A> 
+            to view <FONT color=green>Shaun Wilde</FONT>'s online 
+        profile.</P></TD></TR></TBODY></TABLE><BR>
+      <H2>Other popular articles:</H2>
+      <UL>
+        <LI><A 
+        href="http://www.codeproject.com/atl/shellfoldertree.asp">ShellFolderTree</A><BR><SPAN 
+        class=smalltext>Mimicking and extending the shell’s folder-tree control 
+        functionality</SPAN>
+        <LI><A href="http://www.codeproject.com/atl/newinatl7.asp">What's new in 
+        ATL7</A><BR><SPAN class=smalltext>Overview of new classes in ATL7</SPAN>
+        <LI><A href="http://www.codeproject.com/atl/atlserver.asp">ATL Server - 
+        Web Application/Web Service</A><BR><SPAN class=smalltext>Web 
+        Application/Web Service development using ATL Server classes</SPAN>
+        <LI><A href="http://www.codeproject.com/atl/SmartGraph.asp">A 2D Graph 
+        Component With Zoom Capability</A><BR><SPAN class=smalltext>A 2D graph 
+        component with zoom capability.</SPAN></LI></UL>
+      <FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+      type=hidden value=/atl/atl_pp_wizard.asp name=vote_name> <INPUT 
+      type=hidden value=/atl/atl_pp_wizard.asp name=goal> 
+      <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#fbedbb 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltext vAlign=center>[<A 
+                  href="http://www.codeproject.com/atl/atl_pp_wizard.asp#__top">Top</A>]</TD>
+                <TD vAlign=center noWrap align=right><A 
+                  href="http://www.codeproject.com/script/profile/logon.asp?ct=%2Fatl%2Fatl%5Fpp%5Fwizard%2Easp"><B>Sign 
+                  in</B></A> to vote for this article:&nbsp;&nbsp;&nbsp;&nbsp; 
+                  <I>Poor</I><INPUT style="disabled: true" type=radio value=1 
+                  name=rate><INPUT style="disabled: true" type=radio value=2 
+                  name=rate><INPUT style="disabled: true" type=radio value=3 
+                  name=rate><INPUT style="disabled: true" type=radio value=4 
+                  name=rate><INPUT style="disabled: true" type=radio value=5 
+                  name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton style="disabled: true" type=submit value=Vote> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD vAlign=top>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=156&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fmsdn%5Fbutton%2Egif&C=False&id=156\" alt=\"MSDN Magazine - Your guide to Microsoft tools, development environments, and technologies for Windows and the Web.\" border=0 width=120 height=60></a>");</SCRIPT>
+            <BR><FONT size=1><A 
+            href="http://www.codeproject.com/info/MediaKit/">Premium 
+            Sponsor</A></FONT></CENTER><BR></TD>
+          <TD vAlign=top noWrap align=middle><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=658&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fbanner2%2Egif&C=False&id=658\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+name=__comments></A>
+<SCRIPT language=JavaScript>
+var Selected = "";
+var AdTime = new Date();
+document.writeln("<iframe name=AdFrame width=0 height=0 frameborder=0></IFRAME>");
+function SwitchMessage(elm)
+{
+
+	var now = new Date();
+	if (Number(now.getTime() - AdTime.getTime()) > Number(5000))
+	{
+		AdTime = now;
+		var loc = window.frames["AdFrame"];
+		if (loc) loc = loc.document;
+		if (loc) loc = loc.location;
+		if (loc) loc.replace('/script/comments/fetchAd.asp?cat=1');
+	}
+	
+	var elmref;
+	if (Selected != "")
+	{
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) elmref.style.display = 'none';
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) elmref.bgColor = '#FEF9E7';
+	}
+	if (Selected != elm.name) 
+	{
+		Selected = elm.name;
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) 
+		{
+			if (elmref.style.display=='none') elmref.style.display='';
+			else elmref.style.display = 'none';
+		}
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) 
+			elmref.bgColor = '#99CCFF';
+	}
+	else
+		Selected="";
+		
+	window.location = "#xx" + Selected + "xx";
+
+	return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript event=onclick for=DynMessLink>
+return SwitchMessage(this);
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+      bgColor=#ff9900 border=0>
+        <FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" bgColor=white 
+            border=0>
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext noWrap><A 
+                  href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                  height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/info.gif" 
+                  width=16 align=absMiddle border=0> <B>FAQ</B></A>&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>Noise level 
+                  <SELECT class=smalltext size=1 name=noise><OPTION 
+                    value=1>Very High</OPTION> <OPTION value=2>High</OPTION> 
+                    <OPTION value=3 selected>Medium</OPTION> <OPTION 
+                    value=4>Low</OPTION> <OPTION value=5>Very 
+                  low</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=center noWrap align=right 
+                  colSpan=2><A 
+                  href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=240"><IMG 
+                  height=15 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/search.gif" 
+                  width=16 border=0> Search comments</A> &nbsp;</TD>
+                <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>View <SELECT 
+                  class=smalltext size=1 name=expand><OPTION value=0>Normal 
+                    (slow)</OPTION> <OPTION value=2>Preview (slow)</OPTION> 
+                    <OPTION value=5 selected>Message View</OPTION> <OPTION 
+                    value=6>Topic View</OPTION> <OPTION value=1>Thread 
+                    View</OPTION> <OPTION value=3>Expanded (Supporters 
+                    only)</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap>Per page <SELECT 
+                  class=smalltext size=1 name=perpage><OPTION 
+                    value=10>10</OPTION> <OPTION value=25 selected>25</OPTION> 
+                    <OPTION value=50>50 (must logon)</OPTION></SELECT></TD>
+                <TD colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD><A name=xx0xx></A>
+            <TABLE cellPadding=2 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR>
+                <TD class=messagetitle><A class=HoverLink 
+                  title="Add a new message to the discussions" 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240" 
+                  target=_top name=HoverNL><B><IMG height=16 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/admin_modify.gif" 
+                  width=16 align=top border=0> New thread</B></A></TD>
+                <TD class=messagetitle>Msgs 1 to 3 of 3 (Total: 3) (<A 
+                  href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;forumid=240">Refresh</A>)</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> 
+          </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=messagetitle width="100%">Subject&nbsp;</TD>
+                      <TD class=messagetitle noWrap width=140>Author&nbsp;</TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT 
+                    class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1217_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1217xx></A><IMG 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/news_suss.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;forumid=240&amp;select=1217#xx1217xx" 
+                        name=1217><B>Suggestion: Add to your Control file 
+                        (UPDATED)</B></A></TD>
+                      <TD vAlign=bottom><IMG height=13 
+                        alt="Unconfirmed/Anonymous posting" 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/usersuss.gif" 
+                        width=15></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle 
+                        color=#707070><B>Erik Thompson</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle 
+                        color=#707070><B>20:03 12 Apr 
+                    '00</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1217_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Typo 
+                                found and fixed.<BR><BR>Update ppsymwiz.ctl with 
+                                following 
+                                lines:<BR><BR>[!AddStringToSymbol(RegTemplate, 
+                                GalleryPath, 
+                                "ppsymwiz.tpl")]<BR>[!AddToMemberFunction(NULLSTR, 
+                                "STDAPI DllRegisterServer(void)", RegTemplate, 
+                                InsertInDllRegisterServer, BEFORESEARCH, "return 
+                                _Module.RegisterServer(TRUE);")]<BR>[!AddToMemberFunction(NULLSTR, 
+                                "STDAPI DllUnregisterServer(void)", RegTemplate, 
+                                InsertInDllUnRegisterServer, BEFORESEARCH, 
+                                "return 
+                                _Module.UnregisterServer(TRUE);")]<BR><BR>File : 
+                                ppsymwiz.tpl<BR>_Module.UpdateRegistryFromResource([!IDX_REGISTRYID], 
+                                [!if=(InsertInDllRegisterServer, 
+                                "1")]<BR>TRUE[!endif][!if=(InsertInDllUnRegisterServer, 
+                                "1")]FALSE[!endif]<BR>);<BR><BR><BR><BR><BR>Then 
+                                you can get rid of the comments you insert into 
+                                the new header file generated and the developer 
+                                doesn't have to read through the generated 
+                                comments to figure out that that is the reason 
+                                why his control doesn't display in the the ATL 
+                                Object Wizard selection 
+                                dialog.<BR><BR>/////////////////////////////////////////////////////////////////////////////<BR>// 
+                                NOTE: To register and unregister the Test.ctl 
+                                when you <BR>// register and unregister this dll 
+                                you can add the following <BR>// to 
+                                DllRegisterServer(void)<BR>// 
+                                _Module.UpdateRegistryFromResource(IDX_BLAH, 
+                                TRUE);<BR>// and to 
+                                DllUnregisterServer(void)<BR>// 
+                                _Module.UpdateRegistryFromResource(IDX_BLAH, 
+                                FALSE);<BR><BR><BR><BR>Just a 
+                                suggestion,<BR>-Eri</FONT>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240&amp;select=1217">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240&amp;select=1217">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;tid=1217&amp;forumid=240&amp;select=1217#xx1217xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/atl/atl_pp_wizard.asp?msg=1217#xx1217xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle 
+                                align=right><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1248_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1248xx></A><IMG height=1 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/ind.gif" 
+                        width=18><IMG 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/news_suss.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;forumid=240&amp;select=1248#xx1248xx" 
+                        name=1248>Re: Suggestion: Add to your Control file 
+                        (UPDATED)</A></TD>
+                      <TD vAlign=bottom><IMG height=13 
+                        alt="Unconfirmed/Anonymous posting" 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/usersuss.gif" 
+                        width=15></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle 
+                        color=#707070>Shaun Wilde&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle color=#707070>6:32 15 
+                        Apr '00&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1248_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/ind.gif" 
+                        width=18><IMG 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Thanx - 
+                                I new there would be a way <IMG 
+                                src="Creating a Custom ATL Objects (IMA2 Template)_files/smiley_smile.gif" 
+                                align=absMiddle> - I just didn't have the time 
+                                to look at it recently.<BR><BR>I'll incorporate 
+                                it soo</FONT>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240&amp;select=1248">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240&amp;select=1248">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;tid=1217&amp;forumid=240&amp;select=1248#xx1248xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/atl/atl_pp_wizard.asp?msg=1248#xx1248xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle 
+                                align=right><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1216_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1216xx></A><IMG 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/news_suss.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;forumid=240&amp;select=1216#xx1216xx" 
+                        name=1216><B>Suggestion: Add to your Control 
+                        file...</B></A></TD>
+                      <TD vAlign=bottom><IMG height=13 
+                        alt="Unconfirmed/Anonymous posting" 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/usersuss.gif" 
+                        width=15></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle 
+                        color=#707070><B>Erik Thompson</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle 
+                        color=#707070><B>20:02 12 Apr 
+                    '00</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1216_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Creating a Custom ATL Objects (IMA2 Template)_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Update 
+                                ppsymwiz.ctl with following 
+                                lines:<BR><BR>[!AddStringToSymbol(RegTemplate, 
+                                GalleryPath, 
+                                "ppsymwiz.tpl")]<BR>[!AddToMemberFunction(NULLSTR, 
+                                "STDAPI DllRegisterServer(void)", RegTemplate, 
+                                InsertInDllRegisterServer, BEFORESEARCH, "return 
+                                _Module.RegisterServer(TRUE);")]<BR>[!AddToMemberFunction(NULLSTR, 
+                                "STDAPI DllUnregisterServer(void)", 
+                                BandRegTemplate, InsertInDllUnRegisterServer, 
+                                BEFORESEARCH, "return 
+                                _Module.UnregisterServer(TRUE);")]<BR><BR>File : 
+                                ppsymwiz.tpl<BR>_Module.UpdateRegistryFromResource([!IDX_REGISTRYID], 
+                                [!if=(InsertInDllRegisterServer, 
+                                "1")]<BR>TRUE[!endif][!if=(InsertInDllUnRegisterServer, 
+                                "1")]FALSE[!endif]<BR>);<BR><BR><BR><BR><BR>Then 
+                                you can get rid of the comments you insert into 
+                                the new header file generated and the developer 
+                                doesn't have to read through the generated 
+                                comments to figure out that that is the reason 
+                                why his control doesn't display in the the ATL 
+                                Object Wizard selection 
+                                dialog.<BR><BR>/////////////////////////////////////////////////////////////////////////////<BR>// 
+                                NOTE: To register and unregister the Test.ctl 
+                                when you <BR>// register and unregister this dll 
+                                you can add the following <BR>// to 
+                                DllRegisterServer(void)<BR>// 
+                                _Module.UpdateRegistryFromResource(IDX_BLAH, 
+                                TRUE);<BR>// and to 
+                                DllUnregisterServer(void)<BR>// 
+                                _Module.UpdateRegistryFromResource(IDX_BLAH, 
+                                FALSE);<BR><BR><BR><BR>Just a 
+                                suggestion,<BR>-Eri</FONT>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240&amp;select=1216">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/atl/atl_pp_wizard.asp&amp;df=100&amp;forumid=240&amp;select=1216">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/atl/atl_pp_wizard.asp?df=100&amp;tid=1216&amp;forumid=240&amp;select=1216#xx1216xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/atl/atl_pp_wizard.asp?msg=1216#xx1216xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle 
+                                align=right><BR></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Creating a Custom ATL Objects (IMA2 Template)_files/t.gif" 
+                  width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=messagetitle>Last Visit: 16:13 Thursday 20th 
+                  January, 2005</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> 
+          </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=5 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD><FONT style="FONT-SIZE: 7pt" size=1><A 
+      href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+      href="http://www.codeproject.com/?cat=2">MFC / C++</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/atl/">ATL</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/atl/#General">General</A> <BR>Updated: 4 
+      May 2000 </FONT></TD>
+    <TD align=right><FONT style="FONT-SIZE: 7pt" size=1>Article content 
+      copyright Shaun Wilde, 2000<BR>everything else Copyright © <A 
+      href="mailto:webmaster@codeproject.com">CodeProject</A>, 1999-2005</A>. 
+      <BR><A href="http://www.codeproject.com/info/MediaKit">Advertise on The 
+      Code Project</A> | <A 
+      href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+  </FONT></TD></TR></TBODY></TABLE><BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ff9900 height=1><IMG height=1 
+      src="Creating a Custom ATL Objects (IMA2 Template)_files/space.gif"></TD></TR>
+  <TR>
+    <TD align=middle><FONT size=1><A 
+      href="http://www.codeproject.com/redir.asp?id=235">MSDN Communities</A> | 
+      <A href="http://aspalliance.com/">ASPAlliance</A> • <A 
+      href="http://www.developerfusion.com/">Developer Fusion</A> • <A 
+      href="http://www.devguru.com/">DevGuru</A> • <A 
+      href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+      href="http://www.planet-source-code.com/">Planet Source Code</A> • <A 
+      href="http://www.resourceindex.com/">Resource Index</A> • <A 
+      href="http://www.tek-tips.com/">Tek-Tips Forums</A> • <A 
+      href="http://www.topxml.com/">What is XML?</A> • <A 
+      href="http://www.visualbuilder.com/">VisualBuilder</A> • <A 
+      href="http://www.zvon.org/">ZVON</A> • <A 
+      href="http://www.codeproject.com/redir.asp?id=169">Search Us!</A> 
+    </FONT></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

@@ -1,0 +1,26 @@
+HKCR
+{
+	StateMachineProj.StateMachine.1 = s 'StateMachine Class'
+	{
+		CLSID = s '{8355FDFD-0EBC-47F4-B0B2-D71404547022}'
+	}
+	StateMachineProj.StateMachine = s 'StateMachine Class'
+	{
+		CLSID = s '{8355FDFD-0EBC-47F4-B0B2-D71404547022}'
+		CurVer = s 'StateMachineProj.StateMachine.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8355FDFD-0EBC-47F4-B0B2-D71404547022} = s 'StateMachine Class'
+		{
+			ProgID = s 'StateMachineProj.StateMachine.1'
+			VersionIndependentProgID = s 'StateMachineProj.StateMachine'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F2F61FE1-FC37-4367-8E54-49A858E1AD6B}'
+		}
+	}
+}
